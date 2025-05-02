@@ -1,0 +1,3122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Let's Code - Robotics</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="../../../css/fontawesome.css">
+  <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="../../../css/owl.css">
+  <link rel="stylesheet" href="../../../css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <link rel="apple-touch-icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+    sizes="192x192">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png" sizes="32x32">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+  <script src="../../../js/include.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      includeHTML(() => {
+        const menuItems = document.querySelectorAll('nav a');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            console.log('Bạn vừa click:', e.target.textContent);
+          });
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .slide-fade-enter-active,
+    .slide-fade-leave-active {
+      transition: all 0.3s ease;
+    }
+
+    .slide-fade-enter-from,
+    .slide-fade-leave-to {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    .slide-fade-enter-to,
+    .slide-fade-leave-from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .content-rea div {
+      font-family: "Baloo Chettan 2", sans-serif;
+      font-size: 18px;
+      padding: 1rem; /* p-4 */
+  background-color: white; /* bg-white */
+  border-left: 4px solid #0d9488; /* border-l-4 và border-teal-600 */
+  border-color: #592589; /* border-gray-200 (ghi đè border-teal-600) */
+  box-shadow: 0 4px 6px #592589; /* shadow-md */
+  border-radius: 0.375rem; /* rounded-md */
+  margin-bottom: 0.5rem; /* mb-2 */
+  color: #1f2937; /* text-gray-800 */
+  cursor: pointer; /* cursor-pointer */
+  transform: scale(1); /* transform */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out; /* transition-transform duration-200 ease-in-out */
+    }
+
+    .content-rea div:hover{
+      background-color: #f0fdfa; /* hover:bg-teal-50 */
+  box-shadow: 0 4px 6px #ebc901; /* hover:shadow-md */
+  transform: scale(1.05); /* hover:scale-105 */
+    }
+
+
+    .show-content{
+      font-family: "Baloo Chettan 2", sans-serif !important; 
+      font-size: 18px;
+      color: black; /* text-gray-400 */
+  font-style: italic; /* italic */
+  text-align: center; /* text-center */
+  box-shadow: 0 4px 6px #592589
+  /* margin-top: 3rem; mt-12 (48px) */
+    }
+
+    .leading-relaxed{
+      font-family: "Baloo Chettan 2", sans-serif !important; 
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <div data-include="../../header.html"></div>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Banner Start ***** -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="main-profile ">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <img src="../../../images/EP/title-rea.png" alt="" style="border-radius: 23px;">
+                  </div>
+                  <div class="col-lg-4 align-self-center">
+                    <div class="main-info header-text">
+                      <span>Khối biểu tượng</span>
+                      <h4>Robotics Essential A</h4>
+                      <p>
+                        Học viên sẽ nắm vững kiến thức cơ bản về Robot, bao gồm lắp ráp, tạo mô hình và lập trình để
+                        thực hiện các nhiệm vụ đơn giản như di chuyển, tránh vật cản. Đồng thời hiểu được vai trò và ứng
+                        dụng của Robot trong đời sống hàng ngày.
+                      </p>
+
+                    </div>
+                  </div>
+                  <div class="col-lg-4 align-self-center">
+                    <ul>
+                      <li style="color: #e75e8d; font-size: 18px;">Mục tiêu </li>
+                      <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i>Tạo ra các mô hình
+                        robot hoàn chỉnh.</li>
+                      <li> <i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i>Vận dụng tư duy
+                        logic để lập trình robot giải quyết các thử thách thực tế.</li>
+                      <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i>Rèn luyện khả năng
+                        sáng tạo, làm việc nhóm, tự tin khi tham gia các hoạt động nhóm hoặc thi đấu.</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- ***** Banner End ***** -->
+
+        <!-- Buổi 1------------------------------------------------------------------------------------------------------------------------ -->
+          <div class="gaming-library profile-library">
+            <div class="col-lg-12">
+              <div class="heading-section">
+                <h4><em style="color: #592589;">Buổi 1:</em> Khám phá thế giới robot cùng LEGO Spike Essential</h4>
+                <!-- <img src="../../../images/EP/bg-ep-bai1.png" alt="" class=""
+                  style="border: solid 3px #592589; border-radius: 10px;">
+              </div> -->
+
+            
+              <div id="rea-buoi1" class="relative min-h-screen">
+                <div class="board flex flex-row gap-16 mx-40 my-8">
+
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                        <div class="list">
+                          <div class="content-rea" >
+                            <div v-for="item in list" :class="[
+                                'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                                item.id === selectedContact?.id
+                                  ? 'bg-teal-100 scale-105 shadow-lg'
+                                  : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                              ]" @click="displayContactDetails(item)">
+                              {{ item.name }}
+                            </div>
+                          </div>
+                          <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <!-- Divider -->
+                      <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+                      <!-- Contact Details Panel (Always Rendered) -->
+                      <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                        <!-- Animated Inner Content -->
+                        <transition name="slide-fade" mode="out-in">
+                          <div :key="selectedContact?.id">
+                            <template v-if="selectedContact">
+                              <div class="space-y-4 text-gray-700">
+                                <!-- Title -->
+                                <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                        
+                                <!-- List -->
+                                <ul class="space-y-3">
+                                  <li
+                                    v-for="(line, index) in selectedContact.content"
+                                    :key="index"
+                                    class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                                  >
+                                    <!-- Tick Icon -->
+                                    <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                                    <!-- Text -->
+                                    <span class="text-base leading-relaxed">{{ line }}</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </template>
+                        
+                            <template v-else>
+                              <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                                <img src="../../../images/REA/img-rea-bai1.png" alt="" >
+                              </div>
+                            </template>
+                          </div>
+                        </transition>
+                        
+                        
+
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+              
+              
+
+              <script>
+                const REA_BUOI1 = {
+                  data() {
+                    return {
+                      selectedContact: null,
+                      list: [
+                        {
+                          id: 1,
+                          name: "Mục tiêu",
+                          content: [
+                            "Học sinh hiểu khái niệm cơ bản về robot và vai trò của chúng trong cuộc sống.",
+                            "Làm quen với bộ LEGO Spike Essential: các khối, cảm biến, động cơ, Hub...",
+                            "Làm quen với bộ Spike Programming: giao diện, các khối biểu tượng,...",
+                            "Kích thích tư duy sáng tạo và làm việc nhóm thông qua hoạt động lắp ráp tự do.",
+                            "Khơi dậy sự hứng thú và tạo động lực học tập cho các buổi sau."
+                          ]
+                        },
+                        {
+                          id: 2,
+                          name: "Nội dung",
+                          content: [
+                            "Giới thiệu về robot ",
+                            "Làm quen với bộ LEGO Spike Essential",
+                            "Giới thiệu Spike Programming",
+                            "Hoạt động sáng tạo tự do ",
+                            "Trả lời một số câu hỏi củng cố kiến thức"
+                          ]
+                        },
+                        {
+                          
+                          id: 3,
+                          name: "Kiến thức & Kỹ năng",
+                          content: [
+                            "Khái niệm robot: Biết robot là máy móc có thể cảm nhận và hành động",
+                            "Thành phần bộ LEGO: Nhận biết được Hub, motor, cảm biến, các khối LEGO",
+                            "Tư duy sáng tạo: Tự do lắp ráp và thiết kế robot tưởng tượng",
+                            "Làm việc nhóm: Giao tiếp, phân công vai trò trong nhóm nhỏ"
+                          ]
+                        }
+                      ]
+                    };
+                  },
+                  methods: {
+                    displayContactDetails(contact) {
+                      this.selectedContact = contact;
+                    }
+                  }
+                };
+              
+                Vue.createApp(REA_BUOI1).mount("#rea-buoi1");
+              </script>
+            
+            </div>
+          </div>
+          <!-- ***** Gaming Library End ***** -->
+        </div>
+        <!-- Buổi 1------------------------------------------------------------------------------------------------------------------------ -->
+
+
+        <!-- Buổi 2------------------------------------------------------------------------------------------------------------------------ -->
+        <div class="gaming-library profile-library">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4><em style="color: #592589;">Buổi 2:</em> Bài học</h4>
+              <h4>Làm quen với khối đèn (Light Blocks) trong Spike Programming - <span style="color: #592589;">Chiếc lồng đèn</span></h4>
+              <!-- <img src="../../../images/EP/bg-ep-bai1.png" alt="" class=""
+                style="border: solid 3px #592589; border-radius: 10px;">
+            </div> -->
+
+          
+            <div id="rea-buoi2" class="relative min-h-screen">
+              <div class="board flex flex-row gap-16 mx-40 my-8">
+
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                      <div class="list">
+                        <div class="content-rea" >
+                          <div v-for="item in list" :class="[
+                              'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                              item.id === selectedContact?.id
+                                ? 'bg-teal-100 scale-105 shadow-lg'
+                                : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                            ]" @click="displayContactDetails(item)">
+                            {{ item.name }}
+                          </div>
+                        </div>
+                        <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <!-- Divider -->
+                    <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+                    <!-- Contact Details Panel (Always Rendered) -->
+                    <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                      <!-- Animated Inner Content -->
+                      <transition name="slide-fade" mode="out-in">
+                        <div :key="selectedContact?.id">
+                          <template v-if="selectedContact">
+                            <div class="space-y-4 text-gray-700">
+                              <!-- Title -->
+                              <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                      
+                              <!-- List -->
+                              <ul class="space-y-3">
+                                <li
+                                  v-for="(line, index) in selectedContact.content"
+                                  :key="index"
+                                  class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                                >
+                                  <!-- Tick Icon -->
+                                  <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                                  <!-- Text -->
+                                  <span class="text-base leading-relaxed">{{ line }}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </template>
+                      
+                          <template v-else>
+                            <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                              <img src="../../../images/REA/img-rea-bai2.png" alt="" >
+                            </div>
+                          </template>
+                        </div>
+                      </transition>
+                      
+                      
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+            
+            
+
+            <script>
+              const REA_BUOI2 = {
+                data() {
+                  return {
+                    selectedContact: null,
+                    list: [
+                      {
+                        id: 1,
+                        name: "Mục tiêu",
+                        content: [
+                          "Học sinh hiểu vai trò và chức năng của khối đèn (Light Blocks) trong lập trình điều khiển đèn.",
+                          "Học sinh biết lập trình đèn LED thay đổi màu sắc tự động theo chu kỳ thời gian định sẵn.",
+                          "Học sinh biết cách lắp ráp đúng mô hình lồng đèn sử dụng các linh kiện cơ bản (khung trụ, thanh nối, bóng đèn LED).",
+                          "Học sinh biết kiểm tra và gỡ lỗi (debug) khi chương trình đèn không hoạt động như mong muốn."
+                          
+                        ]
+                      },
+                      {
+                        id: 2,
+                        name: "Nội dung",
+                        content: [
+                          "Giới thiệu khối đèn (Light Blocks)",
+                          "Lắp ráp mô hình chiếc lồng đèn",
+                          "Lập trình điều khiển đèn",
+                          "Trải nghiệm và trình bày sản phẩm"
+                        
+                        ]
+                      },
+                      {
+                        
+                        id: 3,
+                        name: "Kiến thức & Kỹ năng",
+                        content: [
+                          "Light Blocks: Biết cách điều khiển đèn hiển thị màu sắc",
+"Các khái niệm lập trình cơ bản",
+"Kiến thức bổ sung: khối đợi, lặp lại mãi mãi (Control Blocks)",
+"Kỹ năng: lập trình, tư duy, làm việc nhóm"
+                        ]
+                      }
+                    ]
+                  };
+                },
+                methods: {
+                  displayContactDetails(contact) {
+                    this.selectedContact = contact;
+                  }
+                }
+              };
+            
+              Vue.createApp(REA_BUOI2).mount("#rea-buoi2");
+            </script>
+          
+          </div>
+        </div>
+        <!-- ***** Gaming Library End ***** -->
+      </div>
+      <!-- Buổi 2------------------------------------------------------------------------------------------------------------------------ -->
+
+
+       <!-- Buổi 3------------------------------------------------------------------------------------------------------------------------ -->
+       <div class="gaming-library profile-library">
+        <div class="col-lg-12">
+          <div class="heading-section">
+            <h4><em style="color: #592589;">Buổi 3:</em> Bài học</h4>
+              <h4>Làm quen với khối động cơ (Motor Blocks) trong Spike Programming - <span style="color: #592589;">Múa lân</span></h4>
+          </div> 
+
+        
+          <div id="rea-buoi3" class="relative min-h-screen">
+            <div class="board flex flex-row gap-16 mx-40 my-8">
+
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                    <div class="list">
+                      <div class="content-rea" >
+                        <div v-for="item in list" :class="[
+                            'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                            item.id === selectedContact?.id
+                              ? 'bg-teal-100 scale-105 shadow-lg'
+                              : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                          ]" @click="displayContactDetails(item)">
+                          {{ item.name }}
+                        </div>
+                      </div>
+                      <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <!-- Divider -->
+                  <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+                  <!-- Contact Details Panel (Always Rendered) -->
+                  <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                    <!-- Animated Inner Content -->
+                    <transition name="slide-fade" mode="out-in">
+                      <div :key="selectedContact?.id">
+                        <template v-if="selectedContact">
+                          <div class="space-y-4 text-gray-700">
+                            <!-- Title -->
+                            <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                    
+                            <!-- List -->
+                            <ul class="space-y-3">
+                              <li
+                                v-for="(line, index) in selectedContact.content"
+                                :key="index"
+                                class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                              >
+                                <!-- Tick Icon -->
+                                <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                                <!-- Text -->
+                                <span class="text-base leading-relaxed">{{ line }}</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </template>
+                    
+                        <template v-else>
+                          <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                            <img src="../../../images/REA/img-rea-bai3.png" alt="" >
+                          </div>
+                        </template>
+                      </div>
+                    </transition>
+                    
+                    
+
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+          
+          
+
+          <script>
+            const REA_BUOI3 = {
+              data() {
+                return {
+                  selectedContact: null,
+                  list: [
+                    {
+                      id: 1,
+                      name: "Mục tiêu",
+                      content: [
+                        "Học sinh hiểu chức năng của khối động cơ (Motor Blocks) trong lập trình điều khiển một động cơ xoay",
+                        "Học sinh biết lập trình motor xoay phải, xoay trái, thay đổi tốc độ.",
+                        "Học sinh biết cách lắp ráp mô hình múa lân cơ bản có gắn motor từ bộ SPIKE Essential.",
+                        "Học sinh có khả năng kiểm tra và chỉnh sửa chương trình motor khi robot chuyển động chưa đúng."
+                        
+                      ]
+                    },
+                    {
+                      id: 2,
+                      name: "Nội dung",
+                      content: [
+                        "Giới thiệu khối động cơ(Motor Blocks)",
+                        "Lắp ráp mô hình",
+                        "Lập trình chuyển động",
+                        "Trải nghiệm và cải tiến",
+                      ]
+                    },
+                    {
+                      
+                      id: 3,
+                      name: "Kiến thức & Kỹ năng",
+                      content: [
+"Motor Blocks: Biết cách lập trình điều khiển một động cơ",
+"Kiến thức bổ sung: khối đợi, lặp lại mãi mãi (Control Blocks)",
+"Kỹ năng: lập trình, tư duy, làm việc nhóm"
+                      ]
+                    }
+                  ]
+                };
+              },
+              methods: {
+                displayContactDetails(contact) {
+                  this.selectedContact = contact;
+                }
+              }
+            };
+          
+            Vue.createApp(REA_BUOI3).mount("#rea-buoi3");
+          </script>
+        
+        </div>
+      </div>
+      <!-- ***** Gaming Library End ***** -->
+    
+    <!-- Buổi 3------------------------------------------------------------------------------------------------------------------------ -->
+
+
+    <!-- Buổi 4------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 4:</em> Ôn tập</h4>
+          <h4>Tổng ôn kiến thức khối đèn (Light Blocks), khối động cơ (Motor Blocks) - <span style="color: #592589;">SnackBot (Robot phục vụ)</span></h4>
+        </div>
+
+      
+        <div id="rea-buoi4" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai4.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+        
+        
+
+        <script>
+          const REA_BUOI4 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh biết lập trình kết hợp Light Blocks (điều khiển đèn) và Motor Blocks (điều khiển động cơ) trong cùng một chương trình.",
+                      "Học sinh biết cách lắp ráp mô hình robot Snackbot có tích hợp motor và đèn LED",
+                      "Học sinh có khả năng kiểm tra, chỉnh sửa chương trình khi robot hoạt động chưa đúng yêu cầu.",
+                      "Học sinh biết cách cải tiến mô hình và chương trình để robot vận hành linh hoạt và biểu cảm hơn."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Ôn tập Light Blocks (điều khiển đèn) và Motor Blocks (điều khiển động cơ)",
+                      "Lắp ráp mô hình Snackbot",
+                      "Lập trình robot Snackbot",
+                      "Trải nghiệm và cải tiến robot",
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Kết hợp Light Blocks và Motor Blocks",
+"Nguyên lý vận hành đồng thời",
+"Tư duy trình tự & logic",
+"Gỡ lỗi chương trình"
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI4).mount("#rea-buoi4");
+        </script>
+      
+      </div>
+    </div>
+    <!-- ***** Gaming Library End ***** -->
+  
+  <!-- Buổi 4------------------------------------------------------------------------------------------------------------------------ -->
+
+
+  <!-- Buổi 5------------------------------------------------------------------------------------------------------------------------ -->
+  <div class="gaming-library profile-library">
+    <div class="col-lg-12">
+      <div class="heading-section">
+        <h4><em style="color: #592589;">Buổi 5:</em> Hoạt động sáng tạo -<span style="color: #592589;">Lắp ráp và lập trình tự do</span></h4>
+      </div>
+
+    
+      <div id="rea-buoi5" class="relative min-h-screen">
+        <div class="board flex flex-row gap-16 mx-40 my-8">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                <div class="list">
+                  <div class="content-rea" >
+                    <div v-for="item in list" :class="[
+                        'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                        item.id === selectedContact?.id
+                          ? 'bg-teal-100 scale-105 shadow-lg'
+                          : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                      ]" @click="displayContactDetails(item)">
+                      {{ item.name }}
+                    </div>
+                  </div>
+                  <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <!-- Divider -->
+              <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+              <!-- Contact Details Panel (Always Rendered) -->
+              <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                <!-- Animated Inner Content -->
+                <transition name="slide-fade" mode="out-in">
+                  <div :key="selectedContact?.id">
+                    <template v-if="selectedContact">
+                      <div class="space-y-4 text-gray-700">
+                        <!-- Title -->
+                        <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                
+                        <!-- List -->
+                        <ul class="space-y-3">
+                          <li
+                            v-for="(line, index) in selectedContact.content"
+                            :key="index"
+                            class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                          >
+                            <!-- Tick Icon -->
+                            <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                            <!-- Text -->
+                            <span class="text-base leading-relaxed">{{ line }}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                
+                    <template v-else>
+                      <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                        
+                        <img src="../../../images/REA/img-rea-bai5.png" alt="" >
+                      </div>
+                    </template>
+                  </div>
+                </transition>
+                
+                
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      
+      
+
+      <script>
+        const REA_BUOI5 = {
+          data() {
+            return {
+              selectedContact: null,
+              list: [
+                {
+                  id: 1,
+                  name: "Mục tiêu",
+                  content: [
+                    "Khuyến khích học sinh sáng tạo mô hình robot theo trí tưởng tượng riêng.",
+                    "Biết kết hợp các khối lệnh đã học: Motor Blocks (Điều khiển động cơ), Control Blocks (Đợi và Lặp lại), Light Blocks (Hiển thị màu sắc)",
+                    "Phát triển kỹ năng lập trình đơn giản theo chuỗi hành động.",
+                    "Rèn luyện kỹ năng làm việc nhóm, chia sẻ ý tưởng sáng tạo."
+                    
+                  ]
+                },
+                {
+                  id: 2,
+                  name: "Nội dung",
+                  content: [
+                    "Khởi động truyền cảm hứng",
+                    "Nhắc lại các khối lệnh đã học",
+                    "Hoạt động lắp ráp sáng tạo",
+                    "Lập trình cho mô hình",
+                    "Chia sẻ sản phẩm "
+                  ]
+                },
+                {
+                  
+                  id: 3,
+                  name: "Kiến thức & Kỹ năng",
+                  content: [
+                    "Motor Blocks: Điều khiển chuyển động sáng tạo cho robot",
+"Control Blocks: Điều phối thời gian linh hoạt trong chương trình",
+"Light Blocks: Sử dụng màu sắc để mô tả trạng thái hoặc cảm xúc robot",
+"Tư duy sáng tạo: Tự do thiết kế mô hình và lập trình kịch bản robot",
+"Làm việc nhóm: Phối hợp ý tưởng, phân chia vai trò, trình bày sản phẩm"
+                  ]
+                }
+              ]
+            };
+          },
+          methods: {
+            displayContactDetails(contact) {
+              this.selectedContact = contact;
+            }
+          }
+        };
+      
+        Vue.createApp(REA_BUOI5).mount("#rea-buoi5");
+      </script>
+    
+    </div>
+  </div>
+
+  <!-- Buổi 5------------------------------------------------------------------------------------------------------------------------ -->
+
+
+   <!-- Buổi 6------------------------------------------------------------------------------------------------------------------------ -->
+
+  <div class="gaming-library profile-library">
+    <div class="col-lg-12">
+      <div class="heading-section">
+        <h4><em style="color: #592589;">Buổi 6:</em> Bài học</h4>
+            <h4>Làm quen với Movement Blocks - <span style="color: #592589;">Mô hình “Chuột Siêu Quậy”</span></h4>
+        </div>
+  
+    
+      <div id="rea-buoi6" class="relative min-h-screen">
+        <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                <div class="list">
+                  <div class="content-rea" >
+                    <div v-for="item in list" :class="[
+                        'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                        item.id === selectedContact?.id
+                          ? 'bg-teal-100 scale-105 shadow-lg'
+                          : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                      ]" @click="displayContactDetails(item)">
+                      {{ item.name }}
+                    </div>
+                  </div>
+                  <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <!-- Divider -->
+              <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+              <!-- Contact Details Panel (Always Rendered) -->
+              <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                <!-- Animated Inner Content -->
+                <transition name="slide-fade" mode="out-in">
+                  <div :key="selectedContact?.id">
+                    <template v-if="selectedContact">
+                      <div class="space-y-4 text-gray-700">
+                        <!-- Title -->
+                        <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                
+                        <!-- List -->
+                        <ul class="space-y-3">
+                          <li
+                            v-for="(line, index) in selectedContact.content"
+                            :key="index"
+                            class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                          >
+                            <!-- Tick Icon -->
+                            <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                            <!-- Text -->
+                            <span class="text-base leading-relaxed">{{ line }}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                
+                    <template v-else>
+                      <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                        
+                        <img src="../../../images/REA/img-rea-bai6.png" alt="" >
+                      </div>
+                    </template>
+                  </div>
+                </transition>
+                
+                
+  
+              </div>
+            </div>
+          </div>
+  
+  
+  
+        </div>
+      </div>
+      
+      
+  
+      <script>
+        const REA_BUOI6 = {
+          data() {
+            return {
+              selectedContact: null,
+              list: [
+                {
+                  id: 1,
+                  name: "Mục tiêu",
+                  content: [
+                    "Học sinh làm quen với các khối chuyển động (Movement Blocks) cho động cơ đôi.",
+                    "Học sinh biết sử dụng các khối lệnh như đi tới (Move Forward), đi lùi (Move Backward), xoay trái/phải (Turn Left/Right), dừng động cơ (Stop Moving) để lập trình hành vi di chuyển.",
+                    "Học sinh hiểu sự khác biệt giữa điều khiển motor đơn và điều khiển cặp motor qua Movement Blocks.",
+                    "Học sinh biết cách lắp ráp mô hình 'Chuột Siêu Quậy' sử dụng 2 motor để điều khiển bánh xe trái – phải.",
+                    "Học sinh có khả năng điều chỉnh tốc độ, quãng đường di chuyển để mô hình hoạt động chính xác."
+                    
+                  ]
+                },
+                {
+                  id: 2,
+                  name: "Nội dung",
+                  content: [
+                    "Giới thiệu khối chuyển động (Movement Blocks)",
+                    "Lắp ráp mô hình Chuột Siêu Quậy",
+                    "Lập trình hành vi di chuyển",
+                    "Trải nghiệm và thử thách",
+                    "Chia sẻ và tổng kết "
+                  ]
+                },
+                {
+                  
+                  id: 3,
+                  name: "Kiến thức & Kỹ năng",
+                  content: [
+                    "Khối lệnh chuyển động (Movement Blocks).",
+  "Sự khác biệt giữa khối động cơ (Motor Blocks) và khối chuyển động (Movement Blocks).",
+  "Tư duy điều hướng robot.",
+  "Kỹ năng lập trình",
+  "Làm việc nhóm hiệu quả.",
+  
+                  ]
+                }
+              ]
+            };
+          },
+          methods: {
+            displayContactDetails(contact) {
+              this.selectedContact = contact;
+            }
+          }
+        };
+      
+        Vue.createApp(REA_BUOI6).mount("#rea-buoi6");
+      </script>
+    
+    </div>
+  </div>
+
+  <!-- Buổi 6------------------------------------------------------------------------------------------------------------------------ -->
+
+
+     <!-- Buổi 7------------------------------------------------------------------------------------------------------------------------ -->
+
+     <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 7:</em> Bài học</h4>
+              <h4>Làm quen với Sound Blocks - <span style="color: #592589;">Mô hình “Nữ Vũ Công”</span></h4>
+          </div>
+    
+      
+        <div id="rea-buoi7" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+    
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+    
+    
+    
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+    
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+    
+    
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai7.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+    
+                </div>
+              </div>
+            </div>
+    
+    
+    
+          </div>
+        </div>
+        
+        
+    
+        <script>
+          const REA_BUOI7 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh biết cách sử dụng khối âm thanh (Sound Blocks) để lập trình phát âm thanh.",
+                      "Học sinh biết lập trình phối hợp giữa phát âm thanh và chuyển động robot.",
+                      "Học sinh biết cách lắp ráp mô hình nữ vũ công đơn giản sử dụng bộ SPIKE Essential.",
+                      "Học sinh có khả năng chỉnh sửa và tinh chỉnh chương trình khi robot vũ công vận hành chưa đúng nhịp điệu."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Giới thiệu khối âm thanh (Sound Blocks)",
+                      "Lắp ráp mô hình Nữ Vũ Công",
+                      "Lập trình robot biểu diễn",
+                      "Giới thiệu kiến thức bổ sung lệnh lặp lại có điều kiện (Control Blocks)",
+                      "Trải nghiệm và biểu diễn"
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Khối lệnh âm thanh (Sound Blocks).",
+    "Control Blocks (kiến thức bổ sung).",
+    "Phối hợp đa phương tiện.",
+    "Kỹ năng lập trình",
+    "Làm việc nhóm hiệu quả.",
+    
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI7).mount("#rea-buoi7");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 7------------------------------------------------------------------------------------------------------------------------ -->
+  
+
+    <!-- Buổi 8------------------------------------------------------------------------------------------------------------------------ -->
+
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 8:</em> Ôn tập</h4>
+              <h4>Tổng ôn kiến thức khối chuyển động (Movenment Blocks), khối âm thanh (Sound Blocks) - <span style="color: #592589;">Mô hình “Tàu bay siêu tốc”</span></h4>
+          </div>
+    
+      
+        <div id="rea-buoi8" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+    
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+    
+    
+    
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+    
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+    
+    
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai8.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+    
+                </div>
+              </div>
+            </div>
+    
+    
+    
+          </div>
+        </div>
+        
+        
+    
+        <script>
+          const REA_BUOI8 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh củng cố kiến thức về Movement Blocks: lập trình di chuyển tiến, lùi, rẽ trái/phải, dừng lại.",
+                      "Học sinh củng cố kiến thức về Sound Blocks: lập trình phát âm thanh đúng lúc khi robot thực hiện hành động.",
+                      "Học sinh biết cách lắp ráp mô hình Tàu bay siêu tốc có chuyển động lên xuống linh hoạt và phát ra âm thanh vui nhộn.",
+                      "Học sinh biết lập trình phối hợp giữa chuyển động và âm thanh để mô hình hoạt động tự nhiên."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Ôn tập nhanh lý thuyết",
+                      "Lắp ráp mô hình Tàu bay siêu tốc",
+                      "Lập trình hoạt động",
+                      "Trải nghiệm và biểu diễn"
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Khối lệnh chuyển động (Movement Blocks).",
+    "Khối lệnh âm thanh (Sound Blocks).",
+    "Control Blocks (Lặp lại có điều kiện)",
+    "Kỹ năng lập trình",
+    "Làm việc nhóm hiệu quả.",
+    
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI8).mount("#rea-buoi8");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 8------------------------------------------------------------------------------------------------------------------------ -->
+    
+    <!-- Buổi 9------------------------------------------------------------------------------------------------------------------------ -->
+  <div class="gaming-library profile-library">
+    <div class="col-lg-12">
+      <div class="heading-section">
+        <h4><em style="color: #592589;">Buổi 9:</em> Hoạt động sáng tạo -<span style="color: #592589;">Lắp ráp và lập trình tự do</span></h4>
+      </div>
+
+    
+      <div id="rea-buoi9" class="relative min-h-screen">
+        <div class="board flex flex-row gap-16 mx-40 my-8">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                <div class="list">
+                  <div class="content-rea" >
+                    <div v-for="item in list" :class="[
+                        'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                        item.id === selectedContact?.id
+                          ? 'bg-teal-100 scale-105 shadow-lg'
+                          : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                      ]" @click="displayContactDetails(item)">
+                      {{ item.name }}
+                    </div>
+                  </div>
+                  <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <!-- Divider -->
+              <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+              <!-- Contact Details Panel (Always Rendered) -->
+              <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                <!-- Animated Inner Content -->
+                <transition name="slide-fade" mode="out-in">
+                  <div :key="selectedContact?.id">
+                    <template v-if="selectedContact">
+                      <div class="space-y-4 text-gray-700">
+                        <!-- Title -->
+                        <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                
+                        <!-- List -->
+                        <ul class="space-y-3">
+                          <li
+                            v-for="(line, index) in selectedContact.content"
+                            :key="index"
+                            class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                          >
+                            <!-- Tick Icon -->
+                            <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                            <!-- Text -->
+                            <span class="text-base leading-relaxed">{{ line }}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                
+                    <template v-else>
+                      <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                        
+                        <img src="../../../images/REA/img-rea-bai9.png" alt="" >
+                      </div>
+                    </template>
+                  </div>
+                </transition>
+                
+                
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      
+      
+
+      <script>
+        const REA_BUOI9 = {
+          data() {
+            return {
+              selectedContact: null,
+              list: [
+                {
+                  id: 1,
+                  name: "Mục tiêu",
+                  content: [
+                    "Khuyến khích học sinh sáng tạo mô hình robot theo trí tưởng tượng riêng.",
+                    "Biết kết hợp các khối lệnh đã học: Movenment Blocks (Điều khiển động cơ đôi), Sound Blocks (Khối lệnh âm thanh), Control Blocks (Lặp lại có điều kiện)",
+                    "Phát triển kỹ năng lập trình đơn giản theo chuỗi hành động.",
+                    "Rèn luyện kỹ năng làm việc nhóm, chia sẻ ý tưởng sáng tạo."
+                    
+                  ]
+                },
+                {
+                  id: 2,
+                  name: "Nội dung",
+                  content: [
+                    "Khởi động truyền cảm hứng",
+                    "Nhắc lại các khối lệnh đã học",
+                    "Hoạt động lắp ráp sáng tạo",
+                    "Lập trình cho mô hình",
+                    "Chia sẻ sản phẩm "
+                  ]
+                },
+                {
+                  
+                  id: 3,
+                  name: "Kiến thức & Kỹ năng",
+                  content: [
+                    "Movement Blocks: Điều khiển chuyển động cho động cơ đôi",
+"Control Blocks: Điều phối hành động lặp lại có điều kiện",
+"Sound Blocks: Sử dụng âm thanh mô tả trạng thái hoặc cảm xúc robot",
+"Tư duy sáng tạo: Tự do thiết kế mô hình và lập trình kịch bản robot",
+"Làm việc nhóm: Phối hợp ý tưởng, phân chia vai trò, trình bày sản phẩm"
+                  ]
+                }
+              ]
+            };
+          },
+          methods: {
+            displayContactDetails(contact) {
+              this.selectedContact = contact;
+            }
+          }
+        };
+      
+        Vue.createApp(REA_BUOI9).mount("#rea-buoi9");
+      </script>
+    
+    </div>
+  </div>
+
+  <!-- Buổi 9------------------------------------------------------------------------------------------------------------------------ -->
+
+
+  <!-- Buổi 10------------------------------------------------------------------------------------------------------------------------ -->
+  <div class="gaming-library profile-library">
+    <div class="col-lg-12">
+      <div class="heading-section">
+        <h4><em style="color: #592589;">Buổi 10:</em> Ôn tập giữa kỳ -<span style="color: #592589;"> Mô hình “Chiếc Thuyền Buồm”</span></h4>
+      </div>
+
+    
+      <div id="rea-buoi10" class="relative min-h-screen">
+        <div class="board flex flex-row gap-16 mx-40 my-8">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                <div class="list">
+                  <div class="content-rea" >
+                    <div v-for="item in list" :class="[
+                        'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                        item.id === selectedContact?.id
+                          ? 'bg-teal-100 scale-105 shadow-lg'
+                          : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                      ]" @click="displayContactDetails(item)">
+                      {{ item.name }}
+                    </div>
+                  </div>
+                  <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <!-- Divider -->
+              <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+              <!-- Contact Details Panel (Always Rendered) -->
+              <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                <!-- Animated Inner Content -->
+                <transition name="slide-fade" mode="out-in">
+                  <div :key="selectedContact?.id">
+                    <template v-if="selectedContact">
+                      <div class="space-y-4 text-gray-700">
+                        <!-- Title -->
+                        <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                
+                        <!-- List -->
+                        <ul class="space-y-3">
+                          <li
+                            v-for="(line, index) in selectedContact.content"
+                            :key="index"
+                            class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                          >
+                            <!-- Tick Icon -->
+                            <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                            <!-- Text -->
+                            <span class="text-base leading-relaxed">{{ line }}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                
+                    <template v-else>
+                      <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                        
+                        <img src="../../../images/REA/img-rea-bai10.png" alt="" >
+                      </div>
+                    </template>
+                  </div>
+                </transition>
+                
+                
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      
+      
+
+      <script>
+        const REA_BUOI10 = {
+          data() {
+            return {
+              selectedContact: null,
+              list: [
+                {
+                  id: 1,
+                  name: "Mục tiêu",
+                  content: [
+                    "Học sinh tổng hợp được các kiến thức và kỹ năng đã học (Light Blocks, Motor Blocks, Movement Blocks, Sound Blocks, Control Blocks).",
+                    "Học sinh biết lắp ráp mô hình 'Chiếc Thuyền Buồm' có thể di chuyển, phát tín hiệu đèn và âm thanh.",
+                    "Học sinh biết lập trình mô hình sử dụng phối hợp các khối lệnh đã học để mô hình hoạt động giống hành trình thực tế của một con thuyền.",
+                    "Học sinh có khả năng sáng tạo nội dung hoạt động riêng cho mô hình, thay đổi hiệu ứng, tạo tính cá nhân hóa."
+                    
+                  ]
+                },
+                {
+                  id: 2,
+                  name: "Nội dung",
+                  content: [
+                    "Tổng ôn kiến thức",
+                    "Lắp ráp mô hình “Chiếc Thuyền Buồm”",
+                    "Lập trình mô hình",
+                    "Trình diễn và phản biện"
+                  ]
+                },
+                {
+                  
+                  id: 3,
+                  name: "Kiến thức & Kỹ năng",
+                  content: [
+                    "Tổng hợp khối lệnh đã học",
+"Tư duy chuỗi hành động",
+"Kỹ năng lắp ráp",
+"Kỹ năng lập trình",
+"Kỹ năng tư duy – hệ thống hóa",
+"Kỹ năng làm việc nhóm"
+                  ]
+                }
+              ]
+            };
+          },
+          methods: {
+            displayContactDetails(contact) {
+              this.selectedContact = contact;
+            }
+          }
+        };
+      
+        Vue.createApp(REA_BUOI10).mount("#rea-buoi10");
+      </script>
+    
+    </div>
+  </div>
+
+  <!-- Buổi 10------------------------------------------------------------------------------------------------------------------------ -->
+
+
+    <!-- Buổi 11------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 11:</em> Kiểm tra giữa kỳ -<span style="color: #592589;"> Mô hình “Thủ Môn Siêu Đẳng”</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi11" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai11.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI11 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh áp dụng được tất cả các kiến thức đã học vào bài kiểm tra.",
+                      "Học sinh biết lắp ráp mô hình dựa trên mô hình mẫu (Không có hướng dẫn từng bước)",
+                      "Học sinh biết lập trình đúng yêu cầu đưa ra",
+                      "Học sinh có khả năng sáng tạo nội dung hoạt động riêng cho mô hình, thay đổi hiệu ứng, tạo tính cá nhân hóa."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Quan sát mô hình mẫu",
+                      "Tiến hành lắp ráp",
+                      "Lập trình mô hình",
+                      "Trình diễn và phản biện"
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Tổng hợp khối lệnh đã học",
+  "Tư duy chuỗi hành động",
+  "Kỹ năng lắp ráp",
+  "Kỹ năng lập trình",
+  "Kỹ năng tư duy – hệ thống hóa",
+  "Kỹ năng làm việc nhóm"
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI11).mount("#rea-buoi11");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 11------------------------------------------------------------------------------------------------------------------------ -->
+  
+
+    <!-- Buổi 12------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 12:</em> Thực hành 1 -<span style="color: #592589;"> Mô hình “Chú khủng long”</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi12" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai12.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI12 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh biết phân tích cấu trúc mô hình kỹ thuật, từ khung đỡ, điểm gắn motor, tới cơ chế truyền động.",
+                      "Học sinh lắp ráp hoàn chỉnh mô hình “Con Khủng Long”, có thể chuyển động linh hoạt.",
+                      "Học sinh hiểu rõ quy trình lắp ráp – kiểm tra – tinh chỉnh mô hình, để sản phẩm ổn định và sinh động.",
+                      "Học sinh rèn luyện kỹ năng quan sát – cải tiến – gỡ lỗi mô hình kỹ thuật, trước khi lập trình.",
+                      "Học sinh ôn tập với khối động cơ đơn (Motor Blocks) - các khối điều kiện (Control Blocks)."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Ôn nhanh khối động cơ đơn (Motor Blocks).",
+                      "Phân tích và lắp ráp mô hình Chú Khủng Long.",
+                      "Lập trình điều khiển.",
+                      "Kiểm tra và tinh chỉnh."
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Ôn tập khối động cơ đơn (Motor Blocks).",
+  "Phân tích kết cấu mô hình kỹ thuật.",
+  "Quy trình kỹ thuật chuẩn.",
+  "Kỹ năng phân tích – cải tiến",
+  "Kỹ năng làm việc nhóm"
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI12).mount("#rea-buoi12");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 12------------------------------------------------------------------------------------------------------------------------ -->
+  
+    <!-- Buổi 13------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 13:</em> Hoạt động sáng tạo 1 -<span style="color: #592589;"> Thiết kế mô hình “Chú Khủng Long của Em”</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi13" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai13.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI13 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh quan sát, phân tích hình ảnh các loài khủng long khác nhau, từ đó rút ra đặc điểm về hình dáng và hành vi.",
+                      "Học sinh biết chọn lựa đặc điểm phù hợp để thiết kế mô hình khủng long bằng LEGO SPIKE Essential.",
+                      "Học sinh tự lắp ráp mô hình từ đầu, không theo hướng dẫn có sẵn.",
+                      "Học sinh lập trình mô hình hoạt động theo ý tưởng riêng: di chuyển, phát tiếng, vẫy đuôi, quay đầu…",
+                      "Học sinh thể hiện sự sáng tạo cá nhân, kỹ năng làm việc nhóm, cũng như kỹ năng thuyết trình ý tưởng một cách rõ ràng, mạch lạc."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Quan sát và phân tích hình ảnh khủng long.",
+                      "Thiết kế mô hình trên giấy.",
+                      "Lắp ráp mô hình.",
+                      "Lập trình vận hành.",
+                      "Trình bày sản phẩm ."
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Áp dụng kiến thức khối động cơ đơn (Motor Blocks).",
+  "Kỹ thuật mô phỏng qua phân tích hình ảnh.",
+  "Kỹ năng quan sát – phân tích.",
+  "Kỹ năng thiết kế sáng tạo.",
+  "Kỹ năng lập trình",
+  "Kỹ năng mềm: làm việc nhóm, thuyết trình,..."
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI13).mount("#rea-buoi13");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 13------------------------------------------------------------------------------------------------------------------------ -->
+  
+     <!-- Buổi 14------------------------------------------------------------------------------------------------------------------------ -->
+     <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 14:</em> Thực hành 2 -<span style="color: #592589;"> Mô hình “Đu quay vui nhộn”</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi14" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai14.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI14 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh biết xây dựng một mô hình có kết cấu kỹ thuật ổn định, gồm: đế – thân trụ – bộ phận quay – đèn trang trí.",
+                      "Học sinh biết cách kết hợp đèn và chuyển động để mô phỏng mô hình đu quay sinh động và hấp dẫn.",
+                      "Học sinh rèn kỹ năng quan sát, phân tích cấu trúc và kiểm tra độ bền vững của mô hình.",
+                      "Học sinh rèn luyện kỹ năng quan sát – cải tiến – gỡ lỗi mô hình kỹ thuật, trước khi lập trình.",
+                      "Học sinh ôn tập và sử dụng thành thạo khối đèn (Light Blocks) để tạo hiệu ứng ánh sáng đa dạng."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Khởi động: Giới thiệu mô hình đu quay.",
+                      "Ôn tập khối đèn (Light Blocks).",
+                      "Lắp ráp mô hình “Đu quay vui nhộn”.",
+                      "Lập trình hoạt động.",
+                      "Trình diễn và chỉnh sửa."
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Ôn tập khối động đèn (Light Blocks).",
+                      "Ôn tập khối động cơ (Motors Blocks).",
+  "Cấu trúc kỹ thuật mô hình.",
+  "Quy trình kỹ thuật chuẩn.",
+  "Kỹ năng phân tích – cải tiến",
+  "Kỹ năng làm việc nhóm"
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI14).mount("#rea-buoi14");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 14------------------------------------------------------------------------------------------------------------------------ -->
+  
+    <!-- Buổi 15------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 15:</em> Hoạt động sáng tạo 2 -<span style="color: #592589;"> Thiết kế mô hình “Trò chơi đu quay của em”</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi15" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai15.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI15 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh tự thiết kế một mô hình trò chơi đu quay theo ý tưởng riêng dựa trên trải nghiệm, quan sát và trí tưởng tượng.",
+                      "Học sinh biết vận dụng linh hoạt các khối lệnh Motor, Light, Control để mô hình hoạt động đúng mục đích, tạo cảm giác sinh động.",
+                      "Học sinh thể hiện khả năng sáng tạo trong thiết kế kỹ thuật và thẩm mỹ, từ hình dáng, chuyển động, màu sắc, đến nhịp điệu.",
+                      "Học sinh nâng cao kỹ năng làm việc nhóm, phân chia công việc hợp lý và phối hợp hiệu quả trong quá trình thiết kế – lập trình – thử nghiệm.",
+                      "Học sinh rèn kỹ năng trình bày và phản biện kỹ thuật, tự tin nói về sản phẩm của nhóm mình."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Quan sát – lấy cảm hứng.",
+                      "Thiết kế ý tưởng mô hình.",
+                      "Lắp ráp mô hình sáng tạo.",
+                      "Lập trình vận hành.",
+                      "Trình bày và trình diễn sản phẩm."
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Áp dụng kiến thức khối đèn (Light Blocks), động cơ đơn (Motor Blocks).",
+  "Thiết kế kỹ thuật mô hình trò chơi.",
+  "Kỹ năng quan sát – phân tích.",
+  "Kỹ năng thiết kế sáng tạo.",
+  "Kỹ năng lập trình",
+  "Kỹ năng mềm: làm việc nhóm, thuyết trình,..."
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI15).mount("#rea-buoi15");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 15------------------------------------------------------------------------------------------------------------------------ -->
+  
+
+     <!-- Buổi 16------------------------------------------------------------------------------------------------------------------------ -->
+     <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 16:</em> Thực hành 3 -<span style="color: #592589;"> Mô hình “Chiếc xe tải”</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi16" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai16.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI16 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh ôn tập và sử dụng thành thạo khối chuyển động (Movement Blocks) để lập trình di chuyển tiến, lùi, rẽ trái/phải.",
+                      "Học sinh biết lắp ráp mô hình “Xe Tải” có đủ cấu trúc cơ bản: khung xe – bánh – thân – thùng chở hàng.",
+                      "Học sinh phân tích rõ các bộ phận kỹ thuật của mô hình xe tải, hiểu vai trò của từng thành phần.",
+                      "Học sinh lập trình robot di chuyển chính xác theo đường chạy mô phỏng thực tế, có thể mang vật/giao hàng.",
+                      "Học sinh rèn kỹ năng làm việc kỹ thuật nhóm và thử nghiệm – cải tiến mô hình."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                    "Ôn tập khối chuyển động (Movement Blocks).",
+                      "Phân tích mô hình xe tải .",
+                      "Lắp ráp mô hình xe tải.",
+                      "Lập trình di chuyển.",
+                      "Thử nghiệm và chỉnh sửa."
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Ôn tập khối động chuyển động (Movement Blocks).",
+  "Cấu trúc kỹ thuật mô hình xe.",
+  "Tư duy di chuyển có chiến lược.",
+  "Kỹ năng phân tích – cải tiến",
+  "Kỹ năng làm việc nhóm"
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI16).mount("#rea-buoi16");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 16----------------------------------------------------------------------------------------------------------------------- -->
+  
+    <!-- Buổi 17------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 17:</em> Hoạt động sáng tạo 3 -<span style="color: #592589;"> Thiết kế mô hình “Phương tiện yêu thích của Em”</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi17" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai17.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI17 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh biết tự chọn và phát triển ý tưởng phương tiện yêu thích: xe đua, xe buýt, xe cứu thương, xe tải, xe tuần tra, xe điện...",
+                      "Học sinh lắp ráp mô hình phương tiện hoàn chỉnh từ đầu, kết hợp chuyển động, đèn, âm thanh hoặc điều kiện điều khiển (nếu có).",
+                      "Học sinh vận dụng linh hoạt Movement Blocks và các khối lập trình đã học để mô hình hoạt động đúng mục đích thiết kế.",
+                      "Học sinh thể hiện được tư duy thiết kế, cá tính và khả năng làm việc nhóm sáng tạo trong toàn bộ quá trình thực hiện.",
+                      "Học sinh có khả năng giải thích cấu trúc mô hình và trình bày ý tưởng logic, thuyết phục."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Khởi động: Gợi mở sáng tạo.",
+                      "Thiết kế ý tưởng mô hình.",
+                      "Lắp ráp mô hình phương tiện yêu thích.",
+                      "Lập trình hoạt động.",
+                      "Trình bày và trình diễn sản phẩm."
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Áp dụng kiến thức khối đèn (Light Blocks), chuyển động (Movement Blocks).",
+  "Tư duy mô hình hóa thực tế.",
+  "Kỹ năng quan sát – phân tích.",
+  "Kỹ năng thiết kế sáng tạo.",
+  "Kỹ năng lập trình",
+  "Kỹ năng mềm: làm việc nhóm, thuyết trình,..."
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI17).mount("#rea-buoi17");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 17------------------------------------------------------------------------------------------------------------------------ -->
+  
+
+     <!-- Buổi 18------------------------------------------------------------------------------------------------------------------------ -->
+     <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 18:</em> Thực hành 4 -<span style="color: #592589;"> Mô hình “Nghệ sĩ Guitar”</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi18" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai18.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI18 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh ôn tập và sử dụng thành thạo khối âm thanh (Sound Blocks) để tạo âm thanh nhạc cụ hoặc hiệu ứng trình diễn.",
+                      "Học sinh lắp ráp mô hình nghệ sĩ chơi guitar có các chuyển động mô phỏng biểu diễn (gật đầu, lắc người, vẫy tay).",
+                      "Học sinh phân tích và lập trình được sự phối hợp giữa âm thanh – chuyển động – thời gian, tạo ra “tiết mục biểu diễn” có nhịp điệu.",
+                      "Học sinh rèn kỹ năng cảm nhận nhịp – lập trình đồng bộ và thể hiện tính nghệ thuật qua kỹ thuật.",
+                      "Học sinh rèn kỹ năng làm việc kỹ thuật nhóm và thử nghiệm – cải tiến mô hình."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                    "Ôn tập khối âm thanh (Sound Blocks).",
+                      "Khởi động: Quan sát nghệ sĩ guitar.",
+                      "Lắp ráp mô hình “Nghệ sĩ Guitar”.",
+                      "Lập trình tiết mục biểu diễn.",
+                      "Trình diễn và thuyết trình."
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Ôn tập khối động âm thanh (Sound Blocks).",
+  "Tư duy đồng bộ hoá hành vi.",
+  "Kỹ năng thiết kế – thẩm mỹ.",
+  "Kỹ năng phân tích – cải tiến",
+  "Kỹ năng làm việc nhóm"
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI18).mount("#rea-buoi18");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 18----------------------------------------------------------------------------------------------------------------------- -->
+  
+    <!-- Buổi 19------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 19:</em> Hoạt động sáng tạo 4 -<span style="color: #592589;"> Thiết kế mô hình “Nghệ sĩ nhạc cụ em yêu thích”</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi19" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai19.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI19 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh tự chọn và thiết kế mô hình robot nghệ sĩ trình diễn một loại nhạc cụ cụ thể mà bản thân yêu thích.",
+                      "Học sinh lắp ráp mô hình theo trí tưởng tượng, đảm bảo có cấu trúc rõ ràng và có khả năng biểu diễn (gảy – gõ – rung – nhún…).",
+                      "Học sinh lập trình mô hình kết hợp Sound Block, Motor Block và (nếu cần) Light Block để tạo tiết mục biểu diễn.",
+                      "Học sinh rèn kỹ năng đồng bộ hóa chuyển động – âm thanh – hiệu ứng ánh sáng, tạo màn biểu diễn chân thật và sinh động.",
+                      "Học sinh thể hiện bản sắc cá nhân và kỹ năng sáng tạo, chuẩn bị tinh thần cho phần tổng kết toàn khóa học."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Khởi động: Gợi mở sáng tạo.",
+                      "Thiết kế ý tưởng mô hình.",
+                      "Lắp ráp mô hình nghệ sĩ nhạc cụ yêu thích.",
+                      "Lập trình tiết mục biểu diễn.",
+                      "Trình diễn và phản biện sáng tạo."
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Áp dụng kiến thức khối âm thanh (Sound Blocks), chuyển động (Movement Blocks),...",
+  "Tư duy mô hình hóa thực tế.",
+  "Kỹ năng quan sát – phân tích.",
+  "Kỹ năng thiết kế sáng tạo.",
+  "Kỹ năng lập trình",
+  "Kỹ năng mềm: làm việc nhóm, thuyết trình,..."
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI19).mount("#rea-buoi19");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 19------------------------------------------------------------------------------------------------------------------------ -->
+  
+
+    <!-- Buổi 20------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 20:</em> Tổng kết khóa học & Chuẩn bị dự án cho buổi tổng kết</h4>
+        </div>
+  
+      
+        <div id="rea-buoi20" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai20.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI20 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+                    id: 1,
+                    name: "Mục tiêu",
+                    content: [
+                      "Học sinh nhìn lại toàn bộ hành trình 19 buổi, ghi nhớ các khối lệnh, mô hình, kỹ năng đã phát triển.",
+                      "Học sinh lựa chọn mô hình/sản phẩm yêu thích nhất (trong 19 buổi đã học hoặc sáng tạo mới) để nâng cấp/hoàn thiện cho buổi trình diễn tổng kết.",
+                      "Học sinh thể hiện được tiến bộ cá nhân và nhóm, thông qua việc chuẩn bị thuyết trình – chỉnh sửa sản phẩm.",
+                      "Học sinh làm việc nhóm hiệu quả để chuẩn bị một bài biểu diễn ngắn: có logic – sáng tạo – rõ ràng – hấp dẫn.",
+                      "Giáo viên tổng kết, nhận xét, khuyến khích, và hướng dẫn chuẩn bị tinh thần cho ngày trình diễn cuối cùng."
+                      
+                    ]
+                  },
+                  {
+                    id: 2,
+                    name: "Nội dung",
+                    content: [
+                      "Tổng ôn hành trình 19 buổi.",
+                      "Lựa chọn và chuẩn bị dự án trình diễn.",
+                      "Thử chạy mô hình và nhận phản hồi.",
+                      "Tổng kết – khích lệ – dặn dò"
+                    ]
+                  },
+                  {
+                    
+                    id: 3,
+                    name: "Kiến thức & Kỹ năng",
+                    content: [
+                      "Tư duy hệ thống & thiết kế lại sản phẩm.",
+  "Trình bày mạch lạc – cảm xúc – có nội dung rõ ràng.",
+  "Kỹ năng quan sát – phân tích.",
+  "Hợp tác nhóm chủ động.",
+  "Thái độ tích cực – tự tin – tôn trọng sản phẩm của mình và bạn bè."
+                    ]
+                  }
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI20).mount("#rea-buoi20");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 20------------------------------------------------------------------------------------------------------------------------ -->
+  
+</div>
+
+
+<!-- ***** Gaming Library End ***** -->
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved. 
+          
+          <br>Design By Huỳnh Ngọc Thái</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="../../../js/isotope.min.js"></script>
+  <script src="../../../js/owl-carousel.js"></script>
+  <script src="../../../js/tabs.js"></script>
+  <script src="../../../js/popup.js"></script>
+  <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
