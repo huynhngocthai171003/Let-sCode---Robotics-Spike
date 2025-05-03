@@ -243,7 +243,7 @@
                   <li><h4>Trung cấp</h4><span>Lớp 3-6 (8-11 tuổi)</span></li>
                   <li><h4>LV2</h4><span>Kiến thức công nghệ</span></li>
                   <li><h4>Số lượng</h4><span>20 buổi</span></li>
-                  <li><div class="main-border-button"><a href="#">READ MORE</a></div></li>
+                  <li><div class="main-border-button"><a href="assets/html/Eseential/REB/curriculum.html">READ MORE</a></div></li>
                 </ul>
               </div>
 
@@ -269,6 +269,28 @@
       </div>
     </div>
   </div>
+
+  <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none" onclick="scrollToTop()" id="back-to-up">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script>
+    window.onscroll = () => {
+  toggleTopButton();
+}
+function scrollToTop(){
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function toggleTopButton() {
+  if (document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20) {
+    document.getElementById('back-to-up').classList.remove('d-none');
+  } else {
+    document.getElementById('back-to-up').classList.add('d-none');
+  }
+}
+  </script>
   
   <footer>
     <div class="container">
