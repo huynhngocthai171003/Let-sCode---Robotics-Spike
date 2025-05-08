@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Let's Code - Robotics</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="../../../css/fontawesome.css">
+  <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="../../../css/owl.css">
+  <link rel="stylesheet" href="../../../css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <link rel="apple-touch-icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+    sizes="192x192">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png" sizes="32x32">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+  <script src="../../../js/include.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      includeHTML(() => {
+        const menuItems = document.querySelectorAll('nav a');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            console.log('Bạn vừa click:', e.target.textContent);
+          });
+        });
+      });
+    });
+  </script>
+
+  <style>
+    /* body{
+      font-family: "Baloo Chettan 2", sans-serif !important; ;
+    } */
+
+    .slide-fade-enter-active,
+    .slide-fade-leave-active {
+      transition: all 0.3s ease;
+    }
+
+    .slide-fade-enter-from,
+    .slide-fade-leave-to {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    .slide-fade-enter-to,
+    .slide-fade-leave-from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .content-rea div {
+      font-family: "Baloo Chettan 2", sans-serif;
+      font-size: 18px;
+      padding: 1rem;
+      /* p-4 */
+      background-color: white;
+      /* bg-white */
+      border-left: 4px solid #0d9488;
+      /* border-l-4 và border-teal-600 */
+      border-color: #592589;
+      /* border-gray-200 (ghi đè border-teal-600) */
+      box-shadow: 0 4px 6px #592589;
+      /* shadow-md */
+      border-radius: 0.375rem;
+      /* rounded-md */
+      margin-bottom: 0.5rem;
+      /* mb-2 */
+      color: #1f2937;
+      /* text-gray-800 */
+      cursor: pointer;
+      /* cursor-pointer */
+      transform: scale(1);
+      /* transform */
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+      /* transition-transform duration-200 ease-in-out */
+    }
+
+    .content-rea div:hover {
+      background-color: #f0fdfa;
+      /* hover:bg-teal-50 */
+      box-shadow: 0 4px 6px #ebc901;
+      /* hover:shadow-md */
+      transform: scale(1.05);
+      /* hover:scale-105 */
+    }
+
+
+    .show-content {
+      font-family: "Baloo Chettan 2", sans-serif !important;
+      font-size: 18px;
+      color: black;
+      /* text-gray-400 */
+      font-style: italic;
+      /* italic */
+      text-align: center;
+      /* text-center */
+      box-shadow: 0 4px 6px #592589
+        /* margin-top: 3rem; mt-12 (48px) */
+    }
+
+    .leading-relaxed {
+      font-family: "Baloo Chettan 2", sans-serif !important;
+      font-size: 18px;
+    }
+
+    .fullvh {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+    }
+
+    .grid-center {
+      display: grid;
+      place-items: center;
+    }
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      height: auto;
+    }
+
+    .wrapper .side .stick-container {
+      position: sticky;
+      height: 100vh;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .wrapper .side .stick-container .section_clone {
+      display: grid;
+      place-items: center;
+      margin: 5px 10px;
+      background: black;
+      text-align: center;
+      flex-grow: 1;
+
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border-radius: 10px;
+      color: #fff;
+      outline: 0px solid #fff;
+      text-decoration: none;
+      border: dotted 3px black;
+    }
+
+    .wrapper .side .stick-container section:hover,
+    .wrapper .side .stick-container .inView {
+      flex-grow: 10;
+    }
+
+    .section_clone {
+      height: 30px;
+      /* mặc định cao 60px */
+      transition: all 0.3s ease;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .section_clone.inView {
+      height: 50px;
+      /* khi active mới cao lên */
+    }
+
+    .main {
+      scroll-snap-type: y mandatory;
+    }
+
+    .main>section {
+      scroll-snap-align: center;
+      min-height: auto;
+      height: auto;
+      margin: 10px 10px;
+      background: #000;
+      color: #fff;
+      outline: 0px solid #fff;
+      border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.86, 0.2, 0.03, 0.97);
+    }
+
+    /* Mobile: chuyển từ cột dọc sang hàng ngang (nếu muốn) */
+    @media (max-width: 768px) {
+      .wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .wrapper .side {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: auto;
+        z-index: 999;
+        background: #facc15;
+        /* vàng */
+      }
+
+      .wrapper .side .stick-container {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.5rem;
+        height: auto;
+      }
+
+      .section_clone {
+        height: 40px;
+        width: 40px;
+        min-height: auto;
+        font-size: 1rem;
+        flex-grow: 0 !important;
+      }
+
+      .section_clone.inView {
+        height: 50px;
+        width: 50px;
+      }
+
+      .main>section {
+        margin-bottom: 80px;
+        /* để không bị che */
+      }
+    }
+
+    .accordion-wrapper {
+      background: #111;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .accordion-container {
+      /* padding-left: 50px;
+      padding-right: 50px; */
+      margin-bottom: 20px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 100%;
+      /* margin: 0 auto; */
+    }
+
+    .accordion-container input[type="radio"] {
+      display: none;
+    }
+
+    .accordion-container input[type="radio"]:checked+label {
+      background-color: #4cadad;
+    }
+
+    .accordion-label {
+      display: block;
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      margin: 0;
+      cursor: pointer;
+      border-top: 1px solid #333;
+      transition: background 0.3s;
+    }
+
+    .accordion-label:hover {
+      background: #333;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: #1a1a1a;
+      color: #ccc;
+      padding: 0 1rem;
+      transition: all 0.5s ease;
+      border-bottom: 1px solid #333;
+    }
+
+    input[type="radio"]:checked+.accordion-label+.accordion-content {
+      max-height: 200px;
+      padding: 1rem;
+    }
+
+    .accordion-label h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+
+    .custom-timeline {
+      font-family: "Poppins", sans-serif;
+      color: var(--color, rgba(30, 30, 30));
+      background: var(--bgColor, rgba(245, 245, 245));
+      padding: 2rem;
+    }
+
+    .custom-timeline__list {
+      --col-gap: 2rem;
+      --row-gap: 2rem;
+      --line-w: 0.25rem;
+      display: grid;
+      grid-template-columns: var(--line-w) 1fr;
+      grid-auto-columns: max-content;
+      column-gap: var(--col-gap);
+      list-style: none;
+      width: min(60rem, 90%);
+      margin-inline: auto;
+      position: relative;
+      padding-bottom: 20px;
+      padding-top: 20px;
+
+    }
+
+    .custom-timeline__list::before {
+      content: "";
+      grid-column: 1;
+      grid-row: 1 / span 20;
+      background: rgb(225, 225, 225);
+      border-radius: calc(var(--line-w) / 2);
+    }
+
+    .custom-timeline__item:not(:last-child) {
+      margin-bottom: var(--row-gap);
+    }
+
+    .custom-timeline__item {
+      grid-column: 2;
+      --inlineP: 1.5rem;
+      margin-inline: var(--inlineP);
+      grid-row: span 2;
+      display: grid;
+      grid-template-rows: min-content min-content min-content;
+    }
+
+    .custom-timeline__date {
+      --dateH: 3rem;
+      height: var(--dateH);
+      margin-inline: calc(var(--inlineP) * -1);
+      text-align: center;
+      background-color: var(--accent-color);
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: grid;
+      place-content: center;
+      position: relative;
+      border-radius: calc(var(--dateH) / 2) 0 0 calc(var(--dateH) / 2);
+    }
+
+    .custom-timeline__date::before {
+      content: "";
+      width: var(--inlineP);
+      aspect-ratio: 1;
+      background: var(--accent-color);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2) 100%, transparent);
+      position: absolute;
+      top: 100%;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+      right: 0;
+    }
+
+    .custom-timeline__date::after {
+      content: "";
+      position: absolute;
+      width: 2rem;
+      aspect-ratio: 1;
+      background: black;
+      border: 0.3rem solid var(--accent-color);
+      border-radius: 50%;
+      top: 50%;
+      transform: translate(50%, -50%);
+      right: calc(100% + var(--col-gap) + var(--line-w) / 2);
+    }
+
+    @media (min-width: 40rem) {
+      .custom-timeline__list {
+        grid-template-columns: 1fr var(--line-w) 1fr;
+      }
+
+      .custom-timeline__list::before {
+        grid-column: 2;
+      }
+
+      .custom-timeline__item:nth-child(odd) {
+        grid-column: 1;
+      }
+
+      .custom-timeline__item:nth-child(even) {
+        grid-column: 3;
+      }
+
+      .custom-timeline__item:nth-child(2) {
+        grid-row: 2 / 4;
+      }
+
+      .custom-timeline__item:nth-child(odd) .custom-timeline__date::before {
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
+        left: 0;
+      }
+
+      .custom-timeline__item:nth-child(odd) .custom-timeline__date::after {
+        transform: translate(-50%, -50%);
+        left: calc(100% + var(--col-gap) + var(--line-w) / 2);
+      }
+
+      .custom-timeline__item:nth-child(odd) .custom-timeline__date {
+        border-radius: 0 calc(var(--dateH) / 2) calc(var(--dateH) / 2) 0;
+      }
+    }
+
+    
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <div data-include="../../header.html"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      includeHTML(() => {
+        // Gắn lại sự kiện cho menu sau khi include xong header
+        const script = document.createElement('script');
+        script.src = "../../../js/custom.js";
+        document.body.appendChild(script);
+
+        // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+        const menuItems = document.querySelectorAll('nav a');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            console.log('Bạn vừa click:', e.target.textContent);
+          });
+        });
+      });
+    });
+  </script>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Banner Start ***** -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="main-profile ">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <img src="../../../images/REA/img-rea-bai1.png" alt="" style="border-radius: 23px;">
+                  </div>
+                  <div class="col-lg-4 align-self-center">
+                    <div class="main-info header-text">
+
+                      <span>Khối biểu tượng</span>
+                      <h4>Buổi 1: Bài học</h4>
+                      <p>
+                        Khám phá thế giới robot cùng LEGO Spike Essential
+                      </p>
+
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="wrapper"  style="font-family: 'Baloo Chettan 2', sans-serif !important">
+            <div class="side">
+              <div class="stick-container"></div>
+            </div>
+            <div class="main">
+              <section id="a">
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới thiệu bài học
+                </h1>
+                <ul class="custom-timeline__list">
+                  <li class="custom-timeline__item" style="--accent-color:#41516C">
+                    <div class="custom-timeline__date">Giới thiệu về Robotics</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
+                    <div class="custom-timeline__date">Đặc điểm của robot</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                    <div class="custom-timeline__date">Các thành phần của một robot</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
+                    <div class="custom-timeline__date">Ứng dụng của robot</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#4CADAD">
+                    <div class="custom-timeline__date">Các loại robot </div>
+                  </li>
+
+                </ul>
+
+              </section>
+              <section id="b" class="row">
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục tiêu bài học
+                </h1>
+                <div class="accordion-container">
+                  <input type="radio" id="acc-tab-1" name="accordion" checked>
+                  <label for="acc-tab-1" class="accordion-label">
+                    <h2>💡 Kiến thức</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <p><strong>Schedule:</strong> Monday - Thursday</p>
+                    <p>I talk a bunch of rubbish</p>
+                  </div>
+
+                  <input type="radio" id="acc-tab-2" name="accordion">
+                  <label for="acc-tab-2" class="accordion-label">
+                    <h2>📘 Kỹ năng</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <p><strong>Schedule:</strong> Monday - Wednesday</p>
+                    <p>Music for your lug holes</p>
+                  </div>
+
+                  <input type="radio" id="acc-tab-3" name="accordion">
+                  <label for="acc-tab-3" class="accordion-label">
+                    <h2>🧠 Thái độ</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <p><strong>Schedule:</strong> Saturday - Sunday</p>
+                    <p>Steven Fry says words</p>
+                  </div>
+
+                  <input type="radio" id="acc-tab-4" name="accordion">
+                  <label for="acc-tab-4" class="accordion-label">
+                    <h2>📚 Tư duy</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <p><strong>Schedule:</strong> Monday - Friday</p>
+                    <p>Some kind of music festival</p>
+                  </div>
+                </div>
+              </section>
+              <section id="c" class="accordion-wrapper text-dark">
+
+                <div class="col-sm-4">
+                  <div class="card grid-center text-dark">
+                    <img
+                      src="https://bentogrids.com/static/e4ecd4a94bc3c796c324eeca3bc6a64c/4115f/2023-05-14-at-20.22.26.webp"
+                      class="img-fluid" style="aspect-ratio:12/9;" alt="">
+                    <p class="mt-3">Bento Design With Unique Approach</p>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card grid-center text-dark">
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
+                      style="aspect-ratio:12/9;" class="img-fluid" alt="">
+                    <p class="mt-3">Pure Vanilla JS (no library used)</p>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="card grid-center text-dark">
+                    <img
+                      src="https://as1.ftcdn.net/v2/jpg/02/56/29/48/1000_F_256294809_laTlQqmLsutni2dbjvSMD7KE1nWP4Tig.jpg"
+                      style="aspect-ratio:12/9;" class="img-fluid" alt="">
+                    <p class="mt-3">Very Small JS code</p>
+                  </div>
+                </div>
+
+              </section>
+              <section id="d">
+                <h1>THIS LOOKS COOL THOUGH</h1>
+              </section>
+              <section id="e">
+                <h1>I AM AMAZED HOW GOOD IT COMES OUT</h1>
+              </section>
+              <section id="f">
+                <h1>I AM AMAZED HOW GOOD IT COMES OUT</h1>
+              </section>
+            </div>
+          </div>
+        </div>
+        <!-- ***** Banner End ***** -->
+
+
+
+        <script>
+          const wrapper = document.querySelector(".wrapper");
+          let sections = wrapper.querySelectorAll(".main > section");
+
+          (function initSections() {
+            const side = wrapper.querySelector(".side > .stick-container");
+
+            // 👉 Gán tên tùy theo từng mục
+            const labels = ["Giới thiệu", "Mục tiêu", "Nội dung", "Bài tập", "Thuyết trình", "Tổng kết"];
+
+            sections.forEach((section, index) => {
+              let link = document.createElement("a");
+              let label = document.createElement("span");
+
+              const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+              link.style.background = randomColor;
+
+              link.href = `#${section.getAttribute("id")}`;
+              link.classList.add("section_clone");
+
+              // 👉 Gán tên thay vì số
+              label.textContent = labels[index] || `Mục ${index + 1}`;
+              label.style.fontSize = "1rem";
+              label.style.fontWeight = "600";
+
+              link.appendChild(label);
+              side.appendChild(link);
+            });
+
+            addInView([0]);
+          })();
+
+          function addInView(arr) {
+            let index = arr[0];
+            let aspectRatio = arr[1];
+            const side_sections = document.querySelectorAll(".section_clone");
+            side_sections.forEach((side_section) => {
+              side_section.classList.remove("inView");
+            });
+            side_sections[index].classList.add("inView");
+
+            //console.log(side_sections[index]);
+          }
+
+          function checkForViewport() {
+            let result = 0;
+            let aspectRatio;
+            sections.forEach((section, index) => {
+              section.style.background = "";
+
+              let section_bound = section.getBoundingClientRect();
+              let section_boundMid = section_bound.bottom / 2;
+              aspectRatio = parseFloat(
+                (section_bound.width / section_bound.height).toFixed(2)
+              );
+              console.log(aspectRatio);
+              if (
+                section_bound.top <= window.innerHeight / 2 &&
+                section_bound.bottom > window.innerHeight / 2
+              ) {
+                result = index;
+              }
+            });
+            let result_arr = [result, aspectRatio];
+            return result_arr;
+          }
+
+          window.addEventListener("scroll", (event) => {
+            addInView(checkForViewport());
+          });
+
+        </script>
+
+
+      </div>
+
+
+      <!-- ***** Gaming Library End ***** -->
+    </div>
+
+  </div>
+  </div>
+
+
+  <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+    onclick="scrollToTop()" id="back-to-up">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script>
+    window.onscroll = () => {
+      toggleTopButton();
+    }
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTopButton() {
+      if (document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20) {
+        document.getElementById('back-to-up').classList.remove('d-none');
+      } else {
+        document.getElementById('back-to-up').classList.add('d-none');
+      }
+    }
+  </script>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved.
+
+            <br>Design By Huỳnh Ngọc Thái
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="../../../js/isotope.min.js"></script>
+  <script src="../../../js/owl-carousel.js"></script>
+  <script src="../../../js/tabs.js"></script>
+  <script src="../../../js/popup.js"></script>
+  <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
