@@ -2521,7 +2521,105 @@
   font-size: 1.3rem;
   color: #00adb5;
 }
+.flip-container {
+  perspective: 1000px;
+  margin: 10px;
+  float: left;
+  cursor: pointer;
+  position: relative;
+}
 
+.flip-container, .front, .back {
+  width: 200px;
+  height: 200px;
+  /* line-height: 200px; */
+  text-align: center;
+  font-size: 40px;
+  border-radius: 5px;
+}
+
+.flip-container .front img{
+    border-radius: 40px;
+}
+
+.flippable {
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flipme {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  z-index: 2;
+  color: white;
+  background: #1189d1;
+}
+
+.front span {
+  font-size: 20px;
+  position: absolute;
+  top: -30px;
+  left: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+.back {
+  transform: rotateY(180deg);
+  font-size: 18px;
+  border: 1px solid;
+  font-family: Verdana, sans-serif;
+  color: white;
+
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  white-space: normal; /* ✅ Cho phép xuống dòng */
+  line-height: 1.2;
+  padding: 10px;       /* ✅ Tạo khoảng cách */
+  overflow-wrap: break-word;
+  
+}
+
+/* Màu từng loại */
+.ac-blue .front { background: #1189d1; }
+.ac-blue .back { background: #0c5f90; border-color: #60c2f5; }
+
+.ac-green .front { background: #18b755; }
+.ac-green .back { background: #116a35; border-color: #5be28c; }
+
+.ac-yellow .front { background: #f3b50b; }
+.ac-yellow .back { background: #996f00; border-color: #f8d562; }
+
+.ac-red .front { background: #ef2809; }
+.ac-red .back { background: #9f2e06; border-color: #f98f61; }
+
+.ac-purple .front { background: #e809e0; }
+.ac-purple .back { background: #ab09a6; border-color: #f26f58; }
+
+.ac-black .front { background: #aba7ab; }
+.ac-black .back { background: #625e5e; border-color: #f26f58; }
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* .flippable .front img{
+    border-radius: 20px
+} */
     </style>
 </head>
 
@@ -2603,33 +2701,8 @@
                         </div>
                         <div class="main">
                             <section id="a">
-                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
-                                    thiệu nội dung bài học
-                                </h1>
-                                <ul class="custom-timeline__list">
-                                    <li class="custom-timeline__item" style="--accent-color:#41516C">
-                                        <div class="custom-timeline__date">Giới thiệu SnackBot</div>
-                                    </li>
-                                    <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
-                                        <div class="custom-timeline__date">Chuẩn bị vật liệu</div>
-                                    </li>
-                                    <li class="custom-timeline__item" style="--accent-color:#E24A68">
-                                        <div class="custom-timeline__date">Xây dựng SnackBot</div>
-                                    </li>
-                                    <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
-                                        <div class="custom-timeline__date">Bài học: Khối đèn (Light Blocks)</div>
-                                    </li>
-                                    <li class="custom-timeline__item" style="--accent-color:#4CADAD">
-                                        <div class="custom-timeline__date">Hoạt động thử thách</div>
-                                    </li>
-                                    <li class="custom-timeline__item" style="--accent-color:#868bfc">
-                                        <div class="custom-timeline__date">Tổng kết bài học</div>
-                                    </li>
+                                
 
-                                </ul>
-
-                            </section>
-                            <section id="b" class="row">
                                 <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục
                                     tiêu bài học
                                 </h1>
@@ -2684,6 +2757,33 @@
                                         </ul>
                                     </div>
                                 </div>
+
+                            </section>
+                            <section id="b" class="row">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
+                                    thiệu nội dung bài học
+                                </h1>
+                                <ul class="custom-timeline__list">
+                                    <li class="custom-timeline__item" style="--accent-color:#41516C">
+                                        <div class="custom-timeline__date">Giới thiệu SnackBot</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
+                                        <div class="custom-timeline__date">Chuẩn bị vật liệu</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                                        <div class="custom-timeline__date">Xây dựng SnackBot</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
+                                        <div class="custom-timeline__date">Bài học: Khối đèn (Light Blocks)</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#4CADAD">
+                                        <div class="custom-timeline__date">Hoạt động thử thách</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#868bfc">
+                                        <div class="custom-timeline__date">Tổng kết bài học</div>
+                                    </li>
+
+                                </ul>
                             </section>
                             <section id="c" class="accordion-wrapper text-dark">
                                 <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
@@ -2704,9 +2804,78 @@
                                 <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
                                     Chuẩn bị vật liệu
                                 </h1>
+                                <div class="container mt-4 position-relative" style="height: auto; width: 101%; display: flex; flex-wrap: wrap; justify-content: center; margin-top: 0px !important;">
+                                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                      <div class="flippable appcon ac-blue">
+                                        <div class="front"><img src="../../../Element/REA/Động cơ màu sắc-REW.jpg" alt=""></div>
+                                        <div class="back">Động cơ đèn (1)</div>
+                                      </div>
+                                    </div>
+                                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                      <div class="flippable appcon ac-black">
+                                        <div class="front"><img src="../../../Element/REA/Trung tâm,ròng rọc-REW.jpg" alt=""></div>
+                                        <div class="back">Ròng rọc (2)</div>
+                                      </div>
+                                    </div>
+                                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                      <div class="flippable appcon ac-black">
+                                        <div class="front"><img src="../../../Element/REA/Chốt kết nối có ma sát-REBL.jpg" alt=""></div>
+                                        <div class="back">Chốt kết nối có ma sát (8)</div>
+                                      </div>
+                                    </div>
+                                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                      <div class="flippable appcon ac-yellow">
+                                        <div class="front"><img src="../../../Element/REA/Bộ não-REY.jpg" alt=""></div>
+                                        <div class="back">Bộ não (1)</div>
+                                      </div>
+                                    </div>
+                                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                      <div class="flippable appcon ac-yellow">
+                                        <div class="front"><img src="../../../Element/REA/Pin-REY.jpg" alt=""></div>
+                                        <div class="back">Pin (1)</div>
+                                      </div>
+                                    </div>
+                                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="flippable appcon ac-blue">
+                                          <div class="front"><img src="../../../Element/REA/Bánh xe 43x14mm-REW.jpg" alt=""></div>
+                                          <div class="back">Bánh xe (1)</div>
+                                        </div>
+                                      </div>
+                                      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="flippable appcon ac-green">
+                                          <div class="front"><img src="../../../Element/REA/Chùm góc-REG.jpg" alt=""></div>
+                                          <div class="back">Chùm góc (2)</div>
+                                        </div>
+                                      </div>
+                                      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="flippable appcon ac-blue">
+                                          <div class="front"><img src="../../../Element/REA/Tire 30.4x4mm-REJG.jpg" alt=""></div>
+                                          <div class="back">Tire 4x4mmm (2)</div>
+                                        </div>
+                                      </div>
+                                      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="flippable appcon ac-black">
+                                          <div class="front"><img src="../../../Element/REA/Chốt kết nối-REW.jpg" alt=""></div>
+                                          <div class="back">Chốt kết nối trắng (1)</div>
+                                        </div>
+                                      </div>
+                                      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="flippable appcon ac-purple">
+                                          <div class="front"><img src="../../../Element/REA/Đầu nối chùm 1x3x3-REP.jpg" alt=""></div>
+                                          <div class="back">Đầu nối chùm (2)</div>
+                                        </div>
+                                      </div>
+                                  </div>
 
-                                <embed src="../../../REA/Buổi 2/List-Buổi 2.pdf" width="100%" height="700px"
-                                    type="application/pdf">
+                                  <script>
+                                    document.querySelectorAll('.flippable').forEach(el => {
+                                      el.addEventListener('click', function () {
+                                        this.classList.toggle('flipme');
+                                      });
+                                    });
+                                  </script>
+                                  
+                            
                             </section>
                             <section id="e">
                                 <h1 class="custom-timeline__heading"
@@ -2786,6 +2955,37 @@
                                                     <span class="carousel-control-next-icon"
                                                         style="background-color: #000 !important; "></span>
                                                 </a>
+<button id="toggleFullscreen" class="btn btn-dark" style="position: absolute; top: 10px; right: 10px; z-index: 999;">
+  ⛶
+</button>
+
+<script>
+   const fsButton = document.getElementById('toggleFullscreen');
+  const carousel = document.getElementById('custCarousel');
+
+  fsButton.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      carousel.requestFullscreen().then(() => {
+        fsButton.innerHTML = '🡼'; // icon thu nhỏ
+      }).catch(err => {
+        alert(`Error attempting to enable full-screen mode: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen().then(() => {
+        fsButton.innerHTML = '⛶'; // icon phóng to
+      });
+    }
+  });
+
+  // Nếu người dùng bấm F11 hoặc ESC ngoài ý muốn, vẫn cập nhật icon lại
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) {
+      fsButton.innerHTML = '⛶';
+    }
+  });
+</script>
+
+
 
                                             </div>
                                         </div>
@@ -2936,11 +3136,25 @@
                                 <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
                                     Thử thách quan sát và lập trình
                                 </h1>
+
+                               
                                
                                 <video style="width: 100%; border: solid 2px white;"  autoplay loop
                                     src="../../../REA/Buổi 2/thử thách.mp4">
 
                                 </video>
+
+                                 <div class="style-c">
+                                                    <details style="font-size: 15px;">
+                                                        <summary>
+                                                            <span class="summary-ttl" data-num="📗">Hướng dẫn thực hiện</span>
+                                                            <span class="summary-icon"></span>
+                                                        </summary>
+
+                                                        <img style="width: 100%; border: solid 2px black;" src="../../../REA/Buổi 2/Hướng dẫn thư thách.png" alt="">
+                                                    </details>
+
+                                                </div>
                             </section>
                             <section id="h">
                                 <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
@@ -3158,7 +3372,7 @@ loadQuestion(currentIndex);
                         const side = wrapper.querySelector(".side > .stick-container");
 
                         // 👉 Gán tên tùy theo từng mục
-                        const labels = ["Giới thiệu", "Mục tiêu", "SnackBot", "Chuẩn bị", "Xây dựng", "Bài học", "Thử thách", "Tổng kết"];
+                        const labels = ["Mục tiêu", "Giới thiệu", "SnackBot", "Chuẩn bị", "Xây dựng", "Bài học", "Thử thách", "Tổng kết"];
 
                         sections.forEach((section, index) => {
                             let link = document.createElement("a");
