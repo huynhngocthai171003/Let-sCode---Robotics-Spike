@@ -3003,10 +3003,10 @@
                                     <label for="tab1">Cấu tạo</label>
 
                                     <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
-                                    <label for="tab2">Thay đổi màu</label>
+                                    <label for="tab2">Nội dung 1</label>
 
                                     <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                                    <label for="tab3">Thay đổi thứ tự</label>
+                                    <label for="tab3">Nội dung 2</label>
 
                                     
                                     <ul>
@@ -3101,7 +3101,7 @@
                                         </li>
 
                                         <li class="tab-content tab-content-3 typography">
-                                            <h5>🧑‍💻 Thay đổi cấu thú tự</h5>
+                                            <h5>🧑‍💻 Thay đổi cấu thứ tự</h5>
                                             <img style="width: 100%; border: solid 2px black;" src="../../../REA/Buổi 2/thay đổi thứ tự.png" alt="">
                                             <div class="style-a">
 
@@ -3156,6 +3156,8 @@
 
                                                 </div>
                             </section>
+
+                            <iframe src="https://platform.buildin3d.com/embed/instructions/4862-b%E1%BB%99-n%C3%A3o-rey" scrolling="no" width="710" height="590" allow="fullscreen" style="border: 0px;" title="Bộ não-REY"></iframe>
                             <section id="h">
                                 <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
                                     Tổng kết buổi học
@@ -3375,23 +3377,31 @@ loadQuestion(currentIndex);
                         const labels = ["Mục tiêu", "Giới thiệu", "SnackBot", "Chuẩn bị", "Xây dựng", "Bài học", "Thử thách", "Tổng kết"];
 
                         sections.forEach((section, index) => {
-                            let link = document.createElement("a");
-                            let label = document.createElement("span");
+    let link = document.createElement("a");
+    let label = document.createElement("span");
 
-                            const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-                            link.style.background = randomColor;
+    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    link.style.background = randomColor;
 
-                            link.href = `#${section.getAttribute("id")}`;
-                            link.classList.add("section_clone");
+    // KHÔNG dùng href nữa để tránh thay đổi hash
+    link.href = "javascript:void(0)";
+    link.classList.add("section_clone");
 
-                            // 👉 Gán tên thay vì số
-                            label.textContent = labels[index] || `Mục ${index + 1}`;
-                            label.style.fontSize = "1rem";
-                            label.style.fontWeight = "600";
+    label.textContent = labels[index] || `Mục ${index + 1}`;
+    label.style.fontSize = "1rem";
+    label.style.fontWeight = "600";
 
-                            link.appendChild(label);
-                            side.appendChild(link);
-                        });
+    link.appendChild(label);
+    side.appendChild(link);
+
+    // 👉 Cuộn mượt đến mục khi click
+    link.addEventListener("click", (e) => {
+        e.preventDefault(); // Ngăn mặc định
+        section.scrollIntoView({ behavior: "smooth" });
+        addInView([index]); // Cập nhật trạng thái mục đang hiển thị
+    });
+});
+
 
                         addInView([0]);
                     })();
