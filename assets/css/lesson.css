@@ -1,9 +1,4 @@
-
-        /* body{
-      font-family: "Baloo Chettan 2", sans-serif !important; ;
-    } */
-
-        .slide-fade-enter-active,
+ .slide-fade-enter-active,
         .slide-fade-leave-active {
             transition: all 0.3s ease;
         }
@@ -648,7 +643,6 @@
         }
 
         .pcss3t .typography h2 {
-            margin-bottom: 10px;
             font-size: 32px;
             line-height: 48px;
             text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
@@ -2375,441 +2369,212 @@
         }
 
         .quiz-container {
-            max-width: 100%;
-            width: 100%;
-            padding: 20px;
-            /* margin-top: 110px; */
-            background: #282828;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-
-        .question {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: #ffffff;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .feedback {
-            margin-top: 20px;
-            font-size: 1.1rem;
-        }
-
-        .controls {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .control-button {
-            padding: 12px 25px;
-            background-color: #00adb5;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .control-button:hover {
-            background-color: #5dd9dd;
-            transform: scale(1.05);
-        }
-
-        .control-button:disabled {
-            background-color: #666666;
-            cursor: not-allowed;
-        }
-
-        .option-button {
-            padding: 15px;
-            background-color: #444444;
-            color: #ffffff;
-            border: 1px solid #00adb5;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .option-button:hover {
-            background-color: #5dd9dd;
-            transform: translateY(-3px);
-        }
-
-        .option-button:disabled {
-            background-color: #333333;
-            cursor: not-allowed;
-        }
-
-        .progress-bar {
-            height: 10px;
-            width: 100%;
-            background-color: #444444;
-            border-radius: 5px;
-            margin: 20px 0;
-            position: relative;
-        }
-
-        .progress-bar>.progress {
-            height: 100%;
-            background-color: #00adb5;
-            border-radius: 5px;
-            width: 0%;
-            transition: width 0.4s ease;
-        }
-
-        .score {
-            margin-top: 20px;
-            font-size: 1.3rem;
-            color: #00adb5;
-        }
-
-        .flip-container {
-            perspective: 1000px;
-            margin: 10px;
-            float: left;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .flip-container,
-        .front,
-        .back {
-            width: 200px;
-            height: 200px;
-            /* line-height: 200px; */
-            text-align: center;
-            font-size: 40px;
-            border-radius: 5px;
-        }
-
-        .flip-container .front img {
-            border-radius: 40px;
-        }
-
-        .flippable {
-            transition: 0.5s;
-            transform-style: preserve-3d;
-            position: relative;
-        }
-
-        .flipme {
-            transform: rotateY(180deg);
-        }
-
-        .front,
-        .back {
-            backface-visibility: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .front {
-            z-index: 2;
-            color: white;
-            background: #1189d1;
-        }
-
-        .front span {
-            font-size: 20px;
-            position: absolute;
-            top: -30px;
-            left: 10px;
-            font-family: Verdana, sans-serif;
-        }
-
-        .back {
-            transform: rotateY(180deg);
-            font-size: 18px;
-            border: 1px solid;
-            font-family: Verdana, sans-serif;
-            color: white;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-
-            white-space: normal;
-            /* ✅ Cho phép xuống dòng */
-            line-height: 1.2;
-            padding: 10px;
-            /* ✅ Tạo khoảng cách */
-            overflow-wrap: break-word;
-
-        }
-
-        /* Màu từng loại */
-        .ac-blue .front {
-            background: #1189d1;
-        }
-
-        .ac-blue .back {
-            background: #0c5f90;
-            border-color: #60c2f5;
-        }
-
-        .ac-green .front {
-            background: #18b755;
-        }
-
-        .ac-green .back {
-            background: #116a35;
-            border-color: #5be28c;
-        }
-
-        .ac-yellow .front {
-            background: #f3b50b;
-        }
-
-        .ac-yellow .back {
-            background: #996f00;
-            border-color: #f8d562;
-        }
-
-        .ac-red .front {
-            background: #ef2809;
-        }
-
-        .ac-red .back {
-            background: #9f2e06;
-            border-color: #f98f61;
-        }
-
-        .ac-purple .front {
-            background: #e809e0;
-        }
-
-        .ac-purple .back {
-            background: #ab09a6;
-            border-color: #f26f58;
-        }
-
-        .ac-black .front {
-            background: #aba7ab;
-        }
-
-        .ac-black .back {
-            background: #625e5e;
-            border-color: #f26f58;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .main-profile {
-            background-image: url(../images/lesson-background.png);
-            border: solid 3px black;
-        }
-
-        .custom-slider-container {
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-        }
-
-        .custom-slider-track {
-            display: flex;
-            width: 100%;
-            max-width: 90%;
-            margin-left: 5%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out, opacity 0.25s ease-in-out;
-            opacity: 1;
-        }
-
-        .custom-slider-slide {
-            width: 100%;
-            height: 100%;
-            flex-shrink: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 0;
-            font-size: 1.5rem;
-            text-align: center;
-        }
-
-        .custom-slider-content {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            margin: 5px;
-            background: linear-gradient(135deg, #ebc901, #ffffff);
-            box-shadow: 0 0 15px rgb(0 0 0 / 8%);
-            border-radius: 25px;
-        }
-
-        .custom-slider-menu {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            padding: 10px 0;
-            background: rgba(59, 67, 117, 0.49);
-            border-radius: 30px;
-            box-shadow: 0 0 15px rgb(0 0 0 / 8%);
-        }
-
-        .custom-slider-menu-item {
-            margin: 0 10px;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #ffffff;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .custom-slider-menu-item:hover {
-            color: #87cefa;
-        }
-
-        .custom-slider-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(125, 137, 217, 0.5);
-            box-shadow: 0 0 15px rgb(0 0 0 / 8%);
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .custom-slider-menu-item:hover .custom-slider-icon,
-        .custom-slider-menu-item.active .custom-slider-icon {
-            background: rgba(255, 255, 255, 0.68);
-            color: rgb(60, 68, 119);
-        }
-
-
-
-        :root {
-            --custom-main-color: #676f77;
-            --custom-bg-color: #e0e0e0;
-            --custom-light-shadow: #fff;
-            --custom-dark-shadow: #989898;
-            --custom-stroke-color: rgba(200, 200, 200, 0.7);
-        }
-
-
-
-        .custom-timer-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .custom-timer-background {
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            position: absolute;
-            margin: auto;
-            background: var(--custom-bg-color);
-            transition: box-shadow 1s, background 0.5s;
-        }
-
-        .custom-timer-inner {
-            width: 360px;
-            height: 360px;
-            border-radius: 50%;
-            background: var(--custom-bg-color);
-            box-shadow: 34px 34px 68px var(--custom-dark-shadow),
-                -34px -34px 40px var(--custom-light-shadow);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: box-shadow 1s, background 0.5s;
-        }
-
-        .custom-timer-form {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            flex-direction: column;
-        }
-
-        #custom-timer-duration {
-            font-size: 60px;
-            width: 270px;
-            text-align: center;
-            border: none;
-            background: transparent;
-            font-family: 'Azeret Mono', monospace;
-            color: var(--custom-main-color);
-        }
-
-        .custom-timer-buttons {
-            display: flex;
-            justify-content: space-around;
-            margin: 10px;
-        }
-
-        .custom-timer-btn {
-            width: 40px;
-            height: 40px;
-            padding: 10px;
-            border-radius: 10px;
-            background: var(--custom-bg-color);
-            box-shadow: 5px 5px 11px var(--custom-dark-shadow),
-                -5px -5px 9px var(--custom-light-shadow);
-            color: var(--custom-main-color);
-            cursor: pointer;
-        }
-
-        .custom-timer-btn:hover {
-            box-shadow: 5px 5px 8px var(--custom-dark-shadow),
-                -5px -5px 6px var(--custom-light-shadow);
-        }
-
-        .custom-timer-btn:active {
-            box-shadow: inset 5px 5px 9px var(--custom-dark-shadow),
-                -5px -5px 9px var(--custom-light-shadow);
-        }
-
-        .custom-timer-animation {
-            animation: custom-bounce .6s infinite;
-        }
-
-        @keyframes custom-bounce {
-            0% {
-                transform: scale(1);
-            }
-
-            10% {
-                transform: scale(1.2);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .main-profile .main-info h4{
-            font-family: "Baloo Chettan 2", sans-serif !important;
-        }
-
-        /* .flippable .front img{
+  max-width: 100%;
+  width: 100%;
+  padding: 20px;
+  /* margin-top: 110px; */
+  background: #282828;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.question {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feedback {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.control-button {
+  padding: 12px 25px;
+  background-color: #00adb5;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.control-button:hover {
+  background-color: #5dd9dd;
+  transform: scale(1.05);
+}
+
+.control-button:disabled {
+  background-color: #666666;
+  cursor: not-allowed;
+}
+
+.option-button {
+  padding: 15px;
+  background-color: #444444;
+  color: #ffffff;
+  border: 1px solid #00adb5;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.option-button:hover {
+  background-color: #5dd9dd;
+  transform: translateY(-3px);
+}
+
+.option-button:disabled {
+  background-color: #333333;
+  cursor: not-allowed;
+}
+
+.progress-bar {
+  height: 10px;
+  width: 100%;
+  background-color: #444444;
+  border-radius: 5px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.progress-bar > .progress {
+  height: 100%;
+  background-color: #00adb5;
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.score {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  color: #00adb5;
+}
+.flip-container {
+  perspective: 1000px;
+  margin: 10px;
+  float: left;
+  cursor: pointer;
+  position: relative;
+}
+
+.flip-container, .front, .back {
+  width: 200px;
+  height: 200px;
+  /* line-height: 200px; */
+  text-align: center;
+  font-size: 40px;
+  border-radius: 5px;
+}
+
+.flip-container .front img{
+    border-radius: 40px;
+}
+
+.flippable {
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flipme {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  z-index: 2;
+  color: white;
+  background: #1189d1;
+}
+
+.front span {
+  font-size: 20px;
+  position: absolute;
+  top: -30px;
+  left: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+.back {
+  transform: rotateY(180deg);
+  font-size: 18px;
+  border: 1px solid;
+  font-family: Verdana, sans-serif;
+  color: white;
+
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  white-space: normal; /* ✅ Cho phép xuống dòng */
+  line-height: 1.2;
+  padding: 10px;       /* ✅ Tạo khoảng cách */
+  overflow-wrap: break-word;
+  
+}
+
+/* Màu từng loại */
+.ac-blue .front { background: #1189d1; }
+.ac-blue .back { background: #0c5f90; border-color: #60c2f5; }
+
+.ac-green .front { background: #18b755; }
+.ac-green .back { background: #116a35; border-color: #5be28c; }
+
+.ac-yellow .front { background: #f3b50b; }
+.ac-yellow .back { background: #996f00; border-color: #f8d562; }
+
+.ac-red .front { background: #ef2809; }
+.ac-red .back { background: #9f2e06; border-color: #f98f61; }
+
+.ac-purple .front { background: #e809e0; }
+.ac-purple .back { background: #ab09a6; border-color: #f26f58; }
+
+.ac-black .front { background: #aba7ab; }
+.ac-black .back { background: #625e5e; border-color: #f26f58; }
+
+.ac-orange .front { background: #d46723; }
+.ac-orange .back { background: #eb9620; border-color: #f26f58; }
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.main-profile{
+    background-image: url(../images/lesson-background.png);
+    border: solid 3px black;
+}
+
+.instruction-content li{
+    font-size: 18px;
+}
+
+/* .flippable .front img{
     border-radius: 20px
 } */
