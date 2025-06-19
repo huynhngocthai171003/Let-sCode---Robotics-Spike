@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Let's Code - Robotics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../../css/fontawesome.css">
+    <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="../../../css/owl.css">
+    <link rel="stylesheet" href="../../../css/animate.css">
+    <link rel="stylesheet" href="../../../../assets/css/lesson.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="apple-touch-icon"
+        href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+        sizes="192x192">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png"
+        sizes="32x32">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <script src="../../../js/include.js" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Mặc định: ảnh hiển thị bình thường */
+        #custCarousel .carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            /* Hoặc contain, tùy bạn */
+        }
+
+        /* Khi carousel fullscreen */
+        #custCarousel:fullscreen {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+        }
+
+        /* Ảnh trong fullscreen */
+        #custCarousel:fullscreen .carousel-item img {
+            width: auto;
+            height: 100vh;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .scrollable-materials {
+            width: 102%;
+            max-height: 700px;
+            /* bạn có thể điều chỉnh chiều cao tối đa tùy ý */
+            overflow-y: auto;
+            padding-right: 10px;
+            /* để không bị che mất thanh scroll */
+        }
+
+        /* (Tùy chọn) Làm đẹp thanh cuộn nếu muốn */
+        .scrollable-materials::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-materials::-webkit-scrollbar-thumb {
+            background-color: rgba(94, 100, 214, 0.2);
+            border-radius: 3pxrgba(44, 37, 173, 0.2)
+        }
+
+        .no-bullets li:before{
+    content: none !important;
+  }
+
+  .custom-step-list {
+  font-family: Montserrat, sans-serif;
+  list-style: none;
+  counter-reset: step-counter;
+  padding: 0 1rem;
+}
+
+.custom-step-list li {
+  --stop: calc(100% / var(--length) * var(--i));
+  --l: 62%;
+  --l2: 88%;
+  --h: calc((var(--i) - 1) * (180 / var(--length)));
+  --c1: hsl(var(--h), 71%, var(--l));
+  --c2: hsl(var(--h), 71%, var(--l2));
+
+  position: relative;
+  counter-increment: step-counter;
+  max-width: 45rem;
+  margin: 2rem auto;
+  padding: 2rem 1rem 1rem;
+  box-shadow: 0.1rem 0.1rem 1.5rem rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background-color: white;
+}
+
+.custom-step-list li::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, var(--c1) var(--stop), var(--c2) var(--stop));
+}
+
+.custom-step-list h3 {
+  display: flex;
+  align-items: baseline;
+  margin: 0 0 1rem;
+  color: rgb(70, 70, 70);
+  font-weight: 700;
+}
+
+.custom-step-list h3::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  content: counter(step-counter);
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: var(--c1);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.custom-step-list p {
+    color: #000;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (min-width: 40em) {
+  .custom-step-list li {
+    margin: 3rem auto;
+    padding: 3rem 2rem 2rem;
+  }
+
+  .custom-step-list h3 {
+    font-size: 2.25rem;
+    margin: 0 0 2rem;
+  }
+
+  .custom-step-list h3::before {
+    margin-right: 1.5rem;
+  }
+}
+
+.scrollable-list {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+/* Tuỳ chọn làm đẹp thanh cuộn */
+.scrollable-list::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollable-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <div data-include="../../header.html"></div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                // Gắn lại sự kiện cho menu sau khi include xong header
+                const script = document.createElement('script');
+                script.src = "../../../js/custom.js";
+                document.body.appendChild(script);
+
+                // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-content">
+
+                    <!-- ***** Banner Start ***** -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-profile ">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <img src="../../../images/REA/img-rea-bai12.png" alt=""
+                                            style="border-radius: 23px;">
+                                    </div>
+                                    <div class="col-lg-4 align-self-center">
+                                        <div class="main-info header-text">
+
+                                            <span>Khối biểu tượng</span>
+                                            <h4 style="color: #000 !important;  font-family: 'Baloo Chettan 2', sans-serif !important">Buổi 12: Thực hành 1</h4>
+                                            <p style="color: #000 !important">
+                                                Mô hình “Chú khủng long”
+                                            </p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="wrapper" style="font-family: 'Baloo Chettan 2', sans-serif !important">
+                        <div class="side">
+                            <div class="stick-container"></div>
+                        </div>
+                        <div class="main">
+                            <section id="a">
+
+
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục
+                                    tiêu bài học
+                                </h1>
+                                <div class="accordion-container">
+  <input type="radio" id="acc-tab-1" name="accordion" checked>
+  <label for="acc-tab-1" class="accordion-label">
+    <h2>🎓 Kiến thức</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Học sinh nhận biết được cấu tạo mô hình khủng long: thân, đầu, chân, đuôi và điểm gắn động cơ.</li>
+      <li>✔️ Hiểu cách sử dụng khối lệnh cơ bản trong SPIKE như: <strong>Motor Blocks</strong> (gật đầu, đuôi vẫy, nhai),
+      <li>✔️ Biết cách kết hợp nhiều loại khối lệnh để lập trình một chuyển động mô phỏng sinh vật sống.</li>
+    </ul>
+  </div>
+
+  <input type="radio" id="acc-tab-2" name="accordion">
+  <label for="acc-tab-2" class="accordion-label">
+    <h2>🛠️ Kỹ năng</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Lắp ráp mô hình khủng long chính xác, đảm bảo phần gắn motor chắc chắn và hoạt động mượt.</li>
+      <li>✔️ Viết chương trình cho robot khủng long thực hiện các hành động như: gầm lên, há miệng.</li>
+      <li>✔️ Biết kiểm tra, chạy thử và chỉnh sửa lệnh lập trình khi robot chưa hoạt động như mong muốn.</li>
+    </ul>
+  </div>
+
+  <input type="radio" id="acc-tab-3" name="accordion">
+  <label for="acc-tab-3" class="accordion-label">
+    <h2>💡 Tư duy</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Rèn luyện tư duy tuần tự – logic – đồng bộ hóa hành vi, khi lập trình robot hoạt động phối hợp.</li>
+      <li>✔️ Phân tích và thử nghiệm để cải tiến chuyển động, âm thanh và thời gian giữa các hành động.</li>
+      <li>✔️ Sáng tạo trong cách mô phỏng hành vi: tạo biểu cảm, tiếng gầm, tư thế khủng long bước đi, v.v.</li>
+    </ul>
+  </div>
+
+  <input type="radio" id="acc-tab-4" name="accordion">
+  <label for="acc-tab-4" class="accordion-label">
+    <h2>❤️ Thái độ</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Thể hiện sự tò mò, yêu thích và chủ động học hỏi khi điều khiển robot khủng long.</li>
+      <li>✔️ Kiên trì và cẩn thận khi lắp ráp mô hình kỹ thuật có cấu trúc phức tạp.</li>
+      <li>✔️ Làm việc nhóm tích cực, biết lắng nghe, chia sẻ ý tưởng và hỗ trợ bạn trong quá trình hoàn thành mô hình.</li>
+    </ul>
+  </div>
+</div>
+
+
+
+                            </section>
+                            <section id="b" class="row">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
+                                    thiệu nội dung bài học
+                                </h1>
+                                <ul class="custom-timeline__list">
+                                    <li class="custom-timeline__item" style="--accent-color:#41516C">
+                                        <div class="custom-timeline__date">Giới thiệu mô hình</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
+                                        <div class="custom-timeline__date">Chuẩn bị vật liệu</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                                        <div class="custom-timeline__date">Xây dựng mô hình</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
+                                        <div class="custom-timeline__date">Ôn tập: Âm thanh và chuyển động
+                                        </div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#4CADAD">
+                                        <div class="custom-timeline__date">Hoạt động thử thách</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#868bfc">
+                                        <div class="custom-timeline__date">Tổng kết bài học</div>
+                                    </li>
+
+                                </ul>
+                            </section>
+                            <section id="c" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                                    Giới thiệu mô hình
+                                </h1>
+                                <video style="width: 100%" controls src="../../../REA/Buổi 12/buổi 12.mp4">
+
+                                </video>
+
+
+                            </section>
+                            <section id="d" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                                    Chuẩn bị vật liệu
+                                </h1>
+                                <div class="container mt-4 position-relative scrollable-materials">
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-red">
+      <div class="front"><img src="../../../Element/REA/Ống lót-RER.jpg" alt="Ống lót"></div>
+      <div class="back">Ống lót (1)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-red">
+      <div class="front"><img src="../../../Element/REA/Trục 2-RER.jpg" alt="Trục 2"></div>
+      <div class="back">Trục 2 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-yellow">
+      <div class="front"><img src="../../../Element/REA/Gạch có lỗ chéo 1x2-REY.jpg" alt="Gạch có lỗ chéo 1x2"></div>
+      <div class="back">Gạch có lỗ chéo 1x2 (4)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-yellow">
+      <div class="front"><img src="../../../Element/REA/Trục 3-REY.jpg" alt="Trục 3"></div>
+      <div class="back">Trục 3 (1)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-yellow">
+      <div class="front"><img src="../../../Element/REA/Bộ não-REY.jpg" alt="Bộ não"></div>
+      <div class="back">Bộ não (1)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-yellow">
+      <div class="front"><img src="../../../Element/REA/Pin-REY.jpg" alt="Pin"></div>
+      <div class="back">Pin (1)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-green">
+      <div class="front"><img src="../../../Element/REA/Gạch có lỗ chéo 2x4-REG.jpg" alt="Gạch có lỗ chéo 2x4"></div>
+      <div class="back">Gạch có lỗ chéo 2x4 (3)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-green">
+      <div class="front"><img src="../../../Element/REA/Ngói 2x4-REG.jpg" alt="Ngói 2x4"></div>
+      <div class="back">Ngói 2x4 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-green">
+      <div class="front"><img src="../../../Element/REA/Chốt kết nối-REG.jpg" alt="Chốt kết nối"></div>
+      <div class="back">Chốt kết nối (7)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-green">
+      <div class="front"><img src="../../../Element/REA/Gạch mái 1x2-REG.jpg" alt="Gạch mái 1x2"></div>
+      <div class="back">Gạch mái 1x2 (4)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-green">
+      <div class="front"><img src="../../../Element/REA/Chùm góc-REG.jpg" alt="Chùm góc"></div>
+      <div class="back">Chùm góc (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-green">
+      <div class="front"><img src="../../../Element/REA/Tấm có lỗ 2x8-REG.jpg" alt="Tấm có lỗ 2x8"></div>
+      <div class="back">Tấm có lỗ 2x8 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-green">
+      <div class="front"><img src="../../../Element/REA/Dầm đính đá 1x16-REG.jpg" alt="Dầm đính đá 1x16"></div>
+      <div class="back">Dầm đính đá 1x16 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-orange">
+      <div class="front"><img src="../../../Element/REA/Dầm 1x2 -REO.jpg" alt="Dầm 1x2"></div>
+      <div class="back">Dầm 1x2 (4)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-orange">
+      <div class="front"><img src="../../../Element/REA/Gạch 1x4-REO.jpg" alt="Gạch 1x4"></div>
+      <div class="back">Gạch 1x4 (1)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-orange">
+      <div class="front"><img src="../../../Element/REA/Dầm góc 4x6-REO.jpg" alt="Dầm góc 4x6"></div>
+      <div class="back">Dầm góc 4x6 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-orange">
+      <div class="front"><img src="../../../Element/REA/Tấm có lỗ 2x4-REO.jpg" alt="Tấm có lỗ 2x4"></div>
+      <div class="back">Tấm có lỗ 2x4 (1)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-orange">
+      <div class="front"><img src="../../../Element/REA/Dầm đính đá 1x12-REO.jpg" alt="Dầm đính đá 1x12"></div>
+      <div class="back">Dầm đính đá 1x12 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-blue">
+      <div class="front"><img src="../../../Element/REA/Gạch 1x2-REB.jpg" alt="Gạch 1x2"></div>
+      <div class="back">Gạch 1x2 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-blue">
+      <div class="front"><img src="../../../Element/REA/Tấm cong có đinh tán-REB.jpg" alt="Tấm cong có đinh tán"></div>
+      <div class="back">Tấm cong có đinh tán 2x2x2/3 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-blue">
+      <div class="front"><img src="../../../Element/REA/Ngói 2x4-REB.jpg" alt="Ngói 2x4"></div>
+      <div class="back">Ngói 2x4 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-blue">
+      <div class="front"><img src="../../../Element/REA/Tia 7 lỗ-REB.jpg" alt="Tia 7 lỗ"></div>
+      <div class="back">Tia 7 lỗ (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-blue">
+      <div class="front"><img src="../../../Element/REA/Dầm đính đá1x8-REJG.jpg" alt="Dầm đính đá 1x8"></div>
+      <div class="back">Dầm đính đá 1x8 (4)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-blue">
+      <div class="front"><img src="../../../Element/REA/Tấm có lỗ-REJG.jpg" alt="Tấm có lỗ"></div>
+      <div class="back">Tấm có lỗ (4)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-purple">
+      <div class="front"><img src="../../../Element/REA/Gạch nón 1x1-REP.jpg" alt="Gạch nón 1x1"></div>
+      <div class="back">Gạch nón 1x1 (6)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-purple">
+      <div class="front"><img src="../../../Element/REA/Gạch mái 2x2-REP.jpg" alt="Gạch mái 2x2"></div>
+      <div class="back">Gạch mái 2x2 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-purple">
+      <div class="front"><img src="../../../Element/REA/Dấm đính đá 1x4-REP.jpg" alt="Dầm đính đá 1x4"></div>
+      <div class="back">Dầm đính đá 1x4 (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-purple">
+      <div class="front"><img src="../../../Element/REA/Đĩa tròn 4x4-REP.jpg" alt="Đĩa tròn 4x4"></div>
+      <div class="back">Đĩa tròn 4x4 (1)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-black">
+      <div class="front"><img src="../../../Element/REA/Trung tâm,ròng rọc-REW.jpg" alt="Trung tâm/ ròng rọc"></div>
+      <div class="back">Trung tâm/ ròng rọc (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-black">
+      <div class="front"><img src="../../../Element/REA/Động cơ xoay-REW.jpg" alt="Động cơ xoay"></div>
+      <div class="back">Động cơ xoay (1)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-black">
+      <div class="front"><img src="../../../Element/REA/Chốt kết nối-REW.jpg" alt="Chốt kết nối"></div>
+      <div class="back">Chốt kết nối (4)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-black">
+      <div class="front"><img src="../../../Element/REA/Dầm cao su có lỗ chéo-REBL.jpg" alt="Dầm cao su có lỗ chéo"></div>
+      <div class="back">Dầm cao su có lỗ chéo (2)</div>
+    </div>
+  </div>
+
+  <div class="flip-container">
+    <div class="flippable appcon ac-black">
+      <div class="front"><img src="../../../Element/REA/Chốt kết nối có ma sát-REBL.jpg" alt="Chốt kết nối có ma sát"></div>
+      <div class="back">Chốt kết nối có ma sát (17)</div>
+    </div>
+  </div>
+
+</div>
+
+
+
+                                <script>
+                                    document.querySelectorAll('.flippable').forEach(el => {
+                                        el.addEventListener('click', function () {
+                                            this.classList.toggle('flipme');
+                                        });
+                                    });
+                                </script>
+
+
+                            </section>
+                            <section id="e">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Lắp ráp mô hình
+                                </h1>
+                                <div class="container" style="padding-bottom: 20px;">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="custCarousel" class="carousel slide carousel-fade"
+                                                data-ride="carousel" align="center" data-interval="false">
+                                                <!-- slides -->
+                                              <div class="carousel-inner">
+  <div class="carousel-item active">
+    <img src="../../../REA/Buổi 12/1_2x_1_11zon.webp" alt="Buổi 12 Slide 1">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/2_2x_2_11zon.webp" alt="Buổi 12 Slide 2">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/3_2x_3_11zon.webp" alt="Buổi 12 Slide 3">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/4_2x_4_11zon.webp" alt="Buổi 12 Slide 4">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/5_2x_5_11zon.webp" alt="Buổi 12 Slide 5">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/6_2x_6_11zon.webp" alt="Buổi 12 Slide 6">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/7_2x_7_11zon.webp" alt="Buổi 12 Slide 7">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/8_2x_8_11zon.webp" alt="Buổi 12 Slide 8">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/9_2x_9_11zon.webp" alt="Buổi 12 Slide 9">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/10_2x_10_11zon.webp" alt="Buổi 12 Slide 10">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/11_2x_11_11zon.webp" alt="Buổi 12 Slide 11">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/12_2x_12_11zon.webp" alt="Buổi 12 Slide 12">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/13_2x_13_11zon.webp" alt="Buổi 12 Slide 13">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/14_2x_14_11zon.webp" alt="Buổi 12 Slide 14">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/15_2x_15_11zon.webp" alt="Buổi 12 Slide 15">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/16_2x_16_11zon.webp" alt="Buổi 12 Slide 16">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/17_2x_17_11zon.webp" alt="Buổi 12 Slide 17">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/18_2x_18_11zon.webp" alt="Buổi 12 Slide 18">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/19_2x_19_11zon.webp" alt="Buổi 12 Slide 19">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/20_2x_20_11zon.webp" alt="Buổi 12 Slide 20">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/21_2x_21_11zon.webp" alt="Buổi 12 Slide 21">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/22_2x_22_11zon.webp" alt="Buổi 12 Slide 22">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/23_2x_23_11zon.webp" alt="Buổi 12 Slide 23">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/24_2x_24_11zon.webp" alt="Buổi 12 Slide 24">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/25_2x_25_11zon.webp" alt="Buổi 12 Slide 25">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/26_2x_26_11zon.webp" alt="Buổi 12 Slide 26">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/27_2x_27_11zon.webp" alt="Buổi 12 Slide 27">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/28_2x_28_11zon.webp" alt="Buổi 12 Slide 28">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/29_2x_29_11zon.webp" alt="Buổi 12 Slide 29">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/30_2x_30_11zon.webp" alt="Buổi 12 Slide 30">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/31_2x_31_11zon.webp" alt="Buổi 12 Slide 31">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/32_2x_32_11zon.webp" alt="Buổi 12 Slide 32">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/33_2x_33_11zon.webp" alt="Buổi 12 Slide 33">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/34_2x_34_11zon.webp" alt="Buổi 12 Slide 34">
+  </div>
+  <div class="carousel-item">
+    <img src="../../../REA/Buổi 12/35_2x_35_11zon.webp" alt="Buổi 12 Slide 35">
+  </div>
+</div>
+
+
+                                                <!-- Left right -->
+                                                <a class="carousel-control-prev" href="#custCarousel" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon"
+                                                        style="background-color: #000 !important; "></span>
+                                                </a>
+                                                <a class="carousel-control-next" href="#custCarousel" data-slide="next">
+                                                    <span class="carousel-control-next-icon"
+                                                        style="background-color: #000 !important; "></span>
+                                                </a>
+                                                <button id="toggleFullscreen" class="btn btn-dark"
+                                                    style="position: absolute; top: 10px; right: 10px; z-index: 999;">
+                                                    ⛶
+                                                </button>
+
+                                                <script>
+                                                    const fsButton = document.getElementById('toggleFullscreen');
+                                                    const carousel = document.getElementById('custCarousel');
+
+                                                    fsButton.addEventListener('click', () => {
+                                                        if (!document.fullscreenElement) {
+                                                            carousel.requestFullscreen().then(() => {
+                                                                fsButton.innerHTML = '🡼'; // icon thu nhỏ
+                                                            }).catch(err => {
+                                                                alert(`Error attempting to enable full-screen mode: ${err.message}`);
+                                                            });
+                                                        } else {
+                                                            document.exitFullscreen().then(() => {
+                                                                fsButton.innerHTML = '⛶'; // icon phóng to
+                                                            });
+                                                        }
+                                                    });
+
+                                                    // Nếu người dùng bấm F11 hoặc ESC ngoài ý muốn, vẫn cập nhật icon lại
+                                                    document.addEventListener('fullscreenchange', () => {
+                                                        if (!document.fullscreenElement) {
+                                                            fsButton.innerHTML = '⛶';
+                                                        }
+                                                    });
+                                                </script>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="f">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Ôn tập khối động cơ (Motor Blocks)
+                                </h1>
+                                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                                    <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
+                                    <label for="tab1">Motor Blocks</label>
+
+                                    <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
+                                    <label for="tab2">Nội dung 1</label>
+
+                                     <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                    <label for="tab3">Nội dung 2</label>
+
+                                    <ul>
+                                        <li class="tab-content tab-content-first typography">
+  <h2>🧑‍💻 Khối lệnh đặt tốc độ</h2>
+  <div class="row instruction-block">
+    <div class="col-md-5 text-center">
+      <img src="../../../REA/Buổi 5/help-icon-motorSpeed.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+      <div class="instruction-content">
+        <p style="color: #000;"> <strong>Mô tả:</strong> Khối này cho phép thay đổi tốc độ của động cơ kết nối với Hub.</p>
+        <ul>
+          <li>Các mức tốc độ: 15%, 40%, 70%, 100% (hiển thị bằng vạch xanh lá).</li>
+          <li>Tác dụng từ thời điểm đặt khối, không ảnh hưởng tới động cơ đang chạy.</li>
+          <li>Mặc định: 40% nếu chưa đặt tốc độ.</li>
+        </ul>
+        <p style="color: #000;"> <strong>Cách sử dụng:</strong> Đặt khối này trước khối chạy động cơ.</p>
+        <p><strong>Ví dụ:</strong></p>
+        <img src="../../../REA/Buổi 5/gecko_block_help_example_horizontalmotor_motorsetspeed_en.svg" alt="" class="instruction-example">
+        <p style="color: #000;" class="example-note">Động cơ xoay 1 vòng với tốc độ mặc định (40%), sau đó xoay ngược với tốc độ 100%.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>🧑‍💻 Khối động cơ ngược chiều kim đồng hồ</h2>
+  <div class="row instruction-block">
+    <div class="col-md-5 text-center">
+      <img src="../../../REA/Buổi 5/help-icon-motorCounterclockwise.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+  <div class="instruction-content">
+    <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp động cơ xoay <strong>ngược chiều kim đồng hồ</strong>. Tốc độ có thể thay đổi bằng khối lệnh "Đặt tốc độ động cơ".</p>
+
+    <ul>
+      <li>Nhấn vào <strong>mũi tên trắng</strong> trên khối để mở bảng tùy chọn.</li>
+      <li>Dùng nút <strong>+</strong> hoặc <strong>-</strong> để tăng/giảm số vòng quay đầy đủ.</li>
+      <li>Dùng núm xoay để điều chỉnh theo đơn vị 0.25 vòng.</li>
+    </ul>
+
+    <p style="color: #000;"><strong>Cách sử dụng:</strong> Kết hợp khối này với khối “Đặt tốc độ” để điều khiển hướng và số vòng quay mong muốn.</p>
+
+    <p><strong>Ví dụ:</strong></p>
+    <img src="../../../REA/Buổi 5/gecko_block_help_example_horizontalmotor_motorturncounterclockwiserotations_en.svg" alt="" class="instruction-example">
+    <p style="color: #000;" class="example-note">Chương trình này sẽ làm động cơ xoay <strong>ngược chiều kim đồng hồ</strong> trong <strong>2.5 vòng</strong>.</p>
+  </div>
+</div>
+
+  </div>
+
+
+  <h2>🧑‍💻 Khối động cơ theo chiều kim đồng hồ</h2>
+  <div class="row instruction-block">
+    <div class="col-md-5 text-center">
+      <img src="../../../REA/Buổi 5/help-icon-motorClockwise.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+  <div class="instruction-content">
+    <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp động cơ xoay <strong>theo chiều kim đồng hồ</strong>. Tốc độ có thể thay đổi bằng khối lệnh “Đặt tốc độ động cơ”.</p>
+
+    <ul>
+      <li>Nhấn vào <strong>mũi tên trắng</strong> trên khối để mở bảng tùy chọn.</li>
+      <li>Dùng nút <strong>+</strong> hoặc <strong>-</strong> để tăng/giảm số vòng quay đầy đủ.</li>
+      <li>Dùng núm xoay để điều chỉnh theo đơn vị <strong>0.25 vòng</strong>.</li>
+    </ul>
+
+    <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt khối này sau khối “Đặt tốc độ” để điều khiển số vòng quay theo chiều mong muốn.</p>
+
+    <p><strong>Ví dụ:</strong></p>
+    <img src="../../../REA/Buổi 5/gecko_block_help_example_horizontalmotor_motorturnclockwiserotations_en.svg" alt="" class="instruction-example">
+    <p style="color: #000;" class="example-note">Chương trình này sẽ làm động cơ xoay <strong>theo chiều kim đồng hồ</strong> trong <strong>2.5 vòng</strong>.</p>
+  </div>
+</div>
+
+
+  </div>
+
+
+  <h2>🧑‍💻 Khối dừng động cơ</h2>
+  <div class="row instruction-block">
+    <div class="col-md-5 text-center">
+      <img src="../../../REA/Buổi 5/help-icon-motorStop.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+  <div class="instruction-content">
+    <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này dùng để <strong>dừng tất cả các động cơ</strong> đang chạy trên Hub.</p>
+
+    <ul>
+      <li>Ngay khi khối được thực thi, mọi động cơ đang hoạt động sẽ dừng lại lập tức.</li>
+      <li>Không cần chỉ định cổng – khối áp dụng cho <strong>tất cả các động cơ</strong> đã kết nối.</li>
+    </ul>
+
+    <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt khối này sau các khối chạy động cơ để kết thúc hành động một cách rõ ràng.</p>
+
+
+  </div>
+</div>
+
+
+
+  </div>
+</li>
+                                       <li class="tab-content tab-content-2 typography">
+                                            <h2>🧑‍💻 Tạo chương trình đầu tiên</h2>
+                                            <img src="../../../REA/Buổi 12/baihoc_12.png" alt=""
+                                                class="instruction-image">
+                                            <div class="style-a">
+
+
+                                        </li>
+
+                                        <li class="tab-content tab-content-3 typography">
+                                           <h2>Quan sát cấu tạo</h2>
+<div class="row instruction-block">
+    <div class="col-md-12">
+        <div class="instruction-content">
+           <ul class="no-bullets">
+  <li><strong>Giáo viên hướng dẫn:</strong></li>
+  <li>✔️ Trưng bày mô hình khủng long từ nhiều góc nhìn để học sinh quan sát rõ các chi tiết.</li>
+  <li>✔️ Gợi ý học sinh đặt câu hỏi như: “Bộ phận này dùng để làm gì?”, “Tại sao đặt động cơ ở đây?”.</li>
+  <li>✔️ Minh họa rõ từng bộ phận bằng hình ảnh hoặc trình chiếu phóng to.</li>
+  <li>✔️ Khuyến khích học sinh nêu cảm nhận hoặc ý tưởng cải tiến mô hình.</li>
+  <li>✔️ Tạo không khí lớp học cởi mở, sáng tạo – khơi gợi tư duy thiết kế như kỹ sư nhí.</li>
+
+  <li><strong>Học sinh quan sát:</strong></li>
+  <li>👀 Quan sát chi tiết các bộ phận của chú khủng long:</li>
+  <ul>
+    <li>🔹 <strong>Đầu:</strong> cấu trúc to, có răng, gắn động cơ để há/đóng miệng.</li>
+    <li>🔹 <strong>Mắt:</strong> có thể là sticker hoặc LED, biểu cảm sống động.</li>
+    <li>🔹 <strong>Cổ:</strong> nối khớp giúp xoay đầu.</li>
+    <li>🔹 <strong>Thân:</strong> khối vững chắc, gắn các bộ phận còn lại.</li>
+    <li>🔹 <strong>Chân:</strong> có khớp để mô phỏng bước đi hoặc nhún.</li>
+    <li>🔹 <strong>Đuôi:</strong> nối dài phía sau, có thể gắn motor để vẫy đuôi.</li>
+  </ul>
+
+  <li>🎮 Biết cách thay đổi linh hoạt các khối lệnh điều khiển:</li>
+  <ul>
+    <li>✔️ Điều chỉnh tốc độ nhanh/chậm.</li>
+    <li>✔️ Thêm hành động: xoay trái/phải, dừng lại, lặp lại.</li>
+  </ul>
+
+  <li>📢 Trình bày mô hình một cách tự tin:</li>
+  <ul>
+    <li>✔️ Diễn đạt được ý tưởng, mục đích thiết kế.</li>
+    <li>✔️ Giải thích được vì sao chọn âm thanh, màu sắc, chuyển động như vậy.</li>
+    <li>✔️ Hợp tác tốt trong nhóm, chia sẻ và lắng nghe bạn bè.</li>
+  </ul>
+
+  <li><strong>Chuẩn bị cho buổi học sau:</strong> "Chú khủng long của em"</li>
+  <ul>
+    <li>✔️ Ghi chú lại các phần quan sát hôm nay.</li>
+    <li>✔️ Phác thảo ý tưởng riêng cho mô hình: chọn màu, chuyển động, âm thanh.</li>
+    <li>✔️ Tự chuẩn bị tinh thần sáng tạo và sẵn sàng chia sẻ.</li>
+  </ul>
+</ul>
+
+
+           
+        </div>
+    </div>
+    
+    
+</div>
+                                        </li>
+
+
+                                        
+
+
+                                    </ul>
+                                </div>
+
+                            </section>
+
+                           <section id="g" class="accordion-wrapper text-dark">
+    <h1 class="custom-timeline__heading" style="text-align: center">
+        Quan sát cấu tạo
+    </h1>
+    <div class="scrollable-list">
+    <ol class="custom-step-list" style="--length: 4" role="list">
+  <li style="--i: 1">
+    <h3>Giáo viên hướng dẫn:</h3>
+    <p>
+      ✔️ Trưng bày mô hình khủng long từ nhiều góc nhìn để học sinh quan sát rõ các chi tiết.<br>
+      ✔️ Gợi ý học sinh đặt câu hỏi như: “Bộ phận này dùng để làm gì?”, “Tại sao đặt động cơ ở đây?”.<br>
+      ✔️ Minh họa rõ từng bộ phận bằng hình ảnh hoặc trình chiếu phóng to.<br>
+      ✔️ Khuyến khích học sinh nêu cảm nhận hoặc ý tưởng cải tiến mô hình.<br>
+      ✔️ Tạo không khí lớp học cởi mở, sáng tạo – khơi gợi tư duy thiết kế như kỹ sư nhí.
+    </p>
+  </li>
+
+  <li style="--i: 2">
+    <h3>Học sinh quan sát:</h3>
+    <p>
+      👀 Quan sát chi tiết các bộ phận của chú khủng long:<br>
+      🔹 <strong>Đầu:</strong> cấu trúc to, có răng, gắn động cơ để há/đóng miệng.<br>
+      🔹 <strong>Mắt:</strong> có thể là sticker hoặc LED, biểu cảm sống động.<br>
+      🔹 <strong>Cổ:</strong> nối khớp giúp xoay đầu.<br>
+      🔹 <strong>Thân:</strong> khối vững chắc, gắn các bộ phận còn lại.<br>
+      🔹 <strong>Chân:</strong> có khớp để mô phỏng bước đi hoặc nhún.<br>
+      🔹 <strong>Đuôi:</strong> nối dài phía sau, có thể gắn motor để vẫy đuôi.
+    </p>
+  </li>
+
+  <li style="--i: 3">
+    <h3>Vận dụng khối lệnh điều khiển:</h3>
+    <p>
+      🎮 Biết cách thay đổi linh hoạt các khối lệnh điều khiển:<br>
+      ✔️ Điều chỉnh tốc độ nhanh/chậm.<br>
+      ✔️ Thêm hành động: xoay trái/phải, dừng lại, lặp lại.
+    </p>
+  </li>
+
+  <li style="--i: 4">
+    <h3>Trình bày và chuẩn bị cho buổi học sau:</h3>
+    <p>
+      📢 Trình bày mô hình một cách tự tin:<br>
+      ✔️ Diễn đạt được ý tưởng, mục đích thiết kế.<br>
+      ✔️ Giải thích được vì sao chọn âm thanh, màu sắc, chuyển động như vậy.<br>
+      ✔️ Hợp tác tốt trong nhóm, chia sẻ và lắng nghe bạn bè.<br><br>
+      <strong>Chuẩn bị cho buổi học sau:</strong> "Chú khủng long của em"<br>
+      ✔️ Ghi chú lại các phần quan sát hôm nay.<br>
+      ✔️ Phác thảo ý tưởng riêng cho mô hình: chọn màu, chuyển động, âm thanh.<br>
+      ✔️ Tự chuẩn bị tinh thần sáng tạo và sẵn sàng chia sẻ.
+    </p>
+  </li>
+</ol>
+</div>
+
+</section>
+
+
+
+                            <section id="h">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+                                    Tổng kết buổi học
+                                </h1>
+                                <div class="quiz-container">
+                                    <div class="question" id="question">Loading question...</div>
+                                    <div class="options" id="options"></div>
+                                    <div class="feedback" id="feedback"></div>
+                                    <div class="progress-bar">
+                                        <div class="progress" id="progress-bar"></div>
+                                    </div>
+                                    <div class="score" id="score">Score: 0 / 5</div>
+                                    <div class="controls">
+                                        <button class="control-button" id="prev-btn" disabled>Về trước</button>
+                                        <button class="control-button" id="next-btn" disabled>Tiếp theo</button>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    // Questions Array
+const questions = [
+  {
+    type: "multiple",
+    question: "Muốn điều khiển hai động cơ quay đồng thời nhưng theo hướng ngược nhau, em cần làm gì?",
+    options: [
+      "Dùng hai khối chuyển động giống nhau",
+      "Dùng khối chuyển động cho mỗi động cơ và đặt hướng khác nhau",
+      "Chèn khối chuyển động vào khối điều kiện",
+      "Tăng tốc độ một bên động cơ"
+    ],
+    answer: "Dùng khối chuyển động cho mỗi động cơ và đặt hướng khác nhau",
+    insight: "Mỗi động cơ có thể được điều khiển riêng biệt bằng cách đặt hướng thuận hoặc ngược. Đây là cách để robot xoay tròn hoặc quay đầu tại chỗ."
+  },
+  {
+    type: "multiple",
+    question: "Thông số 'số vòng quay' trong khối chuyển động ảnh hưởng đến điều gì?",
+    options: [
+      "Tốc độ quay của robot",
+      "Thời gian phát âm thanh",
+      "Khoảng cách robot di chuyển",
+      "Cường độ sáng của đèn"
+    ],
+    answer: "Khoảng cách robot di chuyển",
+    insight: "Số vòng quay tương ứng với số lần động cơ quay, và từ đó ảnh hưởng trực tiếp đến khoảng cách robot tiến/lùi."
+  },
+  {
+    type: "multiple",
+    question: "Nếu robot chỉ quay sang trái thay vì đi thẳng, nguyên nhân có thể là gì?",
+    options: [
+      "Một bên động cơ chưa được lập trình",
+      "Khối phát âm thanh bị đặt sai",
+      "Tốc độ hai động cơ quá giống nhau",
+      "Robot thiếu khối tạm dừng"
+    ],
+    answer: "Một bên động cơ chưa được lập trình",
+    insight: "Khi chỉ có một động cơ hoạt động, robot sẽ quay lệch sang một bên. Cần đảm bảo cả hai động cơ được điều khiển đúng."
+  },
+  {
+    type: "multiple",
+    question: "Khi kết hợp khối lặp với khối chuyển động, điều gì có thể xảy ra nếu không dùng thêm khối tạm dừng?",
+    options: [
+      "Robot dừng ngay lập tức",
+      "Robot phát âm thanh quá to",
+      "Robot thực hiện chuyển động quá nhanh và liên tục",
+      "Robot không chạy được vòng lặp"
+    ],
+    answer: "Robot thực hiện chuyển động quá nhanh và liên tục",
+    insight: "Thiếu khối tạm dừng trong vòng lặp khiến robot lặp lại hành động liên tục mà không kịp thực hiện rõ ràng từng bước."
+  },
+  {
+    type: "multiple",
+    question: "Muốn robot thực hiện một chuyển động phức hợp như xoay – tiến – lùi, em nên dùng chiến lược nào?",
+    options: [
+      "Sử dụng khối chuyển động kết hợp với khối lặp và điều kiện",
+      "Chèn tất cả khối vào một khối chuyển động duy nhất",
+      "Dùng khối cảm biến để thay thế chuyển động",
+      "Tăng tốc độ mọi khối chuyển động"
+    ],
+    answer: "Sử dụng khối chuyển động kết hợp với khối lặp và điều kiện",
+    insight: "Chuyển động phức hợp cần sự phối hợp giữa các khối chuyển động, điều kiện (nếu...thì) và vòng lặp để thực hiện logic đầy đủ."
+  }
+];
+
+                                    let currentIndex = 0;
+                                    let score = 0;
+                                    const totalQuestions = questions.length;
+
+                                    // Track whether each question has been answered
+                                    const answeredQuestions = new Array(totalQuestions).fill(false);
+
+                                    const questionContainer = document.getElementById("question");
+                                    const optionsContainer = document.getElementById("options");
+                                    const feedbackContainer = document.getElementById("feedback");
+                                    const scoreContainer = document.getElementById("score");
+                                    const prevBtn = document.getElementById("prev-btn");
+                                    const nextBtn = document.getElementById("next-btn");
+                                    const progressBar = document.getElementById("progress-bar");
+
+                                    // Load a question
+                                    function loadQuestion(index) {
+                                        // Clear previous content
+                                        optionsContainer.innerHTML = "";
+                                        feedbackContainer.textContent = "";
+
+                                        const currentQuestion = questions[index];
+                                        questionContainer.textContent = `${index + 1}. ${currentQuestion.question}`;
+
+                                        // Update navigation buttons
+                                        prevBtn.disabled = index === 0;
+                                        nextBtn.disabled = !answeredQuestions[index]; // Disable Next until user answers
+
+                                        // Display options
+                                        if (currentQuestion.type === "multiple") {
+                                            currentQuestion.options.forEach((option) => {
+                                                const button = document.createElement("button");
+                                                button.textContent = option;
+                                                button.classList.add("option-button");
+                                                button.disabled = answeredQuestions[index]; // Disable if already answered
+                                                button.addEventListener("click", () =>
+                                                    handleAnswer(
+                                                        option,
+                                                        currentQuestion.answer,
+                                                        currentQuestion.insight,
+                                                        button
+                                                    )
+                                                );
+                                                optionsContainer.appendChild(button);
+                                            });
+                                        } else {
+                                            ["Đúng", "Sai"].forEach((option) => {
+                                                const button = document.createElement("button");
+                                                button.textContent = option;
+                                                button.classList.add("option-button");
+                                                button.disabled = answeredQuestions[index]; // Disable if already answered
+                                                button.addEventListener("click", () =>
+                                                    handleAnswer(
+                                                        option,
+                                                        currentQuestion.answer,
+                                                        currentQuestion.insight,
+                                                        button
+                                                    )
+                                                );
+                                                optionsContainer.appendChild(button);
+                                            });
+                                        }
+
+                                        // Update progress
+                                        updateProgress();
+
+                                        // Show feedback if already answered
+                                        if (answeredQuestions[index]) {
+                                            feedbackContainer.textContent = `Bạn đã sẵn sàng trả lời các câu hỏi chưa.`;
+                                            feedbackContainer.style.color = "gray";
+                                        }
+                                    }
+
+                                    // Handle answers
+                                    function handleAnswer(selected, correct, insight, button) {
+                                        const buttons = optionsContainer.querySelectorAll("button");
+                                        buttons.forEach((btn) => (btn.disabled = true)); // Disable all options
+
+                                        if (!answeredQuestions[currentIndex]) {
+                                            // Update score if this is the first attempt at this question
+                                            if (selected === correct) {
+                                                score++;
+                                                feedbackContainer.textContent = `Đúng rồi! ${insight}`;
+                                                feedbackContainer.style.color = "green";
+                                                button.style.backgroundColor = "#28a745"; // Green for correct
+                                            } else {
+                                                feedbackContainer.textContent = `Sai rồi! Đáp án câu hỏi này là: "${correct}". ${insight}`;
+                                                feedbackContainer.style.color = "red";
+                                                button.style.backgroundColor = "#dc3545"; // Red for incorrect
+                                            }
+                                            answeredQuestions[currentIndex] = true; // Mark this question as answered
+                                        }
+
+                                        nextBtn.disabled = false; // Enable Next button
+                                        updateScore();
+                                    }
+
+                                    // Update progress bar
+                                    function updateProgress() {
+                                        const progress = ((currentIndex + 1) / totalQuestions) * 100;
+                                        progressBar.style.width = `${progress}%`;
+                                    }
+
+                                    // Update score display
+                                    function updateScore() {
+                                        scoreContainer.textContent = `Score: ${score} / ${totalQuestions}`;
+                                    }
+
+                                    // Navigation buttons
+                                    prevBtn.addEventListener("click", () => {
+                                        if (currentIndex > 0) {
+                                            currentIndex--;
+                                            loadQuestion(currentIndex);
+                                        }
+                                    });
+
+                                    nextBtn.addEventListener("click", () => {
+                                        if (currentIndex < totalQuestions - 1) {
+                                            currentIndex++;
+                                            loadQuestion(currentIndex);
+                                        } else {
+                                            questionContainer.textContent = "Hoàn thành câu hỏi";
+                                            optionsContainer.innerHTML = "";
+                                            feedbackContainer.textContent = `Tổng số điển là: ${score} / ${totalQuestions}`;
+                                            nextBtn.disabled = true;
+                                        }
+                                    });
+
+                                    // Initialize quiz
+                                    loadQuestion(currentIndex);
+
+                                </script>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- ***** Banner End ***** -->
+
+
+
+                <script>
+                    const wrapper = document.querySelector(".wrapper");
+                    let sections = wrapper.querySelectorAll(".main > section");
+
+                    (function initSections() {
+                        const side = wrapper.querySelector(".side > .stick-container");
+
+                        // 👉 Gán tên tùy theo từng mục
+                        const labels = ["Mục tiêu", "Giới thiệu", "Mô hình", "Chuẩn bị", "Xây dựng", "Ôn tập", "Thử thách", "Tổng kết"];
+
+                        sections.forEach((section, index) => {
+                            let link = document.createElement("a");
+                            let label = document.createElement("span");
+
+                            const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                            link.style.background = randomColor;
+
+                            // KHÔNG dùng href nữa để tránh thay đổi hash
+                            link.href = "javascript:void(0)";
+                            link.classList.add("section_clone");
+
+                            label.textContent = labels[index] || `Mục ${index + 1}`;
+                            label.style.fontSize = "1rem";
+                            label.style.fontWeight = "600";
+
+                            link.appendChild(label);
+                            side.appendChild(link);
+
+                            // 👉 Cuộn mượt đến mục khi click
+                            link.addEventListener("click", (e) => {
+                                e.preventDefault(); // Ngăn mặc định
+                                section.scrollIntoView({ behavior: "smooth" });
+                                addInView([index]); // Cập nhật trạng thái mục đang hiển thị
+                            });
+                        });
+
+
+                        addInView([0]);
+                    })();
+
+                    function addInView(arr) {
+                        let index = arr[0];
+                        let aspectRatio = arr[1];
+                        const side_sections = document.querySelectorAll(".section_clone");
+                        side_sections.forEach((side_section) => {
+                            side_section.classList.remove("inView");
+                        });
+                        side_sections[index].classList.add("inView");
+
+                        //console.log(side_sections[index]);
+                    }
+
+                    function checkForViewport() {
+                        let result = 0;
+                        let aspectRatio;
+                        sections.forEach((section, index) => {
+                            section.style.background = "";
+
+                            let section_bound = section.getBoundingClientRect();
+                            let section_boundMid = section_bound.bottom / 2;
+                            aspectRatio = parseFloat(
+                                (section_bound.width / section_bound.height).toFixed(2)
+                            );
+                            console.log(aspectRatio);
+                            if (
+                                section_bound.top <= window.innerHeight / 2 &&
+                                section_bound.bottom > window.innerHeight / 2
+                            ) {
+                                result = index;
+                            }
+                        });
+                        let result_arr = [result, aspectRatio];
+                        return result_arr;
+                    }
+
+                    window.addEventListener("scroll", (event) => {
+                        addInView(checkForViewport());
+                    });
+
+                </script>
+
+
+            </div>
+
+
+            <!-- ***** Gaming Library End ***** -->
+        </div>
+
+    </div>
+    </div>
+
+
+    <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+        onclick="scrollToTop()" id="back-to-up">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+        window.onscroll = () => {
+            toggleTopButton();
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleTopButton() {
+            if (document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20) {
+                document.getElementById('back-to-up').classList.remove('d-none');
+            } else {
+                document.getElementById('back-to-up').classList.add('d-none');
+            }
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved.
+
+                        <br>Design By Huỳnh Ngọc Thái
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper (nếu dùng Bootstrap 4) -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS (v4 hoặc v5 tùy bạn dùng bản nào) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="../../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../../../js/isotope.min.js"></script>
+    <script src="../../../js/owl-carousel.js"></script>
+    <script src="../../../js/tabs.js"></script>
+    <script src="../../../js/popup.js"></script>
+    <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
