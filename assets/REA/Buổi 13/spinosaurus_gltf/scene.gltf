@@ -1,0 +1,950 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 38680,
+      "max": [
+        72.55155181884766,
+        503.1817321777344,
+        -0.7787668108940125
+      ],
+      "min": [
+        -72.55156707763672,
+        -763.6019897460938,
+        -450.1581115722656
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 464160,
+      "componentType": 5126,
+      "count": 38680,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 38680,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 38680,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 38680,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 618880,
+      "componentType": 5126,
+      "count": 38680,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 210054,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 80,
+      "type": "MAT4"
+    }
+  ],
+  "asset": {
+    "generator": "fab-model-conversion",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 840216,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 309440,
+      "byteOffset": 840216,
+      "byteStride": 8,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 928320,
+      "byteOffset": 1149656,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1237760,
+      "byteOffset": 2077976,
+      "byteStride": 16,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 309440,
+      "byteOffset": 3315736,
+      "byteStride": 8,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 5120,
+      "byteOffset": 3625176
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 3630296,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Spino_baseColor.png"
+    },
+    {
+      "uri": "textures/Spino_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Spino_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Spino",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Spinosaurus_low_Spino_0",
+      "primitives": [
+        {
+          "attributes": {
+            "JOINTS_0": 4,
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "WEIGHTS_0": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1,
+        6
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "a6706b4edc404546af87539de8b21e60.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "SpinosaurusArmature"
+    },
+    {
+      "children": [
+        5,
+        7,
+        101,
+        103
+      ],
+      "name": "Object_4"
+    },
+    {
+      "matrix": [
+        1.0000000707814252,
+        6.212692070051238e-14,
+        -3.929809597014343e-14,
+        0.0,
+        3.929810378586897e-14,
+        -1.8471502130706834e-07,
+        0.9999999776458851,
+        0.0,
+        6.212690962054551e-14,
+        -1.000000009277994,
+        -1.8471502714999412e-07,
+        0.0,
+        -7.484040385303484e-12,
+        4.469961140785017e-06,
+        1.1906903552016956e-06,
+        1.0
+      ],
+      "name": "Object_5"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_6",
+      "skin": 0
+    },
+    {
+      "children": [
+        8,
+        51,
+        69,
+        85
+      ],
+      "name": "Hip_01"
+    },
+    {
+      "children": [
+        9
+      ],
+      "name": "Spine1_02"
+    },
+    {
+      "children": [
+        10
+      ],
+      "name": "Spine2_03"
+    },
+    {
+      "children": [
+        11,
+        19,
+        35
+      ],
+      "name": "Spine3_04"
+    },
+    {
+      "children": [
+        12
+      ],
+      "name": "Torax_05"
+    },
+    {
+      "children": [
+        13
+      ],
+      "name": "Neck1_06"
+    },
+    {
+      "children": [
+        14
+      ],
+      "name": "Neck2_07"
+    },
+    {
+      "children": [
+        15
+      ],
+      "name": "Neck3_08"
+    },
+    {
+      "children": [
+        16
+      ],
+      "name": "Neck4_09"
+    },
+    {
+      "children": [
+        17
+      ],
+      "name": "Head_010"
+    },
+    {
+      "children": [
+        18
+      ],
+      "name": "Jaw_011"
+    },
+    {
+      "name": "Jaw_end_082"
+    },
+    {
+      "children": [
+        20
+      ],
+      "name": "Clavicule.L_012"
+    },
+    {
+      "children": [
+        21
+      ],
+      "name": "Arm.L_013"
+    },
+    {
+      "children": [
+        22
+      ],
+      "name": "Forearm.L_014"
+    },
+    {
+      "children": [
+        23,
+        27,
+        31
+      ],
+      "name": "Hand.L_015"
+    },
+    {
+      "children": [
+        24
+      ],
+      "name": "HandIndex1.L_016"
+    },
+    {
+      "children": [
+        25
+      ],
+      "name": "HandIndex2.L_017"
+    },
+    {
+      "children": [
+        26
+      ],
+      "name": "HandIndex3.L_018"
+    },
+    {
+      "name": "HandIndex3.L_end_083"
+    },
+    {
+      "children": [
+        28
+      ],
+      "name": "HandMiddle1.L_019"
+    },
+    {
+      "children": [
+        29
+      ],
+      "name": "HandMiddle2.L_020"
+    },
+    {
+      "children": [
+        30
+      ],
+      "name": "HandMiddle3.L_021"
+    },
+    {
+      "name": "HandMiddle3.L_end_084"
+    },
+    {
+      "children": [
+        32
+      ],
+      "name": "HandPinky1.L_022"
+    },
+    {
+      "children": [
+        33
+      ],
+      "name": "HandPinky2.L_023"
+    },
+    {
+      "children": [
+        34
+      ],
+      "name": "HandPinky3.L_024"
+    },
+    {
+      "name": "HandPinky3.L_end_085"
+    },
+    {
+      "children": [
+        36
+      ],
+      "name": "Clavicule.R_025"
+    },
+    {
+      "children": [
+        37
+      ],
+      "name": "Arm.R_00"
+    },
+    {
+      "children": [
+        38
+      ],
+      "name": "Forearm.R_026"
+    },
+    {
+      "children": [
+        39,
+        43,
+        47
+      ],
+      "name": "Hand.R_027"
+    },
+    {
+      "children": [
+        40
+      ],
+      "name": "HandIndex1.R_028"
+    },
+    {
+      "children": [
+        41
+      ],
+      "name": "HandIndex2.R_029"
+    },
+    {
+      "children": [
+        42
+      ],
+      "name": "HandIndex3.R_030"
+    },
+    {
+      "name": "HandIndex3.R_end_086"
+    },
+    {
+      "children": [
+        44
+      ],
+      "name": "HandMiddle1.R_031"
+    },
+    {
+      "children": [
+        45
+      ],
+      "name": "HandMiddle2.R_032"
+    },
+    {
+      "children": [
+        46
+      ],
+      "name": "HandMiddle3.R_033"
+    },
+    {
+      "name": "HandMiddle3.R_end_087"
+    },
+    {
+      "children": [
+        48
+      ],
+      "name": "HandPinky1.R_034"
+    },
+    {
+      "children": [
+        49
+      ],
+      "name": "HandPinky2.R_035"
+    },
+    {
+      "children": [
+        50
+      ],
+      "name": "HandPinky3.R_036"
+    },
+    {
+      "name": "HandPinky3.R_end_088"
+    },
+    {
+      "children": [
+        52
+      ],
+      "name": "TailBase_037"
+    },
+    {
+      "children": [
+        53
+      ],
+      "name": "Tail1_038"
+    },
+    {
+      "children": [
+        54
+      ],
+      "name": "Tail2_039"
+    },
+    {
+      "children": [
+        55
+      ],
+      "name": "Tail3_040"
+    },
+    {
+      "children": [
+        56
+      ],
+      "name": "Tail4_041"
+    },
+    {
+      "children": [
+        57
+      ],
+      "name": "Tail5_042"
+    },
+    {
+      "children": [
+        58
+      ],
+      "name": "Tail6_043"
+    },
+    {
+      "children": [
+        59
+      ],
+      "name": "Tail7_044"
+    },
+    {
+      "children": [
+        60
+      ],
+      "name": "Tail8_045"
+    },
+    {
+      "children": [
+        61
+      ],
+      "name": "Tail9_046"
+    },
+    {
+      "children": [
+        62
+      ],
+      "name": "Tail10_047"
+    },
+    {
+      "children": [
+        63
+      ],
+      "name": "Tail11_048"
+    },
+    {
+      "children": [
+        64
+      ],
+      "name": "Tail12_049"
+    },
+    {
+      "children": [
+        65
+      ],
+      "name": "Tail13_050"
+    },
+    {
+      "children": [
+        66
+      ],
+      "name": "Tail14_051"
+    },
+    {
+      "children": [
+        67
+      ],
+      "name": "Tail15_052"
+    },
+    {
+      "children": [
+        68
+      ],
+      "name": "Tail16_053"
+    },
+    {
+      "name": "Tail16_end_089"
+    },
+    {
+      "children": [
+        70
+      ],
+      "name": "Femur.L_054"
+    },
+    {
+      "children": [
+        71
+      ],
+      "name": "Shin.L_055"
+    },
+    {
+      "children": [
+        72
+      ],
+      "name": "Metacarpal.L_056"
+    },
+    {
+      "children": [
+        73,
+        77,
+        81
+      ],
+      "name": "Feet.L_057"
+    },
+    {
+      "children": [
+        74
+      ],
+      "name": "FeetFingerMiddle1.L_058"
+    },
+    {
+      "children": [
+        75
+      ],
+      "name": "FeetFingerMiddle2.L_059"
+    },
+    {
+      "children": [
+        76
+      ],
+      "name": "FeetFingerMiddle3.L_060"
+    },
+    {
+      "name": "FeetFingerMiddle3.L_end_090"
+    },
+    {
+      "children": [
+        78
+      ],
+      "name": "FeetFingerPinky1.L_061"
+    },
+    {
+      "children": [
+        79
+      ],
+      "name": "FeetFingerPinky2.L_062"
+    },
+    {
+      "children": [
+        80
+      ],
+      "name": "FeetFingerPinky3.L_063"
+    },
+    {
+      "name": "FeetFingerPinky3.L_end_091"
+    },
+    {
+      "children": [
+        82
+      ],
+      "name": "FeetFingerIndex1.L_064"
+    },
+    {
+      "children": [
+        83
+      ],
+      "name": "FeetFingerIndex2.L_065"
+    },
+    {
+      "children": [
+        84
+      ],
+      "name": "FeetFingerIndex3.L_066"
+    },
+    {
+      "name": "FeetFingerIndex3.L_end_092"
+    },
+    {
+      "children": [
+        86
+      ],
+      "name": "Femur.R_067"
+    },
+    {
+      "children": [
+        87
+      ],
+      "name": "Shin.R_068"
+    },
+    {
+      "children": [
+        88
+      ],
+      "name": "Metacarpal.R_069"
+    },
+    {
+      "children": [
+        89,
+        93,
+        97
+      ],
+      "name": "Feet.R_070"
+    },
+    {
+      "children": [
+        90
+      ],
+      "name": "FeetFingerMiddle1.R_071"
+    },
+    {
+      "children": [
+        91
+      ],
+      "name": "FeetFingerMiddle2.R_072"
+    },
+    {
+      "children": [
+        92
+      ],
+      "name": "FeetFingerMiddle3.R_073"
+    },
+    {
+      "name": "FeetFingerMiddle3.R_end_093"
+    },
+    {
+      "children": [
+        94
+      ],
+      "name": "FeetFingerPinky1.R_074"
+    },
+    {
+      "children": [
+        95
+      ],
+      "name": "FeetFingerPinky2.R_075"
+    },
+    {
+      "children": [
+        96
+      ],
+      "name": "FeetFingerPinky3.R_076"
+    },
+    {
+      "name": "FeetFingerPinky3.R_end_094"
+    },
+    {
+      "children": [
+        98
+      ],
+      "name": "FeetFingerIndex1.R_077"
+    },
+    {
+      "children": [
+        99
+      ],
+      "name": "FeetFingerIndex2.R_078"
+    },
+    {
+      "children": [
+        100
+      ],
+      "name": "FeetFingerIndex3.R_079"
+    },
+    {
+      "name": "FeetFingerIndex3.R_end_095"
+    },
+    {
+      "children": [
+        102
+      ],
+      "name": "IKTF.L_080"
+    },
+    {
+      "name": "IKTF.L_end_096"
+    },
+    {
+      "children": [
+        104
+      ],
+      "name": "IKTF.R_081"
+    },
+    {
+      "name": "IKTF.R_end_097"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "skins": [
+    {
+      "inverseBindMatrices": 7,
+      "joints": [
+        51,
+        52,
+        53,
+        55,
+        54,
+        56,
+        57,
+        58,
+        60,
+        59,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        16,
+        20,
+        21,
+        19,
+        15,
+        73,
+        81,
+        72,
+        74,
+        71,
+        9,
+        10,
+        82,
+        13,
+        12,
+        14,
+        11,
+        7,
+        8,
+        69,
+        70,
+        77,
+        78,
+        75,
+        17,
+        22,
+        83,
+        79,
+        23,
+        24,
+        27,
+        31,
+        32,
+        28,
+        29,
+        33,
+        25,
+        36,
+        37,
+        35,
+        89,
+        97,
+        88,
+        90,
+        87,
+        98,
+        85,
+        86,
+        93,
+        94,
+        91,
+        38,
+        99,
+        95,
+        39,
+        40,
+        43,
+        47,
+        48,
+        44,
+        45,
+        49,
+        41
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
