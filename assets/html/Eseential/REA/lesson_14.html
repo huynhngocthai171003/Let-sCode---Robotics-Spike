@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Let's Code - Robotics</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="../../../css/fontawesome.css">
+  <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="../../../css/owl.css">
+  <link rel="stylesheet" href="../../../css/animate.css">
+  <link rel="stylesheet" href="../../../../assets/css/lesson.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <link rel="apple-touch-icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+    sizes="192x192">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png" sizes="32x32">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+  <script src="../../../js/include.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      includeHTML(() => {
+        const menuItems = document.querySelectorAll('nav a');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            console.log('Bạn vừa click:', e.target.textContent);
+          });
+        });
+      });
+    });
+  </script>
+
+  <style>
+    /* Mặc định: ảnh hiển thị bình thường */
+    #custCarousel .carousel-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      /* Hoặc contain, tùy bạn */
+    }
+
+    /* Khi carousel fullscreen */
+    #custCarousel:fullscreen {
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+    }
+
+    /* Ảnh trong fullscreen */
+    #custCarousel:fullscreen .carousel-item img {
+      width: auto;
+      height: 100vh;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .scrollable-materials {
+      width: 102%;
+      max-height: 700px;
+      /* bạn có thể điều chỉnh chiều cao tối đa tùy ý */
+      overflow-y: auto;
+      padding-right: 10px;
+      /* để không bị che mất thanh scroll */
+    }
+
+    /* (Tùy chọn) Làm đẹp thanh cuộn nếu muốn */
+    .scrollable-materials::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .scrollable-materials::-webkit-scrollbar-thumb {
+      background-color: rgba(94, 100, 214, 0.2);
+      border-radius: 3pxrgba(44, 37, 173, 0.2)
+    }
+
+    .no-bullets li:before {
+      content: none !important;
+    }
+
+    .custom-step-list {
+      font-family: Montserrat, sans-serif;
+      list-style: none;
+      counter-reset: step-counter;
+      padding: 0 1rem;
+    }
+
+    .custom-step-list li {
+      --stop: calc(100% / var(--length) * var(--i));
+      --l: 62%;
+      --l2: 88%;
+      --h: calc((var(--i) - 1) * (180 / var(--length)));
+      --c1: hsl(var(--h), 71%, var(--l));
+      --c2: hsl(var(--h), 71%, var(--l2));
+
+      position: relative;
+      counter-increment: step-counter;
+      max-width: 45rem;
+      margin: 2rem auto;
+      padding: 2rem 1rem 1rem;
+      box-shadow: 0.1rem 0.1rem 1.5rem rgba(0, 0, 0, 0.3);
+      border-radius: 0.25rem;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    .custom-step-list li::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, var(--c1) var(--stop), var(--c2) var(--stop));
+    }
+
+    .custom-step-list h3 {
+      display: flex;
+      align-items: baseline;
+      margin: 0 0 1rem;
+      color: rgb(70, 70, 70);
+      font-weight: 700;
+    }
+
+    .custom-step-list h3::before {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 0 0 auto;
+      margin-right: 1rem;
+      width: 3rem;
+      height: 3rem;
+      content: counter(step-counter);
+      padding: 1rem;
+      border-radius: 50%;
+      background-color: var(--c1);
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .custom-step-list p {
+      color: #000;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 40em) {
+      .custom-step-list li {
+        margin: 3rem auto;
+        padding: 3rem 2rem 2rem;
+      }
+
+      .custom-step-list h3 {
+        font-size: 2.25rem;
+        margin: 0 0 2rem;
+      }
+
+      .custom-step-list h3::before {
+        margin-right: 1.5rem;
+      }
+    }
+
+    .scrollable-list {
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+
+    /* Tuỳ chọn làm đẹp thanh cuộn */
+    .scrollable-list::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .scrollable-list::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <div data-include="../../header.html"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      includeHTML(() => {
+        // Gắn lại sự kiện cho menu sau khi include xong header
+        const script = document.createElement('script');
+        script.src = "../../../js/custom.js";
+        document.body.appendChild(script);
+
+        // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+        const menuItems = document.querySelectorAll('nav a');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            console.log('Bạn vừa click:', e.target.textContent);
+          });
+        });
+      });
+    });
+  </script>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Banner Start ***** -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="main-profile ">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <img src="../../../images/REA/img-rea-bai14.png" alt="" style="border-radius: 23px;">
+                  </div>
+                  <div class="col-lg-4 align-self-center">
+                    <div class="main-info header-text">
+
+                      <span>Khối biểu tượng</span>
+                      <h4 style="color: #000 !important;  font-family: 'Baloo Chettan 2', sans-serif !important">Buổi
+                        14: Thực hành 2</h4>
+                      <p style="color: #000 !important">
+                        Mô hình “Đu quay vui nhộn”
+                      </p>
+
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="wrapper" style="font-family: 'Baloo Chettan 2', sans-serif !important">
+            <div class="side">
+              <div class="stick-container"></div>
+            </div>
+            <div class="main">
+              <section id="a">
+
+
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục
+                  tiêu bài học
+                </h1>
+                <div class="accordion-container">
+                  <input type="radio" id="acc-tab-1" name="accordion" checked>
+                  <label for="acc-tab-1" class="accordion-label">
+                    <h2>🎓 Kiến thức</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <ul>
+                      <li>✔️ Học sinh hiểu cấu tạo mô hình kỹ thuật cơ bản gồm 4 phần: đế, thân trụ, bộ phận quay, và
+                        đèn trang trí.</li>
+                      <li>✔️ Nhận biết và sử dụng thành thạo các khối lệnh ánh sáng <strong>(Light Blocks)</strong>
+                        trong phần mềm lập trình SPIKE để thay đổi màu sắc đèn Hub.</li>
+                      <li>✔️ Biết cách lập trình kết hợp chuyển động quay và hiệu ứng ánh sáng để mô phỏng đu quay sinh
+                        động.</li>
+                    </ul>
+                  </div>
+
+                  <input type="radio" id="acc-tab-2" name="accordion">
+                  <label for="acc-tab-2" class="accordion-label">
+                    <h2>🛠️ Kỹ năng</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <ul>
+                      <li>✔️ Lắp ráp mô hình đu quay đúng kỹ thuật, có khả năng vận hành ổn định.</li>
+                      <li>✔️ Kết hợp chuyển động quay liên tục và thay đổi ánh sáng LED thông qua lập trình.</li>
+                      <li>✔️ Rèn luyện kỹ năng kiểm tra kết cấu, đánh giá độ chắc chắn và điều chỉnh mô hình khi cần.
+                      </li>
+                      <li>✔️ Biết sử dụng khối <strong>Wait (chờ)</strong> và <strong>Loop (lặp lại)</strong> để tạo chu
+                        kỳ quay – đổi màu hợp lý.</li>
+                    </ul>
+                  </div>
+
+                  <input type="radio" id="acc-tab-3" name="accordion">
+                  <label for="acc-tab-3" class="accordion-label">
+                    <h2>💡 Tư duy</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <ul>
+                      <li>✔️ Phát triển tư duy phân tích khi quan sát – đánh giá các bộ phận chuyển động trong mô hình.
+                      </li>
+                      <li>✔️ Vận dụng tư duy giải quyết vấn đề trong việc phát hiện lỗi vận hành và điều chỉnh chương
+                        trình hoặc kết cấu mô hình.</li>
+                      <li>✔️ Khuyến khích tư duy sáng tạo khi lựa chọn màu sắc đèn, tốc độ quay hoặc thêm các chi tiết
+                        trang trí cho mô hình.</li>
+                    </ul>
+                  </div>
+
+                  <input type="radio" id="acc-tab-4" name="accordion">
+                  <label for="acc-tab-4" class="accordion-label">
+                    <h2>❤️ Thái độ</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <ul>
+                      <li>✔️ Hứng thú và say mê trong việc xây dựng mô hình kỹ thuật kết hợp lập trình.</li>
+                      <li>✔️ Kiên trì trong quá trình kiểm tra, gỡ lỗi và hoàn thiện sản phẩm.</li>
+                      <li>✔️ Hợp tác tốt trong nhóm, biết lắng nghe, hỗ trợ và chia sẻ ý tưởng với các bạn.</li>
+                    </ul>
+                  </div>
+                </div>
+
+
+
+              </section>
+              <section id="b" class="row">
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
+                  thiệu nội dung bài học
+                </h1>
+                <ul class="custom-timeline__list">
+                  <li class="custom-timeline__item" style="--accent-color:#41516C">
+                    <div class="custom-timeline__date">Giới thiệu mô hình</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
+                    <div class="custom-timeline__date">Chuẩn bị vật liệu</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                    <div class="custom-timeline__date">Xây dựng mô hình</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
+                    <div class="custom-timeline__date">Ôn tập: Đèn và chuyển động
+                    </div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#4CADAD">
+                    <div class="custom-timeline__date">Hoạt động thử thách</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#868bfc">
+                    <div class="custom-timeline__date">Tổng kết bài học</div>
+                  </li>
+
+                </ul>
+              </section>
+              <section id="c" class="accordion-wrapper text-dark">
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                  Giới thiệu mô hình
+                </h1>
+                 <img src="../../../REA/Buổi 14/carousel-v2-lego-spike-essential.png" alt="" style="border-radius: 23px; padding-bottom: 20px;">
+
+                <video style="width: 100%" controls src="../../../REA/Buổi 14/buổi 14.mp4">
+
+                </video>
+
+
+              </section>
+              <section id="d" class="accordion-wrapper text-dark">
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                  Chuẩn bị vật liệu
+                </h1>
+                <div class="container mt-4 position-relative scrollable-materials">
+
+                  <!-- Danh sách đầy đủ từ trên xuống dưới -->
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-red">
+                      <div class="front"><img src="../../../Element/REA/Bộ mở rộng trục-RER.jpg" alt="Bộ mở rộng trục">
+                      </div>
+                      <div class="back">Bộ mở rộng trục-RER (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-red">
+                      <div class="front"><img src="../../../Element/REA/Trục 2-RER.jpg" alt="Trục 2"></div>
+                      <div class="back">Trục 2-RER (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-red">
+                      <div class="front"><img src="../../../Element/REA/Ghế-RER.jpg" alt="Ghế"></div>
+                      <div class="back">Ghế-RER (4)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-red">
+                      <div class="front"><img src="../../../Element/REA/Trục 6-RER.jpg" alt="Trục 6"></div>
+                      <div class="back">Trục 6-RER (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-red">
+                      <div class="front"><img src="../../../Element/REA/Gạch 2x2x3-RER.jpg" alt="Gạch 2x2x3"></div>
+                      <div class="back">Gạch 2x2x3-RER (2)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-red">
+                      <div class="front"><img src="../../../Element/REA/Phần trên-RER.jpg" alt="Phần trên"></div>
+                      <div class="back">Phần trên-RER (1)</div>
+                    </div>
+                  </div>
+
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-yellow">
+                      <div class="front"><img src="../../../Element/REA/Gạch có lỗ chéo 1x2-REY.jpg"
+                          alt="Gạch có lỗ chéo 1x2"></div>
+                      <div class="back">Gạch có lỗ chéo 1x2-REY (4)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-yellow">
+                      <div class="front"><img src="../../../Element/REA/Gạch có lỗ chéo 2x4-REY.jpg"
+                          alt="Gạch có lỗ chéo 2x4"></div>
+                      <div class="back">Gạch có lỗ chéo 2x4-REY (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-yellow">
+                      <div class="front"><img src="../../../Element/REA/Bộ não-REY.jpg" alt="Bộ não"></div>
+                      <div class="back">Bộ não-REY (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-yellow">
+                      <div class="front"><img src="../../../Element/REA/Pin-REY.jpg" alt="Pin"></div>
+                      <div class="back">Pin-REY (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-yellow">
+                      <div class="front"><img src="../../../Element/REA/Mặt buồn-REY.jpg" alt="Mặt buồn"></div>
+                      <div class="back">Mặt buồn-REY (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-yellow">
+                      <div class="front"><img src="../../../Element/REA/Mặt vui-REY.jpg" alt="Mặt vui"></div>
+                      <div class="back">Mặt vui-REY (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-yellow">
+                      <div class="front"><img src="../../../Element/REA/Mặt cười-REY.jpg" alt="Mặt cười"></div>
+                      <div class="back">Mặt cười-REY (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-yellow">
+                      <div class="front"><img src="../../../Element/REA/Mặt nhút nhát-REY.jpg" alt="Mặt nhút nhát">
+                      </div>
+                      <div class="back">Mặt nhút nhát-REY (1)</div>
+                    </div>
+                  </div>
+
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-green">
+                      <div class="front"><img src="../../../Element/REA/Gạch tròn 2x2-REG.jpg" alt="Gạch tròn 2x2">
+                      </div>
+                      <div class="back">Gạch tròn 2x2-REG (2)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-green">
+                      <div class="front"><img src="../../../Element/REA/Bộ phận dưới-REG.jpg" alt="Bộ phận dưới"></div>
+                      <div class="back">Bộ phận dưới-REG (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-green">
+                      <div class="front"><img src="../../../Element/REA/Chốt kết nối-REG.jpg" alt="Chốt kết nối"></div>
+                      <div class="back">Chốt kết nối-REG (9)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-green">
+                      <div class="front"><img src="../../../Element/REA/Phần trên -REG.jpg" alt="Phần trên"></div>
+                      <div class="back">Phần trên -REG (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-green">
+                      <div class="front"><img src="../../../Element/REA/Tấm có lỗ 2x8-REG.jpg" alt="Tấm có lỗ 2x8">
+                      </div>
+                      <div class="back">Tấm có lỗ 2x8-REG (3)</div>
+                    </div>
+                  </div>
+
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-orange">
+                      <div class="front"><img src="../../../Element/REA/Gạch nón 2x2x2-REO.jpg" alt="Gạch nón"></div>
+                      <div class="back">Gạch nón 2x2x2-REO (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-orange">
+                      <div class="front"><img src="../../../Element/REA/Tấm cong 2x2x2-REO.jpg" alt="Tấm cong"></div>
+                      <div class="back">Tấm cong 2x2x2/3-REO (2)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-orange">
+                      <div class="front"><img src="../../../Element/REA/Phần dưới-REO.jpg" alt="Phần dưới"></div>
+                      <div class="back">Phần dưới-REO (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-orange">
+                      <div class="front"><img src="../../../Element/REA/Gạch mái 1x3-REO.jpg" alt="Gạch mái"></div>
+                      <div class="back">Gạch mái 1x3-REO (4)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-orange">
+                      <div class="front"><img src="../../../Element/REA/Tấm cong 1x4x2-REO.jpg" alt="Tấm cong"></div>
+                      <div class="back">Tấm cong 1x4x2/3-REO (2)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-orange">
+                      <div class="front"><img src="../../../Element/REA/Tấm có góc 4x6-REO.jpg" alt="Tấm có góc"></div>
+                      <div class="back">Tấm có góc 4x6-REO (2)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-orange">
+                      <div class="front"><img src="../../../Element/REA/Gạch có đường cong-REO.jpg" alt="Gạch cong">
+                      </div>
+                      <div class="back">Gạch có đường cong-REO (4)</div>
+                    </div>
+                  </div>
+
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-blue">
+                      <div class="front"><img src="../../../Element/REA/Phần trên-REB.jpg" alt="Phần trên"></div>
+                      <div class="back">Phần trên-REB (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-blue">
+                      <div class="front"><img src="../../../Element/REA/Tia 7 lỗ-REB.jpg" alt="Tia 7 lỗ"></div>
+                      <div class="back">Tia 7 lỗ-REB (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-blue">
+                      <div class="front"><img src="../../../Element/REA/Tire 30.4x4mm-REJG.jpg" alt="Tire"></div>
+                      <div class="back">Tire 30.4x4mm-REJG (4)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-blue">
+                      <div class="front"><img src="../../../Element/REA/Tấm có lỗ-REJG.jpg" alt="Tấm có lỗ"></div>
+                      <div class="back">Tấm có lỗ-REJG (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-blue">
+                      <div class="front"><img src="../../../Element/REA/Phần dưới-REJG.jpg" alt="Phần dưới"></div>
+                      <div class="back">Phần dưới-REJG (1)</div>
+                    </div>
+                  </div>
+
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-purple">
+                      <div class="front"><img src="../../../Element/REA/Tấm trượt 2x2-REP.jpg" alt="Tấm trượt"></div>
+                      <div class="back">Tấm trượt 2x2-REP (4)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-purple">
+                      <div class="front"><img src="../../../Element/REA/Đĩa tròn 4x4-REP.jpg" alt="Đĩa tròn"></div>
+                      <div class="back">Đĩa tròn 4x4-REP (2)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-purple">
+                      <div class="front"><img src="../../../Element/REA/Thân trên-REP.jpg" alt="Thân trên"></div>
+                      <div class="back">Thân trên-REP (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-purple">
+                      <div class="front"><img src="../../../Element/REA/Thân dưới-REP.jpg" alt="Thân dưới"></div>
+                      <div class="back">Thân dưới-REP (1)</div>
+                    </div>
+                  </div>
+
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Trung tâm,ròng rọc-REW.jpg" alt="Trung tâm">
+                      </div>
+                      <div class="back">Trung tâm/ ròng rọc-REW (4)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Bánh xe 43x14mm-REW.jpg" alt="Bánh xe"></div>
+                      <div class="back">Bánh xe 43x14mm-REW (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Tấm 16x16-REW.jpg" alt="Tấm 16x16"></div>
+                      <div class="back">Tấm 16x16-REW (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Động cơ màu sắc-REW.jpg" alt="Động cơ màu sắc">
+                      </div>
+                      <div class="back">Động cơ màu sắc-REW (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Động cơ xoay-REW.jpg" alt="Động cơ xoay"></div>
+                      <div class="back">Động cơ xoay-REW (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Chốt kết nối-REW.jpg" alt="Chốt kết nối"></div>
+                      <div class="back">Chốt kết nối-REW (2)</div>
+                    </div>
+                  </div>
+
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Tóc-REBL.jpg" alt="Tóc"></div>
+                      <div class="back">Tóc-REBL (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Tóc dài trung bình-REBL.jpg"
+                          alt="Tóc dài trung bình"></div>
+                      <div class="back">Tóc dài trung bình-REBL (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Tóc vừa lộn xộn-REBR.jpg" alt="Tóc vừa lộn xộn">
+                      </div>
+                      <div class="back">Tóc vừa lộn xộn-REBR (1)</div>
+                    </div>
+                  </div>
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Tóc ngắn đuôi ngựa-REBR.jpg"
+                          alt="Tóc ngắn đuôi ngựa"></div>
+                      <div class="back">Tóc ngắn đuôi ngựa-REBR (1)</div>
+                    </div>
+                  </div>
+
+                  <div class="flip-container">
+                    <div class="flippable appcon ac-black">
+                      <div class="front"><img src="../../../Element/REA/Gạch tròn 2x2-RE.jpg" alt="Gạch tròn 2x2"></div>
+                      <div class="back">Gạch tròn 2x2-RE (2)</div>
+                    </div>
+                  </div>
+
+                </div>
+                <script>
+                  document.querySelectorAll('.flippable').forEach(el => {
+                    el.addEventListener('click', function () {
+                      this.classList.toggle('flipme');
+                    });
+                  });
+                </script>
+
+
+              </section>
+              <section id="e">
+                <h1 class="custom-timeline__heading"
+                  style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Lắp ráp mô hình
+                </h1>
+                <div class="container" style="padding-bottom: 20px;">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div id="custCarousel" class="carousel slide carousel-fade" data-ride="carousel" align="center"
+                        data-interval="false">
+                        <!-- slides -->
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="../../../REA/Buổi 14/1_4x_28_11zon.webp" alt="Buổi 14 Slide 1">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/2_4x_27_11zon.webp" alt="Buổi 14 Slide 2">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/3_4x_26_11zon.webp" alt="Buổi 14 Slide 3">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/4_4x_25_11zon.webp" alt="Buổi 14 Slide 4">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/5_4x_24_11zon.webp" alt="Buổi 14 Slide 5">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/6_4x_23_11zon.webp" alt="Buổi 14 Slide 6">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/7_4x_22_11zon.webp" alt="Buổi 14 Slide 7">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/8_4x_21_11zon.webp" alt="Buổi 14 Slide 8">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/9_4x_20_11zon.webp" alt="Buổi 14 Slide 9">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/10_4x_19_11zon.webp" alt="Buổi 14 Slide 10">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/11_4x_18_11zon.webp" alt="Buổi 14 Slide 11">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/12_4x_17_11zon.webp" alt="Buổi 14 Slide 12">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/13_4x_16_11zon.webp" alt="Buổi 14 Slide 13">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/14_4x_15_11zon.webp" alt="Buổi 14 Slide 14">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/15_4x_14_11zon.webp" alt="Buổi 14 Slide 15">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/16_4x_13_11zon.webp" alt="Buổi 14 Slide 16">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/17_4x_12_11zon.webp" alt="Buổi 14 Slide 17">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/18_4x_11_11zon.webp" alt="Buổi 14 Slide 18">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/19_4x_10_11zon.webp" alt="Buổi 14 Slide 19">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/20_4x_9_11zon.webp" alt="Buổi 14 Slide 20">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/21_4x_8_11zon.webp" alt="Buổi 14 Slide 21">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/22_4x_7_11zon.webp" alt="Buổi 14 Slide 22">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/23_4x_6_11zon.webp" alt="Buổi 14 Slide 23">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/24_4x_5_11zon.webp" alt="Buổi 14 Slide 24">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/25_4x_4_11zon.webp" alt="Buổi 14 Slide 25">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/26_4x_3_11zon.webp" alt="Buổi 14 Slide 26">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/27_4x_2_11zon.webp" alt="Buổi 14 Slide 27">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../../../REA/Buổi 14/28_4x_1_11zon.webp" alt="Buổi 14 Slide 28">
+                          </div>
+                        </div>
+
+                        <!-- Left right -->
+                        <a class="carousel-control-prev" href="#custCarousel" data-slide="prev">
+                          <span class="carousel-control-prev-icon" style="background-color: #000 !important; "></span>
+                        </a>
+                        <a class="carousel-control-next" href="#custCarousel" data-slide="next">
+                          <span class="carousel-control-next-icon" style="background-color: #000 !important; "></span>
+                        </a>
+                        <button id="toggleFullscreen" class="btn btn-dark"
+                          style="position: absolute; top: 10px; right: 10px; z-index: 999;">
+                          ⛶
+                        </button>
+
+                        <script>
+                          const fsButton = document.getElementById('toggleFullscreen');
+                          const carousel = document.getElementById('custCarousel');
+
+                          fsButton.addEventListener('click', () => {
+                            if (!document.fullscreenElement) {
+                              carousel.requestFullscreen().then(() => {
+                                fsButton.innerHTML = '🡼'; // icon thu nhỏ
+                              }).catch(err => {
+                                alert(`Error attempting to enable full-screen mode: ${err.message}`);
+                              });
+                            } else {
+                              document.exitFullscreen().then(() => {
+                                fsButton.innerHTML = '⛶'; // icon phóng to
+                              });
+                            }
+                          });
+
+                          // Nếu người dùng bấm F11 hoặc ESC ngoài ý muốn, vẫn cập nhật icon lại
+                          document.addEventListener('fullscreenchange', () => {
+                            if (!document.fullscreenElement) {
+                              fsButton.innerHTML = '⛶';
+                            }
+                          });
+                        </script>
+
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section id="f">
+                <h1 class="custom-timeline__heading"
+                  style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Ôn tập khối động cơ và khối đèn
+                </h1>
+                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                  <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
+                  <label for="tab1">Motor Blocks</label>
+
+                  <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
+                  <label for="tab2">Light Blocks</label>
+                  <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                  <label for="tab3">Nội dung 1</label>
+
+
+
+
+
+                  <ul>
+                    <li class="tab-content tab-content-first typography">
+                      <h2>🧑‍💻 Khối lệnh đặt tốc độ</h2>
+                      <div class="row instruction-block">
+                        <div class="col-md-5 text-center">
+                          <img src="../../../REA/Buổi 5/help-icon-motorSpeed.png" alt="" class="instruction-image">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="instruction-content">
+                            <p style="color: #000;"> <strong>Mô tả:</strong> Khối này cho phép thay đổi tốc độ của động
+                              cơ kết nối với Hub.</p>
+                            <ul>
+                              <li>Các mức tốc độ: 15%, 40%, 70%, 100% (hiển thị bằng vạch xanh lá).</li>
+                              <li>Tác dụng từ thời điểm đặt khối, không ảnh hưởng tới động cơ đang chạy.</li>
+                              <li>Mặc định: 40% nếu chưa đặt tốc độ.</li>
+                            </ul>
+                            <p style="color: #000;"> <strong>Cách sử dụng:</strong> Đặt khối này trước khối chạy động
+                              cơ.</p>
+                            <p><strong>Ví dụ:</strong></p>
+                            <img src="../../../REA/Buổi 5/gecko_block_help_example_horizontalmotor_motorsetspeed_en.svg"
+                              alt="" class="instruction-example">
+                            <p style="color: #000;" class="example-note">Động cơ xoay 1 vòng với tốc độ mặc định (40%),
+                              sau đó xoay ngược với tốc độ 100%.</p>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <h2>🧑‍💻 Khối động cơ ngược chiều kim đồng hồ</h2>
+                      <div class="row instruction-block">
+                        <div class="col-md-5 text-center">
+                          <img src="../../../REA/Buổi 5/help-icon-motorCounterclockwise.png" alt=""
+                            class="instruction-image">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="instruction-content">
+                            <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp động cơ xoay
+                              <strong>ngược chiều kim đồng hồ</strong>. Tốc độ có thể thay đổi bằng khối lệnh "Đặt tốc
+                              độ động cơ".</p>
+
+                            <ul>
+                              <li>Nhấn vào <strong>mũi tên trắng</strong> trên khối để mở bảng tùy chọn.</li>
+                              <li>Dùng nút <strong>+</strong> hoặc <strong>-</strong> để tăng/giảm số vòng quay đầy đủ.
+                              </li>
+                              <li>Dùng núm xoay để điều chỉnh theo đơn vị 0.25 vòng.</li>
+                            </ul>
+
+                            <p style="color: #000;"><strong>Cách sử dụng:</strong> Kết hợp khối này với khối “Đặt tốc
+                              độ” để điều khiển hướng và số vòng quay mong muốn.</p>
+
+                            <p><strong>Ví dụ:</strong></p>
+                            <img
+                              src="../../../REA/Buổi 5/gecko_block_help_example_horizontalmotor_motorturncounterclockwiserotations_en.svg"
+                              alt="" class="instruction-example">
+                            <p style="color: #000;" class="example-note">Chương trình này sẽ làm động cơ xoay
+                              <strong>ngược chiều kim đồng hồ</strong> trong <strong>2.5 vòng</strong>.</p>
+                          </div>
+                        </div>
+
+                      </div>
+
+
+                      <h2>🧑‍💻 Khối động cơ theo chiều kim đồng hồ</h2>
+                      <div class="row instruction-block">
+                        <div class="col-md-5 text-center">
+                          <img src="../../../REA/Buổi 5/help-icon-motorClockwise.png" alt="" class="instruction-image">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="instruction-content">
+                            <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp động cơ xoay <strong>theo
+                                chiều kim đồng hồ</strong>. Tốc độ có thể thay đổi bằng khối lệnh “Đặt tốc độ động cơ”.
+                            </p>
+
+                            <ul>
+                              <li>Nhấn vào <strong>mũi tên trắng</strong> trên khối để mở bảng tùy chọn.</li>
+                              <li>Dùng nút <strong>+</strong> hoặc <strong>-</strong> để tăng/giảm số vòng quay đầy đủ.
+                              </li>
+                              <li>Dùng núm xoay để điều chỉnh theo đơn vị <strong>0.25 vòng</strong>.</li>
+                            </ul>
+
+                            <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt khối này sau khối “Đặt tốc độ” để
+                              điều khiển số vòng quay theo chiều mong muốn.</p>
+
+                            <p><strong>Ví dụ:</strong></p>
+                            <img
+                              src="../../../REA/Buổi 5/gecko_block_help_example_horizontalmotor_motorturnclockwiserotations_en.svg"
+                              alt="" class="instruction-example">
+                            <p style="color: #000;" class="example-note">Chương trình này sẽ làm động cơ xoay
+                              <strong>theo chiều kim đồng hồ</strong> trong <strong>2.5 vòng</strong>.</p>
+                          </div>
+                        </div>
+
+
+                      </div>
+
+
+                      <h2>🧑‍💻 Khối dừng động cơ</h2>
+                      <div class="row instruction-block">
+                        <div class="col-md-5 text-center">
+                          <img src="../../../REA/Buổi 5/help-icon-motorStop.png" alt="" class="instruction-image">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="instruction-content">
+                            <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này dùng để <strong>dừng tất cả
+                                các động cơ</strong> đang chạy trên Hub.</p>
+
+                            <ul>
+                              <li>Ngay khi khối được thực thi, mọi động cơ đang hoạt động sẽ dừng lại lập tức.</li>
+                              <li>Không cần chỉ định cổng – khối áp dụng cho <strong>tất cả các động cơ</strong> đã kết
+                                nối.</li>
+                            </ul>
+
+                            <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt khối này sau các khối chạy động
+                              cơ để kết thúc hành động một cách rõ ràng.</p>
+
+
+                          </div>
+                        </div>
+
+
+
+                      </div>
+                    </li>
+                    <li class="tab-content tab-content-3 typography">
+                      <h2>🧑‍💻 Tạo chương trình đầu tiên</h2>
+                      <img src="../../../REA/Buổi 14/bai hoc bai 14.jpg" alt="" class="instruction-image">
+                      <div class="style-a">
+
+
+                    </li>
+
+
+                    <li class="tab-content tab-content-2 typography">
+                      <h2>🧑‍💻 Khối lệnh đèn 3x3</h2>
+                      <div class="row instruction-block">
+                        <div class="col-md-5 text-center">
+                          <img src="../../../REA/Buổi 5/help-icon-matrix3x3.png" alt="" class="instruction-image">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="instruction-content">
+                            <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp bạn thiết lập họa tiết
+                              hiển thị trên ma trận đèn 3x3.</p>
+                            <ul>
+                              <li>Nhấn mũi tên trắng để mở bảng thiết lập.</li>
+                              <li>Chọn màu và tô vào lưới 3x3 lớn.</li>
+                              <li>Lưới nhỏ trái: Xóa họa tiết.</li>
+                              <li>Lưới nhỏ phải: Tô tất cả ô bằng một màu.</li>
+                              <li>Khối tạm dừng 0.2 giây trước khi thực hiện tiếp.</li>
+                            </ul>
+                            <p><strong>Ví dụ:</strong></p>
+                            <img src="../../../REA/Buổi 5/gecko_block_help_example_horizontaldisplay_ledmatrix_en.svg"
+                              alt="" class="instruction-example">
+                            <p style="color: #000;" class="example-note">Chương trình này làm Ma trận đèn 3x3 thay đổi
+                              nhanh giữa ba họa tiết khác nhau, cách nhau 0.2 giây.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h2>🧑‍💻 Khối lệnh đèn ngẫu nhiên 3x3</h2>
+                      <div class="row instruction-block">
+                        <div class="col-md-5 text-center">
+                          <img src="../../../REA/Buổi 5/help-icon-matrix3x3Random.png" alt="" class="instruction-image">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="instruction-content">
+                            <p style="color: #000;"><strong>Mô tả:</strong> Mỗi lần chạy, ma trận sẽ sáng lên với màu
+                              ngẫu nhiên mới.</p>
+                            <ul>
+                              <li>Thời gian giữa các lần đổi màu là 0.2 giây.</li>
+                            </ul>
+                            <p><strong>Ví dụ:</strong></p>
+                            <img
+                              src="../../../REA/Buổi 5/gecko_block_help_example_horizontaldisplay_ledmatrixrandom_en.svg"
+                              alt="" class="instruction-example">
+                            <p style="color: #000;" class="example-note">Chương trình này làm đèn liên tục sáng với các
+                              màu ngẫu nhiên, mỗi màu hiển thị trong 0.2 giây.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+
+
+
+
+                  </ul>
+                </div>
+
+              </section>
+
+              <section id="g" class="accordion-wrapper text-dark">
+                <h1 class="custom-timeline__heading" style="text-align: center">
+                  Quan sát cấu tạo
+                </h1>
+               <div class="scrollable-list">
+  <ol class="custom-step-list" style="--length: 4" role="list">
+    <li style="--i: 1">
+      <h3>Giáo viên hướng dẫn:</h3>
+      <p>
+        ✔️ Trưng bày mô hình trò chơi đu quay từ nhiều góc nhìn để học sinh quan sát rõ kết cấu và hoạt động.<br>
+        ✔️ Gợi ý học sinh đặt câu hỏi như: “Đu quay quay như thế nào?”, “Tại sao cần gắn đèn ở đây?”.<br>
+        ✔️ Minh họa rõ chuyển động và hiệu ứng ánh sáng bằng trình chiếu hoặc mô hình thật.<br>
+        ✔️ Khuyến khích học sinh tưởng tượng trò chơi thêm sinh động với đèn màu và nhạc nền.<br>
+        ✔️ Tạo môi trường học sáng tạo – giúp học sinh nghĩ như nhà thiết kế công viên giải trí.
+      </p>
+    </li>
+
+    <li style="--i: 2">
+      <h3>Học sinh quan sát:</h3>
+      <p>
+        👀 Quan sát kỹ cấu trúc và chuyển động của trò chơi đu quay:<br>
+        🔹 <strong>Thân đu quay:</strong> trục chính giúp toàn bộ hệ thống quay tròn.<br>
+        🔹 <strong>Ghế ngồi:</strong> treo hoặc gắn xung quanh, có thể chuyển động nhẹ.<br>
+        🔹 <strong>Đèn:</strong> dùng khối <code>light blocks</code> tạo hiệu ứng màu sắc khi quay.<br>
+        🔹 <strong>Động cơ:</strong> điều khiển tốc độ và chiều quay.<br>
+        🔹 <strong>Cấu trúc đỡ:</strong> chắc chắn để giữ thăng bằng và an toàn.
+      </p>
+    </li>
+
+    <li style="--i: 3">
+      <h3>Vận dụng khối lệnh điều khiển:</h3>
+      <p>
+        🎮 Lập trình mô hình kết hợp chuyển động và hiệu ứng đèn:<br>
+        ✔️ Điều khiển tốc độ quay của động cơ (nhanh, chậm, dừng).<br>
+        ✔️ Thêm khối <code>light blocks</code> để thay đổi màu sắc đèn theo thời gian.<br>
+        ✔️ Dùng lệnh lặp để mô phỏng hiệu ứng “đèn chớp nháy” hoặc chuyển màu liên tục.
+      </p>
+    </li>
+
+    <li style="--i: 4">
+      <h3>Trình bày và chuẩn bị cho buổi học sau:</h3>
+      <p>
+        📢 Thuyết trình về mô hình đu quay một cách sáng tạo:<br>
+        ✔️ Mô tả ý tưởng thiết kế và các tính năng nổi bật (chuyển động, đèn, âm thanh).<br>
+        ✔️ Giải thích logic lập trình: tại sao chọn tốc độ, màu sắc, trình tự hoạt động.<br>
+        ✔️ Làm việc nhóm hiệu quả, lắng nghe và bổ sung cho nhau.<br><br>
+        <strong>Chuẩn bị cho buổi học sau:</strong> "Trò chơi đu quay của em"<br>
+        ✔️ Ghi lại các điểm mạnh/ý tưởng cải tiến mô hình hôm nay.<br>
+        ✔️ Phác thảo một trò chơi mới: chọn chủ đề, màu đèn, hiệu ứng đặc biệt.<br>
+        ✔️ Mang tinh thần sáng tạo, vui nhộn đến buổi học tiếp theo!
+      </p>
+    </li> 
+  </ol>
+</div>
+
+
+              </section>
+
+
+
+              <section id="h">
+                <h1 class="custom-timeline__heading"
+                  style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+                  Tổng kết buổi học
+                </h1>
+                <div class="quiz-container">
+                  <div class="question" id="question">Loading question...</div>
+                  <div class="options" id="options"></div>
+                  <div class="feedback" id="feedback"></div>
+                  <div class="progress-bar">
+                    <div class="progress" id="progress-bar"></div>
+                  </div>
+                  <div class="score" id="score">Score: 0 / 5</div>
+                  <div class="controls">
+                    <button class="control-button" id="prev-btn" disabled>Về trước</button>
+                    <button class="control-button" id="next-btn" disabled>Tiếp theo</button>
+                  </div>
+                </div>
+
+                <script>
+                  // Questions Array
+                  const questions = [
+  {
+    type: "multiple",
+    difficulty: "Dễ",
+    question: "Muốn đèn LED đổi màu khi robot bắt đầu di chuyển, em nên làm gì?",
+    options: [
+      "Đặt khối màu trước khối chuyển động",
+      "Gắn đèn vào bánh xe",
+      "Tăng tốc độ động cơ để đèn sáng hơn",
+      "Chỉ cần bật khối đèn là đủ"
+    ],
+    answer: "Đặt khối màu trước khối chuyển động",
+    insight: "Khối đèn cần được đặt trước hoặc sau các hành động để đồng bộ thời điểm đổi màu với hoạt động của robot."
+  },
+  {
+    type: "multiple",
+    difficulty: "Trung bình",
+    question: "Khối 'đặt đèn thành màu đỏ' có ảnh hưởng gì khi lặp lại trong vòng lặp không có khối tạm dừng?",
+    options: [
+      "Đèn sẽ nhấp nháy rõ ràng",
+      "Đèn sẽ bị chớp nhanh, khó thấy",
+      "Không có gì xảy ra",
+      "Robot sẽ bị lỗi"
+    ],
+    answer: "Đèn sẽ bị chớp nhanh, khó thấy",
+    insight: "Khi không có khối tạm dừng, thay đổi ánh sáng diễn ra quá nhanh khiến mắt thường không kịp nhận ra rõ ràng."
+  },
+  {
+    type: "multiple",
+    difficulty: "Trung bình",
+    question: "Làm thế nào để robot quay vòng tròn trong khi đèn nhấp nháy đỏ – xanh luân phiên?",
+    options: [
+      "Dùng khối lặp kết hợp động cơ và thay đổi màu đèn xen kẽ với tạm dừng",
+      "Tăng tốc độ quay của động cơ",
+      "Chèn đèn LED vào bên trong động cơ",
+      "Không thể thực hiện vì đèn và động cơ không đồng bộ"
+    ],
+    answer: "Dùng khối lặp kết hợp động cơ và thay đổi màu đèn xen kẽ với tạm dừng",
+    insight: "Việc thay đổi màu đèn trong lúc robot quay yêu cầu đồng bộ hóa lệnh bằng cách sử dụng lặp và khối dừng thời gian."
+  },
+  {
+    type: "multiple",
+    difficulty: "Khó",
+    question: "Muốn robot dừng lại khi đèn đổi sang màu vàng, em cần kết hợp gì?",
+    options: [
+      "Dùng cảm biến màu nhận diện ánh sáng từ đèn",
+      "Thêm điều kiện nếu màu đèn = vàng thì dừng",
+      "Thay đổi độ sáng LED để báo hiệu",
+      "Chèn khối lặp vô hạn"
+    ],
+    answer: "Thêm điều kiện nếu màu đèn = vàng thì dừng",
+    insight: "Có thể lập trình logic điều kiện để robot phản ứng với màu đèn – ví dụ: đèn vàng là tín hiệu dừng lại."
+  },
+  {
+    type: "multiple",
+    difficulty: "Khó",
+    question: "Làm sao để robot thực hiện hiệu ứng: 'di chuyển – đèn đỏ – dừng – đèn xanh – tiếp tục' nhiều lần?",
+    options: [
+      "Kết hợp khối chuyển động, khối đèn và khối lặp có tạm dừng",
+      "Tăng tốc độ và chèn khối âm thanh",
+      "Chỉ sử dụng khối đèn đổi màu nhanh",
+      "Chèn toàn bộ trong một khối điều kiện"
+    ],
+    answer: "Kết hợp khối chuyển động, khối đèn và khối lặp có tạm dừng",
+    insight: "Đây là logic điều khiển có thứ tự, cần cấu trúc tuần tự với dừng và lặp để đạt hiệu ứng mong muốn giống đèn giao thông."
+  }
+];
+
+                  let currentIndex = 0;
+                  let score = 0;
+                  const totalQuestions = questions.length;
+
+                  // Track whether each question has been answered
+                  const answeredQuestions = new Array(totalQuestions).fill(false);
+
+                  const questionContainer = document.getElementById("question");
+                  const optionsContainer = document.getElementById("options");
+                  const feedbackContainer = document.getElementById("feedback");
+                  const scoreContainer = document.getElementById("score");
+                  const prevBtn = document.getElementById("prev-btn");
+                  const nextBtn = document.getElementById("next-btn");
+                  const progressBar = document.getElementById("progress-bar");
+
+                  // Load a question
+                  function loadQuestion(index) {
+                    // Clear previous content
+                    optionsContainer.innerHTML = "";
+                    feedbackContainer.textContent = "";
+
+                    const currentQuestion = questions[index];
+                    questionContainer.textContent = `${index + 1}. ${currentQuestion.question}`;
+
+                    // Update navigation buttons
+                    prevBtn.disabled = index === 0;
+                    nextBtn.disabled = !answeredQuestions[index]; // Disable Next until user answers
+
+                    // Display options
+                    if (currentQuestion.type === "multiple") {
+                      currentQuestion.options.forEach((option) => {
+                        const button = document.createElement("button");
+                        button.textContent = option;
+                        button.classList.add("option-button");
+                        button.disabled = answeredQuestions[index]; // Disable if already answered
+                        button.addEventListener("click", () =>
+                          handleAnswer(
+                            option,
+                            currentQuestion.answer,
+                            currentQuestion.insight,
+                            button
+                          )
+                        );
+                        optionsContainer.appendChild(button);
+                      });
+                    } else {
+                      ["Đúng", "Sai"].forEach((option) => {
+                        const button = document.createElement("button");
+                        button.textContent = option;
+                        button.classList.add("option-button");
+                        button.disabled = answeredQuestions[index]; // Disable if already answered
+                        button.addEventListener("click", () =>
+                          handleAnswer(
+                            option,
+                            currentQuestion.answer,
+                            currentQuestion.insight,
+                            button
+                          )
+                        );
+                        optionsContainer.appendChild(button);
+                      });
+                    }
+
+                    // Update progress
+                    updateProgress();
+
+                    // Show feedback if already answered
+                    if (answeredQuestions[index]) {
+                      feedbackContainer.textContent = `Bạn đã sẵn sàng trả lời các câu hỏi chưa.`;
+                      feedbackContainer.style.color = "gray";
+                    }
+                  }
+
+                  // Handle answers
+                  function handleAnswer(selected, correct, insight, button) {
+                    const buttons = optionsContainer.querySelectorAll("button");
+                    buttons.forEach((btn) => (btn.disabled = true)); // Disable all options
+
+                    if (!answeredQuestions[currentIndex]) {
+                      // Update score if this is the first attempt at this question
+                      if (selected === correct) {
+                        score++;
+                        feedbackContainer.textContent = `Đúng rồi! ${insight}`;
+                        feedbackContainer.style.color = "green";
+                        button.style.backgroundColor = "#28a745"; // Green for correct
+                      } else {
+                        feedbackContainer.textContent = `Sai rồi! Đáp án câu hỏi này là: "${correct}". ${insight}`;
+                        feedbackContainer.style.color = "red";
+                        button.style.backgroundColor = "#dc3545"; // Red for incorrect
+                      }
+                      answeredQuestions[currentIndex] = true; // Mark this question as answered
+                    }
+
+                    nextBtn.disabled = false; // Enable Next button
+                    updateScore();
+                  }
+
+                  // Update progress bar
+                  function updateProgress() {
+                    const progress = ((currentIndex + 1) / totalQuestions) * 100;
+                    progressBar.style.width = `${progress}%`;
+                  }
+
+                  // Update score display
+                  function updateScore() {
+                    scoreContainer.textContent = `Score: ${score} / ${totalQuestions}`;
+                  }
+
+                  // Navigation buttons
+                  prevBtn.addEventListener("click", () => {
+                    if (currentIndex > 0) {
+                      currentIndex--;
+                      loadQuestion(currentIndex);
+                    }
+                  });
+
+                  nextBtn.addEventListener("click", () => {
+                    if (currentIndex < totalQuestions - 1) {
+                      currentIndex++;
+                      loadQuestion(currentIndex);
+                    } else {
+                      questionContainer.textContent = "Hoàn thành câu hỏi";
+                      optionsContainer.innerHTML = "";
+                      feedbackContainer.textContent = `Tổng số điển là: ${score} / ${totalQuestions}`;
+                      nextBtn.disabled = true;
+                    }
+                  });
+
+                  // Initialize quiz
+                  loadQuestion(currentIndex);
+
+                </script>
+              </section>
+            </div>
+          </div>
+        </div>
+        <!-- ***** Banner End ***** -->
+
+
+
+        <script>
+          const wrapper = document.querySelector(".wrapper");
+          let sections = wrapper.querySelectorAll(".main > section");
+
+          (function initSections() {
+            const side = wrapper.querySelector(".side > .stick-container");
+
+            // 👉 Gán tên tùy theo từng mục
+            const labels = ["Mục tiêu", "Giới thiệu", "Mô hình", "Chuẩn bị", "Xây dựng", "Ôn tập", "Thử thách", "Tổng kết"];
+
+            sections.forEach((section, index) => {
+              let link = document.createElement("a");
+              let label = document.createElement("span");
+
+              const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+              link.style.background = randomColor;
+
+              // KHÔNG dùng href nữa để tránh thay đổi hash
+              link.href = "javascript:void(0)";
+              link.classList.add("section_clone");
+
+              label.textContent = labels[index] || `Mục ${index + 1}`;
+              label.style.fontSize = "1rem";
+              label.style.fontWeight = "600";
+
+              link.appendChild(label);
+              side.appendChild(link);
+
+              // 👉 Cuộn mượt đến mục khi click
+              link.addEventListener("click", (e) => {
+                e.preventDefault(); // Ngăn mặc định
+                section.scrollIntoView({ behavior: "smooth" });
+                addInView([index]); // Cập nhật trạng thái mục đang hiển thị
+              });
+            });
+
+
+            addInView([0]);
+          })();
+
+          function addInView(arr) {
+            let index = arr[0];
+            let aspectRatio = arr[1];
+            const side_sections = document.querySelectorAll(".section_clone");
+            side_sections.forEach((side_section) => {
+              side_section.classList.remove("inView");
+            });
+            side_sections[index].classList.add("inView");
+
+            //console.log(side_sections[index]);
+          }
+
+          function checkForViewport() {
+            let result = 0;
+            let aspectRatio;
+            sections.forEach((section, index) => {
+              section.style.background = "";
+
+              let section_bound = section.getBoundingClientRect();
+              let section_boundMid = section_bound.bottom / 2;
+              aspectRatio = parseFloat(
+                (section_bound.width / section_bound.height).toFixed(2)
+              );
+              console.log(aspectRatio);
+              if (
+                section_bound.top <= window.innerHeight / 2 &&
+                section_bound.bottom > window.innerHeight / 2
+              ) {
+                result = index;
+              }
+            });
+            let result_arr = [result, aspectRatio];
+            return result_arr;
+          }
+
+          window.addEventListener("scroll", (event) => {
+            addInView(checkForViewport());
+          });
+
+        </script>
+
+
+      </div>
+
+
+      <!-- ***** Gaming Library End ***** -->
+    </div>
+
+  </div>
+  </div>
+
+
+  <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+    onclick="scrollToTop()" id="back-to-up">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script>
+    window.onscroll = () => {
+      toggleTopButton();
+    }
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTopButton() {
+      if (document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20) {
+        document.getElementById('back-to-up').classList.remove('d-none');
+      } else {
+        document.getElementById('back-to-up').classList.add('d-none');
+      }
+    }
+  </script>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved.
+
+            <br>Design By Huỳnh Ngọc Thái
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Popper (nếu dùng Bootstrap 4) -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+  <!-- Bootstrap JS (v4 hoặc v5 tùy bạn dùng bản nào) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+  <script src="../../../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="../../../js/isotope.min.js"></script>
+  <script src="../../../js/owl-carousel.js"></script>
+  <script src="../../../js/tabs.js"></script>
+  <script src="../../../js/popup.js"></script>
+  <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
