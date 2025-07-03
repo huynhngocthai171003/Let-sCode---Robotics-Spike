@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Let's Code - Robotics</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="../../../css/fontawesome.css">
+  <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="../../../css/owl.css">
+  <link rel="stylesheet" href="../../../css/animate.css">
+  <link rel="stylesheet" href="../../../css/lesson.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <link rel="apple-touch-icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+    sizes="192x192">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png" sizes="32x32">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+  <script src="../../../js/include.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      includeHTML(() => {
+        const menuItems = document.querySelectorAll('nav a');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            console.log('Bạn vừa click:', e.target.textContent);
+          });
+        });
+      });
+    });
+  </script>
+  <style>
+    .custom-section-wrapper {
+      display: flex;
+      height: 700px;
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    .custom-filter-bar,
+    .custom-image-gallery {
+      scrollbar-width: thin;
+      /* mỏng hơn */
+      scrollbar-color: #4CADAD #1f1f1f;
+      /* màu thumb và track */
+    }
+
+
+    /* Filter Buttons */
+    .custom-filter-bar {
+      max-height: 100%;
+      overflow-y: auto;
+    }
+
+    .custom-btn {
+      /* padding: 10px 20px; */
+      background-color: transparent;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      text-transform: uppercase;
+      transition: background 0.3s;
+    }
+
+    .custom-btn:hover {
+      background-color: #2c4e6a;
+    }
+
+    .custom-btn:focus {
+      background-color: #2c4e6a;
+    }
+
+    /* Gallery */
+    .custom-image-gallery {
+      flex-grow: 1;
+      max-height: 100%;
+      overflow-y: auto;
+    }
+
+    .custom-image-item {
+      /* width: calc(25% - 12px);
+  height: 100px; */
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .custom-image-item {
+      background-color: #F8B195;
+      /* border: solid 2px purple; */
+    }
+
+    /* .custom-image-item[data-category="chốt_REW"] {
+  background-color: #F8B195;
+ 
+}
+
+.custom-image-item[data-category="chốt_REBL bộ_mở_RER"] {
+  background-color: #eef895;
+}
+.custom-image-item[data-category="bộ_mở_RER"] {
+  background-color: #6C5B7B;
+}
+.custom-image-item[data-category="animals"] {
+  background-color: #C06C84;
+} */
+
+    .custom-hidden {
+      display: none !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .custom-image-item {
+        width: calc(50% - 12px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .custom-image-item {
+        width: 100%;
+      }
+    }
+
+    .custom-btn>img {
+      width: 50%;
+    }
+
+    .custom-section-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .custom-filter-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      max-width: 100px;
+    }
+
+    .custom-image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start;
+    }
+
+    .instruction-block {
+      margin-bottom: 40px;
+      align-items: center;
+    }
+
+    .instruction-image {
+      width: 70%;
+      margin: 0 auto 16px;
+    }
+
+    .instruction-content {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #212529;
+    }
+
+    .instruction-content p {
+      margin-bottom: 12px;
+      line-height: 1.5 !important;
+    }
+
+    .instruction-content ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+      list-style-type: disc;
+    }
+
+    .instruction-example {
+      width: 70%;
+      display: block;
+      margin: 16px 0;
+    }
+
+    .example-note {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 0;
+    }
+
+    .category-element {
+      text-align: left;
+    }
+
+    .category-grid-element {
+      background: none repeat scroll 0 0 #fff0;
+      border: medium none;
+      overflow: hidden;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .category-visual-item {
+      margin: 5px;
+      float: left;
+      text-decoration: none !important;
+    }
+
+    .category-visual-item a {
+      pointer-events: none;
+    }
+
+    /* Mặc định: ảnh hiển thị bình thường */
+    #custCarousel .carousel-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      /* Hoặc contain, tùy bạn */
+    }
+
+    /* Khi carousel fullscreen */
+    #custCarousel:fullscreen {
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+    }
+
+    /* Ảnh trong fullscreen */
+    #custCarousel:fullscreen .carousel-item img {
+      width: auto;
+      height: 100vh;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .scrollable-materials {
+      width: 102%;
+      max-height: 700px;
+      /* bạn có thể điều chỉnh chiều cao tối đa tùy ý */
+      overflow-y: auto;
+      padding-right: 10px;
+      /* để không bị che mất thanh scroll */
+    }
+
+    /* (Tùy chọn) Làm đẹp thanh cuộn nếu muốn */
+    .scrollable-materials::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .scrollable-materials::-webkit-scrollbar-thumb {
+      background-color: rgba(94, 100, 214, 0.2);
+      border-radius: 3pxrgba(44, 37, 173, 0.2)
+    }
+
+    .no-bullets li:before {
+      content: none !important;
+    }
+
+    .custom-step-list {
+      font-family: Montserrat, sans-serif;
+      list-style: none;
+      counter-reset: step-counter;
+      padding: 0 1rem;
+    }
+
+    .custom-step-list li {
+      --stop: calc(100% / var(--length) * var(--i));
+      --l: 62%;
+      --l2: 88%;
+      --h: calc((var(--i) - 1) * (180 / var(--length)));
+      --c1: hsl(var(--h), 71%, var(--l));
+      --c2: hsl(var(--h), 71%, var(--l2));
+
+      position: relative;
+      counter-increment: step-counter;
+      max-width: 45rem;
+      margin: 2rem auto;
+      padding: 2rem 1rem 1rem;
+      box-shadow: 0.1rem 0.1rem 1.5rem rgba(0, 0, 0, 0.3);
+      border-radius: 0.25rem;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    .custom-step-list li::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, var(--c1) var(--stop), var(--c2) var(--stop));
+    }
+
+    .custom-step-list h3 {
+      display: flex;
+      align-items: baseline;
+      margin: 0 0 1rem;
+      color: rgb(70, 70, 70);
+      font-weight: 700;
+    }
+
+    .custom-step-list h3::before {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 0 0 auto;
+      margin-right: 1rem;
+      width: 3rem;
+      height: 3rem;
+      content: counter(step-counter);
+      padding: 1rem;
+      border-radius: 50%;
+      background-color: var(--c1);
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .custom-step-list p {
+      color: #000;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 40em) {
+      .custom-step-list li {
+        margin: 3rem auto;
+        padding: 3rem 2rem 2rem;
+      }
+
+      .custom-step-list h3 {
+        font-size: 2.25rem;
+        margin: 0 0 2rem;
+      }
+
+      .custom-step-list h3::before {
+        margin-right: 1.5rem;
+      }
+    }
+
+    .scrollable-list {
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+
+    /* Tuỳ chọn làm đẹp thanh cuộn */
+    .scrollable-list::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .scrollable-list::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <div data-include="../../header.html"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      includeHTML(() => {
+        // Gắn lại sự kiện cho menu sau khi include xong header
+        const script = document.createElement('script');
+        script.src = "../../../js/custom.js";
+        document.body.appendChild(script);
+
+        // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+        const menuItems = document.querySelectorAll('nav a');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            console.log('Bạn vừa click:', e.target.textContent);
+          });
+        });
+      });
+    });
+  </script>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Banner Start ***** -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="main-profile">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <img src="../../../images/REA/img-rea-bai20.png" alt="" style="border-radius: 23px;">
+                  </div>
+                  <div class="col-lg-4 align-self-center">
+                    <div class="main-info header-text">
+
+                      <span>Khối biểu tượng</span>
+                      <h4 style="color: #000 !important;  font-family: 'Baloo Chettan 2', sans-serif !important">Buổi
+                        20: </h4>
+                      <p style="color: #000 !important">
+                        Tổng kết khóa học & Chuẩn bị dự án cho buổi tổng kết
+                      </p>
+
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="wrapper" style="font-family: 'Baloo Chettan 2', sans-serif !important">
+            <div class="side">
+              <div class="stick-container"></div>
+            </div>
+            <div class="main">
+              <section id="a">
+
+
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục
+                  tiêu bài học
+                </h1>
+                <div class="accordion-container">
+                  <input type="radio" id="acc-tab-1" name="accordion" checked>
+                  <label for="acc-tab-1" class="accordion-label">
+                    <h2>🎓 Kiến thức</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <ul>
+                      <li>✔️ Ôn lại chức năng chính của các khối lệnh trong LEGO Spike Essential: Motor, Sound, Light,
+                        Movement và Control.</li>
+                      <li>✔️ Phân biệt vai trò và cách sử dụng từng khối trong lập trình robot: điều khiển chuyển động,
+                        phát âm thanh, phát sáng, điều kiện và vòng lặp.</li>
+                      <li>✔️ Ghi nhớ cách kết nối phần cứng (hub, động cơ, cảm biến) với phần mềm để robot hoạt động
+                        đồng bộ.</li>
+                      <li>✔️ Hiểu sự kết hợp giữa phần cứng và phần mềm trong mô hình LEGO để tạo hiệu ứng đồng bộ.</li>
+                      <li>✔️ Ôn lại cấu tạo và nguyên lý hoạt động của các mô hình đã thực hiện trong suốt khóa học.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <input type="radio" id="acc-tab-2" name="accordion">
+                  <label for="acc-tab-2" class="accordion-label">
+                    <h2>🛠️ Kỹ năng</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <ul>
+                      <li>✔️ Thực hành lắp ráp lại một mô hình đã học (ví dụ: nhạc cụ, phương tiện, robot phản xạ…) theo
+                        nhóm hoặc cá nhân.</li>
+                      <li>✔️ Lập trình hoàn chỉnh mô hình sử dụng kết hợp Motor Block, Sound Block, Light Block và
+                        Control Block.</li>
+                      <li>✔️ Tinh chỉnh thời gian, tốc độ, hướng, âm lượng, ánh sáng để mô hình hoạt động mượt và đồng
+                        bộ.</li>
+                      <li>✔️ Kiểm tra lỗi và hoàn thiện chương trình để chuẩn bị cho phần trình diễn tổng kết.</li>
+                      <li>✔️ Hợp tác trong nhóm để cùng hoàn thiện mô hình trình diễn cuối khóa.</li>
+                    </ul>
+                  </div>
+
+                  <input type="radio" id="acc-tab-3" name="accordion">
+                  <label for="acc-tab-3" class="accordion-label">
+                    <h2>💡 Tư duy</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <ul>
+                      <li>✔️ Suy luận logic để sử dụng các khối điều khiển (Control Block) như lặp, điều kiện, chờ, đúng
+                        mục đích.</li>
+                      <li>✔️ Vận dụng tư duy mô hình hóa để kết hợp chuyển động – âm thanh – ánh sáng vào một kịch bản
+                        hợp lý.</li>
+                      <li>✔️ Phân tích hiệu quả hoạt động của mô hình: Có đúng theo ý tưởng không? Có thể cải tiến gì
+                        không?</li>
+                      <li>✔️ Tự đánh giá và điều chỉnh mô hình theo tiêu chí: thẩm mỹ – kỹ thuật – biểu diễn.</li>
+                    </ul>
+                  </div>
+
+                  <input type="radio" id="acc-tab-4" name="accordion">
+                  <label for="acc-tab-4" class="accordion-label">
+                    <h2>❤️ Thái độ</h2>
+                  </label>
+                  <div class="accordion-content">
+                    <ul>
+                      <li>✔️ Tự tin tổng kết kiến thức và thể hiện mô hình sáng tạo trong buổi trình diễn cuối khóa.
+                      </li>
+                      <li>✔️ Hợp tác tích cực, hỗ trợ bạn cùng nhóm để hoàn thành sản phẩm chất lượng.</li>
+                      <li>✔️ Sẵn sàng chia sẻ ý tưởng, lắng nghe góp ý từ bạn và giáo viên.</li>
+                      <li>✔️ Chủ động ghi lại trải nghiệm học tập, quá trình thử nghiệm và bài học rút ra.</li>
+                      <li>✔️ Hào hứng với công nghệ, sẵn sàng khám phá các chủ đề nâng cao sau khóa học.</li>
+                    </ul>
+                  </div>
+                </div>
+
+
+              </section>
+              <section id="b" class="row">
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
+                  thiệu nội dung bài học
+                </h1>
+                <ul class="custom-timeline__list">
+                  <li class="custom-timeline__item" style="--accent-color:#41516C">
+                    <div class="custom-timeline__date">Tổng ôn kiến thức</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
+                    <div class="custom-timeline__date">Lên ý tưởng mô hình</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                    <div class="custom-timeline__date">Thực hành tự do</div>
+                  </li>
+                  <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
+                    <div class="custom-timeline__date">Chuẩn bị buổi tổng kết</div>
+                  </li>
+
+                </ul>
+              </section>
+              <section id="c">
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">
+                  Khối lệnh đèn (Light Blocks)
+                </h1>
+                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                  <input type="radio" name="pcss3t-2" checked id="tab-g-1" class="tab-content-first">
+                  <label for="tab-g-1">Đèn 3x3</label>
+
+                  <input type="radio" name="pcss3t-2" id="tab-g-2" class="tab-content-2">
+                  <label for="tab-g-2">Ngẫu nhiên</label>
+
+
+
+                  <ul>
+                    <li class="tab-content tab-content-first typography">
+                      <h2>🧑‍💻 Khối lệnh đèn 3x3</h2>
+                      <div class="row instruction-block">
+                        <div class="col-md-5 text-center">
+                          <img src="../../../REA/Buổi 5/help-icon-matrix3x3.png" alt="" class="instruction-image">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="instruction-content">
+                            <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp bạn thiết lập họa tiết
+                              hiển thị trên ma trận đèn 3x3.</p>
+                            <ul>
+                              <li>Nhấn mũi tên trắng để mở bảng thiết lập.</li>
+                              <li>Chọn màu và tô vào lưới 3x3 lớn.</li>
+                              <li>Lưới nhỏ trái: Xóa họa tiết.</li>
+                              <li>Lưới nhỏ phải: Tô tất cả ô bằng một màu.</li>
+                              <li>Khối tạm dừng 0.2 giây trước khi thực hiện tiếp.</li>
+                            </ul>
+                            <p><strong>Ví dụ:</strong></p>
+                            <img src="../../../REA/Buổi 5/gecko_block_help_example_horizontaldisplay_ledmatrix_en.svg"
+                              alt="" class="instruction-example">
+                            <p style="color: #000;" class="example-note">Chương trình này làm Ma trận đèn 3x3 thay đổi
+                              nhanh giữa ba họa tiết khác nhau, cách nhau 0.2 giây.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+
+                    <li class="tab-content tab-content-2 typography">
+                      <h2>🧑‍💻 Khối lệnh đèn ngẫu nhiên 3x3</h2>
+                      <div class="row instruction-block">
+                        <div class="col-md-5 text-center">
+                          <img src="../../../REA/Buổi 5/help-icon-matrix3x3Random.png" alt="" class="instruction-image">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="instruction-content">
+                            <p style="color: #000;"><strong>Mô tả:</strong> Mỗi lần chạy, ma trận sẽ sáng lên với màu
+                              ngẫu nhiên mới.</p>
+                            <ul>
+                              <li>Thời gian giữa các lần đổi màu là 0.2 giây.</li>
+                            </ul>
+                            <p><strong>Ví dụ:</strong></p>
+                            <img
+                              src="../../../REA/Buổi 5/gecko_block_help_example_horizontaldisplay_ledmatrixrandom_en.svg"
+                              alt="" class="instruction-example">
+                            <p style="color: #000;" class="example-note">Chương trình này làm đèn liên tục sáng với các
+                              màu ngẫu nhiên, mỗi màu hiển thị trong 0.2 giây.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+
+
+
+                  </ul>
+                </div>
+
+
+              </section>
+              <section id="d">
+                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">
+                  Khối lệnh âm thanh (Sound Blocks)
+                </h1>
+                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                  <input type="radio" name="pcss3t-3" checked id="tab-d-1" class="tab-content-first">
+                  <label for="tab-d-1">Động vật</label>
+                  <input type="radio" name="pcss3t-3"  id="tab-d-2" class="tab-content-2">
+                  <label for="tab-d-2">Hiệu ứng</label>
+                  <input type="radio" name="pcss3t-3"  id="tab-d-3" class="tab-content-3">
+                  <label for="tab-d-3">Nhạc</label>
+                  <input type="radio" name="pcss3t-3"  id="tab-d-4" class="tab-content-4">
+                  <label for="tab-d-4">Ghi âm</label>
+                  <ul>
+
+                    <li class="tab-content tab-content-first typography">
+                      <h2>🔊 Khối Âm Thanh Động Vật (Animal Sound Block)</h2>
+                      <div class="row instruction-block">
+                        <div class="col-md-5 text-center">
+                          <img src="../../../REA/Buổi 7/help-icon-soundsAnimal.png" alt="" class="instruction-image">
+                        </div>
+                        <div class="col-md-7">
+                          <div class="instruction-content">
+                            <p style="color: #000;"><strong>Mô tả:</strong> Khối này sẽ phát ra âm thanh của một loài
+                              động vật. Có thể chọn từ 8 âm thanh động vật khác nhau.</p>
+                            <ul>
+                              <li>Để chọn âm thanh, hãy nhấn vào mũi tên trắng hướng xuống trên khối, sau đó chọn một
+                                con số trong menu.</li>
+                              <li>Nếu chọn biểu tượng xúc xắc, khối sẽ phát một âm thanh động vật ngẫu nhiên mỗi lần
+                                được chạy.</li>
+                            </ul>
+
+                            <p style="color: #000;"><strong>Ví dụ</strong></p>
+                            <img style="width: 60%;"
+                              src="../../../REA/Buổi 7/gecko_block_help_example_horizontalsound_playanimalsounduntildone_en.svg"
+                              alt="" class="instruction-example">
+                            <p style="color: #000;" class="example-note">
+                              Chương trình này sẽ phát âm thanh động vật số 5.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="tab-content tab-content-2 typography">
+                      <h2>🔉 Khối Hiệu Ứng Âm Thanh (Sound Effect Block)</h2>
+<div class="row instruction-block">
+    <div class="col-md-5 text-center">
+        <img src="../../../REA/Buổi 7/help-icon-soundsEffects.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+        <div class="instruction-content">
+            <p style="color: #000;"><strong>Mô tả:</strong> Khối này sẽ phát một hiệu ứng âm thanh. Có 8 hiệu ứng khác nhau để lựa chọn.</p>
+            <ul>
+                <li>Để chọn hiệu ứng âm thanh, hãy nhấn vào mũi tên trắng trên khối, sau đó chọn một con số trong menu.</li>
+                <li>Nếu chọn biểu tượng xúc xắc, mỗi lần chạy khối sẽ phát ra một hiệu ứng âm thanh ngẫu nhiên.</li>
+            </ul>
+
+            <p style="color: #000;"><strong>Ví dụ</strong></p>
+            <img style="width: 60%;" src="../../../REA/Buổi 7/gecko_block_help_example_horizontalsound_playeffectsounduntildone_en.svg" alt="" class="instruction-example">
+            <p style="color: #000;" class="example-note">
+                Chương trình này sẽ phát hiệu ứng âm thanh số 5.
+            </p>
+        </div>
+    </div>
+</div>
+                    </li>
+
+                     <li class="tab-content tab-content-3 typography">
+                     <h2>🎵 Khối Phát Nhạc (Music Block)</h2>
+<div class="row instruction-block">
+    <div class="col-md-5 text-center">
+        <img src="../../../REA/Buổi 7/help-icon-soundsMusic.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+        <div class="instruction-content">
+            <p style="color: #000;"><strong>Mô tả:</strong> Khối này sẽ phát một bản nhạc thông qua thiết bị.</p>
+            <ul>
+                <li>Để chọn bản nhạc sẽ phát, hãy nhấn vào mũi tên trắng trên khối và chọn một con số trong menu.</li>
+                <li>Nếu chọn biểu tượng xúc xắc, mỗi lần chạy khối sẽ phát một bản nhạc ngẫu nhiên.</li>
+            </ul>
+
+            <p style="color: #000;"><strong>Ví dụ</strong></p>
+            <img style="width: 60%;" src="../../../REA/Buổi 7/gecko_block_help_example_horizontalsound_playmusicsounduntildone_en.svg" alt="" class="instruction-example">
+            <p style="color: #000;" class="example-note">
+                Chương trình này sẽ phát bản nhạc số 5.
+            </p>
+        </div>
+    </div>
+</div>
+                    </li>
+
+
+                    <li class="tab-content tab-content-4 typography">
+                     <h2>🎤 Khối Ghi Âm (Record Sound Block)</h2>
+<div class="row instruction-block">
+    <div class="col-md-5 text-center">
+        <img src="../../../REA/Buổi 7/help-icon-soundsRecord.png
+        " alt="" class="instruction-image">
+        <img src="../../../REA/Buổi 7/help-icon-soundsRecordWindow.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+        <div class="instruction-content">
+            <p style="color: #000;"><strong>Mô tả:</strong> Khối này cho phép bạn ghi lại âm thanh của chính mình và lưu lại thành một khối mới để sử dụng trong chương trình.</p>
+            <ul>
+                <li>Để ghi âm mới, nhấn vào khối "Record Sound" để mở menu ghi âm.</li>
+                <li>Nhấn nút ghi hình tròn ở giữa để bắt đầu ghi âm. Khi hoàn tất, nhấn nút dừng, rồi nhấn dấu kiểm để lưu ghi âm.</li>
+                <li>Bản ghi âm của bạn sẽ được lưu thành một khối mới.</li>
+                <li>Để chỉnh sửa hoặc xóa bản ghi, nhấn chuột phải vào khối trong bảng khối. Trên thiết bị cảm ứng, giữ chạm để mở menu tương tự.</li>
+                <li>Lưu ý: nếu khối ghi âm đã được kéo vào vùng lập trình, bạn không thể xóa nó từ bảng khối.</li>
+            </ul>
+
+            <p style="color: #000;"><strong>Ví dụ</strong></p>
+            <img style="width: 60%;" src="../../../REA/Buổi 7/gecko_block_help_example_horizontalsound_recordsound_en.svg" alt="" class="instruction-example">
+            <p style="color: #000;" class="example-note">
+                Chương trình này sẽ phát bản ghi âm số 1, sau đó phát tiếp bản ghi âm số 2.
+            </p>
+        </div>
+    </div>
+</div>
+                    </li>
+                  </ul>
+                </div>
+
+
+
+              </section>
+
+
+
+              <section id="e">
+                <h1 class="custom-timeline__heading"
+                  style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Khối lệnh động cơ (Motor Blocks)
+                </h1>
+                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                  <input type="radio" name="pcss3t" checked id="tab-e-1" class="tab-content-first">
+                  <label for="tab-e-1">Tốc độ</label>
+
+                  <input type="radio" name="pcss3t" id="tab-e-2" class="tab-content-2">
+                  <label for="tab-e-2">Ngược chiều</label>
+
+                  <input type="radio" name="pcss3t" id="tab-e-3" class="tab-content-3">
+                  <label for="tab-e-3">Cùng chiều</label>
+
+                  <input type="radio" name="pcss3t" id="tab-e-4" class="tab-content-4">
+                  <label for="tab-e-4">Dừng động cơ</label>
+
+             
+
+                  <ul>
+                    <li class="tab-content tab-content-first typography">
+                      <h2>🧑‍💻 Khối lệnh đặt tốc độ</h2>
+  <div class="row instruction-block">
+    <div class="col-md-5 text-center">
+      <img src="../../../REA/Buổi 5/help-icon-motorSpeed.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+      <div class="instruction-content">
+        <p style="color: #000;"> <strong>Mô tả:</strong> Khối này cho phép thay đổi tốc độ của động cơ kết nối với Hub.</p>
+        <ul>
+          <li>Các mức tốc độ: 15%, 40%, 70%, 100% (hiển thị bằng vạch xanh lá).</li>
+          <li>Tác dụng từ thời điểm đặt khối, không ảnh hưởng tới động cơ đang chạy.</li>
+          <li>Mặc định: 40% nếu chưa đặt tốc độ.</li>
+        </ul>
+        <p style="color: #000;"> <strong>Cách sử dụng:</strong> Đặt khối này trước khối chạy động cơ.</p>
+        <p><strong>Ví dụ:</strong></p>
+        <img src="../../../REA/Buổi 5/gecko_block_help_example_horizontalmotor_motorsetspeed_en.svg" alt="" class="instruction-example">
+        <p style="color: #000;" class="example-note">Động cơ xoay 1 vòng với tốc độ mặc định (40%), sau đó xoay ngược với tốc độ 100%.</p>
+      </div>
+    </div>
+  </div>
+                    </li>
+
+
+
+                    <li class="tab-content tab-content-2 typography">
+                      <h2>🧑‍💻 Khối động cơ ngược chiều kim đồng hồ</h2>
+  <div class="row instruction-block">
+    <div class="col-md-5 text-center">
+      <img src="../../../REA/Buổi 5/help-icon-motorCounterclockwise.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+  <div class="instruction-content">
+    <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp động cơ xoay <strong>ngược chiều kim đồng hồ</strong>. Tốc độ có thể thay đổi bằng khối lệnh "Đặt tốc độ động cơ".</p>
+
+    <ul>
+      <li>Nhấn vào <strong>mũi tên trắng</strong> trên khối để mở bảng tùy chọn.</li>
+      <li>Dùng nút <strong>+</strong> hoặc <strong>-</strong> để tăng/giảm số vòng quay đầy đủ.</li>
+      <li>Dùng núm xoay để điều chỉnh theo đơn vị 0.25 vòng.</li>
+    </ul>
+
+    <p style="color: #000;"><strong>Cách sử dụng:</strong> Kết hợp khối này với khối “Đặt tốc độ” để điều khiển hướng và số vòng quay mong muốn.</p>
+
+    <p><strong>Ví dụ:</strong></p>
+    <img src="../../../REA/Buổi 5/gecko_block_help_example_horizontalmotor_motorturncounterclockwiserotations_en.svg" alt="" class="instruction-example">
+    <p style="color: #000;" class="example-note">Chương trình này sẽ làm động cơ xoay <strong>ngược chiều kim đồng hồ</strong> trong <strong>2.5 vòng</strong>.</p>
+  </div>
+</div>
+
+  </div>
+                    </li>
+
+                    <li class="tab-content tab-content-3 typography">
+<h2>🧑‍💻 Khối động cơ theo chiều kim đồng hồ</h2>
+  <div class="row instruction-block">
+    <div class="col-md-5 text-center">
+      <img src="../../../REA/Buổi 5/help-icon-motorClockwise.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+  <div class="instruction-content">
+    <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp động cơ xoay <strong>theo chiều kim đồng hồ</strong>. Tốc độ có thể thay đổi bằng khối lệnh “Đặt tốc độ động cơ”.</p>
+
+    <ul>
+      <li>Nhấn vào <strong>mũi tên trắng</strong> trên khối để mở bảng tùy chọn.</li>
+      <li>Dùng nút <strong>+</strong> hoặc <strong>-</strong> để tăng/giảm số vòng quay đầy đủ.</li>
+      <li>Dùng núm xoay để điều chỉnh theo đơn vị <strong>0.25 vòng</strong>.</li>
+    </ul>
+
+    <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt khối này sau khối “Đặt tốc độ” để điều khiển số vòng quay theo chiều mong muốn.</p>
+
+    <p><strong>Ví dụ:</strong></p>
+    <img src="../../../REA/Buổi 5/gecko_block_help_example_horizontalmotor_motorturnclockwiserotations_en.svg" alt="" class="instruction-example">
+    <p style="color: #000;" class="example-note">Chương trình này sẽ làm động cơ xoay <strong>theo chiều kim đồng hồ</strong> trong <strong>2.5 vòng</strong>.</p>
+  </div>
+</div>
+
+
+  </div>
+
+                    </li>
+
+                    <li class="tab-content tab-content-4 typography">
+
+                     <h2>🧑‍💻 Khối dừng động cơ</h2>
+  <div class="row instruction-block">
+    <div class="col-md-5 text-center">
+      <img src="../../../REA/Buổi 5/help-icon-motorStop.png" alt="" class="instruction-image">
+    </div>
+    <div class="col-md-7">
+  <div class="instruction-content">
+    <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này dùng để <strong>dừng tất cả các động cơ</strong> đang chạy trên Hub.</p>
+
+    <ul>
+      <li>Ngay khi khối được thực thi, mọi động cơ đang hoạt động sẽ dừng lại lập tức.</li>
+      <li>Không cần chỉ định cổng – khối áp dụng cho <strong>tất cả các động cơ</strong> đã kết nối.</li>
+    </ul>
+
+    <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt khối này sau các khối chạy động cơ để kết thúc hành động một cách rõ ràng.</p>
+
+
+  </div>
+</div>
+
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <section id="f">
+               <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">
+    Khối lệnh chuyển động (Movement Blocks)
+  </h1>
+  <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+    <input type="radio" name="pcss3t-4" checked id="tab-f-1" class="tab-content-first">
+    <label for="tab-f-1">Tốc độ</label>
+
+    <input type="radio" name="pcss3t-4" id="tab-f-2" class="tab-content-2">
+    <label for="tab-f-2">Di chuyển tới</label>
+
+    <input type="radio" name="pcss3t-4" id="tab-f-3" class="tab-content-3">
+    <label for="tab-f-3">Di chuyển lùi</label>
+
+    <input type="radio" name="pcss3t-4" id="tab-f-4" class="tab-content-4">
+    <label for="tab-f-4">Xoay ngược chiều </label>
+
+    <input type="radio" name="pcss3t-4" id="tab-f-5" class="tab-content-5">
+    <label for="tab-f-5">Xoay cùng chiều </label>
+    
+                  <ul>
+                    <li class="tab-content tab-content-first typography">
+                      <h2>🧑‍💻 Khối lệnh điều chỉnh tốc độ di chuyển (Movement Speed Block)</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-5 text-center">
+                                                    <img src="../../../REA/Buổi 6/help-icon-movementSpeed.png" alt=""
+                                                        class="instruction-image">
+
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này
+                                                            dùng để thay đổi tốc độ di chuyển của Chú Chuột (mô hình
+                                                            robot dùng 2 động cơ giống nhau).</p>
+                                                        <ul>
+                                                            <li>Tốc độ hiển thị bằng số vạch màu xanh: 15%, 40%, 70%,
+                                                                hoặc 100%.</li>
+                                                            <li>Khối này phải được đặt trước các khối điều khiển chuyển
+                                                                động khác để có hiệu lực.</li>
+                                                            <li>Không làm thay đổi động cơ đang chạy và không tự khởi
+                                                                động motor.</li>
+                                                            <li>Nhấn mũi tên trắng trên khối để chọn mức tốc độ phù hợp.
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                           
+                    </li>
+
+
+                    <li class="tab-content tab-content-2 typography">
+                      <h2>🧑‍💻 Khối lệnh di chuyển về phía trước (Move Forward Block)</h2>
+<div class="row instruction-block">
+    <div class="col-md-5 text-center">
+        <img src="../../../REA/Buổi 6/help-icon-movementForward.png" alt="Khối Move Forward"
+            class="instruction-image">
+    </div>
+    <div class="col-md-7">
+        <div class="instruction-content">
+            <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp <strong>Chú Chuột</strong> di chuyển về phía trước theo số vòng quay của bánh xe.</p>
+            <ul>
+                <li>Chú Chuột là mô hình LEGO sử dụng hai động cơ giống nhau để di chuyển.</li>
+                <li>Để thay đổi số vòng quay, hãy nhấn vào con số trên khối lệnh.</li>
+                <li>Ví dụ: nhập số <strong>1</strong> sẽ khiến mỗi bánh xe quay đúng <strong>1 vòng</strong>.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                    </li>
+
+                    <li class="tab-content tab-content-3 typography">
+                      <h2>🧑‍💻 Khối lệnh di chuyển lùi (Move Backward Block)</h2>
+<div class="row instruction-block">
+    <div class="col-md-5 text-center">
+        <img src="../../../REA/Buổi 6/help-icon-movementBackward.png" alt="Khối Move Backward"
+            class="instruction-image">
+    </div>
+    <div class="col-md-7">
+        <div class="instruction-content">
+            <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp <strong>Chú Chuột</strong> di chuyển lùi về phía sau theo số vòng quay bánh xe.</p>
+            <ul>
+                <li>Chú Chuột là mô hình LEGO sử dụng hai động cơ giống nhau để di chuyển.</li>
+                <li>Để thay đổi số vòng quay, hãy nhấn vào con số trên khối lệnh.</li>
+                <li>Ví dụ: nhập số <strong>1</strong> sẽ khiến mỗi bánh xe quay đúng <strong>1 vòng lùi</strong>.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+                    </li>
+
+                    <li class="tab-content tab-content-4 typography">
+                     <h2>🧑‍💻 Khối lệnh quay ngược chiều kim đồng hồ (Turn Counterclockwise Block)</h2>
+<div class="row instruction-block">
+    <div class="col-md-5 text-center">
+        <img src="../../../REA/Buổi 6/help-icon-movementCounterclockwise.png" alt="Khối Turn Counterclockwise"
+            class="instruction-image">
+    </div>
+    <div class="col-md-7">
+        <div class="instruction-content">
+            <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp <strong>Chú Chuột</strong> quay ngược chiều kim đồng hồ.</p>
+            <ul>
+                <li>Chú Chuột là mô hình LEGO sử dụng hai động cơ giống nhau để di chuyển.</li>
+                <li>Để điều chỉnh góc quay, hãy nhấn vào con số trên khối lệnh.</li>
+                <li>Ví dụ: nhập số <strong>1</strong> sẽ khiến Chú Chuột quay <strong>90 độ</strong>.</li>
+                <li>Lưu ý: nếu thay đổi kích thước bánh xe hoặc khoảng cách giữa các bánh xe, góc quay thực tế sẽ thay đổi.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+                    </li>
+
+                     <li class="tab-content tab-content-5 typography">
+                     <h2>🧑‍💻 Khối lệnh quay cùng chiều kim đồng hồ (Turn Clockwise Block)</h2>
+<div class="row instruction-block">
+    <div class="col-md-5 text-center">
+        <img src="../../../REA/Buổi 6/help-icon-movementClockwise.png" alt="Khối Turn Clockwise"
+            class="instruction-image">
+    </div>
+    <div class="col-md-7">
+        <div class="instruction-content">
+            <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này giúp <strong>Chú Chuột</strong> quay cùng chiều kim đồng hồ.</p>
+            <ul>
+                <li>Chú Chuột là mô hình LEGO sử dụng hai động cơ giống nhau để di chuyển.</li>
+                <li>Để điều chỉnh góc quay, hãy nhấn vào con số trên khối lệnh và nhập số vòng quay mong muốn.</li>
+                <li>Ví dụ: nhập số <strong>1</strong> có thể làm Chú Chuột quay khoảng <strong>90 độ</strong>, tùy vào thiết lập mô hình.</li>
+                <li>Lưu ý: nếu bạn thay đổi kích thước bánh xe hoặc khoảng cách giữa các bánh, góc quay thực tế sẽ bị ảnh hưởng.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+                    </li>
+
+                  </ul>
+                </div>
+
+              </section>
+
+              <section id="g">
+                 <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">
+    Khối lệnh điều kiện (Control Blocks)
+  </h1>
+  <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+    <input type="radio" name="pcss3t-5" checked id="tab-j-1" class="tab-content-first">
+    <label for="tab-j-1">Chờ</label>
+
+    <input type="radio" name="pcss3t-5" id="tab-j-2" class="tab-content-2">
+    <label for="tab-j-2">Lặp có điều kiện</label>
+
+    <input type="radio" name="pcss3t-5" id="tab-j-3" class="tab-content-3">
+    <label for="tab-j-3">Lặp vô hạn</label>
+
+    <input type="radio" name="pcss3t-5" id="tab-j-4" class="tab-content-4">
+    <label for="tab-j-4">Dừng </label>
+
+  
+                  <ul>
+                    <li class="tab-content tab-content-first typography">
+                       <h2>🧑‍💻 Khối lệnh chờ</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-5 text-center">
+                                                    <img src="../../../REA/Buổi 5/help-icon-controlWait.png" alt=""
+                                                        class="instruction-image">
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này
+                                                            giúp chương trình <strong>tạm dừng</strong> trong một khoảng
+                                                            thời gian nhất định trước khi tiếp tục thực hiện các khối
+                                                            tiếp theo.</p>
+
+                                                        <ul>
+                                                            <li>Thời gian chờ có thể thay đổi bằng cách nhấn vào
+                                                                <strong>số thời gian</strong> hiển thị trong khối.</li>
+                                                            <li>Thời gian được tính bằng <strong>giây</strong>.</li>
+                                                        </ul>
+
+                                                        <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt giữa
+                                                            các hành động để tạo độ trễ, hiệu ứng rõ ràng hơn (như chờ
+                                                            trước khi phát âm thanh, xoay động cơ,…).</p>
+
+                                                        <p><strong>Ví dụ:</strong></p>
+                                                        <img src="../../../REA/Buổi 5/gecko_block_help_example_control_wait_horizontal_en.svg"
+                                                            alt="" class="instruction-example">
+                                                        <p style="color: #000;" class="example-note">Chương trình này sẽ
+                                                            phát âm thanh số 3, chờ 1 giây, rồi phát tiếp âm thanh số 1.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    </li>
+
+
+                    <li class="tab-content tab-content-2 typography">
+                       <h2>🧑‍💻 Khối lệnh vòng lặp</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-5 text-center">
+                                                    <img src="../../../REA/Buổi 5/help-icon-controlRepeat.png" alt=""
+                                                        class="instruction-image">
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này
+                                                            dùng để <strong>lặp lại các khối nằm bên trong nó</strong>
+                                                            một số lần nhất định.</p>
+
+                                                        <ul>
+                                                            <li>Số lần lặp có thể thay đổi bằng cách nhấn vào
+                                                                <strong>con số</strong> hiển thị trên khối.</li>
+                                                            <li>Giúp tiết kiệm khối và thực hiện hành động lặp lại một
+                                                                cách rõ ràng.</li>
+                                                        </ul>
+
+                                                        <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt các
+                                                            khối muốn lặp bên trong khối này. Rất hữu ích khi tạo hiệu
+                                                            ứng nhấp nháy, chuyển động lặp, v.v.</p>
+
+                                                        <p><strong>Ví dụ:</strong></p>
+                                                        <img src="../../../REA/Buổi 5/gecko_block_help_example_control_repeat_horizontal_en.svg"
+                                                            alt="" class="instruction-example">
+                                                        <p style="color: #000;" class="example-note">Chương trình này sẽ
+                                                            làm đèn nhấp nháy màu vàng <strong>3 lần</strong>.</p>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                    </li>
+
+                    <li class="tab-content tab-content-3 typography">
+                      <h2>🧑‍💻 Khối vòng lặp vô hạn</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-5 text-center">
+                                                    <img src="../../../REA/Buổi 5/help-icon-controlForever.png" alt=""
+                                                        class="instruction-image">
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này sẽ
+                                                            <strong>lặp đi lặp lại mãi mãi</strong> tất cả các khối được
+                                                            đặt bên trong nó, cho đến khi chương trình dừng lại hoặc
+                                                            thiết bị bị tắt.</p>
+
+                                                        <ul>
+                                                            <li>Không cần đặt số lần – chương trình sẽ lặp vô hạn.</li>
+                                                            <li>Thường dùng để tạo hiệu ứng liên tục như phát nhạc, đèn
+                                                                chớp,…</li>
+                                                        </ul>
+
+                                                        <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt các
+                                                            khối hành động vào bên trong khối “Lặp mãi mãi” để thực hiện
+                                                            lặp liên tục.</p>
+
+                                                        <p><strong>Ví dụ:</strong></p>
+                                                        <img src="../../../REA/Buổi 5/gecko_block_help_example_control_forever_horizontal_en.svg"
+                                                            alt="" class="instruction-example">
+                                                        <p style="color: #000;" class="example-note">Chương trình này sẽ
+                                                            phát bản nhạc số 3 <strong>liên tục mãi mãi</strong>.</p>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                    </li>
+
+                    <li class="tab-content tab-content-4 typography">
+                      <h2>🧑‍💻 Khối dừng vòng lặp</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-5 text-center">
+                                                    <img src="../../../REA/Buổi 5/help-icon-controlStop.png" alt=""
+                                                        class="instruction-image">
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Mô tả:</strong> Khối lệnh này sẽ
+                                                            <strong>dừng tất cả các luồng chương trình</strong> (stacks)
+                                                            khác đang chạy, ngoại trừ chính luồng chứa khối lệnh này.
+                                                        </p>
+
+                                                        <ul>
+                                                            <li>Được dùng khi bạn muốn kết thúc các hành động đang diễn
+                                                                ra ở các phần khác trong chương trình.</li>
+                                                            <li>Khối này không dừng chương trình hiện tại, chỉ dừng các
+                                                                phần chạy song song khác.</li>
+                                                        </ul>
+
+                                                        <p style="color: #000;"><strong>Cách sử dụng:</strong> Đặt trong
+                                                            một luồng riêng để điều khiển dừng toàn bộ các luồng còn lại
+                                                            — thường đi kèm với cảm biến hoặc điều kiện đặc biệt.</p>
+
+
+                                                    </div>
+                                                </div>
+
+
+
+
+                                            </div>
+                    </li>
+
+                  
+
+                  </ul>
+                </div>
+              </section>
+
+
+               <section id="h" class="accordion-wrapper text-dark">
+  <h1 class="custom-timeline__heading" style="text-align: center">
+    Lên ý tưởng & thử nghiệm mô hình sáng tạo
+  </h1>
+  <div class="scrollable-list">
+    <ol class="custom-step-list" style="--length: 4" role="list">
+
+      <li style="--i: 1">
+        <h3>Học viên thảo luận và hình thành ý tưởng:</h3>
+        <p>
+          💡 Học sinh làm việc nhóm để sáng tạo một mô hình robot bất kỳ (không giới hạn chủ đề).<br>
+          ✔️ Tự do lựa chọn: robot chơi nhạc, phương tiện thông minh, cánh tay cơ học, sân khấu biểu diễn, v.v…<br>
+          ✔️ Mỗi bạn đóng góp một phần: chuyển động, âm thanh, ánh sáng, hiệu ứng đặc biệt.<br>
+          ✔️ Lên phác thảo mô hình sơ bộ và ghi chú các bộ phận chính cần có.
+        </p>
+      </li>
+
+      <li style="--i: 2">
+        <h3>Thử nghiệm lắp ráp mô hình lần đầu:</h3>
+        <p>
+          🧱 Các nhóm bắt đầu dựng mô hình theo ý tưởng:<br>
+          🔹 Gắn các thành phần cơ bản: khung, motor, hub, cánh tay chuyển động, bệ đỡ…<br>
+          🔹 Lắp cảm biến nếu cần (chạm, khoảng cách) để mô hình có thể phản ứng.<br>
+          🔹 Gắn dây nối gọn gàng, kiểm tra độ ổn định và hướng lắp các trục.<br>
+          ✔️ Đây là phiên bản thử – chưa yêu cầu hoàn thiện chi tiết.
+        </p>
+      </li>
+
+      <li style="--i: 3">
+        <h3>Lập trình thử và áp dụng khối lệnh đã học:</h3>
+        <p>
+          🎯 Áp dụng toàn bộ các khối lệnh đã học để kiểm tra mô hình:<br>
+          ✔️ <code>Movement Blocks</code> – cho chuyển động tiến/lùi/xoay.<br>
+          ✔️ <code>Motor Control</code> – điều chỉnh tốc độ, thời gian, vị trí.<br>
+          ✔️ <code>Sound Blocks</code> – phát âm thanh theo hành động.<br>
+          ✔️ <code>Light Blocks</code> – thêm đèn LED khi mô hình biểu diễn hoặc chuyển động.<br>
+          ✔️ <code>Control Blocks</code> – sử dụng lặp, điều kiện, chờ thời gian để mô hình phản ứng logic.<br>
+          ✔️ Có thể kết hợp cảm biến để kích hoạt hành vi phức tạp.
+        </p>
+      </li>
+
+      <li style="--i: 4">
+        <h3>Chuẩn bị cho buổi học tổng kết – hoàn thiện mô hình:</h3>
+        <p>
+          📦 Sau khi thử nghiệm, các nhóm sẽ:<br>
+          ✔️ Rút kinh nghiệm từ phần lắp ráp chưa ổn định hoặc hành vi chưa đúng ý tưởng.<br>
+          ✔️ Ghi lại phiên bản lập trình đã thử – thêm ghi chú cần cải tiến.<br>
+          ✔️ Chuẩn bị bản nâng cấp mô hình để trình bày ở buổi sau với tính năng đầy đủ hơn.<br><br>
+          🔔 <strong>Buổi học sau:</strong> Hoàn thiện mô hình – lập trình trọn vẹn và trình diễn chính thức như một sản phẩm cuối khóa.
+        </p>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+
+
+              <section id="i">
+                <h1 class="custom-timeline__heading"
+                  style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+                  Tổng kết buổi học
+                </h1>
+                <div class="quiz-container">
+                  <div class="question" id="question">Loading question...</div>
+                  <div class="options" id="options"></div>
+                  <div class="feedback" id="feedback"></div>
+                  <div class="progress-bar">
+                    <div class="progress" id="progress-bar"></div>
+                  </div>
+                  <div class="score" id="score">Score: 0 / 5</div>
+                  <div class="controls">
+                    <button class="control-button" id="prev-btn" disabled>Về trước</button>
+                    <button class="control-button" id="next-btn" disabled>Tiếp theo</button>
+                  </div>
+                </div>
+
+                <script>
+                  // Questions Array
+const questions = [
+  {
+    type: "true/false",
+    question: "Hub điều khiển trong Spike Essential cần được sạc pin hoặc gắn pin trước khi sử dụng.",
+    answer: "Đúng",
+    insight: "Pin là nguồn năng lượng chính cho mô hình hoạt động, phải được sạc đầy để đảm bảo robot hoạt động ổn định."
+  },
+  {
+    type: "multiple",
+    question: "Trong các khối lệnh sau, đâu là khối lệnh điều khiển chuyển động trong Spike App?",
+    options: [
+      "Khối màu vàng (Event)",
+      "Khối màu xanh dương (Movement)",
+      "Khối màu tím (Sound)",
+      "Khối màu hồng (Light)"
+    ],
+    answer: "Khối màu xanh dương (Movement)",
+    insight: "Khối màu xanh dương điều khiển motor để mô hình di chuyển hoặc xoay."
+  },
+  {
+    type: "true/false",
+    question: "Chúng ta có thể thay đổi tốc độ chuyển động bằng khối lệnh trong Spike App.",
+    answer: "Đúng",
+    insight: "Khối điều chỉnh tốc độ (Speed Block) cho phép thay đổi % tốc độ motor trước khi di chuyển."
+  },
+  {
+    type: "multiple",
+    question: "Khi mô hình không hoạt động sau khi nhấn nút chạy, nguyên nhân có thể là gì?",
+    options: [
+      "Chưa cắm điện thoại vào robot",
+      "Chưa có khối lệnh bắt đầu (Start Block)",
+      "Robot không có bánh xe",
+      "Chưa chọn màu đúng"
+    ],
+    answer: "Chưa có khối lệnh bắt đầu (Start Block)",
+    insight: "Robot chỉ hoạt động khi chương trình có khối bắt đầu – thường là khối màu vàng 'Khi nhấn nút bắt đầu'."
+  },
+  {
+    type: "true/false",
+    question: "Khối lệnh Sound có thể phát các tiếng như 'Boing', 'Hello' hoặc nốt nhạc C4.",
+    answer: "Đúng",
+    insight: "Khối âm thanh cho phép phát âm thanh cài sẵn hoặc tạo bản nhạc bằng các nốt cụ thể."
+  },
+  {
+    type: "multiple",
+    question: "Khối lệnh nào sau đây dùng để lặp lại một hành động nhiều lần?",
+    options: [
+      "Khối Wait (Chờ)",
+      "Khối Start (Bắt đầu)",
+      "Khối Loop (Lặp lại)",
+      "Khối Motor Stop (Dừng động cơ)"
+    ],
+    answer: "Khối Loop (Lặp lại)",
+    insight: "Khối Lặp lại rất hữu ích để mô hình thực hiện chuyển động hoặc phát nhạc nhiều lần liên tiếp."
+  }
+];
+
+
+                  let currentIndex = 0;
+                  let score = 0;
+                  const totalQuestions = questions.length;
+
+                  // Track whether each question has been answered
+                  const answeredQuestions = new Array(totalQuestions).fill(false);
+
+                  const questionContainer = document.getElementById("question");
+                  const optionsContainer = document.getElementById("options");
+                  const feedbackContainer = document.getElementById("feedback");
+                  const scoreContainer = document.getElementById("score");
+                  const prevBtn = document.getElementById("prev-btn");
+                  const nextBtn = document.getElementById("next-btn");
+                  const progressBar = document.getElementById("progress-bar");
+
+                  // Load a question
+                  function loadQuestion(index) {
+                    // Clear previous content
+                    optionsContainer.innerHTML = "";
+                    feedbackContainer.textContent = "";
+
+                    const currentQuestion = questions[index];
+                    questionContainer.textContent = `${index + 1}. ${currentQuestion.question}`;
+
+                    // Update navigation buttons
+                    prevBtn.disabled = index === 0;
+                    nextBtn.disabled = !answeredQuestions[index]; // Disable Next until user answers
+
+                    // Display options
+                    if (currentQuestion.type === "multiple") {
+                      currentQuestion.options.forEach((option) => {
+                        const button = document.createElement("button");
+                        button.textContent = option;
+                        button.classList.add("option-button");
+                        button.disabled = answeredQuestions[index]; // Disable if already answered
+                        button.addEventListener("click", () =>
+                          handleAnswer(
+                            option,
+                            currentQuestion.answer,
+                            currentQuestion.insight,
+                            button
+                          )
+                        );
+                        optionsContainer.appendChild(button);
+                      });
+                    } else {
+                      ["Đúng", "Sai"].forEach((option) => {
+                        const button = document.createElement("button");
+                        button.textContent = option;
+                        button.classList.add("option-button");
+                        button.disabled = answeredQuestions[index]; // Disable if already answered
+                        button.addEventListener("click", () =>
+                          handleAnswer(
+                            option,
+                            currentQuestion.answer,
+                            currentQuestion.insight,
+                            button
+                          )
+                        );
+                        optionsContainer.appendChild(button);
+                      });
+                    }
+
+                    // Update progress
+                    updateProgress();
+
+                    // Show feedback if already answered
+                    if (answeredQuestions[index]) {
+                      feedbackContainer.textContent = `Bạn đã sẵn sàng trả lời các câu hỏi chưa.`;
+                      feedbackContainer.style.color = "gray";
+                    }
+                  }
+
+                  // Handle answers
+                  function handleAnswer(selected, correct, insight, button) {
+                    const buttons = optionsContainer.querySelectorAll("button");
+                    buttons.forEach((btn) => (btn.disabled = true)); // Disable all options
+
+                    if (!answeredQuestions[currentIndex]) {
+                      // Update score if this is the first attempt at this question
+                      if (selected === correct) {
+                        score++;
+                        feedbackContainer.textContent = `Đúng rồi! ${insight}`;
+                        feedbackContainer.style.color = "green";
+                        button.style.backgroundColor = "#28a745"; // Green for correct
+                      } else {
+                        feedbackContainer.textContent = `Sai rồi! Đáp án câu hỏi này là: "${correct}". ${insight}`;
+                        feedbackContainer.style.color = "red";
+                        button.style.backgroundColor = "#dc3545"; // Red for incorrect
+                      }
+                      answeredQuestions[currentIndex] = true; // Mark this question as answered
+                    }
+
+                    nextBtn.disabled = false; // Enable Next button
+                    updateScore();
+                  }
+
+                  // Update progress bar
+                  function updateProgress() {
+                    const progress = ((currentIndex + 1) / totalQuestions) * 100;
+                    progressBar.style.width = `${progress}%`;
+                  }
+
+                  // Update score display
+                  function updateScore() {
+                    scoreContainer.textContent = `Score: ${score} / ${totalQuestions}`;
+                  }
+
+                  // Navigation buttons
+                  prevBtn.addEventListener("click", () => {
+                    if (currentIndex > 0) {
+                      currentIndex--;
+                      loadQuestion(currentIndex);
+                    }
+                  });
+
+                  nextBtn.addEventListener("click", () => {
+                    if (currentIndex < totalQuestions - 1) {
+                      currentIndex++;
+                      loadQuestion(currentIndex);
+                    } else {
+                      questionContainer.textContent = "Hoàn thành câu hỏi";
+                      optionsContainer.innerHTML = "";
+                      feedbackContainer.textContent = `Tổng số điển là: ${score} / ${totalQuestions}`;
+                      nextBtn.disabled = true;
+                    }
+                  });
+
+                  // Initialize quiz
+                  loadQuestion(currentIndex);
+
+                </script>
+              </section>
+
+               <section id="j">
+                 <div style="text-align:center; margin-bottom: 20px;">
+            <a href="../../../../assets/REA/Buổi 20/Backdrop.png" target="_blank">
+              <img width="auto" height="auto" src="../../../../assets/REA/Buổi 20/Backdrop.png" alt="Click để phóng to" style="cursor: zoom-in;">
+            </a>
+          </div>
+              </section>
+
+               <section id="k" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                                    Các cuộc thi về Robot
+                                </h1>
+                                <video style="width: 100%" controls
+                                    src="../../../REA/Buổi 20/video1.mp4">
+
+                                </video>
+
+                                <video style="width: 100%" controls
+                                    src="../../../REA/Buổi 20/video2.mp4">
+
+                                </video>
+                            </section>
+            </div>
+          </div>
+        </div>
+        <!-- ***** Banner End ***** -->
+
+
+
+        <script>
+          const wrapper = document.querySelector(".wrapper");
+          let sections = wrapper.querySelectorAll(".main > section");
+
+          (function initSections() {
+            const side = wrapper.querySelector(".side > .stick-container");
+
+            // 👉 Gán tên tùy theo từng mục
+            const labels = ["Mục tiêu", "Giới thiệu", "Light Blocks", "Sound Blocks", "Motor Bblocks", "Movement Blocks", "Control Blocks", "Chuẩn bị", "Tổng kết", "Phông nền", "Mở đầu"];
+
+            sections.forEach((section, index) => {
+              let link = document.createElement("a");
+              let label = document.createElement("span");
+
+              const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+              link.style.background = randomColor;
+
+              // KHÔNG dùng href nữa để tránh thay đổi hash
+              link.href = "javascript:void(0)";
+              link.classList.add("section_clone");
+
+              label.textContent = labels[index] || `Mục ${index + 1}`;
+              label.style.fontSize = "1rem";
+              label.style.fontWeight = "600";
+
+              link.appendChild(label);
+              side.appendChild(link);
+
+              // 👉 Cuộn mượt đến mục khi click
+              link.addEventListener("click", (e) => {
+                e.preventDefault(); // Ngăn mặc định
+                section.scrollIntoView({ behavior: "smooth" });
+                addInView([index]); // Cập nhật trạng thái mục đang hiển thị
+              });
+            });
+
+
+            addInView([0]);
+          })();
+
+          function addInView(arr) {
+            let index = arr[0];
+            let aspectRatio = arr[1];
+            const side_sections = document.querySelectorAll(".section_clone");
+            side_sections.forEach((side_section) => {
+              side_section.classList.remove("inView");
+            });
+            side_sections[index].classList.add("inView");
+
+            //console.log(side_sections[index]);
+          }
+
+          function checkForViewport() {
+            let result = 0;
+            let aspectRatio;
+            sections.forEach((section, index) => {
+              section.style.background = "";
+
+              let section_bound = section.getBoundingClientRect();
+              let section_boundMid = section_bound.bottom / 2;
+              aspectRatio = parseFloat(
+                (section_bound.width / section_bound.height).toFixed(2)
+              );
+              console.log(aspectRatio);
+              if (
+                section_bound.top <= window.innerHeight / 2 &&
+                section_bound.bottom > window.innerHeight / 2
+              ) {
+                result = index;
+              }
+            });
+            let result_arr = [result, aspectRatio];
+            return result_arr;
+          }
+
+          window.addEventListener("scroll", (event) => {
+            addInView(checkForViewport());
+          });
+
+        </script>
+
+
+      </div>
+
+
+      <!-- ***** Gaming Library End ***** -->
+    </div>
+
+  </div>
+  </div>
+
+
+  <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+    onclick="scrollToTop()" id="back-to-up">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script>
+    window.onscroll = () => {
+      toggleTopButton();
+    }
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTopButton() {
+      if (document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20) {
+        document.getElementById('back-to-up').classList.remove('d-none');
+      } else {
+        document.getElementById('back-to-up').classList.add('d-none');
+      }
+    }
+  </script>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved.
+
+            <br>Design By Huỳnh Ngọc Thái
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Popper (nếu dùng Bootstrap 4) -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+  <!-- Bootstrap JS (v4 hoặc v5 tùy bạn dùng bản nào) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+  <script src="../../../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="../../../js/isotope.min.js"></script>
+  <script src="../../../js/owl-carousel.js"></script>
+  <script src="../../../js/tabs.js"></script>
+  <script src="../../../js/popup.js"></script>
+  <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
