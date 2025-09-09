@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Let's Code - Robotics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../../css/fontawesome.css">
+    <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="../../../css/owl.css">
+    <link rel="stylesheet" href="../../../css/animate.css">
+    <link rel="stylesheet" href="../../../../assets/css/lesson.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="apple-touch-icon"
+        href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+        sizes="192x192">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png"
+        sizes="32x32">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <script src="../../../js/include.js" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Mặc định: ảnh hiển thị bình thường */
+        #custCarousel .carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            /* Hoặc contain, tùy bạn */
+        }
+
+        /* Khi carousel fullscreen */
+        #custCarousel:fullscreen {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+        }
+
+        /* Ảnh trong fullscreen */
+        #custCarousel:fullscreen .carousel-item img {
+            width: auto;
+            height: 100vh;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <div data-include="../../header.html"></div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                // Gắn lại sự kiện cho menu sau khi include xong header
+                const script = document.createElement('script');
+                script.src = "../../../js/custom.js";
+                document.body.appendChild(script);
+
+                // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-content">
+
+                    <!-- ***** Banner Start ***** -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-profile ">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <img src="../../../images/REB/img-reb-bai7.png" alt=""
+                                            style="border-radius: 23px;">
+                                    </div>
+                                    <div class="col-lg-4 align-self-center">
+                                        <div class="main-info header-text">
+
+                                            <span>Khối biểu tượng</span>
+                                            <h4
+                                                style="color: #000 !important;  font-family: 'Baloo Chettan 2', sans-serif !important">
+                                                Buổi 7: Bài học</h4>
+                                            <p style="color: #000 !important">
+                                                Làm quen với phát tin/nhận tin (Broadcast/Receive messages Block) - Mô hình “Xích đu xinh xắn”
+                                            </p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="wrapper" style="font-family: 'Baloo Chettan 2', sans-serif !important">
+                        <div class="side">
+                            <div class="stick-container"></div>
+                        </div>
+                        <div class="main">
+                            <section id="a">
+
+
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục
+                                    tiêu bài học
+                                </h1>
+<div class="accordion-container"> 
+    <input type="radio" id="acc-tab-1" name="accordion" checked>
+    <label for="acc-tab-1" class="accordion-label">
+        <h2>🎓 Kiến thức</h2>
+    </label>
+    <div class="accordion-content">
+        <ul>
+            <li>✔️ Học sinh làm quen với khối lệnh phát tín hiệu (Broadcast) và nhận tín hiệu (Receive) trong SPIKE Programming.</li>
+            <li>✔️ Học sinh hiểu cách sử dụng tín hiệu để điều khiển các hành động khác nhau mà không cần cảm biến (điều kiện bên trong chương trình).</li>
+            <li>✔️ Giới thiệu Broadcast & Receive.</li>
+            <li>✔️ Khối phát, nhận tin (Broadcast / Receive messages Blocks).</li>
+        </ul>
+    </div>
+
+    <input type="radio" id="acc-tab-2" name="accordion">
+    <label for="acc-tab-2" class="accordion-label">
+        <h2>🛠️ Kỹ năng</h2>
+    </label>
+    <div class="accordion-content">
+        <ul>
+            <li>✔️ Lắp ráp mô hình “Xích đu xinh xắn”.</li>
+            <li>✔️ Lập trình điều khiển xích đu bằng tín hiệu.</li>
+            <li>✔️ Kỹ năng lập trình nâng cao.</li>
+            <li>✔️ Kỹ năng sáng tạo & trình bày.</li>
+        </ul>
+    </div>
+
+    <input type="radio" id="acc-tab-3" name="accordion">
+    <label for="acc-tab-3" class="accordion-label">
+        <h2>💡 Tư duy</h2>
+    </label>
+    <div class="accordion-content">
+        <ul>
+            <li>✔️ Học sinh lập trình logic chia bước (giai đoạn) bằng tín hiệu.</li>
+            <li>✔️ Rèn tư duy điều khiển tuần tự hoặc theo kịch bản.</li>
+            <li>✔️ Tư duy điều khiển phân đoạn.</li>
+        </ul>
+    </div>
+
+    <input type="radio" id="acc-tab-4" name="accordion">
+    <label for="acc-tab-4" class="accordion-label">
+        <h2>❤️ Thái độ</h2>
+    </label>
+    <div class="accordion-content">
+        <ul>
+            <li>✔️ Trình diễn – thảo luận.</li>
+            <li>✔️ Làm việc nhóm hiệu quả.</li>
+        </ul>
+    </div>
+</div>
+
+
+
+                            </section>
+                            <section id="b" class="row">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
+                                    thiệu nội dung bài học
+                                </h1>
+                                <ul class="custom-timeline__list">
+                                    <li class="custom-timeline__item" style="--accent-color:#41516C">
+                                        <div class="custom-timeline__date">Giới thiệu mô hình</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
+                                        <div class="custom-timeline__date">Chuẩn bị vật liệu</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                                        <div class="custom-timeline__date">Xây dựng mô hình</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
+                                        <div class="custom-timeline__date">Bài học: Phát/ Nhận tin</div>
+                                    </li>
+                                 
+                                    <li class="custom-timeline__item" style="--accent-color:#868bfc">
+                                        <div class="custom-timeline__date">Tổng kết bài học</div>
+                                    </li>
+
+                                </ul>
+                            </section>
+                            <section id="c" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                                    Giới thiệu mô hình
+                                </h1>
+                                <video style="width: 100%" controls src="../../../REB/Buổi 7/videoplayback.mp4">
+
+                                </video>
+
+                                <img src="../../../REB/Buổi 7/swing-lego-spike-essential.png" alt=""
+                                    style="border-radius: 23px;">
+
+
+
+                            </section>
+
+                            <section id="d">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Lắp ráp mô hình
+                                </h1>
+                                <iframe src="../../../REB/Buổi 7/xích đu.pdf" style="width:100%; height: 80vh">
+                                    <!-- <a href="../../../REB/Buổi 1/chú chó kiki.pdf">Download the PDF</a> -->
+                                </iframe>
+                            </section>
+
+                            <section id="e">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Khối phát/ nhận tin
+                                </h1>
+                                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                                    <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
+                                    <label for="tab1">Phát tin</label>
+
+                                    <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
+                                    <label for="tab2">Nhận tin</label>
+
+                                    <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                    <label for="tab3">Nội dung</label>
+
+                                    
+
+                                    <ul>
+                                        <li class="tab-content tab-content-first typography">
+                                            <h2>🧑‍💻 Khối phát tin</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-5 text-center">
+                                                    <img src="../../../REB/Buổi 7/help-icon-eventBroadcastMessage.png" alt=""
+                                                        class="instruction-image">
+
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Mô tả:</strong> </p>
+                                                        <ul>
+                                                            <li>Khối này cho phép bạn chạy đồng thời nhiều ngăn xếp lập trình.
+                                                            </li>
+                                                            <li> Khối Gửi thông báo phải được sử dụng cùng với Khối thông báo nhận</li>
+                                                            <li>Những khối này cũng cần phải có cùng màu.</li>
+                                                            <li>Để thay đổi màu sắc của thông báo, hãy nhấn mũi tên “hướng xuống” màu trắng trên khối. Sau đó chọn một màu.</li>
+
+                                                        </ul>
+
+
+                                                    </div>
+
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Ví dụ</strong></p>
+                                                        <img style="width: 60%;"
+                                                            src="../../../REB/Buổi 7/gecko_block_help_example_horizontalevents_broadcast_vi-vn.svg"
+                                                            alt="" class="instruction-example">
+                                                        <p style="color: #000;" class="example-note">
+                                                    Chương trình này chứa hai ngăn xếp lập trình.
+
+Ngăn xếp trên sẽ bắt đầu khi nhấn Nút phát. Ngăn xếp này phát Hiệu ứng âm thanh 1 và sau đó gửi thông báo màu xanh lam. Việc gửi thông báo màu xanh lam sẽ bắt khởi động ngăn xếp lập trình dưới, điều này sẽ phát Hiệu ứng âm thanh 2 khi ngăn xếp trên chuyển Đèn sang màu vàng.
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+
+                                        <li class="tab-content tab-content-2 typography">
+                                            <h2>🧑‍💻 Khối nhận tin</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-5 text-center">
+                                                    <img src="../../../REB/Buổi 7/help-icon-eventReceiveMessage.png" alt=""
+                                                        class="instruction-image">
+
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Mô tả:</strong> </p>
+                                                        <ul>
+                                                            <li>Khối này cho phép bạn chạy đồng thời nhiều ngăn xếp lập trình.
+                                                            </li>
+                                                            <li>Phải sử dụng Khối Nhận thông báo cùng với Khối gửi thông báo cùng màu để khối này hoạt động.</li>
+                                                            <li>Để thay đổi màu sắc của thông báo, hãy nhấn mũi tên “hướng xuống” màu trắng trên khối. Sau đó chọn một màu.</li>
+                                                            </ul>
+
+
+                                                    </div>
+
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Ví dụ</strong></p>
+                                                        <img style="width: 60%;"
+                                                            src="../../../REB/Buổi 7/gecko_block_help_example_horizontalevents_whenbroadcast_vi-vn.svg"
+                                                            alt="" class="instruction-example">
+                                                        <p style="color: #000;" class="example-note">
+                                                   Chương trình này chứa hai ngăn xếp lập trình.
+
+Ngăn xếp trên sẽ bắt đầu khi nhấn Nút phát. Ngăn xếp này phát Hiệu ứng âm thanh 1 và sau đó gửi thông báo màu xanh lam. Việc gửi thông báo màu xanh lam sẽ bắt khởi động ngăn xếp lập trình dưới, điều này sẽ phát Hiệu ứng âm thanh 2 khi ngăn xếp trên chuyển Đèn sang màu vàng.
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+
+                                        <li class="tab-content tab-content-3 typography">
+
+                                         <h2>🧑‍💻 Nội dung</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-12 text-center">
+                                                    <img src="../../../REB/Buổi 7/nội dung.png" alt=""
+                                                        class="instruction-image">
+                                                </div>
+
+                                            </div>
+                                        </li>
+
+                                        
+                                    </ul>
+                                </div>
+                            </section>
+
+                            <section id="f">
+                    <h1 class="custom-timeline__heading"
+                        style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+                        Tổng kết buổi học
+                    </h1>
+                    <div class="quiz-container">
+                        <div class="question" id="question">Loading question...</div>
+                        <div class="options" id="options"></div>
+                        <div class="feedback" id="feedback"></div>
+                        <div class="progress-bar">
+                            <div class="progress" id="progress-bar"></div>
+                        </div>
+                        <div class="score" id="score">Score: 0 / 5</div>
+                        <div class="controls">
+                            <button class="control-button" id="prev-btn" disabled>Về trước</button>
+                            <button class="control-button" id="next-btn" disabled>Tiếp theo</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        // Questions Array
+const questions = [
+  {
+    type: "multiple",
+    question: "Khối 'Broadcast' giống như việc gì?",
+    options: [
+      "Gửi một bức thư cho cả lớp cùng đọc",
+      "Bật đèn trong phòng",
+      "Chạy động cơ quay bánh xe",
+      "Nghe nhạc bằng tai nghe"
+    ],
+    answer: "Gửi một bức thư cho cả lớp cùng đọc",
+    insight: "Broadcast giống như gửi thông báo chung, ai nhận được thì sẽ làm việc của mình."
+  },
+  {
+    type: "multiple",
+    question: "Khối 'When I receive' giống như việc gì?",
+    options: [
+      "Khi cô giáo gọi tên thì em giơ tay trả lời",
+      "Bật công tắc điện",
+      "Chạy bộ ngoài sân",
+      "Ăn cơm cùng gia đình"
+    ],
+    answer: "Khi cô giáo gọi tên thì em giơ tay trả lời",
+    insight: "Receive giống như nghe tín hiệu và phản ứng lại khi được gọi."
+  },
+  {
+    type: "multiple",
+    question: "Nếu muốn xích đu vừa bật nhạc vừa sáng đèn cùng lúc, em nên làm thế nào?",
+    options: [
+      "Phát một tín hiệu để cả nhạc và đèn cùng bắt đầu",
+      "Bật nhạc trước rồi bật đèn sau",
+      "Chỉ bật đèn thôi",
+      "Chỉ bật nhạc thôi"
+    ],
+    answer: "Phát một tín hiệu để cả nhạc và đèn cùng bắt đầu",
+    insight: "Broadcast giúp nhiều việc xảy ra đồng thời."
+  },
+  {
+    type: "multiple",
+    question: "Dùng Broadcast và Receive giúp em rèn luyện điều gì?",
+    options: [
+      "Suy nghĩ theo từng bước, từng giai đoạn",
+      "Nghe nhạc cho vui",
+      "Chơi game nhanh hơn",
+      "Nhớ nhiều bài hát"
+    ],
+    answer: "Suy nghĩ theo từng bước, từng giai đoạn",
+    insight: "Broadcast & Receive giúp em tập chia việc thành bước nhỏ và sắp xếp hợp lý."
+  }
+];
+
+                        let currentIndex = 0;
+                        let score = 0;
+                        const totalQuestions = questions.length;
+
+                        // Track whether each question has been answered
+                        const answeredQuestions = new Array(totalQuestions).fill(false);
+
+                        const questionContainer = document.getElementById("question");
+                        const optionsContainer = document.getElementById("options");
+                        const feedbackContainer = document.getElementById("feedback");
+                        const scoreContainer = document.getElementById("score");
+                        const prevBtn = document.getElementById("prev-btn");
+                        const nextBtn = document.getElementById("next-btn");
+                        const progressBar = document.getElementById("progress-bar");
+
+                        // Load a question
+                        function loadQuestion(index) {
+                            // Clear previous content
+                            optionsContainer.innerHTML = "";
+                            feedbackContainer.textContent = "";
+
+                            const currentQuestion = questions[index];
+                            questionContainer.textContent = `${index + 1}. ${currentQuestion.question}`;
+
+                            // Update navigation buttons
+                            prevBtn.disabled = index === 0;
+                            nextBtn.disabled = !answeredQuestions[index]; // Disable Next until user answers
+
+                            // Display options
+                            if (currentQuestion.type === "multiple") {
+                                currentQuestion.options.forEach((option) => {
+                                    const button = document.createElement("button");
+                                    button.textContent = option;
+                                    button.classList.add("option-button");
+                                    button.disabled = answeredQuestions[index]; // Disable if already answered
+                                    button.addEventListener("click", () =>
+                                        handleAnswer(
+                                            option,
+                                            currentQuestion.answer,
+                                            currentQuestion.insight,
+                                            button
+                                        )
+                                    );
+                                    optionsContainer.appendChild(button);
+                                });
+                            } else {
+                                ["Đúng", "Sai"].forEach((option) => {
+                                    const button = document.createElement("button");
+                                    button.textContent = option;
+                                    button.classList.add("option-button");
+                                    button.disabled = answeredQuestions[index]; // Disable if already answered
+                                    button.addEventListener("click", () =>
+                                        handleAnswer(
+                                            option,
+                                            currentQuestion.answer,
+                                            currentQuestion.insight,
+                                            button
+                                        )
+                                    );
+                                    optionsContainer.appendChild(button);
+                                });
+                            }
+
+                            // Update progress
+                            updateProgress();
+
+                            // Show feedback if already answered
+                            if (answeredQuestions[index]) {
+                                feedbackContainer.textContent = `Bạn đã sẵn sàng trả lời các câu hỏi chưa.`;
+                                feedbackContainer.style.color = "gray";
+                            }
+                        }
+
+                        // Handle answers
+                        function handleAnswer(selected, correct, insight, button) {
+                            const buttons = optionsContainer.querySelectorAll("button");
+                            buttons.forEach((btn) => (btn.disabled = true)); // Disable all options
+
+                            if (!answeredQuestions[currentIndex]) {
+                                // Update score if this is the first attempt at this question
+                                if (selected === correct) {
+                                    score++;
+                                    feedbackContainer.textContent = `Đúng rồi! ${insight}`;
+                                    feedbackContainer.style.color = "green";
+                                    button.style.backgroundColor = "#28a745"; // Green for correct
+                                } else {
+                                    feedbackContainer.textContent = `Sai rồi! Đáp án câu hỏi này là: "${correct}". ${insight}`;
+                                    feedbackContainer.style.color = "red";
+                                    button.style.backgroundColor = "#dc3545"; // Red for incorrect
+                                }
+                                answeredQuestions[currentIndex] = true; // Mark this question as answered
+                            }
+
+                            nextBtn.disabled = false; // Enable Next button
+                            updateScore();
+                        }
+
+                        // Update progress bar
+                        function updateProgress() {
+                            const progress = ((currentIndex + 1) / totalQuestions) * 100;
+                            progressBar.style.width = `${progress}%`;
+                        }
+
+                        // Update score display
+                        function updateScore() {
+                            scoreContainer.textContent = `Score: ${score} / ${totalQuestions}`;
+                        }
+
+                        // Navigation buttons
+                        prevBtn.addEventListener("click", () => {
+                            if (currentIndex > 0) {
+                                currentIndex--;
+                                loadQuestion(currentIndex);
+                            }
+                        });
+
+                        nextBtn.addEventListener("click", () => {
+                            if (currentIndex < totalQuestions - 1) {
+                                currentIndex++;
+                                loadQuestion(currentIndex);
+                            } else {
+                                questionContainer.textContent = "Hoàn thành câu hỏi";
+                                optionsContainer.innerHTML = "";
+                                feedbackContainer.textContent = `Tổng số điển là: ${score} / ${totalQuestions}`;
+                                nextBtn.disabled = true;
+                            }
+                        });
+
+                        // Initialize quiz
+                        loadQuestion(currentIndex);
+
+                    </script>
+                </section>
+                        </div>
+
+
+
+
+                    </div>
+                    
+
+                
+            </div>
+        </div>
+    </div>
+    <!-- ***** Banner End ***** -->
+
+
+
+    <script>
+        const wrapper = document.querySelector(".wrapper");
+        let sections = wrapper.querySelectorAll(".main > section");
+
+        (function initSections() {
+            const side = wrapper.querySelector(".side > .stick-container");
+
+            // 👉 Gán tên tùy theo từng mục
+            const labels = ["Mục tiêu", "Giới thiệu", "Mô hình", "Xây dựng", "Bài học", "Tổng kết"];
+
+            sections.forEach((section, index) => {
+                let link = document.createElement("a");
+                let label = document.createElement("span");
+
+                const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                link.style.background = randomColor;
+
+                // KHÔNG dùng href nữa để tránh thay đổi hash
+                link.href = "javascript:void(0)";
+                link.classList.add("section_clone");
+
+                label.textContent = labels[index] || `Mục ${index + 1}`;
+                label.style.fontSize = "1rem";
+                label.style.fontWeight = "600";
+
+                link.appendChild(label);
+                side.appendChild(link);
+
+                // 👉 Cuộn mượt đến mục khi click
+                link.addEventListener("click", (e) => {
+                    e.preventDefault(); // Ngăn mặc định
+                    section.scrollIntoView({ behavior: "smooth" });
+                    addInView([index]); // Cập nhật trạng thái mục đang hiển thị
+                });
+            });
+
+
+            addInView([0]);
+        })();
+
+        function addInView(arr) {
+            let index = arr[0];
+            let aspectRatio = arr[1];
+            const side_sections = document.querySelectorAll(".section_clone");
+            side_sections.forEach((side_section) => {
+                side_section.classList.remove("inView");
+            });
+            side_sections[index].classList.add("inView");
+
+            //console.log(side_sections[index]);
+        }
+
+        function checkForViewport() {
+            let result = 0;
+            let aspectRatio;
+            sections.forEach((section, index) => {
+                section.style.background = "";
+
+                let section_bound = section.getBoundingClientRect();
+                let section_boundMid = section_bound.bottom / 2;
+                aspectRatio = parseFloat(
+                    (section_bound.width / section_bound.height).toFixed(2)
+                );
+                console.log(aspectRatio);
+                if (
+                    section_bound.top <= window.innerHeight / 2 &&
+                    section_bound.bottom > window.innerHeight / 2
+                ) {
+                    result = index;
+                }
+            });
+            let result_arr = [result, aspectRatio];
+            return result_arr;
+        }
+
+        window.addEventListener("scroll", (event) => {
+            addInView(checkForViewport());
+        });
+
+    </script>
+
+
+    </div>
+
+
+    <!-- ***** Gaming Library End ***** -->
+    </div>
+
+    </div>
+    </div>
+
+
+    <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+        onclick="scrollToTop()" id="back-to-up">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+        window.onscroll = () => {
+            toggleTopButton();
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleTopButton() {
+            if (document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20) {
+                document.getElementById('back-to-up').classList.remove('d-none');
+            } else {
+                document.getElementById('back-to-up').classList.add('d-none');
+            }
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved.
+
+                        <br>Design By Huỳnh Ngọc Thái
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper (nếu dùng Bootstrap 4) -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS (v4 hoặc v5 tùy bạn dùng bản nào) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="../../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../../../js/isotope.min.js"></script>
+    <script src="../../../js/owl-carousel.js"></script>
+    <script src="../../../js/tabs.js"></script>
+    <script src="../../../js/popup.js"></script>
+    <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
