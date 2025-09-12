@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Let's Code - Robotics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../../css/fontawesome.css">
+    <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="../../../css/owl.css">
+    <link rel="stylesheet" href="../../../css/animate.css">
+    <link rel="stylesheet" href="../../../css/creative.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="apple-touch-icon"
+        href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+        sizes="192x192">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png"
+        sizes="32x32">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+
+    <script src="../../../js/include.js" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+    <style>
+        .model-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .sketchfab-embed-wrapper {
+            flex: 1 1 calc(33.333% - 20px);
+            /* 3 cột mỗi hàng, trừ khoảng cách */
+            box-sizing: border-box;
+        }
+
+        .sketchfab-embed-wrapper iframe {
+            width: 100%;
+            height: auto;
+        }
+
+        .sketchfab-embed-wrapper p {
+            font-size: 20px;
+            font-weight: normal;
+            margin: 5px;
+            color: #bdb7b7;
+            text-align: center;
+        }
+
+        /* Responsive: nếu màn nhỏ hơn 768px thì 1 cột */
+        @media screen and (max-width: 768px) {
+            .sketchfab-embed-wrapper {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <div data-include="../../header.html"></div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                // Gắn lại sự kiện cho menu sau khi include xong header
+                const script = document.createElement('script');
+                script.src = "../../../js/custom.js";
+                document.body.appendChild(script);
+
+                // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-content">
+
+                    <!-- ***** Banner Start ***** -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-profile">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <img src="../../../images/REB/img-reb-bai15.png" alt=""
+                                            style="border-radius: 23px;">
+                                    </div>
+                                    <div class="col-lg-4 align-self-center">
+                                        <div class="main-info header-text">
+
+                                            <span>Khối biểu tượng</span>
+                                            <h4
+                                                style="color: #000 !important; font-family: 'Baloo Chettan 2', sans-serif !important">
+                                                Buổi 15: Hoạt động sáng tạo 2</h4>
+                                            <p style="color: #000 !important">
+                                                Thiết kế mô hình “Đồ dùng thông minh”
+                                            </p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="wrapper" style="font-family: 'Baloo Chettan 2', sans-serif !important">
+                        <div class="side">
+                            <div class="stick-container"></div>
+                        </div>
+                        <div class="main">
+                            <section id="a">
+
+
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục
+                                    tiêu bài học
+                                </h1>
+<div class="accordion-container">
+  <input type="radio" id="acc-tab-1" name="accordion" checked>
+  <label for="acc-tab-1" class="accordion-label">
+    <h2>🎓 Kiến thức</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Học sinh tự thiết kế mô hình <strong>đồ dùng thông minh</strong> theo chủ đề cá nhân hoặc nhóm lựa chọn (VD: bàn học thông minh, thùng rác tự động, hộp bút nhận diện màu…).</li>
+      <li>✔️ Áp dụng <strong>Color Sensor Block</strong> để tạo hành vi phản xạ tùy theo từng màu đầu vào.</li>
+      <li>✔️ Vận dụng sáng tạo các khối đã học: <strong>Motor</strong> (mở/đóng/tương tác), <strong>Display</strong> (hiển thị trạng thái), <strong>Sound</strong> (âm thanh phản hồi), <strong>Control Blocks</strong> (lặp – điều kiện).</li>
+      <li>✔️ Rèn kỹ năng phân tích vấn đề – giải quyết bằng lập trình và kỹ thuật robot.</li>
+    </ul>
+  </div>
+
+  <input type="radio" id="acc-tab-2" name="accordion">
+  <label for="acc-tab-2" class="accordion-label">
+    <h2>🛠️ Kỹ năng</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Gợi ý và phát triển ý tưởng mô hình đồ dùng thông minh.</li>
+      <li>✔️ Thiết kế mô hình phù hợp với chức năng dự kiến.</li>
+      <li>✔️ Lắp ráp mô hình sáng tạo, chắc chắn và đúng kỹ thuật.</li>
+      <li>✔️ Lập trình hành vi thông minh dựa trên cảm biến màu và các khối chức năng.</li>
+      <li>✔️ Trình bày và trình diễn sản phẩm trước lớp/nhóm.</li>
+    </ul>
+  </div>
+
+  <input type="radio" id="acc-tab-3" name="accordion">
+  <label for="acc-tab-3" class="accordion-label">
+    <h2>💡 Tư duy</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Áp dụng kiến thức về <strong>khối cảm biến màu (Color Sensor Block)</strong> để thiết kế hành vi thông minh.</li>
+      <li>✔️ Tư duy thiết kế ứng dụng công nghệ vào cuộc sống hàng ngày.</li>
+      <li>✔️ Tư duy sáng tạo kỹ thuật – giải quyết vấn đề thực tế.</li>
+      <li>✔️ Lập trình đa tầng – xử lý logic điều kiện và tình huống phức tạp.</li>
+    </ul>
+  </div>
+
+  <input type="radio" id="acc-tab-4" name="accordion">
+  <label for="acc-tab-4" class="accordion-label">
+    <h2>❤️ Thái độ </h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Chủ động và sáng tạo trong việc đưa ra ý tưởng mới.</li>
+      <li>✔️ Hứng thú với việc áp dụng công nghệ để cải thiện cuộc sống.</li>
+      <li>✔️ Hợp tác nhóm hiệu quả: phân công thiết kế – lắp ráp – lập trình – thuyết trình.</li>
+      <li>✔️ Tự tin chia sẻ sản phẩm, nhận phản hồi và sẵn sàng cải tiến.</li>
+    </ul>
+  </div>
+</div>
+
+
+                            </section>
+                            <section id="b" class="row">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
+                                    thiệu nội dung bài học
+                                </h1>
+                                <ul class="custom-timeline__list">
+                                    <li class="custom-timeline__item" style="--accent-color:#41516C">
+                                        <div class="custom-timeline__date">Giới thiệu nội dung</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
+                                        <div class="custom-timeline__date">Chuẩn bị nhân vật</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                                        <div class="custom-timeline__date">Xây dựng mô hình</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
+                                        <div class="custom-timeline__date">Ôn lập khối cảm biến màu</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#4CADAD">
+                                        <div class="custom-timeline__date">Hoạt động thử thách</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#868bfc">
+                                        <div class="custom-timeline__date">Tổng kết bài học</div>
+                                    </li>
+
+                                </ul>
+                            </section>
+                            <section id="c" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                                    Giới thiệu nội dung
+                                </h1>
+                                <video style="width: 50%; display: block;
+  margin: auto;" controls
+                                    src="../../../REB/Buổi 15/nội dung.mp4">
+
+                                </video>
+                            </section>
+                            <section id="d" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading text-center mb-4">
+                                    Chuẩn bị nhân vật
+                                </h1>
+
+                                <div class="model-grid">
+                                    <div class="sketchfab-embed-wrapper">
+                                       <iframe title="Smart Lamp" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/48e5df64f7b844039062b3503bc2cda8/embed"> </iframe>
+                                        <p>Đèn thông minh</p>
+                                    </div>
+
+                                    <div class="sketchfab-embed-wrapper">
+                                        <iframe title="Laboratory Door | Double Single Metal Glass PBR" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/564adfd187304e7fb756e847337f5ede/embed"> </iframe>
+                                        <p>Cửa tự động</p>
+                                    </div>
+
+                                    <div class="sketchfab-embed-wrapper">
+                                       <iframe title="Automatic Barrier Entry" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/2a75447d346d40209811889f082a9e10/embed"> </iframe> 
+                                        <p>Thanh chắn thông minh</p>
+                                    </div>
+
+
+                                   
+                                </div>
+
+                            </section>
+
+                            <!-- Galleries -->
+                            <!-- Example for Gallery 1 -->
+
+
+
+
+                            <section id="e">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Danh sách chốt
+                                    và các linh kiện phù hợp
+                                </h1>
+
+
+                                <div class="custom-section-wrapper d-flex flex-wrap flex-md-nowrap">
+                                    <div class="custom-filter-bar flex-column me-md-4 mb-4 mb-md-0"
+                                        style="min-width: 120px;">
+                                        <button class="custom-btn custom-btn-travel" data-filter="chốt_REBL"><img
+                                                src="../../../Element/REA/Connect/Chốt kết nối có ma sát-REBL.png"
+                                                alt=""></button>
+                                        <button class="custom-btn custom-btn-food" data-filter="bộ_mở_RER"><img
+                                                src="../../../Element/REA/Connect/Bộ mở rộng trục-RER.png"
+                                                alt=""></button>
+                                        <button class="custom-btn custom-btn-animals" data-filter="chốt_REG"><img
+                                                src="../../../Element/REA/Connect/Chốt kết nối-REG.png" alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Chốt kết nối-REW.png" alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="dầm_cao_su_REBL"><img
+                                                src="../../../Element/REA/Connect/Dầm cao su có lỗ chéo-REBL.png"
+                                                alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="dầm_chữ_T_RER"><img
+                                                src="../../../Element/REA/Connect/Dầm chữ T có tấm-RER.png"
+                                                alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="trục_2_RER"><img
+                                                src="../../../Element/REA/Connect/Trục 2-RER.png" alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="trục_3_REY"><img
+                                                src="../../../Element/REA/Connect/Trục 3-REY.png" alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="trục_4_REBL"><img
+                                                src="../../../Element/REA/Connect/Trục 4-REBL.png" alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="trục_6_RER"><img
+                                                src="../../../Element/REA/Connect/Trục 6-RER.png" alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="trục_7_REY"><img
+                                                src="../../../Element/REA/Connect/Trục 7-REY.png" alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="trục_8_REBL"><img
+                                                src="../../../Element/REA/Connect/Trục 8-REBL.png" alt=""></button>
+                                        <button class="custom-btn custom-btn-reset"
+                                            data-filter="đầu_nối_chùm_1x3x3_REP"><img
+                                                src="../../../Element/REA/Connect/Đầu nối chùm 1x3x3-REP.png"
+                                                alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="đầu_nối_góc_REW"><img
+                                                src="../../../Element/REA/Connect/Đầu nối góc-REW.png" alt=""></button>
+                                        <button class="custom-btn custom-btn-reset" data-filter="ống_lót_RER"><img
+                                                src="../../../Element/REA/Connect/Ống lót-RER.png" alt=""></button>
+                                    </div>
+
+
+                                    <div class="custom-image-gallery flex-grow-1">
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Dầm 1x2 -REO.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch nón 2x2x2-REO.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item"
+                                            data-category="bộ_mở_RER đầu_nối_góc_REW ống_lót_RER "><img
+                                                src="../../../Element/REA/Connect/Trục 2-RER.png" alt=""></button></div>
+                                        <div class="custom-image-item"
+                                            data-category="chốt_REW trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Đĩa 4x4-RE.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="dầm_cao_su_REBL"><img
+                                                src="../../../Element/REA/Connect/Trục 2-RER.png" alt=""></button></div>
+                                        <div class="custom-image-item" data-category="dầm_chữ_T_RER đầu_nối_góc_REW">
+                                            <img src="../../../Element/REA/Connect/Chốt kết nối-REG.png"
+                                                alt=""></button>
+                                        </div>
+
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Tia 7 lỗ-REB.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="bộ_mở_RER"><img
+                                                src="../../../Element/REA/Connect/Ống lò xo-REG.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="dầm_cao_su_REBL đầu_nối_góc_REW ống_lót_RER "><img
+                                                src="../../../Element/REA/Connect/Chốt kết nối-REW.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Dầm đính đá 1x16-REG.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch có lỗ chéo-RER.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="bộ_mở_RER"><img
+                                                src="../../../Element/REA/Connect/Lò xo mềm-REB.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch nón 1x1-REP.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Gạch tròn 2x2-REG.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Gạch tròn 2x2-RE.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Gạch nón 1x1-REP.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Gạch nón 2x2x2-REO.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Gạch có lỗ chéo 1x2-REY.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Gạch có lỗ chéo 2x4-REB.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Gạch có lỗ chéo 2x4-REG.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Gạch có lỗ chéo 2x4-REP.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL ">
+                                            <img src="../../../Element/REA/Connect/Gạch có lỗ chéo 2x4-REY.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="trục_2_RER trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Gạch có lỗ chéo-RER.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Dầm đính đá1x8-REJG.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="bộ_mở_RER"><img
+                                                src="../../../Element/REA/Connect/Chốt kết nối-REW.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="dầm_chữ_T_RER đầu_nối_chùm_1x3x3_REP đầu_nối_góc_REW"><img
+                                                src="../../../Element/REA/Connect/Chốt kết nối có ma sát-REBL.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item"
+                                            data-category="chốt_REW trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Trục lưới-REY.png" alt=""></button>
+                                        </div>
+
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Dầm đính đá 1x12-REO.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item"
+                                            data-category="chốt_REBL chốt_REG chốt_REW trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Đầu nối góc-REW.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="bộ_mở_RER ống_lót_RER "><img
+                                                src="../../../Element/REA/Connect/Trục 6-RER.png" alt=""></button></div>
+                                        <div class="custom-image-item"
+                                            data-category="dầm_chữ_T_RER đầu_nối_chùm_1x3x3_REP đầu_nối_góc_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch Có Chốt-RER.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="dầm_chữ_T_RER đầu_nối_chùm_1x3x3_REP"><img
+                                                src="../../../Element/REA/Connect/Chốt kết nối-REW.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="dầm_cao_su_REBL đầu đầu_nối_góc_REW ống_lót_RER "><img
+                                                src="../../../Element/REA/Connect/Trục 3-REY.png" alt=""></button></div>
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Dấm đính đá 1x4-REP.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item"
+                                            data-category="chốt_REW trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Ống lót-RER.png" alt=""></button>
+                                        </div>
+
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Dầm chữ T có tấm-RER.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch có lỗ chéo 2x4-REY.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="dầm_cao_su_REBL đầu_nối_góc_REW">
+                                            <img src="../../../Element/REA/Connect/Trục 4-REBL.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="chốt_REBL chốt_REG chốt_REW trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Dầm góc 4x6-REO.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="bộ_mở_RER"><img
+                                                src="../../../Element/REA/Connect/Trục 3-REY.png" alt=""></button></div>
+                                        <div class="custom-image-item" data-category="dầm_cao_su_REBL đầu_nối_góc_REW">
+                                            <img src="../../../Element/REA/Connect/Trục 6-RER.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Tia 11-REP.png" alt=""></button></div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch tròn 2x2-RE.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Bộ não-REY.png" alt=""></button></div>
+                                        <div class="custom-image-item"
+                                            data-category="bộ_mở_RER đầu đầu_nối_góc_REW ống_lót_RER "><img
+                                                src="../../../Element/REA/Connect/Trục 7-REY.png" alt=""></button></div>
+                                        <div class="custom-image-item" data-category="dầm_cao_su_REBL"><img
+                                                src="../../../Element/REA/Connect/Trục 7-REY.png" alt=""></button></div>
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Chùm góc-REG.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="chốt_REW trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Bộ mở rộng trục-RER.png"
+                                                alt=""></button>
+                                        </div>
+
+                                        <div class="custom-image-item"
+                                            data-category="bộ_mở_RER đầu nối đầu_nối_góc_REW ống_lót_RER "><img
+                                                src="../../../Element/REA/Connect/Trục 8-REBL.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="dầm_chữ_T_RER đầu_nối_chùm_1x3x3_REP đầu_nối_góc_REW "><img
+                                                src="../../../Element/REA/Connect/Tấm có chốt nối dọc-REW.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="dầm_cao_su_REBL"><img
+                                                src="../../../Element/REA/Connect/Trục 8-REBL.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch tròn 2x2-REG.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item"
+                                            data-category="chốt_REBL chốt_REG chốt_REW trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Trung tâm ròng rọc-REW.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="bộ_mở_RER"><img
+                                                src="../../../Element/REA/Connect/Cọc mốc-REW.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Cảm biến màu sắc -REW.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="bộ_mở_RER ống_lót_RER"><img
+                                                src="../../../Element/REA/Connect/Trục 4-REBL.png" alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item"
+                                            data-category="chốt_REBL chốt_REG chốt_REW trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Động cơ xoay-REW.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch có lỗ chéo 2x4-REG.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="chốt_REBL chốt_REG chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Động cơ màu sắc-REW.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item"
+                                            data-category="chốt_REW trục_3_REY trục_4_REBL trục_6_RER trục_7_REY trục_8_REBL">
+                                            <img src="../../../Element/REA/Connect/Dầm cao su có lỗ chéo-REBL.png"
+                                                alt=""></button>
+                                        </div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch có lỗ chéo 2x4-REP.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch có lỗ chéo 2x4-REB.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Đầu nối chùm 1x3x3-REP.png"
+                                                alt=""></button></div>
+                                        <div class="custom-image-item" data-category="chốt_REW"><img
+                                                src="../../../Element/REA/Connect/Gạch có lỗ chéo 1x2-REY.png"
+                                                alt=""></button></div>
+                                    </div>
+                                </div>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        const buttons = document.querySelectorAll(".custom-btn");
+                                        const items = document.querySelectorAll(".custom-image-item");
+
+                                        buttons.forEach(btn => {
+                                            btn.addEventListener("click", function () {
+                                                const filter = this.dataset.filter;
+
+                                                if (!filter) {
+                                                    // Reset - Hiện tất cả
+                                                    items.forEach(item => item.classList.remove("custom-hidden"));
+                                                } else {
+                                                    items.forEach(item => {
+                                                        const categories = item.dataset.category.split(" ");
+                                                        if (categories.includes(filter)) {
+                                                            item.classList.remove("custom-hidden");
+                                                        } else {
+                                                            item.classList.add("custom-hidden");
+                                                        }
+                                                    });
+
+                                                }
+                                            });
+                                        });
+                                    });
+
+
+                                </script>
+
+                                <!-- <div class="custom-timer-container">
+                                    <div class="custom-timer-background"></div>
+                                    <div class="custom-timer-inner"></div>
+                                    <svg height="400" width="400">
+                                        <circle r="190" cx="200" cy="200" fill="transparent" stroke-width="20"
+                                            transform="rotate(-90 200 200)"></circle>
+                                    </svg>
+                                    <div class="custom-timer-form">
+                                        <input type="text" id="custom-timer-duration" value="01:00:00"
+                                            placeholder="HH:MM:SS">
+                                        <div class="custom-timer-buttons">
+                                            <div class="custom-timer-btn" id="custom-timer-start"><i
+                                                    class="fa-solid fa-play"></i></div>
+                                            <div class="custom-timer-btn" id="custom-timer-pause"><i
+                                                    class="fa-solid fa-pause"></i></div>
+                                            <button id="stop-sound-btn" class="btn btn-success" onclick="stopAlarm()"
+                                                style="display: none;">
+                                                Dừng âm thanh
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div> -->
+
+                                <script>
+                                    let alarmAudio; // biến toàn cục giữ file mp3
+                                    function timeToSeconds(timeStr) {
+                                        const parts = timeStr.split(':').map(Number);
+                                        let seconds = 0;
+                                        if (parts.length === 3) seconds = parts[0] * 3600 + parts[1] * 60 + parts[2];
+                                        else if (parts.length === 2) seconds = parts[0] * 60 + parts[1];
+                                        else if (parts.length === 1) seconds = parts[0];
+                                        return seconds;
+                                    }
+
+                                    function secondsToTime(seconds) {
+                                        const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
+                                        const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+                                        const secs = String(Math.floor(seconds % 60)).padStart(2, '0');
+                                        return `${hrs}:${mins}:${secs}`;
+                                    }
+
+                                    class Timer {
+                                        constructor(durationInput, startButton, pauseButton, container, callbacks) {
+                                            this.durationInput = durationInput;
+                                            this.startButton = startButton;
+                                            this.pauseButton = pauseButton;
+                                            this.container = container;
+                                            this.duration = 0;
+
+                                            if (callbacks) {
+                                                this.onStart = callbacks.onStart;
+                                                this.onPause = callbacks.onPause;
+                                                this.onTick = callbacks.onTick;
+                                                this.onComplete = callbacks.onComplete;
+                                                this.onReset = callbacks.onReset;
+                                            }
+
+                                            this.startButton.addEventListener('click', this.start);
+                                            this.pauseButton.addEventListener('click', this.pause);
+                                            this.durationInput.addEventListener('click', () => this.durationInput.value = '');
+                                            this.durationInput.addEventListener('keydown', (e) => e.key === 'Enter' ? this.start() : null);
+                                        }
+
+                                        start = () => {
+                                            this.duration = timeToSeconds(this.durationInput.value);
+                                            if (this.duration <= 0) return;
+                                            this.totalDuration = this.duration;
+                                            this.onStart?.(this.duration);
+                                            this.tick();
+                                            this.interval = setInterval(this.tick, 1000);
+                                            this.pauseButton.removeEventListener('click', this.reset);
+                                            this.pauseButton.addEventListener('click', this.pause);
+                                        }
+
+                                        pause = () => {
+                                            this.onPause?.();
+                                            clearInterval(this.interval);
+                                            this.pauseButton.removeEventListener('click', this.pause);
+                                            this.pauseButton.addEventListener('click', this.reset);
+                                        }
+
+                                        tick = () => {
+                                            if (this.duration <= 0) {
+                                                this.pause();
+                                                this.onComplete?.();
+                                            } else {
+                                                this.duration -= 1;
+                                                this.durationInput.value = secondsToTime(this.duration);
+                                                this.onTick?.(this.duration);
+                                            }
+                                        }
+
+                                        reset = () => {
+                                            this.onReset?.();
+                                            this.durationInput.value = '01:00:00';
+                                        }
+                                    }
+
+                                    const durationInput = document.querySelector('#custom-timer-duration');
+                                    const startButton = document.querySelector('#custom-timer-start');
+                                    const pauseButton = document.querySelector('#custom-timer-pause');
+                                    const circle = document.querySelector('circle');
+                                    const container = document.querySelector('.custom-timer-background');
+                                    const theme = document.documentElement.style;
+
+                                    const timer = new Timer(durationInput, startButton, pauseButton, container, {
+                                        onStart(duration) {
+                                            circle.setAttribute("stroke-dasharray", duration);
+                                            circle.setAttribute("stroke-dashoffset", 0);
+                                            startButton.classList.add('disabled');
+                                        },
+                                        onPause() {
+                                            pauseButton.firstChild.setAttribute('class', 'fa-solid fa-rotate-right');
+                                            startButton.classList.remove('disabled');
+                                        },
+                                        onTick(remaining) {
+                                            const offset = this.totalDuration - remaining;
+                                            circle.setAttribute("stroke-dashoffset", offset);
+                                        },
+                                        onComplete() {
+                                            startButton.classList.add('disabled');
+                                            container.classList.add('animation');
+                                            durationInput.setAttribute('disabled', 'true');
+                                            playAlarmOnce();
+
+                                        },
+                                        onReset() {
+                                            circle.setAttribute("stroke-dashoffset", 0);
+                                            startButton.firstChild.setAttribute('class', 'fa-solid fa-play');
+                                            pauseButton.firstChild.setAttribute('class', 'fa-solid fa-pause');
+                                            startButton.addEventListener('click', this.start);
+                                            startButton.classList.remove('disabled');
+                                            container.classList.remove('animation');
+                                            durationInput.removeAttribute('disabled');
+                                        }
+                                    });
+
+                                    document.querySelector('#custom-theme-white').addEventListener('click', () => changeTheme('white'));
+                                    document.querySelector('#custom-theme-green').addEventListener('click', () => changeTheme('green'));
+                                    document.querySelector('#custom-theme-bluegray').addEventListener('click', () => changeTheme('bluegray'));
+
+
+                                    function changeTheme(color) {
+                                        if (color === 'white') {
+                                            theme.setProperty('--main-color', '#676f77');
+                                            theme.setProperty('--backgound-color', '#e0e0e0');
+                                            theme.setProperty('--light-shadow', '#fff');
+                                            theme.setProperty('--dark-shadow', '#989898');
+                                            theme.setProperty('--stroke-color', 'rgba(200,200,200,0.7)');
+                                        }
+                                        if (color === 'green') {
+                                            theme.setProperty('--main-color', '#005050');
+                                            theme.setProperty('--backgound-color', '#008080');
+                                            theme.setProperty('--light-shadow', '#009393');
+                                            theme.setProperty('--dark-shadow', '#003d3d');
+                                            theme.setProperty('--stroke-color', 'rgba(0,102,102,0.7)');
+                                        }
+                                        if (color === 'bluegray') {
+                                            theme.setProperty('--main-color', '#163543');
+                                            theme.setProperty('--backgound-color', '#365563');
+                                            theme.setProperty('--light-shadow', '#3e6272');
+                                            theme.setProperty('--dark-shadow', '#0e2834');
+                                            theme.setProperty('--stroke-color', 'rgba(34,65,79,0.5)');
+                                        }
+                                    }
+                                    function playAlarmOnce() {
+                                        // Tạo đối tượng âm thanh nếu chưa có
+                                        alarmAudio = new Audio('../../../taratata-6264.mp3');
+                                        alarmAudio.play().then(() => {
+                                            // Sau khi phát, hiển thị nút "Dừng"
+                                            document.getElementById('stop-sound-btn').style.display = 'inline-block';
+                                        }).catch(err => {
+                                            console.error("Không thể phát âm thanh:", err);
+                                        });
+
+
+                                    }
+                                    function stopAlarm() {
+                                        if (alarmAudio) {
+                                            alarmAudio.pause();
+                                            alarmAudio.currentTime = 0;
+                                        }
+                                        document.getElementById('stop-sound-btn').style.display = 'none';
+                                    }
+
+                                </script>
+
+                            </section>
+
+                            <section id="f">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Ôn tập khối
+                                    cảm biến màu
+                                </h1>
+                                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                                    <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
+                                    <label for="tab1">Cảm biến màu</label>
+
+                                   
+
+                                    <ul>
+                                      <li class="tab-content tab-content-first typography">
+                                            <h2>🧑‍💻 Khối cảm biến màu sắc</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-5 text-center">
+                                                    <img src="../../../REB/Buổi 2/help-icon-eventColorSensor.png" alt=""
+                                                        class="instruction-image">
+
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Mô tả:</strong> </p>
+                                                        <ul>
+                                                            <li>Khối này được sử dụng để lập trình Cảm biến màu sắc.
+                                                            </li>
+                                                            <li>Khối sẽ kiểm tra màu sắc nào ở phía trước nó.</li>
+                                                            <li>Khối sẽ chạy tất cả các khối được gắn vào nó nếu Cảm
+                                                                biến màu sắc phát hiện thấy màu đã chọn.</li>
+                                                            <li>Để thay đổi màu sắc, hãy nhấn mũi tên "hướng xuống" màu
+                                                                trắng trên khối.</li>
+                                                            <li>Sau đó chọn một màu từ menu.</li>
+                                                        </ul>
+
+
+                                                    </div>
+
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Ví dụ</strong></p>
+                                                        <img style="width: 60%;"
+                                                            src="../../../REB/Buổi 2/gecko_block_help_example_horizontalevents_whencolor_vi-vn.svg"
+                                                            alt="" class="instruction-example">
+                                                        <p style="color: #000;" class="example-note">
+                                                            Chương trình này sẽ phát Hiệu ứng âm thanh 1 bất cứ lúc nào
+                                                            Cảm biến màu sắc phát hiện thấy màu “xanh lam”.
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+                                       
+
+                                    </ul>
+                                </div>
+
+                            </section>
+
+
+
+
+                            <section id="g">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+                                    Tổng kết buổi học
+                                </h1>
+                                <div class="quiz-container">
+                                    <div class="question" id="question">Loading question...</div>
+                                    <div class="options" id="options"></div>
+                                    <div class="feedback" id="feedback"></div>
+                                    <div class="progress-bar">
+                                        <div class="progress" id="progress-bar"></div>
+                                    </div>
+                                    <div class="score" id="score">Score: 0 / 5</div>
+                                    <div class="controls">
+                                        <button class="control-button" id="prev-btn" disabled>Về trước</button>
+                                        <button class="control-button" id="next-btn" disabled>Tiếp theo</button>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    // Questions Array
+const questions = [
+  {
+    type: "true/false",
+    question: "Học sinh có thể áp dụng khối cảm biến màu (Color Sensor) để phân loại hoặc phản xạ theo màu sắc đầu vào.",
+    answer: "Đúng",
+    insight: "Color Sensor cho phép robot nhận diện màu và thực hiện hành vi khác nhau tùy theo màu đó."
+  },
+  {
+    type: "true/false",
+    question: "Chỉ cần lắp ráp mô hình mà không cần lập trình vẫn có thể tạo ra hành vi tự động.",
+    answer: "Sai",
+    insight: "Để mô hình phản xạ tự động, cần lập trình logic với khối Control kết hợp Color Sensor, Motor, Sound, Display."
+  },
+  {
+    type: "multiple",
+    question: "Nếu muốn thùng rác tự động mở nắp khi gặp thẻ màu xanh, em cần lập trình thế nào?",
+    options: [
+      "Khối Motor quay + điều kiện IF nhận màu xanh",
+      "Khối Display hiển thị hình ảnh",
+      "Khối Sound phát âm thanh liên tục",
+      "Khối LED đổi màu nền"
+    ],
+    answer: "Khối Motor quay + điều kiện IF nhận màu xanh",
+    insight: "Sự kết hợp giữa Motor và điều kiện từ Color Sensor giúp nắp mở đúng theo tín hiệu màu xanh."
+  },
+  {
+    type: "multiple",
+    question: "Khối Color Sensor có thể giúp mô hình nào dưới đây hoạt động thông minh hơn?",
+    options: [
+      "Hộp bút nhận diện màu",
+      "Xe di chuyển theo vạch màu",
+      "Thùng rác mở khi gặp màu xanh",
+      "Tất cả các phương án trên"
+    ],
+    answer: "Tất cả các phương án trên",
+    insight: "Color Sensor có tính ứng dụng đa dạng trong nhiều loại mô hình tự động."
+  },
+  {
+    type: "true/false",
+    question: "Tư duy ứng dụng công nghệ vào cuộc sống thực tế giúp học sinh thiết kế mô hình thông minh và hữu ích hơn.",
+    answer: "Đúng",
+    insight: "Việc liên hệ với tình huống thực tế (như phân loại rác, bàn học tự động) giúp sản phẩm có ý nghĩa và gần gũi hơn."
+  },
+  {
+    type: "true/false",
+    question: "Trong nhóm, chỉ một bạn lập trình, các bạn khác không tham gia cũng đủ để hoàn thành dự án.",
+    answer: "Sai",
+    insight: "Hoạt động nhóm cần sự phối hợp: người thiết kế, người lắp ráp, người lập trình, người trình bày – để đạt kết quả tốt nhất."
+  }
+];
+
+                                    let currentIndex = 0;
+                                    let score = 0;
+                                    const totalQuestions = questions.length;
+
+                                    // Track whether each question has been answered
+                                    const answeredQuestions = new Array(totalQuestions).fill(false);
+
+                                    const questionContainer = document.getElementById("question");
+                                    const optionsContainer = document.getElementById("options");
+                                    const feedbackContainer = document.getElementById("feedback");
+                                    const scoreContainer = document.getElementById("score");
+                                    const prevBtn = document.getElementById("prev-btn");
+                                    const nextBtn = document.getElementById("next-btn");
+                                    const progressBar = document.getElementById("progress-bar");
+
+                                    // Load a question
+                                    function loadQuestion(index) {
+                                        // Clear previous content
+                                        optionsContainer.innerHTML = "";
+                                        feedbackContainer.textContent = "";
+
+                                        const currentQuestion = questions[index];
+                                        questionContainer.textContent = `${index + 1}. ${currentQuestion.question}`;
+
+                                        // Update navigation buttons
+                                        prevBtn.disabled = index === 0;
+                                        nextBtn.disabled = !answeredQuestions[index]; // Disable Next until user answers
+
+                                        // Display options
+                                        if (currentQuestion.type === "multiple") {
+                                            currentQuestion.options.forEach((option) => {
+                                                const button = document.createElement("button");
+                                                button.textContent = option;
+                                                button.classList.add("option-button");
+                                                button.disabled = answeredQuestions[index]; // Disable if already answered
+                                                button.addEventListener("click", () =>
+                                                    handleAnswer(
+                                                        option,
+                                                        currentQuestion.answer,
+                                                        currentQuestion.insight,
+                                                        button
+                                                    )
+                                                );
+                                                optionsContainer.appendChild(button);
+                                            });
+                                        } else {
+                                            ["Đúng", "Sai"].forEach((option) => {
+                                                const button = document.createElement("button");
+                                                button.textContent = option;
+                                                button.classList.add("option-button");
+                                                button.disabled = answeredQuestions[index]; // Disable if already answered
+                                                button.addEventListener("click", () =>
+                                                    handleAnswer(
+                                                        option,
+                                                        currentQuestion.answer,
+                                                        currentQuestion.insight,
+                                                        button
+                                                    )
+                                                );
+                                                optionsContainer.appendChild(button);
+                                            });
+                                        }
+
+                                        // Update progress
+                                        updateProgress();
+
+                                        // Show feedback if already answered
+                                        if (answeredQuestions[index]) {
+                                            feedbackContainer.textContent = `Bạn đã sẵn sàng trả lời các câu hỏi chưa.`;
+                                            feedbackContainer.style.color = "gray";
+                                        }
+                                    }
+
+                                    // Handle answers
+                                    function handleAnswer(selected, correct, insight, button) {
+                                        const buttons = optionsContainer.querySelectorAll("button");
+                                        buttons.forEach((btn) => (btn.disabled = true)); // Disable all options
+
+                                        if (!answeredQuestions[currentIndex]) {
+                                            // Update score if this is the first attempt at this question
+                                            if (selected === correct) {
+                                                score++;
+                                                feedbackContainer.textContent = `Đúng rồi! ${insight}`;
+                                                feedbackContainer.style.color = "green";
+                                                button.style.backgroundColor = "#28a745"; // Green for correct
+                                            } else {
+                                                feedbackContainer.textContent = `Sai rồi! Đáp án câu hỏi này là: "${correct}". ${insight}`;
+                                                feedbackContainer.style.color = "red";
+                                                button.style.backgroundColor = "#dc3545"; // Red for incorrect
+                                            }
+                                            answeredQuestions[currentIndex] = true; // Mark this question as answered
+                                        }
+
+                                        nextBtn.disabled = false; // Enable Next button
+                                        updateScore();
+                                    }
+
+                                    // Update progress bar
+                                    function updateProgress() {
+                                        const progress = ((currentIndex + 1) / totalQuestions) * 100;
+                                        progressBar.style.width = `${progress}%`;
+                                    }
+
+                                    // Update score display
+                                    function updateScore() {
+                                        scoreContainer.textContent = `Score: ${score} / ${totalQuestions}`;
+                                    }
+
+                                    // Navigation buttons
+                                    prevBtn.addEventListener("click", () => {
+                                        if (currentIndex > 0) {
+                                            currentIndex--;
+                                            loadQuestion(currentIndex);
+                                        }
+                                    });
+
+                                    nextBtn.addEventListener("click", () => {
+                                        if (currentIndex < totalQuestions - 1) {
+                                            currentIndex++;
+                                            loadQuestion(currentIndex);
+                                        } else {
+                                            questionContainer.textContent = "Hoàn thành câu hỏi";
+                                            optionsContainer.innerHTML = "";
+                                            feedbackContainer.textContent = `Tổng số điển là: ${score} / ${totalQuestions}`;
+                                            nextBtn.disabled = true;
+                                        }
+                                    });
+
+                                    // Initialize quiz
+                                    loadQuestion(currentIndex);
+
+                                </script>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- ***** Banner End ***** -->
+
+
+
+                <script>
+                    const wrapper = document.querySelector(".wrapper");
+                    let sections = wrapper.querySelectorAll(".main > section");
+
+                    (function initSections() {
+                        const side = wrapper.querySelector(".side > .stick-container");
+
+                        // 👉 Gán tên tùy theo từng mục
+                        const labels = ["Mục tiêu", "Giới thiệu", "Mô hình", "Chuẩn bị", "Xây dựng", "Bài học", "Tổng kết"];
+
+                        sections.forEach((section, index) => {
+                            let link = document.createElement("a");
+                            let label = document.createElement("span");
+
+                            const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                            link.style.background = randomColor;
+
+                            // KHÔNG dùng href nữa để tránh thay đổi hash
+                            link.href = "javascript:void(0)";
+                            link.classList.add("section_clone");
+
+                            label.textContent = labels[index] || `Mục ${index + 1}`;
+                            label.style.fontSize = "1rem";
+                            label.style.fontWeight = "600";
+
+                            link.appendChild(label);
+                            side.appendChild(link);
+
+                            // 👉 Cuộn mượt đến mục khi click
+                            link.addEventListener("click", (e) => {
+                                e.preventDefault(); // Ngăn mặc định
+                                section.scrollIntoView({ behavior: "smooth" });
+                                addInView([index]); // Cập nhật trạng thái mục đang hiển thị
+                            });
+                        });
+
+
+                        addInView([0]);
+                    })();
+
+                    function addInView(arr) {
+                        let index = arr[0];
+                        let aspectRatio = arr[1];
+                        const side_sections = document.querySelectorAll(".section_clone");
+                        side_sections.forEach((side_section) => {
+                            side_section.classList.remove("inView");
+                        });
+                        side_sections[index].classList.add("inView");
+
+                        //console.log(side_sections[index]);
+                    }
+
+                    function checkForViewport() {
+                        let result = 0;
+                        let aspectRatio;
+                        sections.forEach((section, index) => {
+                            section.style.background = "";
+
+                            let section_bound = section.getBoundingClientRect();
+                            let section_boundMid = section_bound.bottom / 2;
+                            aspectRatio = parseFloat(
+                                (section_bound.width / section_bound.height).toFixed(2)
+                            );
+                            console.log(aspectRatio);
+                            if (
+                                section_bound.top <= window.innerHeight / 2 &&
+                                section_bound.bottom > window.innerHeight / 2
+                            ) {
+                                result = index;
+                            }
+                        });
+                        let result_arr = [result, aspectRatio];
+                        return result_arr;
+                    }
+
+                    window.addEventListener("scroll", (event) => {
+                        addInView(checkForViewport());
+                    });
+
+                </script>
+
+
+            </div>
+
+
+            <!-- ***** Gaming Library End ***** -->
+        </div>
+
+    </div>
+    </div>
+
+
+    <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+        onclick="scrollToTop()" id="back-to-up">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+        window.onscroll = () => {
+            toggleTopButton();
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleTopButton() {
+            if (document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20) {
+                document.getElementById('back-to-up').classList.remove('d-none');
+            } else {
+                document.getElementById('back-to-up').classList.add('d-none');
+            }
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved.
+
+                        <br>Design By Huỳnh Ngọc Thái
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper (nếu dùng Bootstrap 4) -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS (v4 hoặc v5 tùy bạn dùng bản nào) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="../../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../../../js/isotope.min.js"></script>
+    <script src="../../../js/owl-carousel.js"></script>
+    <script src="../../../js/tabs.js"></script>
+    <script src="../../../js/popup.js"></script>
+    <script src="../../../js/custom.js"></script>
+    <!-- <script src="../../../js/3d.js"></script> -->
+
+
+</body>
+
+</html>

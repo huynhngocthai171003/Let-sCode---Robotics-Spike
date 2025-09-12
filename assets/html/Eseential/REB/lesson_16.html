@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Let's Code - Robotics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../../css/fontawesome.css">
+    <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="../../../css/owl.css">
+    <link rel="stylesheet" href="../../../css/animate.css">
+    <link rel="stylesheet" href="../../../../assets/css/lesson.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="apple-touch-icon"
+        href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+        sizes="192x192">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png"
+        sizes="32x32">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <script src="../../../js/include.js" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Mặc định: ảnh hiển thị bình thường */
+        #custCarousel .carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            /* Hoặc contain, tùy bạn */
+        }
+
+        /* Khi carousel fullscreen */
+        #custCarousel:fullscreen {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+        }
+
+        /* Ảnh trong fullscreen */
+        #custCarousel:fullscreen .carousel-item img {
+            width: auto;
+            height: 100vh;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .scrollable-materials {
+            width: 102%;
+            max-height: 700px;
+            /* bạn có thể điều chỉnh chiều cao tối đa tùy ý */
+            overflow-y: auto;
+            padding-right: 10px;
+            /* để không bị che mất thanh scroll */
+        }
+
+        /* (Tùy chọn) Làm đẹp thanh cuộn nếu muốn */
+        .scrollable-materials::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-materials::-webkit-scrollbar-thumb {
+            background-color: rgba(94, 100, 214, 0.2);
+            border-radius: 3pxrgba(44, 37, 173, 0.2)
+        }
+
+        .no-bullets li:before{
+    content: none !important;
+  }
+
+  .custom-step-list {
+  font-family: Montserrat, sans-serif;
+  list-style: none;
+  counter-reset: step-counter;
+  padding: 0 1rem;
+}
+
+.custom-step-list li {
+  --stop: calc(100% / var(--length) * var(--i));
+  --l: 62%;
+  --l2: 88%;
+  --h: calc((var(--i) - 1) * (180 / var(--length)));
+  --c1: hsl(var(--h), 71%, var(--l));
+  --c2: hsl(var(--h), 71%, var(--l2));
+
+  position: relative;
+  counter-increment: step-counter;
+  max-width: 45rem;
+  margin: 2rem auto;
+  padding: 2rem 1rem 1rem;
+  box-shadow: 0.1rem 0.1rem 1.5rem rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background-color: white;
+}
+
+.custom-step-list li::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, var(--c1) var(--stop), var(--c2) var(--stop));
+}
+
+.custom-step-list h3 {
+  display: flex;
+  align-items: baseline;
+  margin: 0 0 1rem;
+  color: rgb(70, 70, 70);
+  font-weight: 700;
+}
+
+.custom-step-list h3::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  content: counter(step-counter);
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: var(--c1);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.custom-step-list p {
+    color: #000;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (min-width: 40em) {
+  .custom-step-list li {
+    margin: 3rem auto;
+    padding: 3rem 2rem 2rem;
+  }
+
+  .custom-step-list h3 {
+    font-size: 2.25rem;
+    margin: 0 0 2rem;
+  }
+
+  .custom-step-list h3::before {
+    margin-right: 1.5rem;
+  }
+}
+
+.scrollable-list {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+/* Tuỳ chọn làm đẹp thanh cuộn */
+.scrollable-list::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollable-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <div data-include="../../header.html"></div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                // Gắn lại sự kiện cho menu sau khi include xong header
+                const script = document.createElement('script');
+                script.src = "../../../js/custom.js";
+                document.body.appendChild(script);
+
+                // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-content">
+
+                    <!-- ***** Banner Start ***** -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-profile ">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <img src="../../../images/REB/img-reb-bai16.png" alt=""
+                                            style="border-radius: 23px;">
+                                    </div>
+                                    <div class="col-lg-4 align-self-center">
+                                        <div class="main-info header-text">
+
+                                            <span>Khối biểu tượng</span>
+                                            <h4 style="color: #000 !important;  font-family: 'Baloo Chettan 2', sans-serif !important">Buổi 16: Thực hành 3</h4>
+                                            <p style="color: #000 !important">
+                                              Mô hình “Chiếc lồng đèn xinh xinh”
+                                            </p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="wrapper" style="font-family: 'Baloo Chettan 2', sans-serif !important">
+                        <div class="side">
+                            <div class="stick-container"></div>
+                        </div>
+                        <div class="main">
+                            <section id="a">
+
+
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục
+                                    tiêu bài học
+                                </h1>
+  <div class="accordion-container">
+  <input type="radio" id="acc-tab-1" name="accordion" checked>
+  <label for="acc-tab-1" class="accordion-label">
+    <h2>🎓 Kiến thức</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Học sinh sử dụng <strong>Tilt Sensor</strong> (cảm biến góc nghiêng) để phát hiện hướng nghiêng của mô hình.</li>
+      <li>✔️ Học sinh áp dụng <strong>Light Block</strong> để điều khiển màu đèn LED, đổi màu tùy theo góc nghiêng.</li>
+      <li>✔️ Ôn tập khối <strong>Tilt Sensor Block</strong>.</li>
+      <li>✔️ Hiểu cách lập trình điều kiện và phản hồi bằng ánh sáng trong hoạt động trình diễn/trang trí.</li>
+    </ul>
+  </div>
+
+  <input type="radio" id="acc-tab-2" name="accordion">
+  <label for="acc-tab-2" class="accordion-label">
+    <h2>🛠️ Kỹ năng</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Khởi động – Giới thiệu ý tưởng mô hình.</li>
+      <li>✔️ Lắp ráp mô hình “Chiếc lồng đèn” có khả năng tương tác.</li>
+      <li>✔️ Lập trình phản ứng theo góc nghiêng: đổi màu đèn LED khi nghiêng trái, phải, lên, xuống.</li>
+      <li>✔️ Thử nghiệm – chỉnh sửa để đạt hiệu ứng thị giác mong muốn.</li>
+      <li>✔️ Kỹ năng lắp ráp: gắn đèn đúng vị trí, đảm bảo mô hình nhẹ và cân bằng.</li>
+    </ul>
+  </div>
+
+  <input type="radio" id="acc-tab-3" name="accordion">
+  <label for="acc-tab-3" class="accordion-label">
+    <h2>💡 Tư duy</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Tư duy thiết kế tương tác – người dùng điều khiển bằng chuyển động tay.</li>
+      <li>✔️ Phát triển tư duy sáng tạo: biến mô hình thành sản phẩm trình diễn/trang trí độc đáo.</li>
+      <li>✔️ Tư duy cải tiến: phân tích phản hồi để điều chỉnh màu sắc và hiệu ứng hợp lý.</li>
+    </ul>
+  </div>
+
+  <input type="radio" id="acc-tab-4" name="accordion">
+  <label for="acc-tab-4" class="accordion-label">
+    <h2>❤️ Thái độ</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Kỹ năng thẩm mỹ – sáng tạo trong việc thiết kế mô hình có yếu tố trình diễn và trang trí.</li>
+      <li>✔️ Kỹ năng làm việc nhóm: phân công lắp ráp, lập trình, trình diễn.</li>
+      <li>✔️ Hứng thú khám phá, chủ động thử nghiệm nhiều cách thể hiện ánh sáng khác nhau.</li>
+    </ul>
+  </div>
+</div>
+
+
+
+                            </section>
+                            <section id="b" class="row">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
+                                    thiệu nội dung bài học
+                                </h1>
+                                <ul class="custom-timeline__list">
+                                    <li class="custom-timeline__item" style="--accent-color:#41516C">
+                                        <div class="custom-timeline__date">Giới thiệu mô hình</div>
+                                    </li>
+                                    
+                                    <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                                        <div class="custom-timeline__date">Xây dựng mô hình</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
+                                        <div class="custom-timeline__date">Ôn tập: Khối cảm biến nghiêng
+                                        </div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#4CADAD">
+                                        <div class="custom-timeline__date">Hoạt động thử thách</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#868bfc">
+                                        <div class="custom-timeline__date">Tổng kết bài học</div>
+                                    </li>
+
+                                </ul>
+                            </section>
+                            <section id="c" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                                    Giới thiệu mô hình
+                                </h1>
+              
+
+
+                                <img src="../../../REB/Buổi 16/Spike Essential Lantern (1).png" alt=""
+                                    style="border-radius: 23px; background-color: white;">
+
+
+                            </section>
+                          
+                            <section id="e">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Lắp ráp mô hình
+                                </h1>
+                                <iframe src="../../../REB/Buổi 16/Spike Essential Lantern Building Instruction (1).pdf" style="width:100%; height: 100vh">
+                                    <!-- <a href="../../../REB/Buổi 1/chú chó kiki.pdf">Download the PDF</a> -->
+                                </iframe>
+                            </section>
+
+                            <section id="f">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Ôn tập khối cảm biến màu
+                                </h1>
+                                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                                    <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
+                                    <label for="tab1">Cảm biến nghiêng</label>
+
+                                    <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
+                                    <label for="tab2">Nội dung</label>
+
+                                    
+
+                                    <ul>
+                                   <li class="tab-content tab-content-first typography">
+                                            <h2>🧑‍💻 Khối cảm biến nghiêng</h2>
+                                            <div class="row instruction-block">
+                                                <div class="col-md-5 text-center">
+                                                    <img src="../../../REB/Buổi 6/help-icon-eventTiltSensor.png" alt=""
+                                                        class="instruction-image">
+
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Mô tả:</strong> </p>
+                                                        <ul>
+                                                            <li>Khối này sẽ tạo chương trình cho Cảm biến con quay hồi chuyển tích hợp. Khối nghiêng được sử dụng để kiểm tra hướng của Cảm biến con quay hồi chuyển tích hợp trên Bộ não trung tâm cỡ nhỏ của LEGO® Technic™. 
+                                                            </li>
+                                                            <li>Khối này sẽ làm chạy tất cả các khối được gắn với nó nếu Bộ não trung tâm bị nghiêng theo hướng được chỉ định. </li>
+                                                            <li>Khối này có thể kiểm tra xem liệu Bộ não trung tâm có nghiêng về trước, phía sau, bên trái, bên phải, bất kỳ hướng nào trong số đó hoặc nằm ngang hay không.</li>
+                                                            <li>Để thay đổi hướng nghiêng được chỉ định, hãy nhấn mũi tên "hướng xuống" màu trắng trên khối. Sau đó chọn mũi tên tương ứng với hướng mong muốn.</li>
+
+                                                        </ul>
+
+
+                                                    </div>
+
+                                                    <div class="instruction-content">
+                                                        <p style="color: #000;"><strong>Ví dụ</strong></p>
+                                                        <img style="width: 60%;"
+                                                            src="../../../REB/Buổi 6/gecko_block_help_example_horizontalevents_whentilted_vi-vn.svg"
+                                                            alt="" class="instruction-example">
+                                                        <p style="color: #000;" class="example-note">
+                                                            Chương trình này sẽ phát Hiệu ứng âm thanh 1 bất kỳ khi nào Bộ não trung tâm nghiêng về phía trước.
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+                                       <li class="tab-content tab-content-2 typography">
+                                            <h2>🧑‍💻 Tạo chương trình đầu tiên</h2>
+                                            <img src="../../../REB/Buổi 16/nội dung.png" alt=""
+                                                class="instruction-image">
+                                            <div class="style-a">
+
+
+                                        </li>
+
+                                      
+                                    </ul>
+                                </div>
+
+                            </section>
+
+<section id="g" class="accordion-wrapper text-dark">
+  <h1 class="custom-timeline__heading" style="text-align: center">
+    Quan sát cấu tạo & lập trình
+  </h1>
+  <div class="scrollable-list">
+    <ol class="custom-step-list" style="--length: 4" role="list">
+
+      <li style="--i: 1">
+        <h3>Giáo viên hướng dẫn:</h3>
+        <p>
+          ✔️ Giới thiệu mô hình “Chiếc lồng đèn xinh xinh” đổi màu theo góc nghiêng.<br>
+          ✔️ Minh họa cách <strong>Tilt Sensor</strong> phát hiện hướng nghiêng (trái/phải/lên/xuống) và cách <strong>Light Block</strong> đổi màu LED theo từng hướng.<br>
+          ✔️ Gợi mở: “Nghiêng trái nên là màu gì?”, “Khi lắc nhanh có cần thêm khối đợi để chống nháy không?”.<br>
+          ✔️ Nhấn mạnh tư duy điều kiện <strong>nếu–thì–khác</strong> và tinh chỉnh độ nhạy/độ trễ để hiệu ứng mượt.
+        </p>
+      </li>
+
+      <li style="--i: 2">
+        <h3>Học sinh quan sát:</h3>
+        <p>
+          👀 Nhận biết các khối lệnh liên quan mô hình:<br>
+          🔹 <strong>Tilt Sensor Blocks</strong>: đọc hướng nghiêng/đang lắc.<br>
+          🔹 <strong>Light Blocks</strong>: đặt màu LED, độ sáng.<br>
+          🔹 <strong>Control & Wait</strong>: if–else, repeat/forever, đợi để chống nhấp nháy.<br>
+          🔹 (Tùy chọn) <strong>Sound Blocks</strong>: thêm hiệu ứng chuông đèn.
+        </p>
+      </li>
+
+      <li style="--i: 3">
+        <h3>Vận dụng khối lệnh điều khiển:</h3>
+        <p>
+          🎮 Lập trình kịch bản đổi màu theo góc nghiêng:<br>
+          ✔️ <em>Nếu</em> nghiêng trái → LED <strong>xanh dương</strong>.<br>
+          ✔️ <em>Nếu</em> nghiêng phải → LED <strong>đỏ</strong>.<br>
+          ✔️ <em>Nếu</em> nghiêng lên → LED <strong>vàng</strong>.<br>
+          ✔️ <em>Nếu</em> nghiêng xuống → LED <strong>tím</strong>.<br>
+          ✔️ Thêm <strong>Wait</strong> ngắn (200–300 ms) để chống nháy; có thể dùng <strong>forever</strong> để hoạt động liên tục.
+        </p>
+      </li>
+
+      <li style="--i: 4">
+        <h3>Trình bày và chuẩn bị cho buổi học sau:</h3>
+        <p>
+          📢 Trình bày mô hình “Chiếc lồng đèn xinh xinh” trước lớp:<br>
+          ✔️ Mô tả cấu tạo (Tilt Sensor, đèn LED, khung lồng đèn cân bằng).<br>
+          ✔️ Giải thích bảng ánh sáng theo hướng nghiêng và cách chống nhấp nháy.<br>
+          ✔️ Hợp tác nhóm: một bạn lắc thử – một bạn quan sát/ghi chép – một bạn thuyết trình.<br><br>
+          <strong>Chuẩn bị cho buổi học sau:</strong> “Hoạt động sáng tạo 3 – Thiết kế mô hình ‘Món đồ chơi yêu thích của em’”<br>
+          ✔️ Chọn một món đồ chơi yêu thích, phác thảo ý tưởng tương tác (ánh sáng/âm thanh/chuyển động).<br>
+          ✔️ Dự kiến cảm biến/khối cần dùng (Tilt, Color, Button, Light…).<br>
+          ✔️ Chuẩn bị câu chuyện và cách trình diễn sản phẩm.
+        </p>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+
+                            <section id="h">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+                                    Tổng kết buổi học
+                                </h1>
+                                <div class="quiz-container">
+                                    <div class="question" id="question">Loading question...</div>
+                                    <div class="options" id="options"></div>
+                                    <div class="feedback" id="feedback"></div>
+                                    <div class="progress-bar">
+                                        <div class="progress" id="progress-bar"></div>
+                                    </div>
+                                    <div class="score" id="score">Score: 0 / 5</div>
+                                    <div class="controls">
+                                        <button class="control-button" id="prev-btn" disabled>Về trước</button>
+                                        <button class="control-button" id="next-btn" disabled>Tiếp theo</button>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    // Questions Array
+const questions = [
+  {
+    type: "multiple",
+    question: "Muốn lồng đèn nhận biết hướng nghiêng của người dùng, em cần dùng khối nào?",
+    options: [
+      "Khối cảm biến góc nghiêng (Tilt Sensor)",
+      "Khối động cơ (Motor)",
+      "Khối cảm biến màu (Color Sensor)",
+      "Khối hiển thị chữ (Text)"
+    ],
+    answer: "Khối cảm biến góc nghiêng (Tilt Sensor)",
+    insight: "Tilt Sensor giúp mô hình phát hiện hướng nghiêng trái, phải, lên, xuống để phản hồi ánh sáng."
+  },
+  {
+    type: "multiple",
+    question: "Để đổi màu đèn LED khi nghiêng lồng đèn sang trái, em cần lập trình như thế nào?",
+    options: [
+      "Dùng Tilt Sensor phát hiện nghiêng trái kết hợp Light Block đổi màu",
+      "Dùng Motor xoay lồng đèn",
+      "Dùng Sound Block phát âm thanh",
+      "Chỉ dùng khối Wait (Đợi)"
+    ],
+    answer: "Dùng Tilt Sensor phát hiện nghiêng trái kết hợp Light Block đổi màu",
+    insight: "Kết hợp Tilt Sensor và Light Block giúp lồng đèn đổi màu chính xác theo hướng nghiêng."
+  },
+  {
+    type: "multiple",
+    question: "Nếu muốn lồng đèn đổi nhiều màu theo nhiều hướng nghiêng (trái, phải, lên, xuống), em nên dùng cấu trúc nào?",
+    options: [
+      "Chỉ một khối IF duy nhất",
+      "Khối IF – ELSE IF – ELSE (đa trạng thái)",
+      "Khối lặp Forever",
+      "Khối hiển thị hình ảnh"
+    ],
+    answer: "Khối IF – ELSE IF – ELSE (đa trạng thái)",
+    insight: "Cấu trúc điều kiện đa trạng thái cho phép lồng đèn phản hồi khác nhau với từng hướng nghiêng."
+  },
+  {
+    type: "multiple",
+    question: "Để tránh đèn LED nhấp nháy quá nhanh khi lắc liên tục, em nên làm gì?",
+    options: [
+      "Thêm khối Wait ngắn (200–300 ms) trong chương trình",
+      "Giảm độ sáng của đèn LED",
+      "Tăng tốc độ Motor",
+      "Xóa Tilt Sensor khỏi mô hình"
+    ],
+    answer: "Thêm khối Wait ngắn (200–300 ms) trong chương trình",
+    insight: "Khối Wait giúp ổn định phản hồi và tránh tình trạng đèn đổi màu liên tục khó quan sát."
+  },
+  {
+    type: "multiple",
+    question: "Nếu lồng đèn không đổi màu khi nghiêng, nguyên nhân phổ biến có thể là gì?",
+    options: [
+      "Chưa kết nối Tilt Sensor hoặc lập trình sai điều kiện",
+      "Pin yếu không đủ sáng đèn",
+      "Sound Block bị lỗi",
+      "Khối Motor bị kẹt"
+    ],
+    answer: "Chưa kết nối Tilt Sensor hoặc lập trình sai điều kiện",
+    insight: "Tilt Sensor phải được kết nối và lập trình đúng hướng nghiêng mới tạo phản hồi bằng ánh sáng."
+  }
+];
+
+                                    let currentIndex = 0;
+                                    let score = 0;
+                                    const totalQuestions = questions.length;
+
+                                    // Track whether each question has been answered
+                                    const answeredQuestions = new Array(totalQuestions).fill(false);
+
+                                    const questionContainer = document.getElementById("question");
+                                    const optionsContainer = document.getElementById("options");
+                                    const feedbackContainer = document.getElementById("feedback");
+                                    const scoreContainer = document.getElementById("score");
+                                    const prevBtn = document.getElementById("prev-btn");
+                                    const nextBtn = document.getElementById("next-btn");
+                                    const progressBar = document.getElementById("progress-bar");
+
+                                    // Load a question
+                                    function loadQuestion(index) {
+                                        // Clear previous content
+                                        optionsContainer.innerHTML = "";
+                                        feedbackContainer.textContent = "";
+
+                                        const currentQuestion = questions[index];
+                                        questionContainer.textContent = `${index + 1}. ${currentQuestion.question}`;
+
+                                        // Update navigation buttons
+                                        prevBtn.disabled = index === 0;
+                                        nextBtn.disabled = !answeredQuestions[index]; // Disable Next until user answers
+
+                                        // Display options
+                                        if (currentQuestion.type === "multiple") {
+                                            currentQuestion.options.forEach((option) => {
+                                                const button = document.createElement("button");
+                                                button.textContent = option;
+                                                button.classList.add("option-button");
+                                                button.disabled = answeredQuestions[index]; // Disable if already answered
+                                                button.addEventListener("click", () =>
+                                                    handleAnswer(
+                                                        option,
+                                                        currentQuestion.answer,
+                                                        currentQuestion.insight,
+                                                        button
+                                                    )
+                                                );
+                                                optionsContainer.appendChild(button);
+                                            });
+                                        } else {
+                                            ["Đúng", "Sai"].forEach((option) => {
+                                                const button = document.createElement("button");
+                                                button.textContent = option;
+                                                button.classList.add("option-button");
+                                                button.disabled = answeredQuestions[index]; // Disable if already answered
+                                                button.addEventListener("click", () =>
+                                                    handleAnswer(
+                                                        option,
+                                                        currentQuestion.answer,
+                                                        currentQuestion.insight,
+                                                        button
+                                                    )
+                                                );
+                                                optionsContainer.appendChild(button);
+                                            });
+                                        }
+
+                                        // Update progress
+                                        updateProgress();
+
+                                        // Show feedback if already answered
+                                        if (answeredQuestions[index]) {
+                                            feedbackContainer.textContent = `Bạn đã sẵn sàng trả lời các câu hỏi chưa.`;
+                                            feedbackContainer.style.color = "gray";
+                                        }
+                                    }
+
+                                    // Handle answers
+                                    function handleAnswer(selected, correct, insight, button) {
+                                        const buttons = optionsContainer.querySelectorAll("button");
+                                        buttons.forEach((btn) => (btn.disabled = true)); // Disable all options
+
+                                        if (!answeredQuestions[currentIndex]) {
+                                            // Update score if this is the first attempt at this question
+                                            if (selected === correct) {
+                                                score++;
+                                                feedbackContainer.textContent = `Đúng rồi! ${insight}`;
+                                                feedbackContainer.style.color = "green";
+                                                button.style.backgroundColor = "#28a745"; // Green for correct
+                                            } else {
+                                                feedbackContainer.textContent = `Sai rồi! Đáp án câu hỏi này là: "${correct}". ${insight}`;
+                                                feedbackContainer.style.color = "red";
+                                                button.style.backgroundColor = "#dc3545"; // Red for incorrect
+                                            }
+                                            answeredQuestions[currentIndex] = true; // Mark this question as answered
+                                        }
+
+                                        nextBtn.disabled = false; // Enable Next button
+                                        updateScore();
+                                    }
+
+                                    // Update progress bar
+                                    function updateProgress() {
+                                        const progress = ((currentIndex + 1) / totalQuestions) * 100;
+                                        progressBar.style.width = `${progress}%`;
+                                    }
+
+                                    // Update score display
+                                    function updateScore() {
+                                        scoreContainer.textContent = `Score: ${score} / ${totalQuestions}`;
+                                    }
+
+                                    // Navigation buttons
+                                    prevBtn.addEventListener("click", () => {
+                                        if (currentIndex > 0) {
+                                            currentIndex--;
+                                            loadQuestion(currentIndex);
+                                        }
+                                    });
+
+                                    nextBtn.addEventListener("click", () => {
+                                        if (currentIndex < totalQuestions - 1) {
+                                            currentIndex++;
+                                            loadQuestion(currentIndex);
+                                        } else {
+                                            questionContainer.textContent = "Hoàn thành câu hỏi";
+                                            optionsContainer.innerHTML = "";
+                                            feedbackContainer.textContent = `Tổng số điển là: ${score} / ${totalQuestions}`;
+                                            nextBtn.disabled = true;
+                                        }
+                                    });
+
+                                    // Initialize quiz
+                                    loadQuestion(currentIndex);
+
+                                </script>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- ***** Banner End ***** -->
+
+
+
+                <script>
+                    const wrapper = document.querySelector(".wrapper");
+                    let sections = wrapper.querySelectorAll(".main > section");
+
+                    (function initSections() {
+                        const side = wrapper.querySelector(".side > .stick-container");
+
+                        // 👉 Gán tên tùy theo từng mục
+                        const labels = ["Mục tiêu", "Giới thiệu", "Mô hình","Xây dựng", "Ôn tập", "Thử thách", "Tổng kết"];
+
+                        sections.forEach((section, index) => {
+                            let link = document.createElement("a");
+                            let label = document.createElement("span");
+
+                            const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                            link.style.background = randomColor;
+
+                            // KHÔNG dùng href nữa để tránh thay đổi hash
+                            link.href = "javascript:void(0)";
+                            link.classList.add("section_clone");
+
+                            label.textContent = labels[index] || `Mục ${index + 1}`;
+                            label.style.fontSize = "1rem";
+                            label.style.fontWeight = "600";
+
+                            link.appendChild(label);
+                            side.appendChild(link);
+
+                            // 👉 Cuộn mượt đến mục khi click
+                            link.addEventListener("click", (e) => {
+                                e.preventDefault(); // Ngăn mặc định
+                                section.scrollIntoView({ behavior: "smooth" });
+                                addInView([index]); // Cập nhật trạng thái mục đang hiển thị
+                            });
+                        });
+
+
+                        addInView([0]);
+                    })();
+
+                    function addInView(arr) {
+                        let index = arr[0];
+                        let aspectRatio = arr[1];
+                        const side_sections = document.querySelectorAll(".section_clone");
+                        side_sections.forEach((side_section) => {
+                            side_section.classList.remove("inView");
+                        });
+                        side_sections[index].classList.add("inView");
+
+                        //console.log(side_sections[index]);
+                    }
+
+                    function checkForViewport() {
+                        let result = 0;
+                        let aspectRatio;
+                        sections.forEach((section, index) => {
+                            section.style.background = "";
+
+                            let section_bound = section.getBoundingClientRect();
+                            let section_boundMid = section_bound.bottom / 2;
+                            aspectRatio = parseFloat(
+                                (section_bound.width / section_bound.height).toFixed(2)
+                            );
+                            console.log(aspectRatio);
+                            if (
+                                section_bound.top <= window.innerHeight / 2 &&
+                                section_bound.bottom > window.innerHeight / 2
+                            ) {
+                                result = index;
+                            }
+                        });
+                        let result_arr = [result, aspectRatio];
+                        return result_arr;
+                    }
+
+                    window.addEventListener("scroll", (event) => {
+                        addInView(checkForViewport());
+                    });
+
+                </script>
+
+
+            </div>
+
+
+            <!-- ***** Gaming Library End ***** -->
+        </div>
+
+    </div>
+    </div>
+
+
+    <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+        onclick="scrollToTop()" id="back-to-up">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+        window.onscroll = () => {
+            toggleTopButton();
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleTopButton() {
+            if (document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20) {
+                document.getElementById('back-to-up').classList.remove('d-none');
+            } else {
+                document.getElementById('back-to-up').classList.add('d-none');
+            }
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved.
+
+                        <br>Design By Huỳnh Ngọc Thái
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper (nếu dùng Bootstrap 4) -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS (v4 hoặc v5 tùy bạn dùng bản nào) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="../../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../../../js/isotope.min.js"></script>
+    <script src="../../../js/owl-carousel.js"></script>
+    <script src="../../../js/tabs.js"></script>
+    <script src="../../../js/popup.js"></script>
+    <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
