@@ -1,0 +1,2640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Let's Code - Robotics</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="../../../css/fontawesome.css">
+  <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="../../../css/owl.css">
+  <link rel="stylesheet" href="../../../css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <link rel="apple-touch-icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+    sizes="192x192">
+  <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png" sizes="32x32">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+  <script src="../../../js/include.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      includeHTML(() => {
+        const menuItems = document.querySelectorAll('nav a');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            console.log('Bạn vừa click:', e.target.textContent);
+          });
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .slide-fade-enter-active,
+    .slide-fade-leave-active {
+      transition: all 0.3s ease;
+    }
+
+    .slide-fade-enter-from,
+    .slide-fade-leave-to {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    .slide-fade-enter-to,
+    .slide-fade-leave-from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .content-rea div {
+      font-family: "Baloo Chettan 2", sans-serif;
+      font-size: 18px;
+      padding: 1rem; /* p-4 */
+  background-color: white; /* bg-white */
+  border-left: 4px solid #0d9488; /* border-l-4 và border-teal-600 */
+  border-color: #592589; /* border-gray-200 (ghi đè border-teal-600) */
+  box-shadow: 0 4px 6px #592589; /* shadow-md */
+  border-radius: 0.375rem; /* rounded-md */
+  margin-bottom: 0.5rem; /* mb-2 */
+  color: #1f2937; /* text-gray-800 */
+  cursor: pointer; /* cursor-pointer */
+  transform: scale(1); /* transform */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out; /* transition-transform duration-200 ease-in-out */
+    }
+
+    .content-rea div:hover{
+      background-color: #f0fdfa; /* hover:bg-teal-50 */
+  box-shadow: 0 4px 6px #ebc901; /* hover:shadow-md */
+  transform: scale(1.05); /* hover:scale-105 */
+    }
+
+
+    .show-content{
+      font-family: "Baloo Chettan 2", sans-serif !important; 
+      font-size: 18px;
+      color: black; /* text-gray-400 */
+  font-style: italic; /* italic */
+  text-align: center; /* text-center */
+  box-shadow: 0 4px 6px #592589
+  /* margin-top: 3rem; mt-12 (48px) */
+    }
+
+    .leading-relaxed{
+      font-family: "Baloo Chettan 2", sans-serif !important; 
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <div data-include="../../header.html"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      includeHTML(() => {
+        // Gắn lại sự kiện cho menu sau khi include xong header
+        const script = document.createElement('script');
+        script.src = "../../../js/custom.js";
+        document.body.appendChild(script);
+  
+        // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+        const menuItems = document.querySelectorAll('nav a');
+        menuItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            console.log('Bạn vừa click:', e.target.textContent);
+          });
+        });
+      });
+    });
+  </script>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Banner Start ***** -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="main-profile ">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <img src="../../../images/EP/title-rebx.png" alt="" style="border-radius: 23px;">
+                  </div>
+                  <div class="col-lg-4 align-self-center">
+                    <div class="main-info header-text">
+                      <span>Khối biểu tượng</span>
+                      <h4>Robotics Essential B Explore</h4>
+                      <p>
+                        Khóa học REBX – Robotics Essential B Explore gồm 16 buổi học, ôn tập lại các kiến thức cơ bản từ khóa REB, giúp học sinh củng cố nền tảng về lập trình khối lệnh biểu tượng, rèn luyện kỹ năng kỹ thuật cơ bản và tiếp tục phát triển tư duy thiết kế sáng tạo. Khóa học sử dụng bộ LEGO® Education SPIKE™ Essential, mang đến các dự án robot gần gũi, sinh động, có tính ứng dụng thực tiễn và nghệ thuật, phù hợp với học sinh từ lớp 1–2.
+                      </p>
+
+                    </div>
+                  </div>
+                  <div class="col-lg-4 align-self-center">
+                    <ul>
+  <li style="color: #e75e8d; font-size: 18px;">Mục tiêu</li>
+  <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i>Ôn tập và củng cố kiến thức lập trình và điều khiển robot từ khóa REB.</li>
+  <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i>Tiếp tục rèn luyện kỹ năng lắp ráp và thao tác kỹ thuật với mô hình robot.</li>
+  <li><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i>Khuyến khích sáng tạo, tư duy thiết kế và khả năng làm việc nhóm.</li>
+</ul>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- ***** Banner End ***** -->
+
+        <!-- Buổi 1------------------------------------------------------------------------------------------------------------------------ -->
+          <div class="gaming-library profile-library">
+            <div class="col-lg-12">
+              <div class="heading-section">
+                <h4><em style="color: #592589;">Buổi 1:</em> Chuông cảnh báo động vật – Những chuyến phiêu lưu kỳ thú</h4>
+                <!-- <img src="../../../images/EP/bg-ep-bai1.png" alt="" class=""
+                  style="border: solid 3px #592589; border-radius: 10px;">
+              </div> -->
+
+            
+              <div id="rea-buoi1" class="relative min-h-screen">
+                <div class="board flex flex-row gap-16 mx-40 my-8">
+
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                        <div class="list">
+                          <div class="content-rea" >
+                            <div v-for="item in list" :class="[
+                                'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                                item.id === selectedContact?.id
+                                  ? 'bg-teal-100 scale-105 shadow-lg'
+                                  : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                              ]" @click="displayContactDetails(item)">
+                              {{ item.name }}
+                            </div>
+                          </div>
+                          <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-great-adventures/spikeessential-animal-alarm/">Vào bài</a></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <!-- Divider -->
+                      <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+                      <!-- Contact Details Panel (Always Rendered) -->
+                      <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                        <!-- Animated Inner Content -->
+                        <transition name="slide-fade" mode="out-in">
+                          <div :key="selectedContact?.id">
+                            <template v-if="selectedContact">
+                              <div class="space-y-4 text-gray-700">
+                                <!-- Title -->
+                                <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                        
+                                <!-- List -->
+                                <ul class="space-y-3">
+                                  <li
+                                    v-for="(line, index) in selectedContact.content"
+                                    :key="index"
+                                    class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                                  >
+                                    <!-- Tick Icon -->
+                                    <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                                    <!-- Text -->
+                                    <span class="text-base leading-relaxed">{{ line }}</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </template>
+                        
+                            <template v-else>
+                              <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                                <img src="../../../images/REBX/img-rebx-bai1.svg" alt="" >
+                              </div>
+                            </template>
+                          </div>
+                        </transition>
+                        
+                        
+
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
+              
+              
+
+              <script>
+                const REA_BUOI1 = {
+                  data() {
+                    return {
+                      selectedContact: null,
+                      list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu rằng con người cần ánh sáng để nhìn thấy các vật thể.",
+      "Nhận biết sự khác biệt giữa nguồn sáng và vật thể phản xạ ánh sáng.",
+      "Rèn luyện kỹ năng lắp ráp và lập trình mô hình đèn pin để hỗ trợ quan sát trong môi trường tối.",
+      "Phát triển kỹ năng quan sát, giải thích hiện tượng khoa học, và hợp tác nhóm."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Chuông cảnh báo động vật – giúp Leo phát hiện sinh vật đi qua trại khi đang ngủ.",
+      "Thảo luận về nguyên nhân – kết quả và cách cảm biến màu sắc phát hiện sinh vật.",
+      "Lắp ráp và lập trình mô hình chuông báo khi phát hiện màu xanh dương hoặc đỏ.",
+      "Thử nghiệm, quan sát phản ứng, và chia sẻ kết quả trong nhóm.",
+      "Tự đánh giá và phản hồi lẫn nhau bằng thẻ hoặc khối màu."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu mối quan hệ nguyên nhân – kết quả trong hiện tượng khoa học.",
+      "Biết cách sử dụng cảm biến màu sắc để phát hiện tín hiệu.",
+      "Lắp ráp và lập trình chuông cảnh báo bằng LEGO® SPIKE™ Essential.",
+      "Quan sát, phân tích và điều chỉnh chương trình để tạo phản ứng phù hợp.",
+      "Phát triển kỹ năng làm việc nhóm, tư duy logic và giao tiếp."
+    ]
+  }
+]
+
+                    };
+                  },
+                  methods: {
+                    displayContactDetails(contact) {
+                      this.selectedContact = contact;
+                    }
+                  }
+                };
+              
+                Vue.createApp(REA_BUOI1).mount("#rea-buoi1");
+              </script>
+            
+            </div>
+          </div>
+          <!-- ***** Gaming Library End ***** -->
+        </div>
+        <!-- Buổi 1------------------------------------------------------------------------------------------------------------------------ -->
+
+
+        <!-- Buổi 2------------------------------------------------------------------------------------------------------------------------ -->
+        <div class="gaming-library profile-library">
+          <div class="col-lg-12">
+            <div class="heading-section">
+              <h4><em style="color: #592589;">Buổi 2:</em> Nhà cắm trại trên cây – Những chuyến phiêu lưu kỳ thú</h4>
+               <h4><span style="color: #592589;">Sử dụng khối biểu tượng: hiển thị và động cơ</span></h4>
+
+          
+            <div id="rea-buoi2" class="relative min-h-screen">
+              <div class="board flex flex-row gap-16 mx-40 my-8">
+
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                      <div class="list">
+                        <div class="content-rea" >
+                          <div v-for="item in list" :class="[
+                              'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                              item.id === selectedContact?.id
+                                ? 'bg-teal-100 scale-105 shadow-lg'
+                                : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                            ]" @click="displayContactDetails(item)">
+                            {{ item.name }}
+                          </div>
+                        </div>
+                        <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-great-adventures/spikeessential-treehouse-camp/">Vào bài</a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <!-- Divider -->
+                    <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+                    <!-- Contact Details Panel (Always Rendered) -->
+                    <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                      <!-- Animated Inner Content -->
+                      <transition name="slide-fade" mode="out-in">
+                        <div :key="selectedContact?.id">
+                          <template v-if="selectedContact">
+                            <div class="space-y-4 text-gray-700">
+                              <!-- Title -->
+                              <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                      
+                              <!-- List -->
+                              <ul class="space-y-3">
+                                <li
+                                  v-for="(line, index) in selectedContact.content"
+                                  :key="index"
+                                  class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                                >
+                                  <!-- Tick Icon -->
+                                  <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                                  <!-- Text -->
+                                  <span class="text-base leading-relaxed">{{ line }}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </template>
+                      
+                          <template v-else>
+                            <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                              <img src="../../../images/REBX/img-rebx-bai2.svg" alt="" >
+                            </div>
+                          </template>
+                        </div>
+                      </transition>
+                      
+                      
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+            
+            
+
+            <script>
+              const REA_BUOI2 = {
+                data() {
+                  return {
+                    selectedContact: null,
+                    list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu rằng con người cần ánh sáng để nhìn thấy các vật thể.",
+      "Nhận biết sự khác biệt giữa nguồn sáng và vật thể phản xạ ánh sáng.",
+      "Rèn luyện kỹ năng lắp ráp và lập trình mô hình đèn pin để hỗ trợ quan sát trong môi trường tối.",
+      "Phát triển kỹ năng quan sát, giải thích hiện tượng khoa học, và hợp tác nhóm."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Sofie muốn ngắm trăng từ ngôi nhà trên cây của mình và cần mở mái để có tầm nhìn tốt nhất.",
+      "Thảo luận về việc thay đổi để đạt được mục tiêu, ví dụ: mở mái để nhìn thấy bầu trời.",
+      "Lắp ráp mô hình nhà trên cây bằng LEGO® SPIKE™ và lập trình mở mái.",
+      "Thử nghiệm, phát hiện lỗi và thực hành gỡ lỗi chương trình bằng cách đảo hướng động cơ.",
+      "Thay đổi mô hình cho chuyến cắm trại tiếp theo của Sofie.",
+      "Thảo luận về vai trò của việc sửa lỗi và đảm bảo chương trình hoạt động chính xác.",
+      "Tự đánh giá bằng khối gạch (Vàng – Xanh dương – Xanh lá) và phản hồi nhóm."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu nguyên lý hoạt động của mô hình cơ khí có mái mở bằng động cơ LEGO®.",
+      "Biết cách lập trình và gỡ lỗi để điều chỉnh hướng hoạt động của động cơ.",
+      "Phát triển kỹ năng quan sát, thử nghiệm và sửa lỗi trong lập trình.",
+      "Làm việc nhóm hiệu quả, chia sẻ ý tưởng và phản hồi tích cực.",
+      "Ứng dụng tư duy logic để cải tiến mô hình và tối ưu chương trình."
+    ]
+  }
+]
+
+                  };
+                },
+                methods: {
+                  displayContactDetails(contact) {
+                    this.selectedContact = contact;
+                  }
+                }
+              };
+            
+              Vue.createApp(REA_BUOI2).mount("#rea-buoi2");
+            </script>
+          
+          </div>
+        </div>
+        <!-- ***** Gaming Library End ***** -->
+      </div>
+      <!-- Buổi 2------------------------------------------------------------------------------------------------------------------------ -->
+
+
+       <!-- Buổi 3------------------------------------------------------------------------------------------------------------------------ -->
+       <div class="gaming-library profile-library">
+        <div class="col-lg-12">
+          <div class="heading-section">
+           <h4><em style="color: #592589;">Buổi 3:</em> Quầy bán đồ ăn nhanh – Công viên giải trí tuyệt vời</h4>
+           <h4><span style="color: #592589;">Sử dụng khối biểu tượng: cảm biến màu và động cơ</span></h4>
+          </div> 
+
+        
+          <div id="rea-buoi3" class="relative min-h-screen">
+            <div class="board flex flex-row gap-16 mx-40 my-8">
+
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                    <div class="list">
+                      <div class="content-rea" >
+                        <div v-for="item in list" :class="[
+                            'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                            item.id === selectedContact?.id
+                              ? 'bg-teal-100 scale-105 shadow-lg'
+                              : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                          ]" @click="displayContactDetails(item)">
+                          {{ item.name }}
+                        </div>
+                      </div>
+                      <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-amazing-amusement-park/spikeessential-snack-stand/">Vào bài</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <!-- Divider -->
+                  <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+                  <!-- Contact Details Panel (Always Rendered) -->
+                  <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                    <!-- Animated Inner Content -->
+                    <transition name="slide-fade" mode="out-in">
+                      <div :key="selectedContact?.id">
+                        <template v-if="selectedContact">
+                          <div class="space-y-4 text-gray-700">
+                            <!-- Title -->
+                            <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                    
+                            <!-- List -->
+                            <ul class="space-y-3">
+                              <li
+                                v-for="(line, index) in selectedContact.content"
+                                :key="index"
+                                class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                              >
+                                <!-- Tick Icon -->
+                                <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                                <!-- Text -->
+                                <span class="text-base leading-relaxed">{{ line }}</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </template>
+                    
+                        <template v-else>
+                          <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                            <img src="../../../images/REBX/img-rebx-bai3.svg" alt="" >
+                          </div>
+                        </template>
+                      </div>
+                    </transition>
+                    
+                    
+
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+          
+          
+
+          <script>
+            const REA_BUOI3 = {
+              data() {
+                return {
+                  selectedContact: null,
+                  list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được tầm quan trọng của việc thử nghiệm và cải tiến mô hình.",
+      "Biết sử dụng cảm biến màu sắc để điều khiển mô hình LEGO® SPIKE™.",
+      "Thực hành lập trình và gỡ lỗi để mô hình hoạt động hiệu quả.",
+      "Rèn luyện tư duy logic và kỹ năng làm việc nhóm."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Daniel làm rơi đồ ăn nhanh – giúp bạn ấy lấy đồ ăn mới từ quầy bán đồ ăn nhanh.",
+      "Thảo luận về thử nghiệm và cải tiến mô hình.",
+      "Lắp ráp và lập trình quầy bán đồ ăn nhanh hoạt động bằng cảm biến màu sắc.",
+      "Thử nghiệm, gỡ lỗi và nâng cấp mô hình để phục vụ hiệu quả hơn.",
+      "Tự đánh giá và chia sẻ phản hồi nhóm."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu quy trình thử nghiệm và cải tiến sản phẩm.",
+      "Sử dụng cảm biến màu sắc để tạo phản ứng trong mô hình.",
+      "Lập trình, gỡ lỗi và kiểm tra kết quả hoạt động.",
+      "Phát triển tư duy logic, sáng tạo và hợp tác nhóm."
+    ]
+  }
+]
+
+                };
+              },
+              methods: {
+                displayContactDetails(contact) {
+                  this.selectedContact = contact;
+                }
+              }
+            };
+          
+            Vue.createApp(REA_BUOI3).mount("#rea-buoi3");
+          </script>
+        
+        </div>
+      </div>
+      <!-- ***** Gaming Library End ***** -->
+    
+    <!-- Buổi 3------------------------------------------------------------------------------------------------------------------------ -->
+
+
+    <!-- Buổi 4------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+         
+          <h4><em style="color: #592589;">Buổi 4:</em> Giao tiếp bằng ánh sáng và âm thanh - Khoa học - Mắt thấy! Tai nghe! Tay làm!</h4>
+          <h4><span style="color: #592589;">Sử dụng khối biểu tượng: đèn, hiển thị ảnh và chữ</span></h4>
+        </div>
+
+      
+        <div id="rea-buoi4" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spike-essential-science-see-it-hear-it-build-it/spikeessential-communicate-with-light-and-sound/">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REBX/img-rebx-bai4.svg" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+        
+        
+
+        <script>
+          const REA_BUOI4 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được cách con người giao tiếp từ xa bằng ánh sáng và âm thanh.",
+      "Thiết kế, lắp ráp và lập trình thiết bị gửi thông điệp bằng mã ánh sáng hoặc âm thanh.",
+      "Rèn luyện kỹ năng tư duy sáng tạo, hợp tác nhóm và giải quyết vấn đề.",
+      "Phát triển khả năng gỡ lỗi, thử nghiệm và cải tiến mô hình."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Daniel muốn gửi thông điệp cho Sofie ở đối diện – hãy giúp bạn ấy tạo thiết bị giao tiếp bằng ánh sáng hoặc âm thanh.",
+      "Thảo luận về các cách giao tiếp bằng ánh sáng và âm thanh trong đời sống.",
+      "Lắp ráp và lập trình thiết bị giao tiếp bằng mã ánh sáng.",
+      "Thử nghiệm, chia sẻ và điều chỉnh mô hình để hoạt động chính xác.",
+      "Mở rộng: Tạo thiết bị giao tiếp bằng âm thanh và kết hợp hai phương thức.",
+      "Tự đánh giá và phản hồi nhóm về thiết kế, lập trình và hợp tác."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu nguyên lý giao tiếp bằng ánh sáng và âm thanh.",
+      "Biết sử dụng Ma trận ánh sáng và Khối âm thanh trong LEGO® SPIKE™.",
+      "Lập trình mã tín hiệu bằng ánh sáng hoặc âm thanh để truyền thông tin.",
+      "Phát triển kỹ năng sáng tạo, hợp tác và thử nghiệm kỹ thuật.",
+      "Rèn luyện tư duy logic, phân tích và khả năng trình bày ý tưởng."
+    ]
+  }
+]
+
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI4).mount("#rea-buoi4");
+        </script>
+      
+      </div>
+    </div>
+    <!-- ***** Gaming Library End ***** -->
+  
+  <!-- Buổi 4------------------------------------------------------------------------------------------------------------------------ -->
+
+
+  <!-- Buổi 5------------------------------------------------------------------------------------------------------------------------ -->
+  <div class="gaming-library profile-library">
+    <div class="col-lg-12">
+      <div class="heading-section">
+        <h4><em style="color: #592589;">Buổi 5:</em> Làn đường nhanh - Công viên giải trí tuyệt vời</h4>
+      </div>
+
+    
+      <div id="rea-buoi5" class="relative min-h-screen">
+        <div class="board flex flex-row gap-16 mx-40 my-8">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                <div class="list">
+                  <div class="content-rea" >
+                    <div v-for="item in list" :class="[
+                        'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                        item.id === selectedContact?.id
+                          ? 'bg-teal-100 scale-105 shadow-lg'
+                          : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                      ]" @click="displayContactDetails(item)">
+                      {{ item.name }}
+                    </div>
+                  </div>
+                  <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-amazing-amusement-park/spikeessential-the-fast-lane/">Vào bài</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <!-- Divider -->
+              <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+              <!-- Contact Details Panel (Always Rendered) -->
+              <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                <!-- Animated Inner Content -->
+                <transition name="slide-fade" mode="out-in">
+                  <div :key="selectedContact?.id">
+                    <template v-if="selectedContact">
+                      <div class="space-y-4 text-gray-700">
+                        <!-- Title -->
+                        <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                
+                        <!-- List -->
+                        <ul class="space-y-3">
+                          <li
+                            v-for="(line, index) in selectedContact.content"
+                            :key="index"
+                            class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                          >
+                            <!-- Tick Icon -->
+                            <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                            <!-- Text -->
+                            <span class="text-base leading-relaxed">{{ line }}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                
+                    <template v-else>
+                      <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                        
+                        <img src="../../../images/REBX/img-rebx-bai5.svg" alt="" >
+                      </div>
+                    </template>
+                  </div>
+                </transition>
+                
+                
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      
+      
+
+      <script>
+        const REA_BUOI5 = {
+          data() {
+            return {
+              selectedContact: null,
+              list:[
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được tầm quan trọng của việc lên ý tưởng và cải tiến mô hình.",
+      "Biết sử dụng cảm biến màu sắc để điều khiển mô hình LEGO® SPIKE™.",
+      "Thực hành lập trình phản ứng với các màu sắc khác nhau.",
+      "Rèn luyện tư duy sáng tạo, logic và kỹ năng làm việc nhóm."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Giúp Leo tiến vào công viên giải trí bằng Làn đường nhanh.",
+      "Thảo luận về việc lên ý tưởng và cách tránh phải xếp hàng dài.",
+      "Lắp ráp và lập trình mô hình bật đèn khi cảm biến phát hiện vé màu vàng.",
+      "Thử nghiệm, nâng cấp mô hình để phản ứng khác nhau với các màu vé.",
+      "Thảo luận và chia sẻ ý tưởng nâng cấp Làn đường nhanh.",
+      "Tự đánh giá bằng khối màu và phản hồi nhóm."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu quy trình lên ý tưởng, thử nghiệm và cải tiến mô hình.",
+      "Sử dụng cảm biến màu sắc để tạo phản ứng tự động trong lập trình.",
+      "Thực hành lập trình cơ bản với các khối lệnh điều kiện.",
+      "Phát triển tư duy sáng tạo, giải quyết vấn đề và làm việc nhóm."
+    ]
+  }
+]
+
+            };
+          },
+          methods: {
+            displayContactDetails(contact) {
+              this.selectedContact = contact;
+            }
+          }
+        };
+      
+        Vue.createApp(REA_BUOI5).mount("#rea-buoi5");
+      </script>
+    
+    </div>
+  </div>
+
+  <!-- Buổi 5------------------------------------------------------------------------------------------------------------------------ -->
+
+
+   <!-- Buổi 6------------------------------------------------------------------------------------------------------------------------ -->
+
+  <div class="gaming-library profile-library">
+    <div class="col-lg-12">
+      <div class="heading-section">
+        <h4><em style="color: #592589;">Buổi 6:</em> 	Thụ phấn - Khoa học trong tự nhiên và đời sống</h4>
+        <h4><span style="color: #592589;">Sử dụng khối biểu tượng: động cơ, hiển thị ảnh và chữ, phát/nhận tin</span></h4>
+           
+        </div>
+  
+    
+      <div id="rea-buoi6" class="relative min-h-screen">
+        <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                <div class="list">
+                  <div class="content-rea" >
+                    <div v-for="item in list" :class="[
+                        'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                        item.id === selectedContact?.id
+                          ? 'bg-teal-100 scale-105 shadow-lg'
+                          : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                      ]" @click="displayContactDetails(item)">
+                      {{ item.name }}
+                    </div>
+                  </div>
+                  <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-Science-in-Nature-and-Our-Daily-Life/spikeessential-Pollination/">Vào bài</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <!-- Divider -->
+              <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+              <!-- Contact Details Panel (Always Rendered) -->
+              <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                <!-- Animated Inner Content -->
+                <transition name="slide-fade" mode="out-in">
+                  <div :key="selectedContact?.id">
+                    <template v-if="selectedContact">
+                      <div class="space-y-4 text-gray-700">
+                        <!-- Title -->
+                        <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                
+                        <!-- List -->
+                        <ul class="space-y-3">
+                          <li
+                            v-for="(line, index) in selectedContact.content"
+                            :key="index"
+                            class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                          >
+                            <!-- Tick Icon -->
+                            <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                            <!-- Text -->
+                            <span class="text-base leading-relaxed">{{ line }}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                
+                    <template v-else>
+                      <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                        
+                        <img src="../../../images/REBX/img-rebx-bai6.svg" alt="" >
+                      </div>
+                    </template>
+                  </div>
+                </transition>
+                
+                
+  
+              </div>
+            </div>
+          </div>
+  
+  
+  
+        </div>
+      </div>
+      
+      
+  
+      <script>
+        const REA_BUOI6 = {
+          data() {
+            return {
+              selectedContact: null,
+              list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được vai trò của động vật trong quá trình thụ phấn và phát tán hạt giống.",
+      "Thiết kế, lắp ráp và lập trình mô hình thể hiện quá trình thụ phấn.",
+      "Rèn luyện kỹ năng quan sát, tư duy sáng tạo và hợp tác nhóm.",
+      "Phát triển khả năng giải thích và cải tiến mô hình khoa học."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Maria thấy ong đậu trên hoa táo và muốn biết chúng đang làm gì.",
+      "Thời lượng: 45–90 phút | Cấp độ: Trung cấp (Lớp 1–5) | Tệp: 45345_Science_U2_L2_Web_THumbnail_b.png",
+      "Thảo luận về vai trò của phấn hoa và cách động vật giúp cây thụ phấn.",
+      "Lắp ráp và lập trình mô hình cho thấy cách ong hoặc chim vận chuyển phấn hoa.",
+      "Chia sẻ, giải thích cách mô hình thể hiện quá trình thụ phấn.",
+      "Thiết kế mô hình mới mô phỏng việc phát tán hạt giống.",
+      "Tự đánh giá và phản hồi nhóm về mô hình và ý tưởng."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu khái niệm thụ phấn và phát tán hạt giống trong tự nhiên.",
+      "Nhận biết vai trò của động vật trong quá trình sinh sản của cây.",
+      "Lắp ráp và lập trình mô hình thể hiện sự di chuyển phấn hoa.",
+      "Phát triển kỹ năng quan sát, phân tích và trình bày ý tưởng.",
+      "Rèn luyện tư duy logic, sáng tạo và kỹ năng làm việc nhóm."
+    ]
+  }
+]
+
+            };
+          },
+          methods: {
+            displayContactDetails(contact) {
+              this.selectedContact = contact;
+            }
+          }
+        };
+      
+        Vue.createApp(REA_BUOI6).mount("#rea-buoi6");
+      </script>
+    
+    </div>
+  </div>
+
+  <!-- Buổi 6------------------------------------------------------------------------------------------------------------------------ -->
+
+
+     <!-- Buổi 7------------------------------------------------------------------------------------------------------------------------ -->
+
+     <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 7:</em> Ôn tập: Môi trường sống - Khoa học trong tự nhiên và đời sống</h4>
+          <h4><span style="color: #592589;">Sử dụng khối biểu tượng: hiển thị và cảm biến màu</span></h4>
+              
+          </div>
+    
+      
+        <div id="rea-buoi7" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+    
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+    
+    
+    
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-Science-in-Nature-and-Our-Daily-Life/spikeessential-habitats/">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+    
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+    
+    
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REBX/img-rebx-bai7.svg" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+    
+                </div>
+              </div>
+            </div>
+    
+    
+    
+          </div>
+        </div>
+        
+        
+    
+        <script>
+          const REA_BUOI7 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được khái niệm môi trường sống và sự đa dạng sinh học trong tự nhiên.",
+      "Thiết kế, lắp ráp và lập trình mô hình thể hiện môi trường sống của động, thực vật.",
+      "Rèn luyện kỹ năng quan sát, so sánh và trình bày ý tưởng khoa học.",
+      "Phát triển khả năng hợp tác, tư duy logic và sáng tạo."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Sofie muốn tìm hiểu về các loài động, thực vật sống cùng hươu cao cổ và ở những nơi khác.",
+      "Thời lượng: 45–90 phút | Cấp độ: Trung cấp (Lớp 1–5) | Tệp: 45345_Science_U2_L3_Web_thumbnail_b.png",
+      "Thảo luận về các loại môi trường sống và sinh vật đặc trưng trong từng môi trường.",
+      "Lắp ráp và lập trình mô hình thể hiện một môi trường sống do nhóm lựa chọn.",
+      "Chia sẻ, quan sát và so sánh sự đa dạng của các môi trường sống khác nhau.",
+      "Thực hành ghi lại và mô tả những điểm giống và khác giữa các loài trong từng môi trường.",
+      "Tự đánh giá và phản hồi nhóm về mô hình và ý tưởng thiết kế."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu khái niệm môi trường sống và vai trò của nó với sinh vật.",
+      "Nhận biết các loại môi trường sống phổ biến: rừng, sa mạc, đồng cỏ, ao hồ, đại dương.",
+      "Lắp ráp và lập trình mô hình thể hiện mối quan hệ giữa động vật, thực vật và môi trường.",
+      "Phát triển kỹ năng quan sát, phân tích và hợp tác nhóm.",
+      "Rèn luyện tư duy logic, sáng tạo và khả năng trình bày hiểu biết khoa học."
+    ]
+  }
+]
+
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI7).mount("#rea-buoi7");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 7------------------------------------------------------------------------------------------------------------------------ -->
+  
+
+    <!-- Buổi 8------------------------------------------------------------------------------------------------------------------------ -->
+
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 8:</em> Kiểm tra giữa kỳ: Sử dụng ý tưởng từ thiên nhiên - Khoa học - Mắt thấy! Tai nghe! Tay làm!</h4>
+             <h4><span style="color: #592589;">Sử dụng khối biểu tượng: hiển thị và cảm biến màu</span></h4>
+          </div>
+    
+      
+        <div id="rea-buoi8" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+    
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+    
+    
+    
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spike-essential-science-see-it-hear-it-build-it/spikeessential-using-ideas-from-nature/">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+    
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+    
+    
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REBX/img-rebx-bai8.svg" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+    
+                </div>
+              </div>
+            </div>
+    
+    
+    
+          </div>
+        </div>
+        
+        
+    
+        <script>
+          const REA_BUOI8 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được khái niệm phỏng sinh học và cách con người học hỏi từ thiên nhiên.",
+      "Thiết kế, lắp ráp mô hình thể hiện ý tưởng lấy cảm hứng từ các loài động vật.",
+      "Rèn luyện kỹ năng quan sát, sáng tạo và giải quyết vấn đề kỹ thuật.",
+      "Phát triển tư duy khoa học, thiết kế và hợp tác nhóm."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Daniel, Sofie, Leo và Maria tìm hiểu về những phát minh lấy cảm hứng từ thiên nhiên.",
+      "Thảo luận về các ví dụ phỏng sinh học như bóng đèn mô phỏng đom đóm hay tàu siêu tốc lấy cảm hứng từ chim bói cá.",
+      "Lựa chọn một vấn đề của con người và tìm cảm hứng từ một bộ phận động vật để thiết kế giải pháp.",
+      "Vẽ phác thảo, lắp ráp mô hình và trình bày ý tưởng thiết kế.",
+      "Chia sẻ, thảo luận và cải tiến mô hình để thể hiện ý tưởng tốt hơn.",
+      "Tự đánh giá và phản hồi nhóm về quá trình sáng tạo."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu khái niệm phỏng sinh học và vai trò của nó trong khoa học kỹ thuật.",
+      "Nhận biết mối liên hệ giữa cấu tạo cơ thể động vật và các phát minh của con người.",
+      "Thực hành thiết kế và lắp ráp mô hình thể hiện ý tưởng phỏng sinh học.",
+      "Phát triển kỹ năng sáng tạo, giao tiếp và hợp tác nhóm.",
+      "Rèn luyện tư duy logic, phân tích và cải tiến mô hình."
+    ]
+  }
+]
+
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI8).mount("#rea-buoi8");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 8------------------------------------------------------------------------------------------------------------------------ -->
+    
+    <!-- Buổi 9------------------------------------------------------------------------------------------------------------------------ -->
+  <div class="gaming-library profile-library">
+    <div class="col-lg-12">
+      <div class="heading-section">
+        <h4><em style="color: #592589;">Buổi 9:</em> Máy chào buổi sáng - Các sản phẩm sáng tạo ngộ nghĩnh</span></h4>
+        <h4><span style="color: #592589;">Sử dụng khối biểu tượng: động cơ xoay và phát nhận tin</span></h4>
+      </div>
+
+    
+      <div id="rea-buoi9" class="relative min-h-screen">
+        <div class="board flex flex-row gap-16 mx-40 my-8">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                <div class="list">
+                  <div class="content-rea" >
+                    <div v-for="item in list" :class="[
+                        'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                        item.id === selectedContact?.id
+                          ? 'bg-teal-100 scale-105 shadow-lg'
+                          : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                      ]" @click="displayContactDetails(item)">
+                      {{ item.name }}
+                    </div>
+                  </div>
+                  <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-quirky-creations/spikeessential-good-morning-machine/">Vào bài</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <!-- Divider -->
+              <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+              <!-- Contact Details Panel (Always Rendered) -->
+              <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                <!-- Animated Inner Content -->
+                <transition name="slide-fade" mode="out-in">
+                  <div :key="selectedContact?.id">
+                    <template v-if="selectedContact">
+                      <div class="space-y-4 text-gray-700">
+                        <!-- Title -->
+                        <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                
+                        <!-- List -->
+                        <ul class="space-y-3">
+                          <li
+                            v-for="(line, index) in selectedContact.content"
+                            :key="index"
+                            class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                          >
+                            <!-- Tick Icon -->
+                            <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                            <!-- Text -->
+                            <span class="text-base leading-relaxed">{{ line }}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                
+                    <template v-else>
+                      <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                        
+                        <img src="../../../images/REBX/img-rebx-bai9.svg" alt="" >
+                      </div>
+                    </template>
+                  </div>
+                </transition>
+                
+                
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      
+      
+
+      <script>
+        const REA_BUOI9 = {
+          data() {
+            return {
+              selectedContact: null,
+              list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được quy trình xác định và giải quyết một vấn đề kỹ thuật đơn giản.",
+      "Biết cách lập trình mô hình LEGO® SPIKE™ để thực hiện hành động cụ thể.",
+      "Rèn luyện kỹ năng tư duy logic, sáng tạo và cải tiến mô hình.",
+      "Phát triển kỹ năng làm việc nhóm và giao tiếp hiệu quả."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Giúp Leo nói 'chào buổi sáng' với bạn bè bằng máy vẫy tay.",
+      "Thảo luận về cách xác định và hiểu một vấn đề trước khi giải quyết.",
+      "Lắp ráp và lập trình máy vẫy tay để chào buổi sáng.",
+      "Thử nghiệm, nâng cấp và cá nhân hóa mô hình máy chào của riêng mình.",
+      "Thảo luận về tầm quan trọng của việc hiểu rõ vấn đề trước khi hành động.",
+      "Tự đánh giá và phản hồi nhóm sau khi hoàn thành thử thách."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu quy trình xác định và phân tích vấn đề trong kỹ thuật.",
+      "Thực hành lập trình và điều khiển mô hình bằng động cơ LEGO® SPIKE™.",
+      "Phát triển kỹ năng sáng tạo, thử nghiệm và cải tiến thiết kế.",
+      "Rèn luyện tư duy logic, hợp tác nhóm và trình bày ý tưởng rõ ràng."
+    ]
+  }
+]
+
+            };
+          },
+          methods: {
+            displayContactDetails(contact) {
+              this.selectedContact = contact;
+            }
+          }
+        };
+      
+        Vue.createApp(REA_BUOI9).mount("#rea-buoi9");
+      </script>
+    
+    </div>
+  </div>
+
+  <!-- Buổi 9------------------------------------------------------------------------------------------------------------------------ -->
+
+
+  <!-- Buổi 10------------------------------------------------------------------------------------------------------------------------ -->
+  <div class="gaming-library profile-library">
+    <div class="col-lg-12">
+      <div class="heading-section">
+        <h4><em style="color: #592589;">Buổi 10:</em> Thiết bị chọn ngẫu nhiên - Các sản phẩm sáng tạo ngộ nghĩnh</h4>
+        <h4><span style="color: #592589;">Sử dụng khối biểu tượng: đèn và phát nhận tin</span></h4>
+      </div>
+
+    
+      <div id="rea-buoi10" class="relative min-h-screen">
+        <div class="board flex flex-row gap-16 mx-40 my-8">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+
+
+
+                <div class="list">
+                  <div class="content-rea" >
+                    <div v-for="item in list" :class="[
+                        'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                        item.id === selectedContact?.id
+                          ? 'bg-teal-100 scale-105 shadow-lg'
+                          : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                      ]" @click="displayContactDetails(item)">
+                      {{ item.name }}
+                    </div>
+                  </div>
+                  <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-quirky-creations/spikeessential-literary-randomizer/">Vào bài</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <!-- Divider -->
+              <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+
+              <!-- Contact Details Panel (Always Rendered) -->
+              <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+
+
+                <!-- Animated Inner Content -->
+                <transition name="slide-fade" mode="out-in">
+                  <div :key="selectedContact?.id">
+                    <template v-if="selectedContact">
+                      <div class="space-y-4 text-gray-700">
+                        <!-- Title -->
+                        <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                
+                        <!-- List -->
+                        <ul class="space-y-3">
+                          <li
+                            v-for="(line, index) in selectedContact.content"
+                            :key="index"
+                            class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                          >
+                            <!-- Tick Icon -->
+                            <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                            <!-- Text -->
+                            <span class="text-base leading-relaxed">{{ line }}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </template>
+                
+                    <template v-else>
+                      <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                        
+                        <img src="../../../images/REBX/img-rebx-bai10.svg" alt="" >
+                      </div>
+                    </template>
+                  </div>
+                </transition>
+                
+                
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      
+      
+
+      <script>
+        const REA_BUOI10 = {
+          data() {
+            return {
+              selectedContact: null,
+              list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được cách sử dụng thiết bị chọn ngẫu nhiên để hỗ trợ ra quyết định.",
+      "Biết cách lập trình và điều chỉnh mô hình LEGO® SPIKE™ hoạt động theo ý muốn.",
+      "Rèn luyện kỹ năng xác định tiêu chí thành công và đánh giá giải pháp.",
+      "Phát triển tư duy sáng tạo, logic và khả năng hợp tác nhóm."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Chủ đề: Daniel tạo thiết bị chọn ngẫu nhiên để giúp chọn sách thú vị hơn.",
+      "Thảo luận về quá trình ra quyết định và cách đặt tiêu chí đánh giá thành công.",
+      "Lắp ráp và lập trình thiết bị chọn sách ngẫu nhiên.",
+      "Thử nghiệm, điều chỉnh và cải tiến thiết bị để hoạt động ổn định và sáng tạo hơn.",
+      "Thảo luận nhóm về tiêu chí đánh giá sản phẩm và ý tưởng cải tiến.",
+      "Tự đánh giá và phản hồi bạn bè để hoàn thiện mô hình."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu khái niệm thiết bị chọn ngẫu nhiên và cách ứng dụng trong đời sống.",
+      "Thực hành lập trình và thử nghiệm các khối lệnh trong LEGO® SPIKE™.",
+      "Rèn luyện kỹ năng đánh giá, xác định tiêu chí thành công của sản phẩm.",
+      "Phát triển khả năng sáng tạo, tư duy phản biện và hợp tác nhóm hiệu quả."
+    ]
+  }
+]
+
+            };
+          },
+          methods: {
+            displayContactDetails(contact) {
+              this.selectedContact = contact;
+            }
+          }
+        };
+      
+        Vue.createApp(REA_BUOI10).mount("#rea-buoi10");
+      </script>
+    
+    </div>
+  </div>
+
+  <!-- Buổi 10------------------------------------------------------------------------------------------------------------------------ -->
+
+
+    <!-- Buổi 11------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 11:</em> Các sản phẩm sáng tạo ngộ nghĩnh - Chú rô-bốt trợ giúp to lớn</h4>
+          <h4><span style="color: #592589;">Sử dụng khối biểu tượng: khối chuyển động, cảm biến nghiêng</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi11" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-quirky-creations/spikeessential-big-little-helper/">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REBX/img-rebx-bai11.svg" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI11 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được khái niệm về các yếu tố ràng buộc (constraint) trong quá trình thiết kế và giải quyết vấn đề.",
+      "Nhận biết vai trò của thiết kế kỹ thuật trong việc tạo ra giải pháp đáp ứng nhu cầu cụ thể của người dùng.",
+      "Rèn luyện tư duy sáng tạo, khả năng điều chỉnh mô hình và chương trình để vượt qua giới hạn thực tế.",
+      "Phát triển kỹ năng hợp tác, trao đổi ý tưởng và phản hồi tích cực trong nhóm.",
+      "Tự đánh giá năng lực bản thân trong việc tạo ra giải pháp khả thi cho vấn đề có yếu tố ràng buộc."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Giới thiệu tình huống: Tủ đồ của Daniel đang đầy ắp – làm thế nào để bạn ấy có thể mang tất cả mọi thứ về nhà?",
+      "Cả lớp thảo luận nhanh về việc giải quyết vấn đề có giới hạn về thời gian, nguồn lực và số người hỗ trợ.",
+      "Các nhóm sử dụng Ứng dụng LEGO® Education SPIKE™ để lập trình và điều khiển rô-bốt trợ giúp.",
+      "Thực hiện thử thách 1: Tạo và chạy chương trình điều khiển rô-bốt trợ giúp.",
+      "Thực hiện thử thách 2: Lập trình để rô-bốt trợ giúp đi theo Daniel về nhà.",
+      "Thực hiện thử thách 3: Thiết kế rô-bốt trợ giúp cải tiến của riêng nhóm.",
+      "Chia sẻ kết quả, so sánh với thiết kế của Daniel và rút ra kinh nghiệm về việc cân nhắc ràng buộc trong thiết kế.",
+      "Thảo luận và tự đánh giá năng lực qua thang màu (vàng, xanh dương, xanh lá) và phản hồi từ bạn bè."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu rằng mọi giải pháp kỹ thuật đều chịu ảnh hưởng bởi các yếu tố ràng buộc (thời gian, nguồn lực, vật liệu...).",
+      "Biết cách áp dụng tư duy thiết kế để tạo ra giải pháp khả thi trong phạm vi các ràng buộc đã cho.",
+      "Vận dụng Ứng dụng LEGO® Education SPIKE™ để lập trình rô-bốt di chuyển và thực hiện nhiệm vụ cụ thể.",
+      "Thực hành điều chỉnh chương trình để rô-bốt hoạt động hiệu quả hơn (đi theo lộ trình, mang đồ vật...).",
+      "Phát triển kỹ năng thiết kế và cải tiến mô hình rô-bốt dựa trên hình ảnh gợi ý và phản hồi nhóm.",
+      "Học cách đánh giá hiệu quả giải pháp theo ba mức độ: cần hỗ trợ, độc lập, và hướng dẫn bạn khác.",
+      "Rèn luyện khả năng hợp tác, phản hồi tích cực và sáng tạo trong việc tối ưu thiết kế.",
+      "Thể hiện tư duy phản biện khi so sánh, phân tích và điều chỉnh giải pháp dựa trên phản hồi thực tế."
+    ]
+  }
+]
+
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI11).mount("#rea-buoi11");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 11------------------------------------------------------------------------------------------------------------------------ -->
+  
+
+    
+   
+    <!-- Buổi 12------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+         <h4><em style="color: #592589;">Buổi 12:</em> Động vật và môi trường của chúng - Hành vi của động vật</h4>
+         <h4><span style="color: #592589;">Sử dụng khối biểu tượng: cảm biến màu, phát/nhận tin, âm thanh</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi13" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spike-essential-animals-and-their-environments/spike-essential-animal-behavior/">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REBX/img-rebx-bai12.svg" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI13 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được hành vi sống theo bầy đàn của động vật và vai trò của nó trong việc sinh tồn.",
+      "Nhận biết rằng các loài động vật, như trâu rừng châu Phi, có thể chia sẻ nhiệm vụ và bảo vệ lẫn nhau khi sống theo đàn.",
+      "Phát triển kỹ năng quan sát, suy luận và lập luận khoa học dựa trên dữ kiện và mô hình thực nghiệm.",
+      "Biết cách sử dụng cảm biến màu sắc trong LEGO® SPIKE™ Essential để mô phỏng hành vi phát hiện thú săn mồi.",
+      "Rèn luyện kỹ năng hợp tác, thảo luận và phản hồi trong quá trình làm việc nhóm.",
+      "Tự đánh giá năng lực bản thân trong việc thiết kế, lập trình và giải thích mô hình khoa học."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Giới thiệu tình huống: Maria thắc mắc vì sao trâu rừng châu Phi lại sống theo đàn lớn thay vì sống một mình.",
+      "Cả lớp thảo luận: Kể tên các loài động vật sống theo đàn và nêu lý do tại sao cách sống này giúp chúng sinh tồn (tìm thức ăn, chăm sóc con non, cảnh báo nguy hiểm...).",
+      "Phát cho mỗi nhóm một bộ LEGO® SPIKE™ Essential và thiết bị lập trình.",
+      "Yêu cầu học sinh lắp ráp mô hình chú trâu rừng có cảm biến màu hướng xuống và thú săn mồi màu vàng.",
+      "Lập trình cho mô hình phát ra âm thanh khi cảm biến phát hiện màu vàng (thú săn mồi).",
+      "Trao đổi ý tưởng giữa các nhóm, cải tiến mô hình dựa trên phản hồi từ bạn bè.",
+      "Chia sẻ và giải thích: Tại sao trâu chỉ phát hiện thú săn mồi khi nó đến quá gần? Làm sao để cải thiện điều đó?",
+      "Tiếp tục Phần B: điều chỉnh cảm biến màu hướng ra phía trước, giúp trâu phát hiện thú săn mồi sớm hơn.",
+      "So sánh hiệu quả giữa mô hình đầu tiên và mô hình cải tiến; rút ra kết luận về lợi ích của việc sống theo đàn.",
+      "Đánh giá: Học sinh lập luận, chứng minh bằng mô hình, và phản hồi lẫn nhau về quá trình học."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Kiến thức khoa học: Nhiều loài động vật sống theo đàn để chia sẻ nhiệm vụ, bảo vệ và tăng cơ hội sinh tồn.",
+      "Trâu rừng châu Phi sống theo đàn để có thể phát hiện thú săn mồi sớm hơn nhờ một số thành viên trong đàn luôn cảnh giác.",
+      "Hiểu vai trò của các giác quan (thị giác, khứu giác) trong việc phát hiện nguy hiểm.",
+      "Biết cách mô phỏng hành vi động vật bằng mô hình LEGO® SPIKE™ Essential.",
+      "Sử dụng cảm biến màu sắc để phát hiện tín hiệu (màu vàng tượng trưng cho thú săn mồi).",
+      "Thực hành điều chỉnh vị trí cảm biến để tăng hiệu quả phát hiện.",
+      "Rèn luyện kỹ năng lập luận khoa học – đưa ra dẫn chứng, dữ liệu và mô hình hỗ trợ cho kết luận.",
+      "Phát triển tư duy thiết kế, thử nghiệm, đánh giá và cải tiến mô hình.",
+      "Tăng cường kỹ năng hợp tác, phản hồi, và tự đánh giá thông qua thang màu (xanh dương – vàng – xanh lá)."
+    ]
+  }
+]
+
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI13).mount("#rea-buoi13");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 12------------------------------------------------------------------------------------------------------------------------ -->
+
+
+    <!-- Buổi 13------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 13:</em> Những trò chơi lễ hội cuồng nhiệt - Mê cung</h4>
+           <h4><span style="color: #592589;">Sử dụng khối biểu tượng: đèn và cảm biến nghiêng</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi12" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-crazy-carnival-games/spikeessential-a-maze-ing/">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REBX/img-rebx-bai13.svg" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI12 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: 
+               [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được hiện tượng truyền năng lượng khi các vật thể tương tác với nhau.",
+      "Nhận biết rằng năng lượng có thể được truyền từ vật thể này sang vật thể khác thông qua va chạm hoặc chuyển động.",
+      "Phát triển kỹ năng quan sát, phân tích và lập luận khoa học thông qua việc mô phỏng hiện tượng vật lý bằng mô hình LEGO® SPIKE™.",
+      "Lập trình được chương trình đếm số lần nghiêng trong thử thách mê cung.",
+      "Thử nghiệm, điều chỉnh và nâng cấp mô hình để vượt qua mê cung hiệu quả hơn.",
+      "Rèn luyện khả năng hợp tác, thảo luận nhóm và phản hồi ý tưởng của bạn học.",
+      "Tự đánh giá và xác định mức độ hiểu biết của bản thân về khái niệm truyền năng lượng."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Giới thiệu tình huống: Hãy cố gắng phá kỷ lục hiện tại của Leo về việc vượt qua thử thách mê cung!",
+      "Thảo luận nhanh về cách năng lượng có thể được truyền giữa các vật thể khi chúng va chạm.",
+      "Đặt câu hỏi gợi mở: Khi hai vật thể va chạm, điều gì xảy ra với năng lượng của chúng? Làm thế nào để biết năng lượng đang được truyền?",
+      "Phát cho mỗi nhóm một bộ LEGO® SPIKE™ Essential và một thiết bị lập trình.",
+      "Học sinh sử dụng ứng dụng SPIKE™ để tạo và chạy chương trình đếm số lần nghiêng khi hoàn thành mê cung.",
+      "Thực hiện lại và kiểm tra mô hình, sau đó sửa đổi chương trình để tạo ra hiệu ứng mới khi mê cung bị nghiêng.",
+      "Nâng cấp mô hình mê cung bằng cách thêm các chướng ngại vật hoặc thay đổi cấu trúc để tăng độ khó.",
+      "Chia sẻ kết quả và thảo luận: Cần bao nhiêu lần nghiêng để bóng đến đích? Năng lượng của bóng thay đổi như thế nào khi chạm vào chướng ngại vật?",
+      "Quan sát, rút ra nhận xét về sự truyền năng lượng khi vật thể va chạm hoặc chuyển hướng.",
+      "Dọn dẹp dụng cụ và khu vực thực hành sau khi hoàn thành thử thách."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu được rằng năng lượng có thể được truyền từ vật thể này sang vật thể khác thông qua tương tác hoặc va chạm.",
+      "Nhận biết sự thay đổi chuyển động là dấu hiệu cho thấy có sự truyền năng lượng.",
+      "Biết cách lập trình cảm biến nghiêng trong LEGO® SPIKE™ để đo và ghi nhận chuyển động.",
+      "Thực hành tạo chương trình đếm số lần nghiêng và điều chỉnh chương trình để tạo hiệu ứng khác nhau.",
+      "Phát triển kỹ năng lắp ráp và cải tiến mô hình mê cung, bao gồm việc thêm chướng ngại vật hoặc thay đổi đường đi.",
+      "Quan sát và phân tích chuyển động của bóng để mô tả quá trình truyền năng lượng trong mô hình.",
+      "Rèn luyện kỹ năng hợp tác, phản hồi và giao tiếp trong nhóm.",
+      "Áp dụng quy trình tự đánh giá qua thang ba mức: cần hỗ trợ – làm độc lập – có thể hướng dẫn bạn khác.",
+      "Khuyến khích tư duy sáng tạo thông qua việc khám phá các khối lập trình mới và thử nghiệm nhiều giải pháp khác nhau."
+    ]
+  }
+]
+
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI12).mount("#rea-buoi12");
+        </script>
+      
+      </div>
+    </div>
+  
+
+     <!-- Buổi 14------------------------------------------------------------------------------------------------------------------------ -->
+     <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 14:</em> Ôn tập: Những trò chơi lễ hội cuồng nhiệt - Tránh mép biên</h4>
+           <h4><span style="color: #592589;">Sử dụng khối biểu tượng: cảm biến màu, động cơ, âm thanh</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi14" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-crazy-carnival-games/spikeessential-avoid-the-edge/">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REBX/img-rebx-bai14.svg" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI14 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được sự chuyển đổi năng lượng từ thế năng (năng lượng tích trữ) sang động năng (năng lượng chuyển động).",
+      "Nhận biết mối quan hệ giữa va chạm, lực tác động và sự thay đổi năng lượng của vật thể.",
+      "Biết cách điều chỉnh mô hình và chương trình để kiểm soát chuyển động của quả bóng dừng đúng tại mục tiêu.",
+      "Phát triển tư duy lập trình, khả năng quan sát và phân tích hiện tượng vật lý thông qua mô hình LEGO® SPIKE™.",
+      "Rèn luyện kỹ năng sáng tạo, thử nghiệm, cải tiến mô hình bằng cách thay đổi gậy đánh hoặc chương trình điều khiển.",
+      "Hình thành kỹ năng hợp tác, phản hồi tích cực và tự đánh giá năng lực cá nhân trong hoạt động nhóm."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Giới thiệu tình huống: Em hãy thử thách bản thân sử dụng các cây gậy khác nhau để làm cho bóng dừng lại ở mục tiêu!",
+      "Cả lớp thảo luận nhanh về quá trình chuyển đổi năng lượng từ thế năng sang động năng.",
+      "Đặt câu hỏi gợi mở: Trước khi chuyển động, quả bóng có loại năng lượng nào? Sau khi chuyển động thì sao?",
+      "Phát cho mỗi nhóm một bộ LEGO® SPIKE™ Essential và thiết bị lập trình.",
+      "Học sinh sử dụng ứng dụng SPIKE™ để tạo và chạy chương trình giúp quả bóng dừng lại ở mục tiêu.",
+      "Thực hiện lại và kiểm tra mô hình để hoàn thành thử thách thứ hai: sửa đổi chương trình nhằm cải tiến trò chơi.",
+      "Nâng cấp mô hình bằng cách thay đổi hoặc thiết kế các cây gậy khác nhau và quan sát ảnh hưởng của chúng đến năng lượng và chuyển động của bóng.",
+      "Cả lớp cùng thảo luận: Việc thay đổi kích thước hoặc kết cấu của gậy ảnh hưởng thế nào đến sự chuyển đổi năng lượng?",
+      "Quan sát hiện tượng va chạm và phân tích cách năng lượng được truyền và chuyển đổi giữa các vật thể.",
+      "Dọn dẹp mô hình và khu vực thực hành sau khi hoàn thành bài học."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu rằng năng lượng có thể chuyển đổi giữa các dạng: từ thế năng sang động năng.",
+      "Nhận biết rằng va chạm giữa các vật thể gây ra sự truyền năng lượng và thay đổi chuyển động.",
+      "Hiểu rằng hình dạng, khối lượng hoặc cấu trúc của vật ảnh hưởng đến mức độ và hiệu quả chuyển đổi năng lượng.",
+      "Sử dụng LEGO® SPIKE™ để lập trình mô hình có thể kiểm soát chuyển động của quả bóng.",
+      "Thực hành điều chỉnh chương trình và cấu tạo mô hình để đạt mục tiêu dừng bóng chính xác.",
+      "Phát triển kỹ năng thử nghiệm, quan sát và phân tích dữ liệu để rút ra kết luận khoa học.",
+      "Học cách giải thích mối quan hệ giữa năng lượng, va chạm và chuyển động bằng ngôn ngữ khoa học.",
+      "Rèn luyện kỹ năng làm việc nhóm, thảo luận và phản hồi ý tưởng sáng tạo.",
+      "Tự đánh giá qua thang năng lực ba mức: cần hỗ trợ – làm độc lập – có thể hướng dẫn bạn khác.",
+      "Khuyến khích tư duy thiết kế, sáng tạo mô hình và khám phá khối lập trình mới để tối ưu hóa kết quả."
+    ]
+  }
+]
+
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI14).mount("#rea-buoi14");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 14------------------------------------------------------------------------------------------------------------------------ -->
+  
+    <!-- Buổi 15------------------------------------------------------------------------------------------------------------------------ -->
+    <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 15:</em> Kiểm tra cuối kỳ: Du khách vui vẻ - Cáp treo</h4>
+          <h4><span style="color: #592589;">Sử dụng khối biểu tượng: Các khối lệnh đã được học</span></h4>
+        </div>
+  
+      
+        <div id="rea-buoi15" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="https://education.lego.com/vi-vn/lessons/spikeessential-happy-traveler/spikeessential-cable-car/">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REBX/img-rebx-bai15.svg" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI15 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+  {
+    "id": 1,
+    "name": "🎯 Mục tiêu bài học",
+    "content": [
+      "Hiểu được khái niệm về trình tự (sequence) và vòng lặp (loop) trong lập trình.",
+      "Biết cách sử dụng vòng lặp để lặp lại chuyển động và tối ưu chương trình điều khiển mô hình.",
+      "Nhận biết mối liên hệ giữa trình tự lệnh và khả năng thực hiện nhiệm vụ chính xác, liên tục của mô hình.",
+      "Phát triển kỹ năng lập trình, tư duy logic và khả năng cải tiến mô hình LEGO® SPIKE™.",
+      "Rèn luyện kỹ năng hợp tác, phản hồi tích cực trong nhóm và trình bày ý tưởng cải tiến.",
+      "Tự đánh giá mức độ hiểu biết về việc sử dụng vòng lặp để điều khiển chuyển động."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "📚 Nội dung bài học",
+    "content": [
+      "Giới thiệu tình huống: Leo rất lo lắng khi hôm nay đi cáp treo qua Hồ Spike. Maria có thể giúp bạn ấy vượt qua nỗi sợ hãi hay không?",
+      "Thảo luận nhanh về các cách con người di chuyển từ nơi này sang nơi khác và cách hệ thống đó hoạt động lặp lại.",
+      "Đặt câu hỏi gợi mở: Làm thế nào để cáp treo có thể di chuyển nhiều lần qua lại giữa hai điểm?",
+      "Phát cho mỗi nhóm một bộ LEGO® SPIKE™ Essential và thiết bị lập trình.",
+      "Học sinh tạo và chạy thử chương trình di chuyển cáp treo qua hồ.",
+      "Hoàn thành các thử thách trong ứng dụng: cải tiến chương trình để di chuyển mượt hơn và nâng cấp mô hình cáp treo.",
+      "Chia sẻ kết quả: Em đã cải tiến chương trình đi cáp treo như thế nào? Vì sao chọn cách đó?",
+      "Thảo luận về vai trò của vòng lặp trong việc giúp cáp treo di chuyển liên tục và hiệu quả.",
+      "Thử nghiệm thêm bằng cách thay đổi tốc độ, hướng, hoặc thời gian dừng của cáp treo.",
+      "Kết thúc bài: dọn dẹp dụng cụ và khu vực học tập."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "🧠 Kiến thức & 🛠️ Kỹ năng",
+    "content": [
+      "Hiểu rằng trình tự là tập hợp các lệnh được thực hiện theo thứ tự nhất định trong chương trình.",
+      "Biết rằng vòng lặp giúp chương trình lặp lại một hành động mà không cần viết lại toàn bộ lệnh.",
+      "Nhận biết ứng dụng thực tế của vòng lặp trong đời sống như thang máy, cáp treo, băng chuyền, v.v.",
+      "Lập trình được một mô hình LEGO® SPIKE™ di chuyển liên tục qua lại bằng vòng lặp.",
+      "Thực hành sửa đổi và tối ưu chương trình để cải thiện hiệu suất mô hình.",
+      "Rèn luyện kỹ năng tư duy logic, giải quyết vấn đề và sáng tạo trong thiết kế.",
+      "Phát triển kỹ năng làm việc nhóm, phản hồi và hợp tác để hoàn thành nhiệm vụ.",
+      "Áp dụng phương pháp tự đánh giá bằng thang ba mức (vàng – xanh dương – xanh lá).",
+      "Thể hiện hiểu biết qua việc giải thích lợi ích của việc sử dụng vòng lặp và trình tự lệnh trong lập trình.",
+      "",
+      "📘 **Ghi chú:** Bài học này kết thúc bằng một bài kiểm tra cuối khóa nhằm đánh giá khả năng áp dụng vòng lặp và trình tự lệnh trong lập trình mô hình LEGO® SPIKE™."
+    ]
+  }
+]
+
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI15).mount("#rea-buoi15");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 15------------------------------------------------------------------------------------------------------------------------ -->
+  
+
+     <!-- Buổi 16------------------------------------------------------------------------------------------------------------------------ -->
+     <div class="gaming-library profile-library">
+      <div class="col-lg-12">
+        <div class="heading-section">
+          <h4><em style="color: #592589;">Buổi 16:</em> 	Tổng kết kiến thức - Lên ý tưởng, mô hình</h4>
+        </div>
+  
+      
+        <div id="rea-buoi16" class="relative min-h-screen">
+          <div class="board flex flex-row gap-16 mx-40 my-8">
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
+  
+  
+  
+                  <div class="list">
+                    <div class="content-rea" >
+                      <div v-for="item in list" :class="[
+                          'p-4 bg-white border-l-4 shadow-md rounded-md mb-2 text-gray-800 cursor-pointer transform transition-transform duration-200 ease-in-out border-teal-600',
+                          item.id === selectedContact?.id
+                            ? 'bg-teal-100 scale-105 shadow-lg'
+                            : 'border-gray-200 hover:bg-teal-50 hover:shadow-md hover:scale-105'
+                        ]" @click="displayContactDetails(item)">
+                        {{ item.name }}
+                      </div>
+                    </div>
+                    <div class="main-border-button border-no-active"><a href="../REB/lesson_20.html">Vào bài</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <!-- Divider -->
+                <div class="hidden md:block w-px bg-gray-200 self-stretch"></div>
+  
+                <!-- Contact Details Panel (Always Rendered) -->
+                <div class="contact-details md:w-2/5 bg-white shadow-sm rounded-md p-6 min-h-[460px]">
+  
+  
+                  <!-- Animated Inner Content -->
+                  <transition name="slide-fade" mode="out-in">
+                    <div :key="selectedContact?.id">
+                      <template v-if="selectedContact">
+                        <div class="space-y-4 text-gray-700">
+                          <!-- Title -->
+                          <!-- <h2 class="text-2xl font-bold text-teal-600 border-b pb-2 mb-4">{{ selectedContact.name }}</h2> -->
+                  
+                          <!-- List -->
+                          <ul class="space-y-3">
+                            <li
+                              v-for="(line, index) in selectedContact.content"
+                              :key="index"
+                              class="flex items-start gap-2 bg-teal-50 border-l-4 border-teal-400 rounded-md p-4 shadow-sm"
+                            >
+                              <!-- Tick Icon -->
+                              <span class="text-teal-500 text-lg mt-0.5"><i class="fa-solid fa-check" style="color: #FFD43B; margin-right: 5px;"></i></span>
+                              <!-- Text -->
+                              <span class="text-base leading-relaxed">{{ line }}</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </template>
+                  
+                      <template v-else>
+                        <div class="show-content text-gray-400 italic text-center mt-12" style="height: auto;">
+                          
+                          <img src="../../../images/REA/img-rea-bai20.png" alt="" >
+                        </div>
+                      </template>
+                    </div>
+                  </transition>
+                  
+                  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        
+        
+  
+        <script>
+          const REA_BUOI16 = {
+            data() {
+              return {
+                selectedContact: null,
+                list: [
+                  {
+  id: 1,
+  name: "🎯 Mục tiêu bài học",
+  content: [
+    "Phát triển kỹ năng lên ý tưởng – thiết kế – thử nghiệm mô hình kỹ thuật tích hợp nhiều thành phần.",
+    "Vận dụng linh hoạt kiến thức đã học: cảm biến màu, cảm biến nghiên, hiển thị nội dung/ văn bản, phát/nhận tin.",
+    "Tăng cường tư duy tính toán và chu trình thiết kế kỹ thuật: tưởng tượng → mô hình hóa → cải tiến.",
+    "Khuyến khích học sinh sáng tạo, làm việc nhóm hiệu quả và trình bày giải pháp rõ ràng."
+  ]
+},
+{
+  id: 2,
+  name: "📚 Nội dung bài học",
+  content: [
+    "Thảo luận mở đầu: Em sẽ thiết kế một mô hình kỹ thuật giúp ích cho ai? Giải quyết vấn đề gì?",
+    "Lên ý tưởng mô hình tích hợp các thành phần đã học (đèn, âm thanh, chuyển động, cảm biến).",
+    "Chọn tình huống phù hợp (xe thám hiểm, tàu ngầm, vòng quay, công viên, sa mạc…).",
+    "Lắp ráp mô hình theo nhóm: sử dụng ít nhất 1 động cơ và 1 yếu tố bổ sung (đèn hoặc cảm biến hoặc âm thanh).",
+    "Lập trình mô hình vận hành theo trình tự: bật tắt, thay đổi tốc độ, điều kiện ánh sáng hoặc âm thanh.",
+    "Thử nghiệm – điều chỉnh mô hình và chương trình trong 2–3 vòng.",
+    "Chia sẻ sản phẩm: mô tả tính năng, quy trình hoạt động và ý nghĩa mô hình."
+  ]
+},
+{
+  id: 3,
+  name: "🧠 Kiến thức & 🛠️ Kỹ năng",
+  content: [
+    "Một mô hình kỹ thuật hiệu quả cần kết hợp nhiều yếu tố: kết cấu, chuyển động, hiệu ứng (đèn, âm thanh) và lập trình điều khiển.",
+    "Chu trình thiết kế: lên ý tưởng → lắp ráp → lập trình → thử nghiệm → điều chỉnh → chia sẻ.",
+    "Đèn, cảm biến và động cơ giúp mô hình tương tác linh hoạt hơn với môi trường.",
+    "Lập trình là công cụ then chốt để \"biến ý tưởng thành hành động\".",
+    "Lên ý tưởng giải pháp kỹ thuật theo nhu cầu cụ thể.",
+    "Lắp ráp mô hình tích hợp các thành phần: đèn, động cơ, âm thanh, cảm biến.",
+    "Lập trình mô hình hoạt động theo chuỗi hành động, có điều kiện và hiệu ứng.",
+    "Thử nghiệm, ghi nhận lỗi và điều chỉnh mô hình phù hợp hơn với thực tế.",
+    "Trình bày mô hình rõ ràng, logic, có minh chứng hoạt động.",
+    "Làm việc nhóm hiệu quả: phân công, hợp tác, phản hồi, cải tiến.",
+    "Tự đánh giá vai trò, kỹ năng và đóng góp cá nhân trong nhóm."
+  ]
+}
+
+                ]
+              };
+            },
+            methods: {
+              displayContactDetails(contact) {
+                this.selectedContact = contact;
+              }
+            }
+          };
+        
+          Vue.createApp(REA_BUOI16).mount("#rea-buoi16");
+        </script>
+      
+      </div>
+    </div>
+  
+    <!-- Buổi 16----------------------------------------------------------------------------------------------------------------------- -->
+  
+   
+  
+    <!-- Buổi 20------------------------------------------------------------------------------------------------------------------------ -->
+  
+</div>
+
+
+<!-- ***** Gaming Library End ***** -->
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none" onclick="scrollToTop()" id="back-to-up">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script>
+    window.onscroll = () => {
+  toggleTopButton();
+}
+function scrollToTop(){
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function toggleTopButton() {
+  if (document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20) {
+    document.getElementById('back-to-up').classList.remove('d-none');
+  } else {
+    document.getElementById('back-to-up').classList.add('d-none');
+  }
+}
+  </script>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved. 
+          
+          <br>Design By Huỳnh Ngọc Thái</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="../../../js/isotope.min.js"></script>
+  <script src="../../../js/owl-carousel.js"></script>
+  <script src="../../../js/tabs.js"></script>
+  <script src="../../../js/popup.js"></script>
+  <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
