@@ -193,9 +193,6 @@
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="contact-list md:w-3/5 bg-white shadow-sm rounded-md">
-
-
-
                         <div class="list">
                           <div class="content-rea" >
                             <div v-for="item in list" :class="[
@@ -207,7 +204,7 @@
                               {{ item.name }}
                             </div>
                           </div>
-                          <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                          <div class="main-border-button border-no-active"><a href="lesson_1.html">Vào bài</a></div>
                         </div>
                       </div>
                     </div>
@@ -328,7 +325,7 @@
           <div class="col-lg-12">
             <div class="heading-section">
               <h4><em style="color: #592589;">Buổi 2:</em> Bài học</h4>
-              <h4>Làm quen với khối biểu tượng - đèn (Light Blocks) trong Spike Programming - <span style="color: #592589;">Mô hình “Đèn pin chiếu sáng”</span></h4>
+              <h4>Làm quen với khối chữ - đèn (Light Blocks) trong Spike Programming - <span style="color: #592589;">Mô hình “Đèn pin chiếu sáng”</span></h4>
               <!-- <img src="../../../images/EP/bg-ep-bai1.png" alt="" class=""
                 style="border: solid 3px #592589; border-radius: 10px;">
             </div> -->
@@ -354,7 +351,7 @@
                             {{ item.name }}
                           </div>
                         </div>
-                        <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                        <div class="main-border-button border-no-active"><a href="lesson_2.html">Vào bài</a></div>
                       </div>
                     </div>
                   </div>
@@ -422,7 +419,7 @@
                         id: 1,
                         name: "Mục tiêu",
                         content: [
-                          "Học sinh làm quen và sử dụng thành thạo khối Light Block (khối điều khiển đèn) trong chế độ biểu tượng.",
+                          "Học sinh làm quen và sử dụng thành thạo khối Light Block (khối điều khiển đèn) trong chế độ chữ.",
                           "Học sinh lắp ráp mô hình “Đèn pin chiếu sáng”, có thể bật tắt đèn, đổi màu, nhấp nháy theo chu kỳ.",
                           "Học sinh hiểu cách sử dụng ánh sáng như một tín hiệu đầu ra để thể hiện trạng thái của mô hình.",
                           "Học sinh rèn kỹ năng lập trình theo chuỗi, điều kiện và vòng lặp cơ bản."
@@ -435,7 +432,7 @@
                         content: [
                           "Giới thiệu chủ đề buổi học.",
                           "Lắp ráp mô hình “Đèn pin chiếu sáng”.",
-                          "Lập trình điều khiển đèn bằng khối biểu tượng.",
+                          "Lập trình điều khiển đèn bằng khối chữ.",
                           "Trình diễn mô hình – cải tiến."
                         
                         ]
@@ -500,7 +497,7 @@
                           {{ item.name }}
                         </div>
                       </div>
-                      <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                      <div class="main-border-button border-no-active"><a href="lesson_3.html">Vào bài</a></div>
                     </div>
                   </div>
                 </div>
@@ -560,52 +557,52 @@
 
           <script>
             const REA_BUOI3 = {
-              data() {
-                return {
-                  selectedContact: null,
-                  list: [
-                    {
-                      id: 1,
-                      name: "Mục tiêu",
-                      content: [
-                        "Học sinh làm quen với khối lệnh hiển thị (Display Blocks) trong SPIKE Programming, biết cách sử dụng hình ảnh, văn bản,...",
-                        "Học sinh biết kết hợp cảm biến màu và động cơ để điều khiển mô hình “mái nhà” hoạt động theo tình huống thực tế.",
-                        "Học sinh lập trình mô hình phản ứng với từng màu sắc đầu vào, như đóng/mở mái nhà, hiển thị trạng thái khác nhau (vui, cảnh báo, đóng cửa…)."
-                        
-                      ]
-                    },
-                    {
-                      id: 2,
-                      name: "Nội dung",
-                      content: [
-                        "Giới thiệu khối hiển thị (Display Blocks).",
-                        "Giới thiệu mô hình “Mái nhà thông minh”.",
-                        "Lắp ráp mô hình.",
-                        "Lập trình chuyển động.",
-                        "Trình diễn – phản biện."
-                      ]
-                    },
-                    {
-                      
-                      id: 3,
-                      name: "Kiến thức & Kỹ năng",
-                      content: [
-"Khối hiển thị (Display Blocks)",
-"Kết hợp điều kiện – phản xạ",
-"Kỹ năng quan sát – phân tích",
-"Kỹ năng: lập trình, tư duy, làm việc nhóm"
-                      ]
-                    }
-                  ]
-                };
-              },
-              methods: {
-                displayContactDetails(contact) {
-                  this.selectedContact = contact;
-                }
-              }
-            };
-          
+  data() {
+    return {
+      selectedContact: null,
+      list: [
+        {
+          id: 1,
+          name: "Mục tiêu",
+          content: [
+            "Học sinh làm quen với các khối đèn (Light Blocks) trong SPIKE Programming.",
+            "Học sinh hiểu cách hiển thị màu sắc và họa tiết trên ma trận đèn 3x3.",
+            "Học sinh biết vận dụng các khối điều khiển (Control Blocks) như chờ, lặp, điều kiện để tạo hiệu ứng ánh sáng.",
+            "Học sinh phát huy khả năng sáng tạo thông qua việc thiết kế mô hình ánh sáng tự do."
+          ]
+        },
+        {
+          id: 2,
+          name: "Nội dung",
+          content: [
+            "Giới thiệu các khối đèn (Light Blocks).",
+            "Ôn tập và vận dụng các khối điều khiển (Control Blocks).",
+            "Thiết kế ý tưởng mô hình ánh sáng sáng tạo.",
+            "Lập trình hiệu ứng ánh sáng theo trình tự.",
+            "Trình diễn sản phẩm và chia sẻ ý tưởng."
+          ]
+        },
+        {
+          id: 3,
+          name: "Kiến thức & Kỹ năng",
+          content: [
+            "Khối đèn (Light Blocks) – ma trận đèn 3x3",
+            "Khối điều khiển (Control Blocks): chờ, lặp, điều kiện",
+            "Kỹ năng lập trình hiệu ứng ánh sáng",
+            "Kỹ năng tư duy logic và sáng tạo",
+            "Kỹ năng làm việc nhóm và trình bày sản phẩm"
+          ]
+        }
+      ]
+    };
+  },
+  methods: {
+    displayContactDetails(contact) {
+      this.selectedContact = contact;
+    }
+  }
+};
+
             Vue.createApp(REA_BUOI3).mount("#rea-buoi3");
           </script>
         
@@ -646,7 +643,7 @@
                         {{ item.name }}
                       </div>
                     </div>
-                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                    <div class="main-border-button border-no-active"><a href="lesson_4.html">Vào bài</a></div>
                   </div>
                 </div>
               </div>
