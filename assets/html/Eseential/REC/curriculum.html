@@ -788,7 +788,7 @@
                       {{ item.name }}
                     </div>
                   </div>
-                  <div class="main-border-button border-no-active"><a href="">Vào bài</a></div>
+                  <div class="main-border-button border-no-active"><a href="lesson_5.html">Vào bài</a></div>
                 </div>
               </div>
             </div>
@@ -847,54 +847,52 @@
       
 
       <script>
-        const REA_BUOI5 = {
-          data() {
-            return {
-              selectedContact: null,
-              list: [
-                {
-                  id: 1,
-                  name: "Mục tiêu",
-                  content: [
-                    "Khuyến khích học sinh sáng tạo mô hình robot theo trí tưởng tượng riêng.",
-                    "Biết kết hợp các khối lệnh đã học: Color Sensor Block (Cảm biến màu), Display Blocks (Hiển thị),...",
-                    "Phát triển kỹ năng lập trình đơn giản theo chuỗi hành động.",
-                    "Rèn luyện kỹ năng làm việc nhóm, chia sẻ ý tưởng sáng tạo."
-                    
-                  ]
-                },
-                {
-                  id: 2,
-                  name: "Nội dung",
-                  content: [
-                    "Khởi động truyền cảm hứng",
-                    "Nhắc lại các khối lệnh đã học",
-                    "Hoạt động lắp ráp sáng tạo",
-                    "Lập trình cho mô hình",
-                    "Chia sẻ sản phẩm "
-                  ]
-                },
-                {
-                  
-                  id: 3,
-                  name: "Kiến thức & Kỹ năng",
-                  content: [
-                    "Color Sensor Block: Nhận diện màu sắc",
-"Display Blocks: Hiển thị hình ảnh, văn bản cho mô hình.",
-"Tư duy sáng tạo: Tự do thiết kế mô hình và lập trình kịch bản robot",
-"Làm việc nhóm: Phối hợp ý tưởng, phân chia vai trò, trình bày sản phẩm"
-                  ]
-                }
-              ]
-            };
-          },
-          methods: {
-            displayContactDetails(contact) {
-              this.selectedContact = contact;
-            }
-          }
-        };
-      
+       const REA_BUOI5 = {
+  data() {
+    return {
+      selectedContact: null,
+      list: [
+        {
+          id: 1,
+          name: "Mục tiêu",
+          content: [
+            "Khuyến khích học sinh sáng tạo mô hình robot sử dụng động cơ theo trí tưởng tượng riêng.",
+            "Học sinh biết vận dụng các khối động cơ (Motor Blocks) trong chế độ khối chữ để tạo chuyển động.",
+            "Phát triển kỹ năng lập trình theo chuỗi hành động và trình tự logic.",
+            "Rèn luyện kỹ năng làm việc nhóm, chia sẻ và bảo vệ ý tưởng sáng tạo."
+          ]
+        },
+        {
+          id: 2,
+          name: "Nội dung",
+          content: [
+            "Khởi động truyền cảm hứng sáng tạo.",
+            "Ôn tập các khối động cơ (Motor Blocks) và khối điều khiển đã học.",
+            "Hoạt động lắp ráp mô hình robot sáng tạo.",
+            "Lập trình điều khiển chuyển động cho mô hình.",
+            "Chia sẻ sản phẩm và ý tưởng thiết kế."
+          ]
+        },
+        {
+          id: 3,
+          name: "Kiến thức & Kỹ năng",
+          content: [
+            "Motor Blocks (khối chữ): chạy động cơ, dừng động cơ, đặt tốc độ, điều khiển vị trí.",
+            "Control Blocks: chờ, lặp để tạo chuỗi chuyển động có trình tự.",
+            "Tư duy sáng tạo: tự do thiết kế mô hình và hành vi chuyển động.",
+            "Kỹ năng làm việc nhóm: phân chia vai trò, phối hợp lắp ráp – lập trình – trình bày sản phẩm."
+          ]
+        }
+      ]
+    };
+  },
+  methods: {
+    displayContactDetails(contact) {
+      this.selectedContact = contact;
+    }
+  }
+};
+
         Vue.createApp(REA_BUOI5).mount("#rea-buoi5");
       </script>
     
@@ -910,7 +908,7 @@
     <div class="col-lg-12">
       <div class="heading-section">
         <h4><em style="color: #592589;">Buổi 6:</em> Bài học</h4>
-          <h4>Làm quen với khối chữ - sound (Sound Blocks) trong Spike Programming - <span style="color: #592589;">Mô hình “Bông hoa em trồng”</span></h4>
+          <h4>Làm quen với khối chữ - sound (Sound Blocks) trong Spike Programming - <span style="color: #592589;">Mô hình “Tivi thông minh”</span></h4>
         </div>
   
     
@@ -934,7 +932,7 @@
                       {{ item.name }}
                     </div>
                   </div>
-                  <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                  <div class="main-border-button border-no-active"><a href="lesson_6.html">Vào bài</a></div>
                 </div>
               </div>
             </div>
@@ -994,55 +992,52 @@
   
       <script>
         const REA_BUOI6 = {
-          data() {
-            return {
-              selectedContact: null,
-              list: [
-                {
-                  id: 1,
-                  name: "Mục tiêu",
-                  content: [
-                    "Học sinh làm quen và sử dụng được các khối âm thanh (Sound Blocks) trong chế độ khối chữ .",
-                    "Học sinh lắp ráp mô hình bông hoa chuyển động, có thể quay cánh.",
-                    "Học sinh kết hợp âm thanh + motor để tạo hành vi tự nhiên và sinh động cho mô hình.",
-                    "Học sinh rèn kỹ năng lập trình hành vi đa bước – đồng thời nhiều hiệu ứng."
-                    
-                  ]
-                },
-                {
-                  id: 2,
-                  name: "Nội dung",
-                  content: [
-                    "Giới thiệu khối âm thanh (Sound Blocks).",
-                    "Giới thiệu mô hình “Bông hoa của em”.",
-                    "Lắp ráp mô hình.",
-                    "Lập trình hành vi.",
-                    "Chia sẻ và tổng kết. "
-                  ]
-                },
-                {
-                  
-                  id: 3,
-                  name: "Kiến thức & Kỹ năng",
-                  content: [
-                    "Khối âm thanh (Sound Blocks).",
-  "Lập trình trình tự hành vi bằng chuỗi lệnh chữ.",
-  "Kỹ năng kỹ thuật – thiết kế.",
-  "Kỹ năng tương tác và thử nghiệm.",
-  "Kỹ năng trình bày – phản biện."
-  
-                  ]
-                }
-              ]
-            };
-          },
-          methods: {
-            displayContactDetails(contact) {
-              this.selectedContact = contact;
-            }
-          }
-        };
-      
+  data() {
+    return {
+      selectedContact: null,
+      list: [
+        {
+          id: 1,
+          name: "Mục tiêu",
+          content: [
+            "Học sinh làm quen và sử dụng được các khối âm thanh (Sound Blocks) trong chế độ khối chữ.",
+            "Học sinh lắp ráp mô hình “Tivi thông minh” có các bộ phận chuyển động.",
+            "Học sinh kết hợp âm thanh và động cơ để mô phỏng hoạt động của tivi (bật, chuyển kênh, hiệu ứng).",
+            "Học sinh rèn kỹ năng lập trình hành vi đa bước với nhiều hiệu ứng đồng thời."
+          ]
+        },
+        {
+          id: 2,
+          name: "Nội dung",
+          content: [
+            "Giới thiệu các khối âm thanh (Sound Blocks).",
+            "Giới thiệu mô hình “Tivi thông minh”.",
+            "Lắp ráp mô hình.",
+            "Lập trình hành vi cho tivi.",
+            "Chia sẻ sản phẩm và tổng kết."
+          ]
+        },
+        {
+          id: 3,
+          name: "Kiến thức & Kỹ năng",
+          content: [
+            "Khối âm thanh (Sound Blocks): phát âm thanh, hiệu ứng âm thanh.",
+            "Kết hợp Sound Blocks và Motor Blocks trong chuỗi lệnh chữ.",
+            "Lập trình trình tự hành vi cho mô hình tivi.",
+            "Kỹ năng kỹ thuật – thiết kế mô hình.",
+            "Kỹ năng trình bày và phản biện sản phẩm."
+          ]
+        }
+      ]
+    };
+  },
+  methods: {
+    displayContactDetails(contact) {
+      this.selectedContact = contact;
+    }
+  }
+};
+
         Vue.createApp(REA_BUOI6).mount("#rea-buoi6");
       </script>
     
@@ -1082,7 +1077,7 @@
                         {{ item.name }}
                       </div>
                     </div>
-                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                    <div class="main-border-button border-no-active"><a href="lesson_7.html">Vào bài</a></div>
                   </div>
                 </div>
               </div>
@@ -1230,7 +1225,7 @@
                         {{ item.name }}
                       </div>
                     </div>
-                    <div class="main-border-button border-no-active"><a href="#">Vào bài</a></div>
+                    <div class="main-border-button border-no-active"><a href="lesson_8.html">Vào bài</a></div>
                   </div>
                 </div>
               </div>
