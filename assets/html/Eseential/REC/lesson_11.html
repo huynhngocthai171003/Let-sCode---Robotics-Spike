@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Let's Code - Robotics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../../css/fontawesome.css">
+    <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="../../../css/owl.css">
+    <link rel="stylesheet" href="../../../css/animate.css">
+    <link rel="stylesheet" href="../../../../assets/css/lesson.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="apple-touch-icon"
+        href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+        sizes="192x192">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png"
+        sizes="32x32">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <script src="../../../js/include.js" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+
+    <style>
+        /* Mặc định: ảnh hiển thị bình thường */
+        #custCarousel .carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            /* Hoặc contain, tùy bạn */
+        }
+
+        /* Khi carousel fullscreen */
+        #custCarousel:fullscreen {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+        }
+
+        /* Ảnh trong fullscreen */
+        #custCarousel:fullscreen .carousel-item img {
+            width: auto;
+            height: 100vh;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .scrollable-materials {
+            width: 102%;
+            max-height: 700px;
+            /* bạn có thể điều chỉnh chiều cao tối đa tùy ý */
+            overflow-y: auto;
+            padding-right: 10px;
+            /* để không bị che mất thanh scroll */
+        }
+
+        /* (Tùy chọn) Làm đẹp thanh cuộn nếu muốn */
+        .scrollable-materials::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-materials::-webkit-scrollbar-thumb {
+            background-color: rgba(94, 100, 214, 0.2);
+            border-radius: 3pxrgba(44, 37, 173, 0.2)
+        }
+
+        #full {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            gap: 0 20px;
+        }
+
+        .title {
+            font-weight: 800;
+            color: var(--acc);
+            font-size: 40px;
+            font-family: poppins;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .title i {
+            font-weight: 800;
+            font-size: 20px;
+            margin-right: 20px;
+            color: #fff;
+            border-radius: 5px;
+            background: var(--acc);
+            padding: 10px;
+        }
+
+        .text {
+            width: 100%;
+            margin: 0 auto;
+            color: white;
+            font-size: 20px;
+        }
+
+        .text e {
+            color: #ebc901;
+            font-size: 19px;
+            margin-right: 20px;
+        }
+
+        .link {
+            color: var(--acc);
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        .linea {
+            width: 1px;
+            height: 100%;
+            background: #ccc;
+            margin: 50px 0;
+        }
+
+        :root {
+  --background: #111;
+  --clr-light: #cdcdcd;
+  --clr-primary: #db222a;
+  --clr-remaining: #ffcd00;
+  --background-light: rgb(45, 45, 45);
+  --br: 0.3em;
+}
+        .timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+}
+
+.timer__background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18rem;
+  height: 18rem;
+  border: 0.5rem solid var(--background-light);
+  border-radius: 50%;
+}
+
+.timer__display {
+  font-weight: 600;
+  font-size: 3.15rem;
+  display: flex;
+}
+
+.display {
+  margin: 0 0.015em;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0.85);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(0.85);
+  }
+}
+
+.circle {
+  width: 18rem;
+  height: 18rem;
+  position: absolute;
+}
+
+circle {
+  fill: none;
+  stroke: var(--clr-remaining);
+  stroke-width: 18;
+  stroke-dasharray: 1590;
+  stroke-dashoffset: 1590;
+  stroke-linecap: round;
+  transform: rotate(270deg);
+  transform-origin: center;
+  transition: stroke 300ms ease;
+}
+
+@keyframes Loop {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 1590;
+  }
+}
+
+.timer-input {
+  display: flex;
+  margin: 2.5em 0 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.input__container {
+  margin: 0 1em;
+}
+
+.timer-input label {
+  display: block;
+  margin: 0.35em 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.timer-input input {
+  outline: 0;
+  width: 8.85rem;
+  height: 3rem;
+  border: 2px solid var(--background-light);
+  border-radius: var(--br);
+  background: transparent;
+  padding: 0.5em;
+  color: var(--clr-light);
+  font: inherit;
+  font-size: 1.15rem;
+}
+
+.none {
+  display: none;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.btn-timer {
+  width: 9rem;
+  margin: 2em 0 0;
+  padding: 0.55em 1.5em;
+  border: 0;
+  outline: 0;
+  border-radius: var(--br);
+  text-align: center;
+  font: inherit;
+  font-size: 1.15rem;
+  color: var(--clr-light);
+  background: var(--clr-primary);
+  cursor: pointer;
+}
+
+.btn:hover {
+  transition: all 75ms ease;
+  color: var(--clr-primary);
+  background: var(--clr-light);
+}
+
+.pause-resume {
+  width: 9rem;
+  padding: 0.55em 1.5em;
+  margin: 2em 0 0 0.5em;
+}
+
+.btn-lt {
+  width: 9rem;
+  margin: 2em 0 0 0.5em;
+  padding: 0.55em 1.5em;
+  border: 1.5px solid var(--clr-primary);
+  outline: 0;
+  border-radius: var(--br);
+  text-align: center;
+  font: inherit;
+  font-size: 1.15rem;
+  color: var(--clr-primary);
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-lt:hover {
+  transition: all 75ms ease;
+  color: var(--clr-light);
+  border-color: var(--clr-light);
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <div data-include="../../header.html"></div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                // Gắn lại sự kiện cho menu sau khi include xong header
+                const script = document.createElement('script');
+                script.src = "../../../js/custom.js";
+                document.body.appendChild(script);
+
+                // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-content">
+
+                    <!-- ***** Banner Start ***** -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-profile ">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <img src="../../../images/REC/img-rec-bai11.png" alt=""
+                                            style="border-radius: 23px;">
+                                    </div>
+                                    <div class="col-lg-4 align-self-center">
+                                        <div class="main-info header-text">
+
+                                            <span>Khối biểu tượng</span>
+                                            <h4
+                                                style="color: #000 !important;  font-family: 'Baloo Chettan 2', sans-serif !important">
+                                                Buổi 11: Kiểm tra giữa kỳ</h4>
+                                            <p style="color: #000 !important">
+                                                Mô hình “Chiếc máy may”
+                                            </p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="wrapper" style="font-family: 'Baloo Chettan 2', sans-serif !important">
+                        <div class="side">
+                            <div class="stick-container"></div>
+                        </div>
+                        <div class="main">
+                            <section id="a">
+
+
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục
+                                    tiêu bài học
+                                </h1>
+                                <div class="accordion-container">
+    <!-- KIẾN THỨC -->
+    <input type="radio" id="acc-tab-1" name="accordion" checked>
+    <label for="acc-tab-1" class="accordion-label">
+        <h2>🎓 Kiến thức</h2>
+    </label>
+    <div class="accordion-content">
+        <ul>
+            <li>✔️ Áp dụng tổng hợp tất cả các kiến thức đã học vào bài kiểm tra.</li>
+            <li>✔️ Hiểu và thực hiện đúng yêu cầu lập trình được đưa ra.</li>
+            <li>✔️ Nhận biết và sử dụng linh hoạt các khối lệnh đã học.</li>
+        </ul>
+    </div>
+
+    <!-- KỸ NĂNG -->
+    <input type="radio" id="acc-tab-2" name="accordion">
+    <label for="acc-tab-2" class="accordion-label">
+        <h2>🛠️ Kỹ năng</h2>
+    </label>
+    <div class="accordion-content">
+        <ul>
+            <li>✔️ Lắp ráp mô hình dựa trên mô hình mẫu (không có hướng dẫn từng bước).</li>
+            <li>✔️ Kỹ năng lắp ráp mô hình hoàn chỉnh và ổn định.</li>
+            <li>✔️ Kỹ năng lập trình đáp ứng yêu cầu đề bài.</li>
+            <li>✔️ Kỹ năng làm việc nhóm và phân chia nhiệm vụ.</li>
+        </ul>
+    </div>
+
+    <!-- TƯ DUY -->
+    <input type="radio" id="acc-tab-3" name="accordion">
+    <label for="acc-tab-3" class="accordion-label">
+        <h2>💡 Tư duy</h2>
+    </label>
+    <div class="accordion-content">
+        <ul>
+            <li>✔️ Tư duy chuỗi hành động khi tổ chức chương trình.</li>
+            <li>✔️ Tư duy hệ thống hóa kiến thức đã học.</li>
+            <li>✔️ Sáng tạo nội dung hoạt động riêng cho mô hình.</li>
+            <li>✔️ Cá nhân hóa mô hình thông qua hiệu ứng và hành vi.</li>
+        </ul>
+    </div>
+
+    <!-- THÁI ĐỘ -->
+    <input type="radio" id="acc-tab-4" name="accordion">
+    <label for="acc-tab-4" class="accordion-label">
+        <h2>❤️ Thái độ</h2>
+    </label>
+    <div class="accordion-content">
+        <ul>
+            <li>✔️ Chủ động quan sát và phân tích mô hình mẫu.</li>
+            <li>✔️ Nghiêm túc, tập trung trong quá trình lắp ráp và lập trình.</li>
+            <li>✔️ Tự tin trình diễn sản phẩm.</li>
+            <li>✔️ Sẵn sàng giải thích và phản biện ý tưởng của nhóm.</li>
+        </ul>
+    </div>
+</div>
+
+
+                            </section>
+                            <section id="b" class="row">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
+                                    thiệu nội dung bài học
+                                </h1>
+                                <ul class="custom-timeline__list">
+                                    <li class="custom-timeline__item" style="--accent-color:#41516C">
+                                        <div class="custom-timeline__date">Giới thiệu mô hình</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
+                                        <div class="custom-timeline__date">Chuẩn bị kiểm tra</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                                        <div class="custom-timeline__date">Xây dựng mô hình</div>
+                                    </li>
+                                   
+                                    <li class="custom-timeline__item" style="--accent-color:#868bfc">
+                                        <div class="custom-timeline__date">Tổng kết bài học</div>
+                                    </li>
+
+                                </ul>
+                            </section>
+                            <section id="c" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                                    Giới thiệu mô hình
+                                </h1>
+                                <img src="../../../REC/Buổi 11/máy may.gif" alt="" style="display: block; margin: 0 auto">
+                                <hr>
+                                <video style="width: 100%" controls src="../../../REC/Buổi 11/Video.mp4">
+
+                                </video>
+
+                            </section>
+                            <section id="d" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                                    Chuẩn bị trước khi kiểm tra
+                                </h1>
+
+                                <div id="full">
+
+
+                                    <div class="text" style="padding-right:30px;">
+                                        <e class="fa-solid fa-arrow-right"></e> Học viên thực hiện bài kiểm tra với ba nội dung chính: lắp ráp mô hình, lập trình và thuyết trình sản phẩm.
+<br><br>
+<e class="fa-solid fa-arrow-right"></e> Học viên tiến hành lắp ráp theo các bước hướng dẫn, không được cung cấp chi tiết về loại và số lượng linh kiện.
+<br><br>
+<e class="fa-solid fa-arrow-right"></e> Học viên cần hoàn thành đầy đủ các chức năng theo yêu cầu của đề bài.
+<br><br>
+<e class="fa-solid fa-arrow-right"></e> Học viên được phép sáng tạo và nâng cấp mô hình hoặc chương trình sau khi đã hoàn thiện các chức năng bắt buộc.
+<br><br>
+<e class="fa-solid fa-arrow-right"></e> Giáo viên không hướng dẫn chi tiết trong quá trình làm bài, chỉ can thiệp khi xảy ra sự cố kỹ thuật như thiếu linh kiện, động cơ không hoạt động,...
+<br><br>
+<e class="fa-solid fa-arrow-right"></e> Trong suốt quá trình thực hiện, học viên chỉ được trao đổi và hợp tác với bạn trong nhóm của mình.
+<br><br>
+
+
+                                       
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                                <script>
+                                    document.querySelectorAll('.flippable').forEach(el => {
+                                        el.addEventListener('click', function () {
+                                            this.classList.toggle('flipme');
+                                        });
+                                    });
+                                </script>
+
+
+                            </section>
+                            <section id="e">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Lắp ráp mô hình
+                                </h1>
+                                 <iframe src="../../../REC/Buổi 11/máy may - không linh kiện.pdf" style="width:100%; height: 90vh">
+                                    <!-- <a href="../../../REB/Buổi 1/chú chó kiki.pdf">Download the PDF</a> -->
+                                </iframe>
+                            </section>
+
+                            <section id="f">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Tính thời gian
+                                </h1>
+                                <div class="timer">
+  <div class="timer__background">
+    <div class="timer__display">
+      <div class="display minute"></div>
+      <span class="display colon">:</span>
+      <div class="display seconds"></div>
+    </div>
+    <svg class="circle" x="0px" y="0px" width="500px" height="500px" viewBox="0 0 521.17 521.17" style="overflow: visible; enable-background: new 0 0 521.17 521.17">
+      <circle class="st0" cx="260.59" cy="260.59" r="253.09" />
+    </svg>
+  </div>
+  <div class="timer-input">
+    <div class="input__container">
+      <label for="inp-minute">Minutes</label>
+      <input type="text" id="inp-minute" placeholder="0" />
+    </div>
+    <div class="input__container">
+      <label for="inp-seconds">Seconds</label>
+      <input type="text" id="inp-seconds" placeholder="00" />
+    </div>
+  </div>
+  <div class="btn-group">
+    <button class="btn-timer start">Start</button>
+    <div class="pause-resume-cancel none">
+      <button class="btn-lt cancel">Cancel</button>
+      <button class="btn-timer pause-resume">Pause</button>
+    </div>
+  </div>
+  <audio class="audio" src="https://soundbible.com/mp3/service-bell_daniel_simion.mp3" type="audio/mp3"></audio>
+</div>
+
+<script>
+    // If anyone going through my code then it might look kind of messy to you coz I'm a beginner 😅, your suggestions, improvements(making the code shorter) will be welcomed 😇. Thank You!
+
+// getting Display minutes and seconds elements
+const disMinutes = document.querySelector(".minute");
+const disSeconds = document.querySelector(".seconds");
+
+// getting input minutes and seconds elements
+const inpMinutes = document.getElementById("inp-minute");
+const inpSeconds = document.getElementById("inp-seconds");
+
+const circleSvg = document.querySelector("circle");
+
+// getting all the buttons
+const start = document.querySelector(".start");
+const cancel = document.querySelector(".cancel");
+const pauseResume = document.querySelector(".pause-resume");
+const pauseResumeCancel = document.querySelector(".pause-resume-cancel");
+
+// getting audio
+const music = document.querySelector(".audio");
+
+// Additional Variables
+let resume;
+
+disMinutes.innerHTML = "00";
+disSeconds.innerHTML = "00";
+
+// making the timer
+let interval;
+let totalTime;
+
+function textCorrection(element, value) {
+  element.innerHTML = value < 10 ? "0" + value : value;
+}
+
+// making the start button work
+start.addEventListener("click", () => {
+  totalTime = inpMinutes.value * 60 + inpSeconds.value * 1;
+
+  circleSvg.style.animation = `Loop ${totalTime}s linear 1s`;
+  circleSvg.style.animationPlayState = "running";
+
+  if (inpMinutes.value != "" || inpSeconds.value != "") {
+    start.classList.add("none");
+    pauseResumeCancel.classList.remove("none");
+
+    interval = setInterval(() => {
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+
+      if (totalTime <= 10) {
+        circleSvg.style.stroke = "var(--clr-primary)";
+        disMinutes.style.animation = "popup 800ms infinite ease-in-out";
+        disMinutes.style.animationPlayState = "running";
+
+        disSeconds.style.animation = "popup 800ms infinite ease-in-out";
+        disSeconds.style.animationPlayState = "running";
+      } else {
+        circleSvg.style.stroke = "var(--clr-remaining)";
+        disMinutes.style.animation = "none";
+        disSeconds.style.animation = "none";
+      }
+
+      textCorrection(disMinutes, minutes);
+      textCorrection(disSeconds, seconds);
+
+      if (totalTime > 0) {
+        totalTime--;
+      } else {
+        music.play();
+        pauseResume.classList.add("none");
+        circleSvg.style.animation = "none";
+      }
+    }, 1000);
+  } else {
+    disMinutes.innerHTML = "00";
+    disSeconds.innerHTML = "00";
+  }
+
+  return totalTime;
+});
+
+// making the pause button work
+pauseResume.addEventListener("click", () => {
+  if (
+    circleSvg.style.animationPlayState === "running" ||
+    disMinutes.style.animationPlayState === "running" ||
+    disSeconds.style.animationPlayState === "running"
+  ) {
+    circleSvg.style.animationPlayState = "paused";
+    disMinutes.style.animationPlayState = "paused";
+    disSeconds.style.animationPlayState = "paused";
+  } else {
+    circleSvg.style.animationPlayState = "running";
+    disMinutes.style.animationPlayState = "running";
+    disSeconds.style.animationPlayState = "running";
+  }
+  if (!resume) {
+    pauseResume.innerHTML = "Resume";
+    clearInterval(interval);
+    resume = true;
+    interval = false;
+  } else {
+    pauseResume.innerHTML = "Pause";
+    if (!interval) {
+      interval = setInterval(() => {
+        const minutes = Math.floor(totalTime / 60);
+        const seconds = totalTime % 60;
+
+        textCorrection(disMinutes, minutes);
+        textCorrection(disSeconds, seconds);
+
+        if (totalTime > 0) {
+          totalTime--;
+        }
+      }, 1000);
+      resume = false;
+    }
+  }
+});
+
+// making the cancel button work
+cancel.addEventListener("click", () => {
+  clearInterval(interval);
+  music.pause();
+  music.currentTime = 0;
+
+  disMinutes.innerHTML = "00";
+  disSeconds.innerHTML = "00";
+  disMinutes.style.animation = "none";
+  disSeconds.style.animation = "none";
+  circleSvg.style.animation = "none";
+  inpMinutes.value = "";
+  inpSeconds.value = "";
+  start.classList.remove("none");
+  pauseResume.classList.remove("none");
+  pauseResumeCancel.classList.add("none");
+});
+
+</script>
+
+                            </section>
+
+                            <section id="g">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">
+                                    Yêu cầu bài kiểm tra
+                                </h1>
+                                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                                    <input type="radio" name="pcss3t-4" checked id="tab-f-1" class="tab-content-first">
+                                    <label for="tab-f-1">Lập trình</label>
+
+                                    <input type="radio" name="pcss3t-4" id="tab-f-2" class="tab-content-2">
+                                    <label for="tab-f-2">Thuyết trình</label>
+
+                                    <ul>
+                                        <li class="tab-content tab-content-first typography">
+
+                                            <h2>Khối lệnh</h2>
+<div class="row instruction-block">
+    <div class="col-md-12">
+        <div class="instruction-content">
+            <ul>
+               <li>Học viên bắt buộc phải sử dụng các khối lệnh: động cơ xoay, đèn, âm thanh trong quá trình lập trình.</li>
+<li>Học viên được phép sử dụng thêm các khối sự kiện như: chờ, lặp lại,... để hoàn thiện chương trình.</li>
+
+            </ul>
+
+           
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+        <img src="../../../REC/Buổi 11/all.png" alt="" class="instruction-image">
+    </div>
+    
+</div>
+
+                                        </li>
+
+
+
+
+
+                                        <li class="tab-content tab-content-2 typography">
+                                           <h2>Trình bày sản phẩm</h2>
+<div class="row instruction-block">
+    <div class="col-md-12">
+        <div class="instruction-content">
+<ul>
+  <li>Học viên sử dụng được <b>động cơ xoay</b> để tạo chuyển động chính cho mô hình (quay, mở/đóng, di chuyển hoặc cơ cấu xoay).</li>
+
+  <li>Học viên biết kết hợp <b>khối đèn (Light Blocks)</b> để hiển thị trạng thái hoạt động của mô hình (bật, tắt, chờ, cảnh báo…).</li>
+
+  <li>Học viên sử dụng <b>khối âm thanh (Sound Blocks)</b> để tạo tín hiệu hoặc hiệu ứng âm thanh phù hợp với từng hành vi.</li>
+
+  <li>Học viên vận dụng <b>các khối điều khiển</b> (chờ, lặp, nếu – thì, nếu – thì – ngược lại) để tổ chức chương trình có trình tự rõ ràng.</li>
+
+  <li>Học viên biết kết hợp <b>khối chờ (wait)</b> với động cơ, đèn và âm thanh để mô hình hoạt động nhịp nhàng, không bị giật hoặc chồng lệnh.</li>
+
+  <li>Học viên sử dụng <b>vòng lặp</b> để tối ưu chương trình, giúp mô hình hoạt động liên tục hoặc lặp lại theo kịch bản đã thiết kế.</li>
+
+  <li>Học viên biết <b>kết hợp nhiều loại khối lệnh</b> (động cơ – đèn – âm thanh – điều khiển) để hoàn thiện chương trình theo yêu cầu đề bài.</li>
+
+  <li>Học viên trình bày mô hình tự tin, giải thích được ý tưởng thiết kế, cách lập trình và thể hiện tinh thần hợp tác nhóm.</li>
+</ul>
+
+
+           
+        </div>
+    </div>
+    
+    
+</div>
+                                        </li>
+
+                                       
+
+
+
+                                    </ul>
+                                </div>
+                            </section>
+
+
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- ***** Banner End ***** -->
+
+
+
+                <script>
+                    const wrapper = document.querySelector(".wrapper");
+                    let sections = wrapper.querySelectorAll(".main > section");
+
+                    (function initSections() {
+                        const side = wrapper.querySelector(".side > .stick-container");
+
+                        // 👉 Gán tên tùy theo từng mục
+                        const labels = ["Mục tiêu", "Giới thiệu", "Mô hình", "Chuẩn bị", "Xây dựng", "Kiểm tra", "Yêu cầu"];
+
+                        sections.forEach((section, index) => {
+                            let link = document.createElement("a");
+                            let label = document.createElement("span");
+
+                            const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                            link.style.background = randomColor;
+
+                            // KHÔNG dùng href nữa để tránh thay đổi hash
+                            link.href = "javascript:void(0)";
+                            link.classList.add("section_clone");
+
+                            label.textContent = labels[index] || `Mục ${index + 1}`;
+                            label.style.fontSize = "1rem";
+                            label.style.fontWeight = "600";
+
+                            link.appendChild(label);
+                            side.appendChild(link);
+
+                            // 👉 Cuộn mượt đến mục khi click
+                            link.addEventListener("click", (e) => {
+                                e.preventDefault(); // Ngăn mặc định
+                                section.scrollIntoView({ behavior: "smooth" });
+                                addInView([index]); // Cập nhật trạng thái mục đang hiển thị
+                            });
+                        });
+
+
+                        addInView([0]);
+                    })();
+
+                    function addInView(arr) {
+                        let index = arr[0];
+                        let aspectRatio = arr[1];
+                        const side_sections = document.querySelectorAll(".section_clone");
+                        side_sections.forEach((side_section) => {
+                            side_section.classList.remove("inView");
+                        });
+                        side_sections[index].classList.add("inView");
+
+                        //console.log(side_sections[index]);
+                    }
+
+                    function checkForViewport() {
+                        let result = 0;
+                        let aspectRatio;
+                        sections.forEach((section, index) => {
+                            section.style.background = "";
+
+                            let section_bound = section.getBoundingClientRect();
+                            let section_boundMid = section_bound.bottom / 2;
+                            aspectRatio = parseFloat(
+                                (section_bound.width / section_bound.height).toFixed(2)
+                            );
+                            console.log(aspectRatio);
+                            if (
+                                section_bound.top <= window.innerHeight / 2 &&
+                                section_bound.bottom > window.innerHeight / 2
+                            ) {
+                                result = index;
+                            }
+                        });
+                        let result_arr = [result, aspectRatio];
+                        return result_arr;
+                    }
+
+                    window.addEventListener("scroll", (event) => {
+                        addInView(checkForViewport());
+                    });
+
+                </script>
+
+
+            </div>
+
+
+            <!-- ***** Gaming Library End ***** -->
+        </div>
+
+    </div>
+    </div>
+
+
+    <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+        onclick="scrollToTop()" id="back-to-up">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+        window.onscroll = () => {
+            toggleTopButton();
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleTopButton() {
+            if (document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20) {
+                document.getElementById('back-to-up').classList.remove('d-none');
+            } else {
+                document.getElementById('back-to-up').classList.add('d-none');
+            }
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved.
+
+                        <br>Design By Huỳnh Ngọc Thái
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper (nếu dùng Bootstrap 4) -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS (v4 hoặc v5 tùy bạn dùng bản nào) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="../../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../../../js/isotope.min.js"></script>
+    <script src="../../../js/owl-carousel.js"></script>
+    <script src="../../../js/tabs.js"></script>
+    <script src="../../../js/popup.js"></script>
+    <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
