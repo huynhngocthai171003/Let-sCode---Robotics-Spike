@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Let's Code - Robotics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../../css/fontawesome.css">
+    <link rel="stylesheet" href="../../../css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="../../../css/owl.css">
+    <link rel="stylesheet" href="../../../css/animate.css">
+    <link rel="stylesheet" href="../../../../assets/css/lesson.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="apple-touch-icon"
+        href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-180x180.png">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-192x192.png"
+        sizes="192x192">
+    <link rel="icon" href="https://letscode.edu.vn/wp-content/themes/letscode/assets/lc-favicon-32x32.png"
+        sizes="32x32">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module"
+  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+</script>
+
+
+
+    <script src="../../../js/include.js" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .viewer-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.viewer-model {
+  width: 100%;
+  height: 500px;
+  background: #2a8fee;
+}
+
+/* Khi fullscreen */
+.viewer-wrap:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  margin: 0;
+}
+
+.viewer-wrap:fullscreen .viewer-model {
+  width: 100%;
+  height: 100%;
+}
+
+/* Button */
+#viewerWrap .btn {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 9999;
+  color: #fff;
+}
+
+.btn-enter {
+  background: #000;
+}
+
+.btn-exit {
+  background: #c62828;
+  display: none;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <div data-include="../../header.html"></div>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            includeHTML(() => {
+                // Gắn lại sự kiện cho menu sau khi include xong header
+                const script = document.createElement('script');
+                script.src = "../../../js/custom.js";
+                document.body.appendChild(script);
+
+                // Gắn sự kiện click cho menu nav (nếu bạn vẫn cần)
+                const menuItems = document.querySelectorAll('nav a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        console.log('Bạn vừa click:', e.target.textContent);
+                    });
+                });
+            });
+        });
+    </script>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-content">
+
+                    <!-- ***** Banner Start ***** -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-profile ">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <img src="../../../images/REC/img-rec-bai12.png" alt=""
+                                            style="border-radius: 23px;">
+                                    </div>
+                                    <div class="col-lg-4 align-self-center">
+                                        <div class="main-info header-text">
+
+                                            <span>Khối chữ</span>
+                                            <h4
+                                                style="color: #000 !important; font-family: 'Baloo Chettan 2', sans-serif !important">
+                                                Buổi 12: Làm quen với khối chữ - hiển thị (Display Blocks) trong Spike Programming</h4>
+                                            <p style="color: #000 !important">
+                                                Mô hình “Chú hải cầu tìm đường về nhà”
+                                            </p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="wrapper" style="font-family: 'Baloo Chettan 2', sans-serif !important">
+                        <div class="side">
+                            <div class="stick-container"></div>
+                        </div>
+                        <div class="main">
+                            <section id="a">
+
+
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Mục
+                                    tiêu bài học
+                                </h1>
+                                <div class="accordion-container">
+  <!-- KIẾN THỨC -->
+  <input type="radio" id="acc-tab-1" name="accordion" checked>
+  <label for="acc-tab-1" class="accordion-label">
+    <h2>🎓 Kiến thức</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Làm quen với khối hiển thị (Display Blocks) trong chế độ khối chữ.</li>
+      <li>✔️ Hiểu cách hiển thị hình ảnh và văn bản để thể hiện trạng thái, cảm xúc của mô hình.</li>
+      <li>✔️ Nắm được cách kết hợp khối di chuyển với khối hiển thị.</li>
+      <li>✔️ Hiểu vai trò của điều kiện đơn giản trong việc điều khiển hành vi của robot.</li>
+    </ul>
+  </div>
+
+  <!-- KỸ NĂNG -->
+  <input type="radio" id="acc-tab-2" name="accordion">
+  <label for="acc-tab-2" class="accordion-label">
+    <h2>🛠️ Kỹ năng</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Lắp ráp mô hình “Chú hải cẩu tìm đường về nhà”.</li>
+      <li>✔️ Lập trình robot di chuyển theo từng chặng đường.</li>
+      <li>✔️ Sử dụng khối hiển thị để thể hiện cảm xúc hoặc trạng thái trong quá trình di chuyển.</li>
+      <li>✔️ Kết hợp khối di chuyển, hiển thị và điều kiện để tạo hành trình hoàn chỉnh.</li>
+      <li>✔️ Trình diễn mô hình và giải thích cách hoạt động.</li>
+    </ul>
+  </div>
+
+  <!-- TƯ DUY -->
+  <input type="radio" id="acc-tab-3" name="accordion">
+  <label for="acc-tab-3" class="accordion-label">
+    <h2>💡 Tư duy</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Phát triển tư duy lập trình theo trình tự nhiều bước.</li>
+      <li>✔️ Tư duy kết hợp hành vi và cảm xúc trong mô hình robot.</li>
+      <li>✔️ Rèn khả năng phân tích, kiểm tra lỗi và cải tiến chương trình.</li>
+    </ul>
+  </div>
+
+  <!-- THÁI ĐỘ -->
+  <input type="radio" id="acc-tab-4" name="accordion">
+  <label for="acc-tab-4" class="accordion-label">
+    <h2>❤️ Thái độ</h2>
+  </label>
+  <div class="accordion-content">
+    <ul>
+      <li>✔️ Hứng thú khi tạo ra mô hình robot có câu chuyện và cảm xúc.</li>
+      <li>✔️ Chủ động thử nghiệm và điều chỉnh chương trình.</li>
+      <li>✔️ Hợp tác tích cực trong nhóm khi lắp ráp và lập trình.</li>
+      <li>✔️ Tự tin trình bày ý tưởng và nhận phản hồi để cải tiến mô hình.</li>
+    </ul>
+  </div>
+</div>
+
+
+                            </section>
+                            <section id="b" class="row">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-top: 20px;">Giới
+                                    thiệu nội dung bài học
+                                </h1>
+                                <ul class="custom-timeline__list">
+                                    <li class="custom-timeline__item" style="--accent-color:#41516C">
+                                        <div class="custom-timeline__date">Giới thiệu mô hình</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#FBCA3E">
+                                        <div class="custom-timeline__date">Chuẩn bị vật liệu</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#E24A68">
+                                        <div class="custom-timeline__date">Xây dựng mô hình</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#1B5F8C">
+                                        <div class="custom-timeline__date">Bài học: Khối chữ - Movement Blocks</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#4CADAD">
+                                        <div class="custom-timeline__date">Hoạt động thử thách</div>
+                                    </li>
+                                    <li class="custom-timeline__item" style="--accent-color:#868bfc">
+                                        <div class="custom-timeline__date">Tổng kết bài học</div>
+                                    </li>
+
+                                </ul>
+                            </section>
+                            <section id="c" class="accordion-wrapper text-dark">
+                                <h1 class="custom-timeline__heading" style="text-align: center; padding-bottom: 20px;">
+                                    Giới thiệu mô hình
+                                </h1>
+                                <img src="../../../REC/Buổi 12/hải cẩu.gif" alt="" style="display: block; margin: 0 auto">
+                                <hr>
+                            <div id="viewerWrap" class="viewer-wrap">
+
+  <model-viewer
+    id="robotViewer"
+    src="../../../REC/Buổi 12/hải cẩu.glb"
+    camera-controls
+    auto-rotate
+    class="viewer-model">
+  </model-viewer>
+
+  <button id="btnEnter" class="btn btn-enter">⛶ Toàn màn hình</button>
+  <button id="btnExit" class="btn btn-exit">⤫ Thoát</button>
+
+</div>
+<script>
+  const wrap = document.getElementById("viewerWrap");
+  const btnEnter = document.getElementById("btnEnter");
+  const btnExit = document.getElementById("btnExit");
+
+  btnEnter.onclick = () => wrap.requestFullscreen();
+  btnExit.onclick = () => document.exitFullscreen();
+
+  document.addEventListener("fullscreenchange", () => {
+    const isFull = document.fullscreenElement === wrap;
+    btnEnter.style.display = isFull ? "none" : "block";
+    btnExit.style.display  = isFull ? "block" : "none";
+  });
+</script>
+
+
+                                <hr>
+                                <video style="display: block; margin: 0 auto; width: 50%;" controls
+                                    src="../../../REC/Buổi 12/video.mp4">
+
+                                </video>
+
+
+                            </section>
+
+                            <section id="e">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Lắp ráp mô hình
+                                </h1>
+                                <div class="container" style="padding-bottom: 20px;">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <iframe id="pdfFrame" title="Chú chó Kiki"
+                                                src="../../../REC/Buổi 12/hải cẩu.pdf" style="width:100%; height: 80vh">
+                                                <!-- <a href="../../../REB/Buổi 1/chú chó kiki.pdf">Download the PDF</a> -->
+                                            </iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="f">
+                                <h1 class="custom-timeline__heading"
+                                    style="text-align: center; padding-bottom: 20px; padding-top: 20px;">Display Blocks -
+                                    Khối chữ
+                                </h1>
+                                <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+                                    <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
+                                    <label for="tab1">Display Blocks</label>
+
+                                   
+
+                                    <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                    <label for="tab3">Control Blocks (Bổ sung)</label>
+
+                                    <input type="radio" name="pcss3t" id="tab4" class="tab-content-4">
+                                    <label for="tab4">Hoạt động 1</label>
+
+                                    <ul>
+                                        <li class="tab-content tab-content-first typography">
+                                            <h2>🧑‍💻 Ghi trên màn hình trong số giây nhất định</h2>
+                                            <div class=" instruction-block">
+                                                <div class="instruction-content">
+                                                    <hr>
+                                                    <img style=" margin: 12px auto; max-width: 500px; width: 100%; height: auto;"
+                                                        src="../../../REC/Buổi 12/displaywritefortime_vi-vn.svg" alt=""
+                                                        class="instruction-example" width="50%">
+                                                    <p style="color: #000;" class="example-note">Khối này hiển thị một chuỗi văn bản trong Cửa sổ hiển thị và sẽ tạm dừng ngăn xếp lập trình trong số giây được chỉ định.
+                                                        
+                                                   
+                                                    </p>
+                                               
+                                                </div>
+                                            </div>
+
+                                            <h2>🧑‍💻 Ghi trên màn hình</h2>
+                                            <div class=" instruction-block">
+                                                <div class="instruction-content">
+                                                    <hr>
+                                                    <img style=" margin: 12px auto; max-width: 400px; width: 50%; height: auto;"
+                                                        src="../../../REC/Buổi 12/displaywrite_vi-vn.svg"
+                                                        alt="" class="instruction-example">
+                                                    <p style="color: #000;" class="example-note">Khối này hiển thị một chuỗi văn bản trên Cửa sổ hiển thị.                                                
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <h2>🧑‍💻 Thiết lập hình ảnh hiển thị trong số giây nhất định</h2>
+                                            <div class=" instruction-block">
+                                                <div class="instruction-content">
+                                                    <hr>
+                                                    <img style=" margin: 12px auto;  width: 100%; height: auto;"
+                                                        src="../../../REC/Buổi 12/displaysetimagefortime_vi-vn.svg" alt=""
+                                                        class="instruction-example">
+                                                    <p style="color: #000;" class="example-note">Khối này hiển thị hình ảnh trên Cửa sổ hiển thị và sẽ tạm dừng ngăn xếp chương trình trong số giây được chỉ định.
+                                                    </p>
+                                                    
+                                                </div>
+
+                                            </div>
+
+                                            <h2>🧑‍💻 Thiết lập hình ảnh hiển thị</h2>
+                                            <div class=" instruction-block">
+                                                <div class="instruction-content">
+                                                    <hr>
+                                                    <img style=" margin: 12px auto; max-width: 400px; width: 100%; height: auto;"
+                                                        src="../../../REC/Buổi 12/displaysetimage_vi-vn.svg" alt=""
+                                                        class="instruction-example">
+                                                    <p style="color: #000;" class="example-note">Khối này hiển thị hình ảnh trên Cửa sổ hiển thị.
+                                                    </p>
+                                                   
+
+                                                </div>
+                                            </div>
+
+                                            <h2>🧑‍💻 Hình ảnh tiếp theo</h2>
+                                            <div class=" instruction-block">
+                                                <div class="instruction-content">
+                                                    <hr>
+                                                    <img style=" margin: 12px auto; max-width: 350px; width: 100%; height: auto;"
+                                                        src="../../../REC/Buổi 12/displaynext_vi-vn.svg" alt=""
+                                                        class="instruction-example">
+                                                    <p style="color: #000;" class="example-note">Khối này hiển thị hình ảnh tiếp theo trong dự án.
+                                                    </p>
+                                                  
+                                                       
+                                                </div>
+                                            </div>
+
+
+
+                            
+
+                         <h2>🧑‍💻 Hiển thị ở chế độ toàn màn hình/cửa sổ hiển thị</h2>
+                                            <div class=" instruction-block">
+                                                <div class="instruction-content">
+                                                    <hr>
+                                                    <img style=" margin: 12px auto; max-width: 400px; width: 100%; height: auto;"
+                                                        src="../../../REC/Buổi 12/displaysetmonitorfullscreen_vi-vn.svg" alt=""
+                                                        class="instruction-example">
+                                                    <p style="color: #000;" class="example-note">Khối này thể hiện nội dung ở chế độ toàn màn hình hoặc trên cửa sổ nổi.
+                                                  
+                                                  
+                                                </div>
+                                            </div>
+
+                                            <h2>🧑‍💻 Ẩn nội dung hiển thị</h2>
+                                            <div class=" instruction-block">
+                                                <div class="instruction-content">
+                                                    <hr>
+                                                    <img style=" margin: 12px auto; max-width: 400px; width: 100%; height: auto;"
+                                                        src="../../../REC/Buổi 12/displayhide_vi-vn.svg" alt=""
+                                                        class="instruction-example">
+                                                    <p style="color: #000;" class="example-note">Khối này ẩn Cửa sổ hiển thị.
+                                                    </p>
+                                                  
+                                                    
+                                                </div>
+                                            </div>
+
+                                          
+                                           
+
+                        </li>
+
+                        
+                        <li class="tab-content tab-content-3 typography">
+                            <h2>🧑‍💻 Chờ trong một khoảng thời gian</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto; max-width: 300px; width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 2/gecko_block_help_control_wait_vertical_en.svg" alt=""
+                                        class="instruction-example">
+                                    <p style="color: #000;" class="example-note">Khối lệnh này tạm dừng đoạn mã lập
+                                        trình trong một số giây xác định — hỗ trợ cả số nguyên và số thập phân.</p>
+                                </div>
+                            </div>
+
+                            <h2>🧑‍💻 Vòng lặp lặp lại</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto; max-width: 300px; width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 2/gecko_block_help_control_repeat_vertical_en.svg" alt=""
+                                        class="instruction-example">
+                                    <p style="color: #000;" class="example-note">Tất cả các khối lệnh được đặt bên trong
+                                        khối này sẽ được lặp lại một số lần xác định trước khi chương trình tiếp tục
+                                        chạy các lệnh phía sau.</p>
+                                </div>
+                            </div>
+
+                            <h2>🧑‍💻 Vòng lặp vô hạn</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto; max-width: 300px; width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 2/gecko_block_help_control_forever_vertical_en.svg"
+                                        alt="" class="instruction-example">
+                                    <p style="color: #000;" class="example-note">Tất cả các khối lệnh được đặt bên trong
+                                        khối này sẽ lặp lại mãi mãi.
+
+                                        Cách duy nhất để dừng vòng lặp là ngắt chương trình bằng cách nhấn nút Stop hoặc
+                                        sử dụng khối Stop All.</p>
+                                </div>
+                            </div>
+
+                            <h2>🧑‍💻 Nếu… thì…</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto; max-width: 300px; width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 2/gecko_block_help_control_if_en.svg" alt=""
+                                        class="instruction-example">
+                                    <p style="color: #000;" class="example-note">Khối lệnh này kiểm tra xem điều kiện
+                                        logic (boolean) được chỉ định có đúng hay không.
+                                    <ul>
+                                        <li>Nếu điều kiện đúng, tất cả các khối lệnh bên trong sẽ được thực hiện.</li>
+                                        <li>Nếu điều kiện sai, các khối lệnh sẽ bị bỏ qua.</li>
+                                    </ul>
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <h2>🧑‍💻 Nếu… thì… ngược lại…</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto; max-width: 300px; width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 2/gecko_block_help_control_if_else_en.svg" alt=""
+                                        class="instruction-example">
+                                    <p style="color: #000;" class="example-note">Khối lệnh này kiểm tra xem điều kiện
+                                        logic được chỉ định có đúng hay không.
+                                    <ul>
+                                        <li>Nếu điều kiện đúng, các khối lệnh trong vùng thứ nhất sẽ được thực hiện và
+                                            chương trình tiếp tục.</li>
+                                        <li>Nếu điều kiện sai, các khối lệnh trong vùng thứ hai sẽ được thực hiện.</li>
+                                    </ul>
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <h2>🧑‍💻 Chờ cho đến khi…</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto; max-width: 300px; width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 2/gecko_block_help_control_wait_until_en.svg" alt=""
+                                        class="instruction-example">
+                                    <p style="color: #000;" class="example-note">Khối lệnh này tạm dừng đoạn mã lập
+                                        trình cho đến khi điều kiện logic được chỉ định trở thành đúng.
+
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <h2>🧑‍💻 Lặp cho đến khi…</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto; max-width: 300px; width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 2/gecko_block_help_control_repeat_until_en.svg" alt=""
+                                        class="instruction-example">
+                                    <p style="color: #000;" class="example-note">Tất cả các khối lệnh bên trong khối này
+                                        sẽ lặp lại cho đến khi điều kiện logic được chỉ định là đúng.
+
+                                        Khi điều kiện trở thành đúng, các khối lệnh phía bên dưới sẽ được thực hiện.
+
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <h2>🧑‍💻 Dừng các đoạn mã khác</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto; max-width: 300px; width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 2/gecko_block_help_flippercontrol_stopotherstacks_en.svg"
+                                        alt="" class="instruction-example">
+                                    <p style="color: #000;" class="example-note">Khối lệnh này dừng tất cả các đoạn mã
+                                        lập trình khác, ngoại trừ ngăn xếp hiện tại.
+
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <h2>🧑‍💻 Dừng (Stop)</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto; max-width: 300px; width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 2/gecko_block_help_flippercontrol_stop_en.svg" alt=""
+                                        class="instruction-example">
+                                    <p style="color: #000;" class="example-note">Khối lệnh này dùng để:
+                                    <ul>
+                                        <li>Dừng tất cả các ngăn xếp lập trình đang chạy</li>
+                                        <li>Chỉ dừng ngăn xếp hiện tại</li>
+                                        <li>Hoặc thoát khỏi chương trình</li>
+                                    </ul>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="tab-content tab-content-4 typography">
+                            <h2>🧑‍💻 Hoạt động 1</h2>
+                            <div class=" instruction-block">
+                                <div class="instruction-content">
+                                    <hr>
+                                    <img style=" margin: 12px auto;  width: 100%; height: auto;"
+                                        src="../../../REC/Buổi 12/HĐ1.png" alt="" class="instruction-example">
+                                  
+                                </div>
+                            </div>
+
+                        </li>
+
+                     
+
+                
+                        </ul>
+                    </div>
+
+                    </section>
+
+
+                    <section id="h">
+                        <h1 class="custom-timeline__heading"
+                            style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+                            Tổng kết buổi học
+                        </h1>
+                        <div class="quiz-container">
+                            <div class="question" id="question">Loading question...</div>
+                            <div class="options" id="options"></div>
+                            <div class="feedback" id="feedback"></div>
+                            <div class="progress-bar">
+                                <div class="progress" id="progress-bar"></div>
+                            </div>
+                            <div class="score" id="score">Score: 0 / 5</div>
+                            <div class="controls">
+                                <button class="control-button" id="prev-btn" disabled>Về trước</button>
+                                <button class="control-button" id="next-btn" disabled>Tiếp theo</button>
+                            </div>
+                        </div>
+
+                        <script>
+                            // Questions Array
+                            const questions = [
+  {
+    type: "true/false",
+    question: "Khối Ghi trên màn hình trong số giây nhất định sẽ hiển thị văn bản và tạm dừng ngăn xếp lập trình trong thời gian được chỉ định.",
+    answer: "Đúng",
+    insight: "Khối này vừa hiển thị nội dung vừa làm chương trình chờ trong số giây đã đặt."
+  },
+  {
+    type: "multiple",
+    question: "Khối nào hiển thị văn bản và không tự động tạm dừng chương trình?",
+    options: [
+      "Ghi trên màn hình trong số giây nhất định",
+      "Ghi trên màn hình",
+      "Thiết lập hình ảnh hiển thị trong số giây nhất định",
+      "Ẩn nội dung hiển thị"
+    ],
+    answer: "Ghi trên màn hình",
+    insight: "Khối Ghi trên màn hình chỉ hiển thị văn bản mà không làm chương trình tạm dừng."
+  },
+  {
+    type: "true/false",
+    question: "Khối Ghi trên màn hình có thể hiển thị chuỗi văn bản trong Cửa sổ hiển thị.",
+    answer: "Đúng",
+    insight: "Khối này dùng để hiển thị thông tin dạng chữ cho người dùng."
+  },
+  {
+    type: "multiple",
+    question: "Khối nào hiển thị hình ảnh và sẽ tạm dừng chương trình trong số giây được chỉ định?",
+    options: [
+      "Thiết lập hình ảnh hiển thị",
+      "Hình ảnh tiếp theo",
+      "Thiết lập hình ảnh hiển thị trong số giây nhất định",
+      "Ẩn nội dung hiển thị"
+    ],
+    answer: "Thiết lập hình ảnh hiển thị trong số giây nhất định",
+    insight: "Khối này vừa hiển thị hình ảnh vừa tạm dừng ngăn xếp chương trình."
+  },
+  {
+    type: "true/false",
+    question: "Khối Thiết lập hình ảnh hiển thị sẽ tự động chuyển sang hình ảnh khác sau một khoảng thời gian.",
+    answer: "Sai",
+    insight: "Khối này chỉ hiển thị một hình ảnh và không tự động chuyển đổi."
+  },
+  {
+    type: "multiple",
+    question: "Khối nào dùng để hiển thị hình ảnh tiếp theo trong dự án?",
+    options: [
+      "Thiết lập hình ảnh hiển thị",
+      "Hình ảnh tiếp theo",
+      "Ẩn nội dung hiển thị",
+      "Ghi trên màn hình"
+    ],
+    answer: "Hình ảnh tiếp theo",
+    insight: "Khối này chuyển sang hình ảnh kế tiếp đã được thêm trong dự án."
+  },
+  {
+    type: "true/false",
+    question: "Khối Hình ảnh tiếp theo chỉ hoạt động khi dự án có nhiều hơn một hình ảnh.",
+    answer: "Đúng",
+    insight: "Nếu chỉ có một hình ảnh thì không có hình tiếp theo để hiển thị."
+  },
+  {
+    type: "multiple",
+    question: "Khối nào dùng để chuyển chế độ hiển thị sang toàn màn hình hoặc cửa sổ nổi?",
+    options: [
+      "Ẩn nội dung hiển thị",
+      "Ghi trên màn hình",
+      "Hiển thị ở chế độ toàn màn hình/cửa sổ hiển thị",
+      "Thiết lập hình ảnh hiển thị"
+    ],
+    answer: "Hiển thị ở chế độ toàn màn hình/cửa sổ hiển thị",
+    insight: "Khối này thay đổi cách hiển thị nội dung trên màn hình."
+  },
+  {
+    type: "true/false",
+    question: "Khối Hiển thị ở chế độ toàn màn hình/cửa sổ hiển thị có thể dùng để chuyển đổi qua lại giữa hai chế độ hiển thị.",
+    answer: "Đúng",
+    insight: "Người dùng có thể linh hoạt chọn chế độ hiển thị phù hợp."
+  },
+  {
+    type: "multiple",
+    question: "Khối nào dùng để ẩn hoàn toàn Cửa sổ hiển thị?",
+    options: [
+      "Ghi trên màn hình",
+      "Hình ảnh tiếp theo",
+      "Ẩn nội dung hiển thị",
+      "Thiết lập hình ảnh hiển thị"
+    ],
+    answer: "Ẩn nội dung hiển thị",
+    insight: "Khối này làm Cửa sổ hiển thị biến mất khỏi màn hình."
+  },
+  {
+    type: "true/false",
+    question: "Khối Ẩn nội dung hiển thị sẽ xóa dữ liệu của hình ảnh và văn bản đã hiển thị trước đó.",
+    answer: "Sai",
+    insight: "Khối này chỉ ẩn cửa sổ hiển thị, không xóa dữ liệu nội dung."
+  }
+];
+
+                            let currentIndex = 0;
+                            let score = 0;
+                            const totalQuestions = questions.length;
+
+                            // Track whether each question has been answered
+                            const answeredQuestions = new Array(totalQuestions).fill(false);
+
+                            const questionContainer = document.getElementById("question");
+                            const optionsContainer = document.getElementById("options");
+                            const feedbackContainer = document.getElementById("feedback");
+                            const scoreContainer = document.getElementById("score");
+                            const prevBtn = document.getElementById("prev-btn");
+                            const nextBtn = document.getElementById("next-btn");
+                            const progressBar = document.getElementById("progress-bar");
+
+                            // Load a question
+                            function loadQuestion(index) {
+                                // Clear previous content
+                                optionsContainer.innerHTML = "";
+                                feedbackContainer.textContent = "";
+
+                                const currentQuestion = questions[index];
+                                questionContainer.textContent = `${index + 1}. ${currentQuestion.question}`;
+
+                                // Update navigation buttons
+                                prevBtn.disabled = index === 0;
+                                nextBtn.disabled = !answeredQuestions[index]; // Disable Next until user answers
+
+                                // Display options
+                                if (currentQuestion.type === "multiple") {
+                                    currentQuestion.options.forEach((option) => {
+                                        const button = document.createElement("button");
+                                        button.textContent = option;
+                                        button.classList.add("option-button");
+                                        button.disabled = answeredQuestions[index]; // Disable if already answered
+                                        button.addEventListener("click", () =>
+                                            handleAnswer(
+                                                option,
+                                                currentQuestion.answer,
+                                                currentQuestion.insight,
+                                                button
+                                            )
+                                        );
+                                        optionsContainer.appendChild(button);
+                                    });
+                                } else {
+                                    ["Đúng", "Sai"].forEach((option) => {
+                                        const button = document.createElement("button");
+                                        button.textContent = option;
+                                        button.classList.add("option-button");
+                                        button.disabled = answeredQuestions[index]; // Disable if already answered
+                                        button.addEventListener("click", () =>
+                                            handleAnswer(
+                                                option,
+                                                currentQuestion.answer,
+                                                currentQuestion.insight,
+                                                button
+                                            )
+                                        );
+                                        optionsContainer.appendChild(button);
+                                    });
+                                }
+
+                                // Update progress
+                                updateProgress();
+
+                                // Show feedback if already answered
+                                if (answeredQuestions[index]) {
+                                    feedbackContainer.textContent = `Bạn đã sẵn sàng trả lời các câu hỏi chưa.`;
+                                    feedbackContainer.style.color = "gray";
+                                }
+                            }
+
+                            // Handle answers
+                            function handleAnswer(selected, correct, insight, button) {
+                                const buttons = optionsContainer.querySelectorAll("button");
+                                buttons.forEach((btn) => (btn.disabled = true)); // Disable all options
+
+                                if (!answeredQuestions[currentIndex]) {
+                                    // Update score if this is the first attempt at this question
+                                    if (selected === correct) {
+                                        score++;
+                                        feedbackContainer.textContent = `Đúng rồi! ${insight}`;
+                                        feedbackContainer.style.color = "green";
+                                        button.style.backgroundColor = "#28a745"; // Green for correct
+                                    } else {
+                                        feedbackContainer.textContent = `Sai rồi! Đáp án câu hỏi này là: "${correct}". ${insight}`;
+                                        feedbackContainer.style.color = "red";
+                                        button.style.backgroundColor = "#dc3545"; // Red for incorrect
+                                    }
+                                    answeredQuestions[currentIndex] = true; // Mark this question as answered
+                                }
+
+                                nextBtn.disabled = false; // Enable Next button
+                                updateScore();
+                            }
+
+                            // Update progress bar
+                            function updateProgress() {
+                                const progress = ((currentIndex + 1) / totalQuestions) * 100;
+                                progressBar.style.width = `${progress}%`;
+                            }
+
+                            // Update score display
+                            function updateScore() {
+                                scoreContainer.textContent = `Score: ${score} / ${totalQuestions}`;
+                            }
+
+                            // Navigation buttons
+                            prevBtn.addEventListener("click", () => {
+                                if (currentIndex > 0) {
+                                    currentIndex--;
+                                    loadQuestion(currentIndex);
+                                }
+                            });
+
+                            nextBtn.addEventListener("click", () => {
+                                if (currentIndex < totalQuestions - 1) {
+                                    currentIndex++;
+                                    loadQuestion(currentIndex);
+                                } else {
+                                    questionContainer.textContent = "Hoàn thành câu hỏi";
+                                    optionsContainer.innerHTML = "";
+                                    feedbackContainer.textContent = `Tổng số điển là: ${score} / ${totalQuestions}`;
+                                    nextBtn.disabled = true;
+                                }
+                            });
+
+                            // Initialize quiz
+                            loadQuestion(currentIndex);
+
+                        </script>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Banner End ***** -->
+
+
+
+        <script>
+            const wrapper = document.querySelector(".wrapper");
+            let sections = wrapper.querySelectorAll(".main > section");
+
+            (function initSections() {
+                const side = wrapper.querySelector(".side > .stick-container");
+
+                // 👉 Gán tên tùy theo từng mục
+                const labels = ["Mục tiêu", "Giới thiệu", "Mô hình", "Xây dựng", "Bài học", "Tổng kết"];
+
+                sections.forEach((section, index) => {
+                    let link = document.createElement("a");
+                    let label = document.createElement("span");
+
+                    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                    link.style.background = randomColor;
+
+                    // KHÔNG dùng href nữa để tránh thay đổi hash
+                    link.href = "javascript:void(0)";
+                    link.classList.add("section_clone");
+
+                    label.textContent = labels[index] || `Mục ${index + 1}`;
+                    label.style.fontSize = "1rem";
+                    label.style.fontWeight = "600";
+
+                    link.appendChild(label);
+                    side.appendChild(link);
+
+                    // 👉 Cuộn mượt đến mục khi click
+                    link.addEventListener("click", (e) => {
+                        e.preventDefault(); // Ngăn mặc định
+                        section.scrollIntoView({ behavior: "smooth" });
+                        addInView([index]); // Cập nhật trạng thái mục đang hiển thị
+                    });
+                });
+
+
+                addInView([0]);
+            })();
+
+            function addInView(arr) {
+                let index = arr[0];
+                let aspectRatio = arr[1];
+                const side_sections = document.querySelectorAll(".section_clone");
+                side_sections.forEach((side_section) => {
+                    side_section.classList.remove("inView");
+                });
+                side_sections[index].classList.add("inView");
+
+                //console.log(side_sections[index]);
+            }
+
+            function checkForViewport() {
+                let result = 0;
+                let aspectRatio;
+                sections.forEach((section, index) => {
+                    section.style.background = "";
+
+                    let section_bound = section.getBoundingClientRect();
+                    let section_boundMid = section_bound.bottom / 2;
+                    aspectRatio = parseFloat(
+                        (section_bound.width / section_bound.height).toFixed(2)
+                    );
+                    console.log(aspectRatio);
+                    if (
+                        section_bound.top <= window.innerHeight / 2 &&
+                        section_bound.bottom > window.innerHeight / 2
+                    ) {
+                        result = index;
+                    }
+                });
+                let result_arr = [result, aspectRatio];
+                return result_arr;
+            }
+
+            window.addEventListener("scroll", (event) => {
+                addInView(checkForViewport());
+            });
+
+        </script>
+
+
+    </div>
+
+
+    <!-- ***** Gaming Library End ***** -->
+    </div>
+
+    </div>
+    </div>
+
+
+    <button class="btn btn-sm btn-success rounded-circle position-fixed bottom-0 end-0 translate-middle d-none"
+        onclick="scrollToTop()" id="back-to-up">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+        window.onscroll = () => {
+            toggleTopButton();
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleTopButton() {
+            if (document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20) {
+                document.getElementById('back-to-up').classList.remove('d-none');
+            } else {
+                document.getElementById('back-to-up').classList.add('d-none');
+            }
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2025 <a href="#">CÔNG TY TNHH DOANH NGHIỆP XÃ HỘI THẾ HỆ SỐ</a>. All rights reserved.
+
+                        <br>Design By Huỳnh Ngọc Thái
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper (nếu dùng Bootstrap 4) -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS (v4 hoặc v5 tùy bạn dùng bản nào) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="../../../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../../../js/isotope.min.js"></script>
+    <script src="../../../js/owl-carousel.js"></script>
+    <script src="../../../js/tabs.js"></script>
+    <script src="../../../js/popup.js"></script>
+    <script src="../../../js/custom.js"></script>
+
+
+</body>
+
+</html>
